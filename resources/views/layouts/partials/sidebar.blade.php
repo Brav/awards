@@ -24,7 +24,7 @@ Sidebar -->
         <div class="content-side content-side-full">
             <ul class="nav-main">
                 <li class="nav-main-item">
-                    <a class="nav-main-link{{ request()->is('dashboard') ? ' active' : '' }}" href="{{ route('complaint-form.manage') }}">
+                    <a class="nav-main-link{{ request()->is('dashboard') ? ' active' : '' }}">
                         <i class="nav-main-link-icon fa fa-location-arrow"></i>
                         <span class="nav-main-link-name">Dashboard</span>
                     </a>

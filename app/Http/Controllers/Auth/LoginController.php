@@ -38,7 +38,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
 
-        $this->redirectTo = route('complaint-form.manage');
+        $this->redirectTo = route('home');
     }
 
      /**
