@@ -14,6 +14,8 @@ $(".select2").select2({
     placeholder: "Select an option",
 });
 
+
+
 $(document).on("click", "a[role=smallModal]", function (event) {
     event.preventDefault();
     let href = $(this).attr("data-attr");
@@ -53,6 +55,13 @@ $(document).on("click", "a[role=bigModal]", function (event) {
         },
         complete: function () {
             $("#loader").hide();
+
+            if ($('.select2').length)
+            {
+                $('.select2').select2({
+                    placeholder: "Select an option",
+                });
+            }
         },
         error: function (jqXHR, testStatus, error) {
             alert("Page " + href + " cannot open. Error:" + error);
@@ -91,9 +100,9 @@ $(document).on("submit", "#formAjax", function (event) {
 
                 $(`#${table}`).find(`#item-${id}`).replaceWith(result);
 
-                if(table === 'complaint-category')
+                if (table === "nomination-categories")
                 {
-                    $(`.complaint-type-category-${id}`).text(
+                    $(`.nomination-category-${id}`).text(
                         $(`#${table}`).find(`#item-${id}`).find(".title").text()
                     );
                 }
@@ -228,6 +237,10 @@ $("body").on("click", ".file-delete", function (e) {
             $(`#${$this.data("id")}`).remove();
         },
     });
+});
+
+$(document).ajaxComplete(function () {
+   console.log(123);
 });
 
 /**

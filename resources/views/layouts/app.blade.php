@@ -37,19 +37,10 @@
 
         <!-- Scripts -->
         <script>window.Laravel = {!! json_encode(['csrfToken' => csrf_token(),]) !!};</script>
-
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-G98990XJNN"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'G-G98990XJNN');
-        </script>
         <script>
             var csrfToken = document.head.querySelector('meta[name="csrf-token"]');
         </script>
+
     </head>
     <body>
         <!-- Page Container -->
@@ -125,5 +116,6 @@
         <!-- Laravel Scaffolding JS -->
 
         @yield('js_after')
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     </body>
 </html>

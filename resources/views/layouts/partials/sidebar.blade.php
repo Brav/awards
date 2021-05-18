@@ -77,6 +77,25 @@ Sidebar -->
                             <span class="nav-main-link-name">Import Users</span>
                         </a>
                     </li>
+
+                    <li class="nav-main-heading">Nomination Categories</li>
+
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{ route('nominations.index') }}">
+                            <i class="nav-main-link-icon fa fa-folder-open"></i>
+                            <span class="nav-main-link-name">Manage Nomination Categories</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-main-heading">Departments</li>
+
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{ route('departments.index') }}">
+                            <i class="nav-main-link-icon fa fa-folder-open"></i>
+                            <span class="nav-main-link-name">Manage Departments</span>
+                        </a>
+                    </li>
+
                 @endif
 
                 @endauth

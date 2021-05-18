@@ -1,13 +1,16 @@
 <?php
 
-use App\Http\Controllers\AutomatedResponseController;
+use App\Http\Controllers\AwardController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ClinicController;
+use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserImportController;
 use App\Http\Controllers\FilesController;
+use App\Http\Controllers\NominationCategoryController;
+use App\Http\Controllers\NominationController;
 use Illuminate\Support\Facades\Auth;
 
 require __DIR__.'/auth.php';
@@ -59,4 +62,69 @@ Route::prefix('files')->middleware(['auth'])->group(function () {
 
     Route::delete('delete/{id}', [FilesController::class, 'delete'])->name('file.delete');
 
+});
+
+Route::prefix('nominations')->middleware(['auth', 'admin'])->group(function () {
+
+    Route::get('', [NominationController::class, 'index'])->name('nominations.index');
+    Route::get('create', [NominationController::class, 'create'])->name('nominations.create');
+    Route::get('delete/{nomination}', [NominationController::class, 'delete'])->name('nominations.delete');
+    Route::get('edit/{nomination}', [NominationController::class, 'edit'])->name('nominations.edit');
+    Route::post('store', [NominationController::class, 'store'])->name('nominations.store');
+    Route::put('update/{nomination}', [NominationController::class, 'update'])->name('nominations.update');
+    Route::delete('destroy/{nomination}', [NominationController::class, 'destroy'])->name('nominations.destroy');
+});
+
+Route::prefix('nominations-category')->middleware(['auth', 'admin'])->group(function () {
+
+    Route::get('', [NominationCategoryController::class, 'index'])
+        ->name('nominations-category.index');
+    Route::get('create', [NominationCategoryController::class, 'create'])
+        ->name('nominations-category.create');
+    Route::get('delete/{nominationCategory}', [NominationCategoryController::class, 'delete'])
+        ->name('nominations-category.delete');
+    Route::get('edit/{nominationCategory}', [NominationCategoryController::class, 'edit'])
+        ->name('nominations-category.edit');
+    Route::post('store', [NominationCategoryController::class, 'store'])
+        ->name('nominations-category.store');
+    Route::put('update/{nominationCategory}', [NominationCategoryController::class, 'update'])
+        ->name('nominations-category.update');
+    Route::delete('destroy/{nominationCategory}', [NominationCategoryController::class, 'destroy'])
+        ->name('nominations-category.destroy');
+});
+
+Route::prefix('awards')->middleware(['auth', 'admin'])->group(function () {
+
+    Route::get('', [AwardController::class, 'index'])
+        ->name('awards.index');
+    Route::get('create', [AwardController::class, 'create'])
+        ->name('awards.create');
+    Route::get('delete/{award}', [AwardController::class, 'delete'])
+        ->name('awards.delete');
+    Route::get('edit/{award}', [AwardController::class, 'edit'])
+        ->name('awards.edit');
+    Route::post('store', [AwardController::class, 'store'])
+        ->name('awards.store');
+    Route::put('update/{award}', [AwardController::class, 'update'])
+        ->name('awards.update');
+    Route::delete('destroy/{award}', [AwardController::class, 'destroy'])
+        ->name('awards.destroy');
+});
+
+Route::prefix('departments')->middleware(['auth', 'admin'])->group(function () {
+
+    Route::get('', [DepartmentController::class, 'index'])
+        ->name('departments.index');
+    Route::get('create', [DepartmentController::class, 'create'])
+        ->name('departments.create');
+    Route::get('delete/{department}', [DepartmentController::class, 'delete'])
+        ->name('departments.delete');
+    Route::get('edit/{department}', [DepartmentController::class, 'edit'])
+        ->name('departments.edit');
+    Route::post('store', [DepartmentController::class, 'store'])
+        ->name('departments.store');
+    Route::put('update/{department}', [DepartmentController::class, 'update'])
+        ->name('departments.update');
+    Route::delete('destroy/{department}', [DepartmentController::class, 'destroy'])
+        ->name('departments.destroy');
 });
