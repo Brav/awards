@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Award;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,7 +15,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $today = date('Y-m-d');
+        $awards = Award::where('always_visible', '=', true)
+            ->orWhereRaw('(starting_at <= ? AND ending_at >= ?)', [$today, $today])
+            ->orderBy('order')
+            ->get();
+
+        return view('home', [
+            'awards' => $awards,
+        ]);
     }
 
     /**

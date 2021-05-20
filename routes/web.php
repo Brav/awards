@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AwardController;
+use App\Http\Controllers\AwardNominationController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ClinicController;
@@ -127,4 +128,25 @@ Route::prefix('departments')->middleware(['auth', 'admin'])->group(function () {
         ->name('departments.update');
     Route::delete('destroy/{department}', [DepartmentController::class, 'destroy'])
         ->name('departments.destroy');
+});
+
+Route::prefix('award-nominations')->middleware(['auth', 'admin'])->group(function () {
+
+    Route::get('', [AwardNominationController::class, 'index'])
+        ->name('award-nominations.index');
+    Route::get('delete/{awardNomination}', [AwardNominationController::class, 'delete'])
+        ->name('award-nominations.delete');
+    Route::get('edit/{awardNomination}', [AwardNominationController::class, 'edit'])
+        ->name('award-nominations.edit');
+    Route::post('store', [AwardNominationController::class, 'store'])
+        ->name('award-nominations.store');
+    Route::put('update/{awardNomination}', [AwardNominationController::class, 'update'])
+        ->name('award-nominations.update');
+    Route::delete('destroy/{awardNomination}', [AwardNominationController::class, 'destroy'])
+        ->name('award-nominations.destroy');
+});
+
+Route::prefix('nominate')->group(function () {
+    Route::get('{award}', [AwardNominationController::class, 'create'])
+        ->name('award-nominations.create');
 });

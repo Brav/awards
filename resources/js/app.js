@@ -3,6 +3,7 @@ require("select2");
 require('./clinic');
 require('./complaint-form');
 require('./paginate');
+require('./award');
 
 $.ajaxSetup({
     headers: {

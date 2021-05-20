@@ -39,6 +39,38 @@ class ClinicManagers extends Model
     ];
 
     /**
+     * Managers relation map
+     *
+     * @var array
+     */
+    static $managersRelationMap = [
+        'lead_vet'                 => 'leadVet',
+        'practice_manager'         => 'practiseManager',
+        'veterinary_manager'       => 'vetManager',
+        'gm_veterinary_operations' => 'gmVeterinaryOperation',
+        'general_manager'          => 'generalManager',
+        'regional_manager'         => 'regionalManager',
+        'gm_vet_services'          => 'gmVetsServices',
+        'other'                    => 'other',
+    ];
+
+    /**
+     * Manager Label
+     *
+     * @var string[]
+     */
+    static $managersLabel = [
+        'lead_vet'                 => 'Lead Vet',
+        'practice_manager'         => 'Practise Manager',
+        'veterinary_manager'       => 'Veterinary Manager',
+        'gm_veterinary_operations' => 'GM Veterinary Operation',
+        'general_manager'          => 'General Manager',
+        'regional_manager'         => 'Regional Manager',
+        'gm_vet_services'          => 'GM Vets Services',
+        'other'                    => 'Other',
+    ];
+
+    /**
      *
      * @param \App\Models\Clinic $clinic
      * @param  \App\Http\Requests\ClinicCreateRequest  $request

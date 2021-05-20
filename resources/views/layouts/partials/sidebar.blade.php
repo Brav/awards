@@ -37,6 +37,29 @@ Sidebar -->
                 @if (auth()->user()->admin)
                     <li class="nav-main-heading">Admin Options</li>
 
+                    <li class="nav-main-heading">Awards</li>
+
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{ route('awards.index') }}">
+                            <i class="nav-main-link-icon fa fa-folder-open"></i>
+                            <span class="nav-main-link-name">Manage Awards</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{ route('awards.create') }}">
+                            <i class="nav-main-link-icon fa fa-folder-open"></i>
+                            <span class="nav-main-link-name">Create Award</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-main-item">
+                        <a class="nav-main-link" href="{{ route('award-nominations.index') }}">
+                            <i class="nav-main-link-icon fa fa-folder-open"></i>
+                            <span class="nav-main-link-name">Award Nominations</span>
+                        </a>
+                    </li>
+
                     <li class="nav-main-heading">Users</li>
 
                     <li class="nav-main-item">

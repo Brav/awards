@@ -48,40 +48,22 @@
             <main id="main-container">
                 <!-- Page Content -->
                 <div class="row no-gutters justify-content-center bg-body-dark">
-                    <div class="hero-static col-sm-12 col-md-10 col-xl-8 d-flex align-items-center p-2 px-sm-0">
-                        <!-- Sign In Block -->
-                        <div class="block block-rounded block-transparent block-fx-pop w-100 mb-0 overflow-hidden bg-image" style="background-image: url({{ asset('media/images/main-cover.jpg') }});">
-                            <div class="row no-gutters">
-                                <div class="col-md-6 order-md-1 bg-white">
-                                    <div class="block-content block-content-full px-lg-5 py-md-5 py-lg-6">
-
-                                        <!-- Header -->
-                                        <div class="mb-3 d-block text-center">
-                                            @include('layouts.partials.logo')
-                                        </div>
-                                        <!-- END Header -->
-
-                                        @yield('content')
-                                    </div>
+                    <div class="hero-static col-sm-12 col-md-10 col-xl-8 align-items-center p-2 px-sm-0 bg-body-white">
+                        <div class="card-body">
+                            @if (session('status'))
+                                <div class="alert alert-{{ session('status.type') }}" role="alert">
+                                    {{ session('status.message') }}
                                 </div>
-                                <div class="col-md-6 order-md-0 bg-primary-dark-op d-flex align-items-center">
-                                    <div class="block-content block-content-full px-lg-5 py-md-5 py-lg-6">
-                                        <div class="media">
-                                           <!--  <a class="img-link mr-3" href="javascript:void(0)">
-                                                <img class="img-avatar img-avatar-thumb" src="{{ asset('media/avatars/avatar16.jpg') }}" alt="">
-                                            </a> -->
-                                            <div class="media-body">
-                                                <p class="text-white font-w600 mb-1">
-                                                    Please use the form to lodge any formal complaints. If the complaint is of an urgent nature please flag you have submitted this to your regional manager
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endif
                         </div>
-                        <!-- END Sign In Block -->
+                        <div class="col-md-12">
+                            <!-- Home Page start -->
+                            <h1>AWARDS NOMINATION</h1>
+                            <h4>Submit a nomination below by clicking in the award you wish to nominate for </h4>
+                        </div>
+                        @yield('content')
                     </div>
+
                 </div>
                 <!-- END Page Content -->
             </main>
