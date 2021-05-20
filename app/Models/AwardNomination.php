@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class AwardNomination extends Model
 {
@@ -67,7 +69,7 @@ class AwardNomination extends Model
             $format['options'][]['nomination'] = $nominations[1];
         }
 
-        $format['options'] = \json_encode($format['options']);
+        $format['options'] = $format['options'];
 
         if(isset($data['fields']))
         {
@@ -77,8 +79,38 @@ class AwardNomination extends Model
             }
         }
 
-        $format['fields'] = \json_encode($format['fields']);
+        $format['fields'] = $format['fields'];
 
         return $format;
+    }
+
+    /**
+     * Get the award that owns the AwardNomination
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function award(): BelongsTo
+    {
+        return $this->belongsTo(Award::class);
+    }
+
+    /**
+     * Get the clinic associated with the AwardNomination
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function clinic(): BelongsTo
+    {
+        return $this->belongsTo(Clinic::class);
+    }
+
+    /**
+     * Get the department associated with the AwardNomination
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function department(): BelongsTo
+    {
+        return $this->belongsTo(Department::class);
     }
 }

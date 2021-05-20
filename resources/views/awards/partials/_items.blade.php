@@ -7,8 +7,15 @@
         <th class="text-capitalize">{{ $item['options']['office_type'] }}</th>
         <th class="small">{!! $item->nominations !!}</th>
         <th>{{ $item->order }}</th>
+        <th>{{ $item->submittedNominations->count() }}</th>
 
         <th>
+
+            <a id="check_nomination"
+            class="btn btn-primary"
+            href="{{ route('award-nominations.index', $item->id) }}"
+            role="button">Check Nomination</a>
+
             <a href="{{ route('awards.edit', $item->id) }}"
                 class="btn btn-primary btn-sm active"
                 role="button" aria-pressed="true">Edit</a>
@@ -19,7 +26,7 @@
                 data-target="#smallModal"
                 data-attr="{{ route('awards.delete', $item->id) }}" title="Delete Award">
                     <i class="fa fa-trash-o fa-lg"></i> Delete
-                </a>
+            </a>
         </th>
     </tr>
 @endforeach

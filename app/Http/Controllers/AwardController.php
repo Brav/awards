@@ -19,12 +19,25 @@ class AwardController extends Controller
      */
     public function index()
     {
-        $items = Award::orderBy('order', 'ASC')->paginate(20);
+        $items = Award::with(['submittedNominations'])->orderBy('order', 'ASC')->paginate(20);
 
-        return view('awards/index', [
-            'items'   => $items,
-            'periods' => Award::$periods,
-        ]);
+        if(!request()->ajax())
+            return view('awards/index', [
+                'items'   => $items,
+                'periods' => Award::$periods,
+            ]);
+
+        return [
+            'html' => view('awards/partials/_items', [
+                'items' => $items,
+            ])->render(),
+            'pagination' => view('pagination', [
+                'paginator' => $items,
+                'layout'    => 'vendor.pagination.bootstrap-4',
+                'role'      => 'awards',
+                'container' => 'awards-container',
+            ])->render()
+        ];
     }
 
     /**

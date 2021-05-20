@@ -132,7 +132,7 @@ Route::prefix('departments')->middleware(['auth', 'admin'])->group(function () {
 
 Route::prefix('award-nominations')->middleware(['auth', 'admin'])->group(function () {
 
-    Route::get('', [AwardNominationController::class, 'index'])
+    Route::get('{award?}', [AwardNominationController::class, 'index'])
         ->name('award-nominations.index');
     Route::get('delete/{awardNomination}', [AwardNominationController::class, 'delete'])
         ->name('award-nominations.delete');

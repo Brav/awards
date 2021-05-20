@@ -16,11 +16,36 @@ class AwardNominationController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param string|null $awardID
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Award $award = null)
     {
-        //
+        $items = null;
+
+        if($award)
+        {
+            $items =
+            AwardNomination::with([
+                'clinic',
+                'clinic.managers' => function($query) use ($award)
+                {
+                    return
+                        $query->whereIn('manager_type_id', $award['options']['clinic_managers_shown']);
+                },
+                'clinic.managers.user',
+                'department'])
+            ->where('award_id', '=', (int) $award->id)->paginate(20);
+        }
+
+        return view('award-nominations/index', [
+            'items'               => $items,
+            'award'               => $award,
+            'managers'            => $award['options']['clinic_managers_shown'] ?? [],
+            'managersRelationMap' => ClinicManagers::$managersRelationMap,
+            'managerTypes'        => ClinicManagers::$managerTypes,
+            'managersLabel'       => ClinicManagers::$managersLabel,
+        ]);
     }
 
     /**

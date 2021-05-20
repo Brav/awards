@@ -2,13 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Award extends Model
 {
-
     use SoftDeletes;
 
     /**
@@ -152,5 +151,15 @@ class Award extends Model
 
 
         return $text;
+    }
+
+    /**
+     * Get all of the submittedNominations for the Award
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function submittedNominations(): HasMany
+    {
+        return $this->hasMany(AwardNomination::class);
     }
 }

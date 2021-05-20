@@ -24,6 +24,7 @@
                                 <th class="small">Office Type</th>
                                 <th class="small">Nomination Options</th>
                                 <th class="small">Order</th>
+                                <th class="small">Number of Nominations</th>
                                 <th class="small">Actions</th>
                             </tr>
                         </thead>
