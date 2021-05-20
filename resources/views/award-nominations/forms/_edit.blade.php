@@ -1,5 +1,6 @@
-<form action="{{ route('award-nominations.store') }}" method="POST">
+<form action="{{ route('award-nominations.update', $item->id) }}" method="POST">
     @csrf
+    @method('PUT')
     <h1>{{ $award->name }}</h1>
 
     <input type="hidden" name="award_id" value="{{ $award->id}}">
@@ -9,7 +10,8 @@
         <div class="col">
             <div class="form-group">
                 <label for="member_logged">Team member logging the nomination:</label>
-                <input type="text" class="form-control" name=member_logged id="member_logged" value="{{ old('member_logged') }}">
+                <input type="text" class="form-control" name=member_logged id="member_logged"
+                value="{{ old('member_logged', $item->member_logged) }}">
 
                 @error('member_logged')
                     <div class="alert alert-danger">{{ $message }}</div>

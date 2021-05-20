@@ -110,7 +110,43 @@ class AwardNominationController extends Controller
      */
     public function edit(AwardNomination $awardNomination)
     {
-        //
+        $award = Award::findOrFail($awardNomination->id);
+
+        $awardOffice = $award['options']['office_type'];
+
+        if($awardOffice === 'clinic')
+        {
+            $offices = Clinic::with([
+                'managers' => function($query) use ($award)
+                {
+                    return
+                        $query->whereIn('manager_type_id', $award['options']['clinic_managers_shown']);
+                },
+                'managers.user'])
+                ->orderBy('name', 'asc')
+                ->get();
+        }
+        else
+        {
+            $offices = Department::with(['manager'])->orderBy('name')->get();
+        }
+
+        $nominationCategories = NominationCategory::with(['nominations'])
+            ->find($award['options']['nominations']['categories']);
+
+        return view('form', [
+            'item'                 => $awardNomination,
+            'task'                 => 'edit',
+            'view'                 => 'award-nominations',
+            'award'                => $award,
+            'offices'              => $offices,
+            'awardOffice'          => $awardOffice,
+            'managers'             => $award['options']['clinic_managers_shown'] ?? [],
+            'managersRelationMap'  => ClinicManagers::$managersRelationMap,
+            'managerTypes'         => ClinicManagers::$managerTypes,
+            'managersLabel'        => ClinicManagers::$managersLabel,
+            'nominationCategories' => $nominationCategories,
+        ]);
     }
 
     /**

@@ -1,4 +1,3 @@
-@dump($errors)
 <form
     action="{{ route('awards.store') }}"
     method="POST">
@@ -24,6 +23,7 @@
               <input type="number" name="order"
               id="order" class="form-control"
               min=1
+              value="{{ old('order') }}"
               placeholder="Order on home screen" >
 
                 @error('order')
@@ -82,7 +82,14 @@
 
         <div class="col">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="true" id="always_visible" name="always_visible">
+                <input class="form-check-input"
+                    type="checkbox"
+                    value="true"
+                    id="always_visible"
+                    name="always_visible"
+                    @if (old('always_visible'))
+                        checked
+                    @endif>
                 <label class="form-check-label" for="always_visible">Always Visible</label>
 
                 @error('always_visible')
@@ -117,7 +124,9 @@
          <div class="col">
             <div class="form-group">
                 <label for="description">Award Description</label>
-                <textarea class="form-control" name="description" id="description"></textarea>
+                <textarea class="form-control" name="description" id="description">{{
+                    old('description')
+                }}</textarea>
 
                 @error('description')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -153,7 +162,9 @@
               <label for="number_of_nomination_to_select">Minimum number of nomination to select</label>
               <input type="number" name="number_of_nomination_to_select" id="number_of_nomination_to_select" class="form-control" value={{ old('number_of_nomination_to_select', 1) }}
               min=1
-              readonly>
+              @if (old('number_of_nomination_to_select') == 1)
+                  readonly
+              @endif>
               <small id="helpId" class="text-muted">Minimum number of nomination categories user needs to select</small>
 
                 @error('number_of_nomination_to_select')
@@ -233,7 +244,29 @@
         >Add Text Field</button>
 
         <div id="fields" class=col-md-12>
-
+            @if (old('additional_field'))
+                @php
+                    $i = 1;
+                @endphp
+                @foreach (old('additional_field') as $field)
+                    <div class="col additional_field"
+                        id="field-{{ $i }}">
+                        <div class="form-group">
+                            <label for="additional_field_{{ $i }}">Addition Field Name</label>
+                            <input type="text" name="additional_field[]"
+                            id="additional_field_{{ $i }}"
+                            class="form-control"
+                            value="{{ $field }}"
+                            >
+                        </div>
+                        <i class="fas fa-trash fa-sm remove_field"
+                        data-field="field-{{ $i }}">Remove</i>
+                    </div>
+                    @php
+                        $i++
+                    @endphp
+                @endforeach
+            @endif
         </div>
     </div>
 

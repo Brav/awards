@@ -104,8 +104,8 @@ class Award extends Model
             }
         }
 
-        $data['options'] = \json_encode($data['options']);
-        $data['fields']  = \json_encode($data['fields'] ?? []);
+        $data['options'] = $data['options'];
+        $data['fields']  = $data['fields'] ?? [];
 
         unset(
             $data['_token'],

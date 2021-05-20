@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AwardCreateRequest;
+use App\Http\Requests\AwardUpdateRequest;
 use App\Models\Award;
 use App\Models\ClinicManagers;
 use App\Models\Nomination;
@@ -54,9 +55,9 @@ class AwardController extends Controller
 
         $data = $model->formatData($request->all());
 
-        $result = $model->insert($data);
+        $result = $model->create($data);
 
-        return redirect()->route('clinics.index')->with([
+        return redirect()->route('awards.index')->with([
             'status' => [
                 'message' => $result ? 'Award Created' : 'Something went wrong!',
                 'type'    => $result ? 'success' : 'error',
@@ -83,19 +84,36 @@ class AwardController extends Controller
      */
     public function edit(Award $award)
     {
-        //
+        return view('form', [
+            'award'          => $award,
+            'task'           => 'edit',
+            'view'           => 'awards',
+            'clinicManagers' => ClinicManagers::$managerTypes,
+            'nominations'    => NominationCategory::orderBy('name')->get(),
+            'periods'        => Award::$periods,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\AwardCreateRequest  $request
      * @param  \App\Models\Award  $award
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Award $award)
+    public function update(AwardUpdateRequest $request, Award $award)
     {
-        //
+
+        $data = $award->formatData($request->all());
+
+        $result = $award->update($data);
+
+        return redirect()->route('awards.index')->with([
+            'status' => [
+                'message' => $result ? 'Award Updated' : 'Something went wrong!',
+                'type'    => $result ? 'success' : 'error',
+            ],
+        ]);
     }
 
     /**
