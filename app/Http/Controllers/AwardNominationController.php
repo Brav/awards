@@ -25,26 +25,42 @@ class AwardNominationController extends Controller
 
         if($award)
         {
+            if ($award->options['office_type'] === 'clinic')
+            {
+                $with = [
+                    'clinic',
+                    'clinic.managers' => function($query) use ($award)
+                    {
+                        return
+                            $query->whereIn('manager_type_id', $award['options']['clinic_managers_shown']);
+                    },
+                    'clinic.managers.user',];
+            }
+            else
+            {
+                $with = [
+                    'department',
+                    'department.manager',];
+            }
+
             $items =
-            AwardNomination::with([
-                'clinic',
-                'clinic.managers' => function($query) use ($award)
-                {
-                    return
-                        $query->whereIn('manager_type_id', $award['options']['clinic_managers_shown']);
-                },
-                'clinic.managers.user',
-                'department'])
-            ->where('award_id', '=', (int) $award->id)->paginate(20);
+                AwardNomination::with($with)
+                ->where('award_id', '=', (int) $award->id)->paginate(20);
+
+            $nominationCategories = NominationCategory::with(['nominations'])
+                ->find($award['options']['nominations']['categories']);
         }
+
+
 
         return view('award-nominations/index', [
             'items'               => $items,
             'award'               => $award,
-            'managers'            => $award['options']['clinic_managers_shown'] ?? [],
-            'managersRelationMap' => ClinicManagers::$managersRelationMap,
-            'managerTypes'        => ClinicManagers::$managerTypes,
-            'managersLabel'       => ClinicManagers::$managersLabel,
+            'managers'             => $award['options']['clinic_managers_shown'] ?? [],
+            'managersRelationMap'  => ClinicManagers::$managersRelationMap,
+            'managerTypes'         => ClinicManagers::$managerTypes,
+            'managersLabel'        => ClinicManagers::$managersLabel,
+            'nominationCategories' => $nominationCategories ?? [],
         ]);
     }
 

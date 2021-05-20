@@ -30,6 +30,12 @@
                                     @else
                                         <th class="small">Department Name</th>
                                     @endif
+
+                                    <th class="small">Name of Nominee</th>
+
+                                    @foreach ($nominationCategories as $category)
+                                        <th class="small">{{ $category->name }}</th>
+                                    @endforeach
                                 </tr>
                             </thead>
                             <tbody id=award-nominations-container>

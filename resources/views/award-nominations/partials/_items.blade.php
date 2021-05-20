@@ -18,8 +18,16 @@
                 </th>
             @endforeach
         @else
-            <th>{{ $item->department->name }}</th>
+            <th>{{ $item->department->manager->name }}</th>
         @endif
+
+        <th>{{ $item->nominee }}</th>
+
+        @foreach ($nominationCategories as $category)
+            @if ($category->id == $item->options['category'])
+                <th>Test</th>
+            @endif
+        @endforeach
 
         <th>
             <a href="{{ route('award-nominations.edit', $item->id) }}"

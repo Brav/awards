@@ -65,8 +65,10 @@ class AwardNomination extends Model
              */
             $nominations = \explode('|', $value);
 
-            $format['options'][]['category']   = $nominations[0];
-            $format['options'][]['nomination'] = $nominations[1];
+            $format['options'][] = [
+                'category'   => $nominations[0],
+                'nomination' => $nominations[1],
+            ];
         }
 
         $format['options'] = $format['options'];
