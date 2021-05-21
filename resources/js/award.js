@@ -61,6 +61,9 @@ $('body').on('click', '#add_field', function(e){
     `;
 
     $("#fields").append(template);
+    $("#number_of_fields").removeClass("d-none");
+
+    checkNumberOfAdditionalFields()
 
 })
 
@@ -69,6 +72,8 @@ $("body").on("click", ".remove_field", function(e){
     let field = $(this).data('field')
 
     $(`#${field}`).remove()
+
+    checkNumberOfAdditionalFields();
 });
 
 $("body").on("change", "#clinic_id", function () {
@@ -96,6 +101,25 @@ function setDepartmantManager()
 
     $('#department').val(department.find("option:selected").data('manager'));
 
+}
+
+function checkNumberOfAdditionalFields()
+{
+    let numberOfFields = $("#fields").find(".additional_field").length;
+
+    if (numberOfFields > 1)
+    {
+        $("#number_of_fields_to_fill").attr("readonly", false);
+    }
+    else
+    {
+         $("#number_of_fields_to_fill").attr("readonly", true);
+    }
+
+    if(!numberOfFields)
+    {
+        $("#number_of_fields").addClass("d-none");
+    }
 }
 
 

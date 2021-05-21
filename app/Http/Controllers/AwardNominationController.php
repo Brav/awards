@@ -47,11 +47,13 @@ class AwardNominationController extends Controller
                 AwardNomination::with($with)
                 ->where('award_id', '=', (int) $award->id)->paginate(20);
 
-            $nominationCategories = NominationCategory::with(['nominations'])
+            if(isset($award['options']['nominations']['categories']))
+            {
+                $nominationCategories = NominationCategory::with(['nominations'])
                 ->find($award['options']['nominations']['categories']);
+            }
+
         }
-
-
 
         return view('award-nominations/index', [
             'items'               => $items,
@@ -93,8 +95,11 @@ class AwardNominationController extends Controller
             $offices = Department::with(['manager'])->orderBy('name')->get();
         }
 
-        $nominationCategories = NominationCategory::with(['nominations'])
+        if(isset($award['options']['nominations']['categories']))
+        {
+            $nominationCategories = NominationCategory::with(['nominations'])
             ->find($award['options']['nominations']['categories']);
+        }
 
         return view('form', [
             'task'                 => 'create',
@@ -106,7 +111,7 @@ class AwardNominationController extends Controller
             'managersRelationMap'  => ClinicManagers::$managersRelationMap,
             'managerTypes'         => ClinicManagers::$managerTypes,
             'managersLabel'        => ClinicManagers::$managersLabel,
-            'nominationCategories' => $nominationCategories,
+            'nominationCategories' => $nominationCategories ?? [],
         ]);
     }
 

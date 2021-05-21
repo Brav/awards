@@ -42,11 +42,12 @@ class AwardCreateRequest extends FormRequest
             'clinic_managers_shown'   => ['required_if:office_type,clinic'],
             'clinic_managers_shown.*' => ['nullable', 'string',
                     Rule::in(\array_keys(ClinicManagers::$managerTypes))],
-            'nominations'                    => ['required', 'min:1'],
+            'nominations'                    => ['nullable',],
             'nominations.*'                  => ['required', 'numeric'],
             'number_of_nomination_to_select' => ['nullable', 'numeric', 'min:1'],
             'nomination_category_text'       => ['nullable', 'string', 'min:3'],
-            'additional_field.*'             => ['nullable', 'string']
+            'additional_field.*'             => ['nullable', 'string'],
+            'number_of_fields_to_fill.*'     => ['nullable', 'numeric']
 
         ];
     }

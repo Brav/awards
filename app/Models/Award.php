@@ -53,44 +53,53 @@ class Award extends Model
      */
     public function formatData(array $data) :array
     {
-        $data['options'] = [];
+        $format['options'] = [];
+        $format['fields']  = [];
+
+        $format['name']        = \trim(\filter_var($data['name'], FILTER_SANITIZE_STRING));
+        $format['description'] = \trim(\filter_var($data['description'], FILTER_SANITIZE_STRING));
+        $format['order']       = (int) $data['order'];
+        $format['period_type'] = (int) $data['period_type'];
 
         $startingAt = \DateTime::createFromFormat('d/m/Y', $data['starting_at']);
         $endingAt   = \DateTime::createFromFormat('d/m/Y', $data['ending_at']);
 
-        $data['starting_at'] = $startingAt->format('Y-m-d H:i:s');
-        $data['ending_at']   = $endingAt->format('Y-m-d H:i:s');
+        $format['starting_at'] = $startingAt->format('Y-m-d H:i:s');
+        $format['ending_at']   = $endingAt->format('Y-m-d H:i:s');
 
         if(isset($data['always_visible']) && $data['always_visible'] === 'true')
         {
-            $data['always_visible'] = true;
+            $format['always_visible'] = true;
         }
 
-        $data['options']['office_type'] = $data['office_type'];
+        $format['options']['office_type'] = $data['office_type'];
 
         if($data['office_type'] === 'clinic')
         {
-            $data['options']['clinic_managers_shown'] = $data['clinic_managers_shown'];
+            $format['options']['clinic_managers_shown'] = $data['clinic_managers_shown'];
         }
 
-        $data['options']['nominations']['categories'] = $data['nominations'];
-
-        $nominationsCount = count($data['nominations']);
-
-        $minimum = $data['number_of_nomination_to_select'];
-
-        if($nominationsCount === 1 || $nominationsCount < $data['number_of_nomination_to_select'])
+        if(isset($data['nominations']))
         {
-            $minimum = 1;
+            $format['options']['nominations']['categories'] = $data['nominations'];
+
+            $nominationsCount = count($data['nominations']);
+
+            $minimum = $data['number_of_nomination_to_select'];
+
+            if($nominationsCount === 1 || $nominationsCount < $data['number_of_nomination_to_select'])
+            {
+                $minimum = 1;
+            }
+
+            $nominationText = \trim(\filter_var($data['nomination_category_text'], FILTER_SANITIZE_STRING));
+
+            $nominationText = $data['nomination_category_text'] !== '' ?
+                $data['nomination_category_text'] : 'Reason for nomination';
+
+            $format['options']['nominations']['minimum'] = $minimum;
+            $format['options']['nominations']['text']    = $nominationText;
         }
-
-        $nominationText = \trim(\filter_var($data['nomination_category_text'], FILTER_SANITIZE_STRING));
-
-        $nominationText = $data['nomination_category_text'] !== '' ?
-            $data['nomination_category_text'] : 'Reason for nomination';
-
-        $data['options']['nominations']['minimum'] = $minimum;
-        $data['options']['nominations']['text']    = $nominationText;
 
         if(isset($data['additional_field']))
         {
@@ -98,25 +107,21 @@ class Award extends Model
             {
                 if($field !== '')
                 {
-                    $data['fields'][] = \filter_var($field, FILTER_SANITIZE_STRING);
+                    $format['fields'][] = \filter_var($field, FILTER_SANITIZE_STRING);
                 }
             }
+
+            $fieldsMinimum = $data['number_of_fields_to_fill'];
+
+            if($fieldsMinimum > count($data['additional_field']))
+            {
+                $fieldsMinimum = 1;
+            }
+
+            $format['options']['fields_minimum'] = 1;
         }
 
-        $data['options'] = $data['options'];
-        $data['fields']  = $data['fields'] ?? [];
-
-        unset(
-            $data['_token'],
-            $data['nominations'],
-            $data['office_type'],
-            $data['number_of_nomination_to_select'],
-            $data['nomination_category_text'],
-            $data['clinic_managers_shown'],
-            $data['additional_field'],
-        );
-
-        return $data;
+        return $format;
     }
 
     /**
@@ -127,6 +132,11 @@ class Award extends Model
     public function getNominationsAttribute() :string
     {
         $text = '';
+
+        if(!isset($this['options']['nominations']))
+        {
+            return "/";
+        }
 
         $nominations = $this['options']['nominations'];
 

@@ -244,6 +244,21 @@
         >Add Text Field</button>
 
         <div id="fields" class=col-md-12>
+            <div class="col d-none" id="number_of_fields">
+                <div class="form-group">
+                  <label for="">Minimum of fields to user need to fill</label>
+                  <input type="number"
+                    name="number_of_fields_to_fill"
+                    id="number_of_fields_to_fill"
+                    class="form-control"
+                    value="{{ old('number_of_fields_to_fill', 1) }}"
+                    min=1
+                    @if (!old('number_of_fields_to_fill') || old('number_of_fields_to_fill') == 1)
+                        readonly
+                    @endif
+                    >
+                </div>
+            </div>
             @if (old('additional_field'))
                 @php
                     $i = 1;

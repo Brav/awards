@@ -27,7 +27,7 @@ class AwardNominationCreateRequest extends FormRequest
      */
     public function rules()
     {
-        $minimum = (int) $request->post('_minimum');
+        $minimum = (int) request()->post('_minimum');
         return [
             'award_id'            => ['required',
                 Rule::in(Award::all()->pluck('id')->toArray())
