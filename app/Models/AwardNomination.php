@@ -58,30 +58,33 @@ class AwardNomination extends Model
         $format['clinic_id']     = isset($data['clinic_id']) ? (int) $data['clinic_id'] : null;
         $format['department_id'] = isset($data['department_id']) ? (int) $data['department_id'] : null;
 
-        foreach ($data['nominations'] as $value)
+        if(isset($data['nominations']))
         {
-            /**
-             * Nomination value is save as $nominationCategoryID|$nominatioID
-             */
-            $nominations = \explode('|', $value);
+            foreach ($data['nominations'] as $value)
+            {
+                /**
+                 * Nomination value is save as $nominationCategoryID|$nominatioID
+                 */
+                $nominations = \explode('|', $value);
 
-            $format['options'][] = [
-                'category'   => $nominations[0],
-                'nomination' => $nominations[1],
-            ];
+                $format['options'][] = [
+                    'category'   => $nominations[0],
+                    'nomination' => $nominations[1],
+                ];
+            }
         }
 
         $format['options'] = $format['options'];
 
         if(isset($data['fields']))
         {
-            foreach ($data['fields'] as $key => $value)
+            $fields = \array_filter($data['fields']);
+
+            foreach ($fields as $key => $value)
             {
                 $format['fields'][$key] =  \trim(\filter_var($value, FILTER_SANITIZE_STRING));
             }
         }
-
-        $format['fields'] = $format['fields'];
 
         return $format;
     }
