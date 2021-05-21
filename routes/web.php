@@ -144,6 +144,8 @@ Route::prefix('award-nominations')->middleware(['auth', 'admin'])->group(functio
         ->name('award-nominations.update');
     Route::delete('destroy/{awardNomination}', [AwardNominationController::class, 'destroy'])
         ->name('award-nominations.destroy');
+
+    Route::get('export/{award}',  [AwardNominationController::class, 'export'])->name('award-nominations.export');
 });
 
 Route::prefix('nominate')->group(function () {

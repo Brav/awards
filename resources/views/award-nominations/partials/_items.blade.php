@@ -33,18 +33,29 @@
             </th>
         @endforeach
 
-        <th>
-            <a href="{{ route('award-nominations.edit', $item->id) }}"
-                class="btn btn-primary btn-sm active"
-                role="button" aria-pressed="true">Edit</a>
+        @foreach ($award->fields as $field)
+            <th>
+                @if (isset($item->fields[str_replace(' ', '_', $field)]))
+                {{ $item->fields[str_replace(' ', '_', $field)] }}
+                @endif
+            </th>
+        @endforeach
 
-            <a data-toggle="modal"
-                class="btn btn-danger btn-sm"
-                role="smallModal"
-                data-target="#smallModal"
-                data-attr="{{ route('award-nominations.delete', $item->id) }}" title="Delete Nomination">
-                    <i class="fa fa-trash-o fa-lg"></i> Delete
-            </a>
-        </th>
+        @if ($actions)
+            <th>
+                <a href="{{ route('award-nominations.edit', $item->id) }}"
+                    class="btn btn-primary btn-sm active"
+                    role="button" aria-pressed="true">Edit</a>
+
+                <a data-toggle="modal"
+                    class="btn btn-danger btn-sm"
+                    role="smallModal"
+                    data-target="#smallModal"
+                    data-attr="{{ route('award-nominations.delete', $item->id) }}" title="Delete Nomination">
+                        <i class="fa fa-trash-o fa-lg"></i> Delete
+                </a>
+            </th>
+        @endif
+
     </tr>
 @endforeach

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\FormsExport;
 use App\Http\Requests\AwardNominationCreateRequest;
 use App\Models\Award;
 use App\Models\AwardNomination;
@@ -10,6 +11,7 @@ use App\Models\ClinicManagers;
 use App\Models\Department;
 use App\Models\NominationCategory;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AwardNominationController extends Controller
 {
@@ -56,8 +58,9 @@ class AwardNominationController extends Controller
         }
 
         return view('award-nominations/index', [
-            'items'               => $items,
-            'award'               => $award,
+            'items'                => $items,
+            'award'                => $award,
+            'actions'              => true,
             'managers'             => $award['options']['clinic_managers_shown'] ?? [],
             'managersRelationMap'  => ClinicManagers::$managersRelationMap,
             'managerTypes'         => ClinicManagers::$managerTypes,
@@ -216,5 +219,11 @@ class AwardNominationController extends Controller
     public function destroy(AwardNomination $awardNomination)
     {
         //
+    }
+
+    public function export(Award $award)
+    {
+        $fileName = \strtolower(\str_replace(' ', '_', $award->name));
+        return Excel::download(new FormsExport($award), $fileName . '.xlsx');
     }
 }
