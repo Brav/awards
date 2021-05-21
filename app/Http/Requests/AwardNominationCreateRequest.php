@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Models\Award;
 use App\Models\Clinic;
 use App\Models\Department;
+use App\Rules\AdditionalFields;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -27,7 +28,10 @@ class AwardNominationCreateRequest extends FormRequest
      */
     public function rules()
     {
-        $minimum = (int) request()->post('_minimum');
+        $minimum       = (int) request()->post('_minimum');
+
+        \array_filter(request()->post('fields'));
+
         return [
             'award_id'            => ['required',
                 Rule::in(Award::all()->pluck('id')->toArray())
@@ -41,10 +45,11 @@ class AwardNominationCreateRequest extends FormRequest
                 Rule::in(Department::all()->pluck('id')->toArray())
             ],
             'nominee'       => ['required', 'min:3', 'string'],
-            'nominations'   => ['required', 'min:' . $minimum],
+            'nominations'   => ['nullable', 'min:' . $minimum],
             'nominations.*' => ['string'],
-            'fields'        => ['nullable'],
-            'fields.*'      => ['string', 'min:3'],
+            // 'fields'        => ['nullable', 'between:' . $minimumFields . ',5', 'array'],
+            'fields'   => ['array', 'nullable', new AdditionalFields],
+            'fields.*' => ['nullable', 'string', 'min:3'],
         ];
     }
 
