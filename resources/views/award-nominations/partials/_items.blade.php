@@ -1,6 +1,8 @@
 @foreach ($items as $item)
     <tr id="item-{{ $item->id }}">
-        <th>{{ $item->id }}</th>
+        <th>{{ $item->created_at
+            ->timezone('Australia/Sydney')
+            ->format('d/m/Y g:i A') }}</th>
         <th>{{ $item->member_logged }}</th>
         <th>{{ $item->member_logged_email }}</th>
 
@@ -14,7 +16,7 @@
                 <th>
                     {{
                         $item->clinic->$attribute && !empty($item->clinic->$attribute) ?
-                        $item->clinic->$attribute->first()->user->name : '' }}
+                        $item->clinic->$attribute->first()->user->name : '/' }}
                 </th>
             @endforeach
         @else
@@ -24,9 +26,11 @@
         <th>{{ $item->nominee }}</th>
 
         @foreach ($nominationCategories as $category)
-            @if ($category->id == $item->options['category'])
-                <th>Test</th>
-            @endif
+            <th>
+                @if (in_array($category->id, array_column($item->options, 'category')))
+                    {{ $category->nomination($item->options) }}
+                @endif
+            </th>
         @endforeach
 
         <th>

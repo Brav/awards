@@ -28,4 +28,27 @@ class NominationCategory extends Model
     {
         return $this->hasMany(Nomination::class, 'nomination_category_id', 'id');
     }
+
+    /**
+     *
+     * @param array $options
+     * @return string
+     */
+    public function nomination(array $options) :string
+    {
+        $categoryKey  = array_search($this->id, array_column($options, 'category'));
+        $nominationID = $options[$categoryKey]['nomination'];
+
+        $nomination = $this->nominations->first(function($item) use ($nominationID)
+        {
+            return $item->id = $nominationID;
+        });
+
+        if($nomination->count())
+        {
+            return $nomination->name;
+        }
+
+        return '/';
+    }
 }

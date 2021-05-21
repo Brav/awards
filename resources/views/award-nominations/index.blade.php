@@ -18,7 +18,7 @@
                         <table class="table table-bordered table-striped table-vcenter" id=award-nominations>
                             <thead>
                                 <tr>
-                                    <th class="small">ID</th>
+                                    <th class="small">Date/time submitted</th>
                                     <th class="small">Team Member Logging the Nomination</th>
                                     <th class="small">Email contact of Team member logging the nomination</th>
 
@@ -36,6 +36,8 @@
                                     @foreach ($nominationCategories as $category)
                                         <th class="small">{{ $category->name }}</th>
                                     @endforeach
+
+                                    <th class="small">Actions</th>
                                 </tr>
                             </thead>
                             <tbody id=award-nominations-container>

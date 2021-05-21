@@ -3,6 +3,7 @@
     <h1>{{ $award->name }}</h1>
 
     <input type="hidden" name="award_id" value="{{ $award->id}}">
+    <input type="hidden" name="minimum" value="{{ $award->options['nominations']['minimum']}}">
 
     <div class="form-row align-items-center">
 
