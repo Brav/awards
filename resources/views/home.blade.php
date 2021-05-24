@@ -11,9 +11,12 @@
                     <a href="{{ route('award-nominations.create', $link) }}">{{ $award->name }}</a>
                 </li>
             @endforeach
-            <li>
-                <a href="{{ route('login') }}">View submitted entries</a>
-            </li>
+            @guest
+                <li>
+                    <a href="{{ route('login') }}">View submitted entries</a>
+                </li>
+            @endguest
+
         </ul>
     </div>
 @endsection
