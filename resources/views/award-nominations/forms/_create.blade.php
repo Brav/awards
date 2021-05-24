@@ -1,4 +1,3 @@
-@dump($errors)
 <form action="{{ route('award-nominations.store') }}" method="POST">
     @csrf
     <h1>{{ $award->name }}</h1>

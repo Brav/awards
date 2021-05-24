@@ -81,7 +81,11 @@ class AwardNominationController extends Controller
      */
     public function create(string $award)
     {
+        $today = date('Y-m-d');
+
         $award = Award::where('name', 'like', '%' . \str_replace('_', ' ', $award))
+            ->where('always_visible', '=', true)
+            ->orWhereRaw('(starting_at <= ? AND ending_at >= ?)', [$today, $today])
             ->firstOrFail();
 
         $awardOffice = $award['options']['office_type'];
