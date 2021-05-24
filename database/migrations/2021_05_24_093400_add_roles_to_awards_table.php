@@ -18,6 +18,11 @@ class AddRolesToAwardsTable extends Migration
                 ->nullable()
                 ->default(null)
                 ->after('period_type');
+
+            $table->json('roles_can_access_for_nomination')
+                ->nullable()
+                ->default(null)
+                ->after('roles');
         });
     }
 
@@ -30,6 +35,7 @@ class AddRolesToAwardsTable extends Migration
     {
         Schema::table('awards', function (Blueprint $table) {
             $table->dropColumn('roles');
+            $table->dropColumn('roles_can_access_for_nomination');
         });
     }
 }

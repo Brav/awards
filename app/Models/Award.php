@@ -26,6 +26,7 @@ class Award extends Model
         'options',
         'fields',
         'roles',
+        'roles_can_access_for_nomination',
     ];
 
     static $periods = [
@@ -124,6 +125,15 @@ class Award extends Model
         }
 
         $format['roles'] = array_filter( $data['roles'], 'is_numeric');
+
+        $format['roles_can_access_for_nomination'] = null;
+
+        if(isset($data['roles_can_access_for_nomination'])
+            && ! \in_array('all', $data['roles_can_access_for_nomination']))
+        {
+            $format['roles_can_access_for_nomination'] =
+            array_filter( $data['roles_can_access_for_nomination'], 'is_numeric');
+        }
 
         return $format;
     }

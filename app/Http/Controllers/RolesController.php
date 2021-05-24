@@ -63,6 +63,7 @@ class RolesController extends Controller
         $data = $request->all();
 
         $data['permissions'] = $request->read . $request->write . $request->delete;
+        $data['level']       = [1, 2, 3];
 
         Roles::create($data);
 
@@ -114,6 +115,8 @@ class RolesController extends Controller
         $data = $request->all();
 
         $data['permissions'] = $request->read . $request->write . $request->delete;
+
+        $data['level']       = [1, 2, 3];
 
         $roles->update($data);
 

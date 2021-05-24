@@ -10,7 +10,7 @@
         @enderror
     </div>
 
-    <div class="form-row align-items-center">
+    <div class="form-row align-items-center d-none">
         <div class="col">
              <div class="form-group">
                 <label for="level">Role Level  (will receive notifications from this levels)</label>

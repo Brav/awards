@@ -288,6 +288,35 @@
 
             </div>
         </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+              <label for="roles_can_access_for_nomination">User roles which can nominate this award</label>
+              <select
+                class="form-control form-control-sm select2"
+                name="roles_can_access_for_nomination[]"
+                id="roles_can_access_for_nomination" multiple>
+
+                <option value="all"
+                    @if (!$award->roles_can_access_for_nomination ||
+                        in_array('all',
+                            old('roles_can_access_for_nomination') ?? [])
+                    )
+                        selected
+                    @endif
+                    >All</option>
+                @foreach ($roles as $role)
+                    <option value="{{ $role->id }}"
+                        @if (in_array($role->id,
+                            old('roles_can_access_for_nomination', $award->roles_can_access_for_nomination) ?? []))
+                            selected
+                        @endif
+                        >{{ $role->name }}</option>
+                @endforeach
+              </select>
+
+            </div>
+        </div>
     </div>
 
     <button type="submit" class="btn btn-primary">Update</button>

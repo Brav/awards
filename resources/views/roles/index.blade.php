@@ -22,8 +22,6 @@
                             <tr>
                                 <th class="small">ID</th>
                                 <th class="small">Name</th>
-                                <th class="small">Level for notifications</th>
-                                <th class="small">Permissions</th>
                                 <th class="small">Actions</th>
                             </tr>
                         </thead>

@@ -288,13 +288,34 @@
     <div class="form-row align-items-center mb-3">
         <div class="col-md-4">
             <div class="form-group">
-              <label for="">User roles which can access the award for view/export</label>
+              <label for="roles">User roles which can access the award for view/export</label>
               <select class="form-control form-control-sm select2" name="roles[]"
                 id="roles" multiple>
 
                 @foreach ($roles as $role)
                     <option value="{{ $role->id }}"
                         @if (in_array($role->id, old('roles') ?? []))
+                            selected
+                        @endif
+                        >{{ $role->name }}</option>
+                @endforeach
+              </select>
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="form-group">
+              <label for="roles_can_access_for_nomination">User roles which can nominate this award</label>
+              <select
+                class="form-control form-control-sm select2"
+                name="roles_can_access_for_nomination[]"
+                id="roles_can_access_for_nomination" multiple>
+
+                <option value="all">All</option>
+                @foreach ($roles as $role)
+                    <option value="{{ $role->id }}"
+                        @if (in_array($role->id, old('roles_can_access_for_nomination') ?? []))
                             selected
                         @endif
                         >{{ $role->name }}</option>
