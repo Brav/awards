@@ -25,6 +25,7 @@ class Award extends Model
         'ending_at',
         'options',
         'fields',
+        'roles',
     ];
 
     static $periods = [
@@ -43,6 +44,7 @@ class Award extends Model
         'ending_at'   => 'datetime',
         'options'     => 'array',
         'fields'      => 'array',
+        'roles'       => 'array',
     ];
 
     /**
@@ -120,6 +122,8 @@ class Award extends Model
 
             $format['options']['fields_minimum'] = 1;
         }
+
+        $format['roles'] = array_filter( $data['roles'], 'is_numeric');
 
         return $format;
     }

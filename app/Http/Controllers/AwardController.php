@@ -8,6 +8,7 @@ use App\Models\Award;
 use App\Models\ClinicManagers;
 use App\Models\Nomination;
 use App\Models\NominationCategory;
+use App\Models\Roles;
 use Illuminate\Http\Request;
 
 class AwardController extends Controller
@@ -19,7 +20,12 @@ class AwardController extends Controller
      */
     public function index()
     {
-        $items = Award::with(['submittedNominations'])->orderBy('order', 'ASC')->paginate(20);
+        $items = Award::with(['submittedNominations'])
+            ->when(!auth()->user()->admin, function($query)
+            {
+                return $query->whereJsonContains('roles', auth()->user()->role_id);
+            })
+            ->orderBy('order', 'ASC')->paginate(20);
 
         if(!request()->ajax())
             return view('awards/index', [
@@ -53,6 +59,7 @@ class AwardController extends Controller
             'clinicManagers' => ClinicManagers::$managerTypes,
             'nominations'    => NominationCategory::orderBy('name')->get(),
             'periods'        => Award::$periods,
+            'roles'          => Roles::all(),
         ]);
     }
 
@@ -104,6 +111,7 @@ class AwardController extends Controller
             'clinicManagers' => ClinicManagers::$managerTypes,
             'nominations'    => NominationCategory::orderBy('name')->get(),
             'periods'        => Award::$periods,
+            'roles'          => Roles::all(),
         ]);
     }
 

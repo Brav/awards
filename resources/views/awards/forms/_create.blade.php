@@ -285,6 +285,26 @@
         </div>
     </div>
 
+    <div class="form-row align-items-center mb-3">
+        <div class="col-md-4">
+            <div class="form-group">
+              <label for="">User roles which can access the award for view/export</label>
+              <select class="form-control form-control-sm select2" name="roles[]"
+                id="roles" multiple>
+
+                @foreach ($roles as $role)
+                    <option value="{{ $role->id }}"
+                        @if (in_array($role->id, old('roles') ?? []))
+                            selected
+                        @endif
+                        >{{ $role->name }}</option>
+                @endforeach
+              </select>
+
+            </div>
+        </div>
+    </div>
+
     <button type="submit" class="btn btn-primary">Create</button>
 </form>
 
