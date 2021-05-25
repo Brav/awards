@@ -34,7 +34,9 @@ class AwardNominationController extends Controller
         }
 
         $awards = Award::whereJsonContains('roles_can_access_for_nomination', auth()->user()->role_id)
-        ->orWhereNull('roles_can_access_for_nomination')->orderBy('name')->get();
+            ->orWhereNull('roles_can_access_for_nomination')
+            ->withCount('submittedNominations')
+            ->orderBy('name')->get();
 
         if($award)
         {

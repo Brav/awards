@@ -24,7 +24,7 @@
                             @if ($award && $award->id == $category->id)
                                 selected
                             @endif
-                            value="{{ $category->id }}">{{ $category->name }}</option>
+                            value="{{ $category->id }}">{{ $category->name . '(' . $category->submitted_nominations_count . ')' }}</option>
                         @endforeach
                     </select>
                     </div>
