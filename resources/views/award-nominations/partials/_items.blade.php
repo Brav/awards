@@ -43,10 +43,6 @@
 
         @if ($actions)
             <th>
-                <a href="{{ route('award-nominations.edit', $item->id) }}"
-                    class="btn btn-primary btn-sm active"
-                    role="button" aria-pressed="true">Edit</a>
-
                 <a data-toggle="modal"
                     class="btn btn-danger btn-sm"
                     role="smallModal"

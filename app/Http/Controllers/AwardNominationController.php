@@ -85,7 +85,7 @@ class AwardNominationController extends Controller
         }
 
         return [
-            'html' => view('award-nominations/partials/_items', [
+            'html' => view('award-nominations/partials/_table', [
                 'items'                => $items,
                 'award'                => $award,
                 'actions'              => true,
@@ -248,7 +248,22 @@ class AwardNominationController extends Controller
      */
     public function update(Request $request, AwardNomination $awardNomination)
     {
-        //
+        abort(404);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param  \App\Models\AwardNomination  $award
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(AwardNomination $awardNomination)
+    {
+        return view('modals/partials/_delete', [
+            'id'        => $awardNomination->id,
+            'routeName' => route('award-nominations.destroy', $awardNomination->id),
+            'itemName'  => $awardNomination->name,
+        ]);
     }
 
     /**
@@ -259,7 +274,14 @@ class AwardNominationController extends Controller
      */
     public function destroy(AwardNomination $awardNomination)
     {
-        //
+        if($awardNomination->delete())
+            return response()->json([
+                'Deleted'
+            ], 200);
+
+        return response()->json([
+            'Something went wrong!'
+        ], 500);
     }
 
     public function export(Award $award)

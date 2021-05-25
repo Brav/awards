@@ -101,7 +101,7 @@ $('body').on('change', '#awardCategory', function (e) {
                 ? `#pagination-${data.id}`
                 : "#pagination";
 
-            $("#award-nominations-container").html(data.html);
+            $("#award-nominations-table").html(data.html);
             $(paginationID).html(data.pagination);
         },
         "json"

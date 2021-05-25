@@ -21,7 +21,9 @@
                         @foreach ($awards as $category)
                             <option
                             data-url={{ route('award-nominations.index', $category->id) }}
-
+                            @if ($award && $award->id == $category->id)
+                                selected
+                            @endif
                             value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
                     </select>

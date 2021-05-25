@@ -138,6 +138,21 @@ class AwardController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @param  \App\Models\Award  $award
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Award $award)
+    {
+        return view('modals/partials/_delete', [
+            'id'        => $award->id,
+            'routeName' => route('awards.destroy', $award->id),
+            'itemName'  => $award->name,
+        ]);
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\Award  $award
@@ -145,6 +160,13 @@ class AwardController extends Controller
      */
     public function destroy(Award $award)
     {
-        //
+        if($award->delete())
+            return response()->json([
+                'Deleted'
+            ], 200);
+
+        return response()->json([
+            'Something went wrong!'
+        ], 500);
     }
 }

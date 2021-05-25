@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<div class="table-responsive" id="award-nominations-table">
     <table class="table table-bordered table-striped table-vcenter" id=award-nominations>
         <thead>
             <tr>
