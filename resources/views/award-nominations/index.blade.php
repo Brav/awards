@@ -13,6 +13,21 @@
                     @endif
                 </div>
 
+                <div class="col-md-3">
+                    <div class="form-group">
+                    <label for="award_id">Select Award</label>
+                    <select class="form-control" name="award_id" id="awardCategory">
+                        <option value="select">Select Category</option>
+                        @foreach ($awards as $category)
+                            <option
+                            data-url={{ route('award-nominations.index', $category->id) }}
+
+                            value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                    </div>
+                </div>
+
                 @if ($items)
 
                     @include('award-nominations/partials/_table')

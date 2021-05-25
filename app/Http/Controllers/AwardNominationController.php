@@ -25,6 +25,17 @@ class AwardNominationController extends Controller
     {
         $items = null;
 
+        if(!auth()->user()->admin && $award)
+        {
+            if(! \in_array(auth()->user()->role_id, $award->roles))
+            {
+                abort(404);
+            }
+        }
+
+        $awards = Award::whereJsonContains('roles_can_access_for_nomination', auth()->user()->role_id)
+        ->orWhereNull('roles_can_access_for_nomination')->orderBy('name')->get();
+
         if($award)
         {
             if ($award->options['office_type'] === 'clinic')
@@ -48,14 +59,6 @@ class AwardNominationController extends Controller
             $items =
                 AwardNomination::with($with)
                 ->where('award_id', '=', (int) $award->id)
-                ->when(auth()->user(), function($query){
-                    return $query->whereIn('award_id', function($query){
-                        return $query->select('id')
-                            ->from('awards')
-                            ->whereJsonContains('roles_can_access_for_nomination', auth()->user()->role_id)
-                            ->orWhereNull('roles_can_access_for_nomination');
-                    });
-                })
                 ->paginate(20);
 
             if(isset($award['options']['nominations']['categories']))
@@ -66,16 +69,41 @@ class AwardNominationController extends Controller
 
         }
 
-        return view('award-nominations/index', [
-            'items'                => $items,
-            'award'                => $award,
-            'actions'              => true,
-            'managers'             => $award['options']['clinic_managers_shown'] ?? [],
-            'managersRelationMap'  => ClinicManagers::$managersRelationMap,
-            'managerTypes'         => ClinicManagers::$managerTypes,
-            'managersLabel'        => ClinicManagers::$managersLabel,
-            'nominationCategories' => $nominationCategories ?? [],
-        ]);
+        if (!request()->ajax())
+        {
+            return view('award-nominations/index', [
+                'items'                => $items,
+                'award'                => $award,
+                'actions'              => true,
+                'managers'             => $award['options']['clinic_managers_shown'] ?? [],
+                'managersRelationMap'  => ClinicManagers::$managersRelationMap,
+                'managerTypes'         => ClinicManagers::$managerTypes,
+                'managersLabel'        => ClinicManagers::$managersLabel,
+                'nominationCategories' => $nominationCategories ?? [],
+                'awards'               => $awards,
+            ]);
+        }
+
+        return [
+            'html' => view('award-nominations/partials/_items', [
+                'items'                => $items,
+                'award'                => $award,
+                'actions'              => true,
+                'managers'             => $award['options']['clinic_managers_shown'] ?? [],
+                'managersRelationMap'  => ClinicManagers::$managersRelationMap,
+                'managerTypes'         => ClinicManagers::$managerTypes,
+                'managersLabel'        => ClinicManagers::$managersLabel,
+                'nominationCategories' => $nominationCategories ?? [],
+                'awards'               => $awards,
+            ])->render(),
+            'pagination' => view('pagination', [
+                'paginator' => $items,
+                'layout'    => 'vendor.pagination.bootstrap-4',
+                'role'      => 'award-nominations',
+                'container' => 'award-nominations-container',
+            ])->render()
+        ];
+
     }
 
     /**

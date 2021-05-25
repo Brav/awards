@@ -84,6 +84,31 @@ $("body").on("change", "#department", function () {
     setDepartmantManager();
 });
 
+$('body').on('change', '#awardCategory', function (e) {
+
+    let $this = $(this)
+    let url = $this.find('option:selected').data('url')
+
+    if ($this.val() === 'select')
+    {
+        return;
+    }
+
+    $.get(url,
+        function (data, textStatus, jqXHR) {
+
+            let paginationID = data.id
+                ? `#pagination-${data.id}`
+                : "#pagination";
+
+            $("#award-nominations-container").html(data.html);
+            $(paginationID).html(data.pagination);
+        },
+        "json"
+    );
+
+});
+
 function setClinicManager() {
 
     let clinic = $("#clinic_id");
