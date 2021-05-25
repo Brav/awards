@@ -124,7 +124,11 @@ class Award extends Model
             $format['options']['fields_minimum'] = 1;
         }
 
-        $format['roles'] = array_filter( $data['roles'], 'is_numeric');
+        if(isset($data['roles']))
+        {
+            $format['roles'] = array_filter( $data['roles'], 'is_numeric');
+        }
+
 
         $format['roles_can_access_for_nomination'] = null;
 
