@@ -49,8 +49,12 @@ class AwardNominationController extends Controller
                 AwardNomination::with($with)
                 ->where('award_id', '=', (int) $award->id)
                 ->when(auth()->user(), function($query){
-                    return $query->whereJsonContains('roles_can_access_for_nomination', auth()->user()->role_id)
-                        ->orWhereNull('roles_can_access_for_nomination');
+                    return $query->whereIn('award_id', function($query){
+                        return $query->select('id')
+                            ->from('awards')
+                            ->whereJsonContains('roles_can_access_for_nomination', auth()->user()->role_id)
+                            ->orWhereNull('roles_can_access_for_nomination');
+                    });
                 })
                 ->paginate(20);
 
