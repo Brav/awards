@@ -7,7 +7,7 @@
         <th class="text-capitalize">{{ $item['options']['office_type'] }}</th>
         <th class="small">{!! $item->nominations !!}</th>
         <th>{{ $item->order }}</th>
-        <th>{{ $item->submittedNominations->count() }}</th>
+        <th>{{ $item->submitted_nominations_count }}</th>
 
         <th>
 
