@@ -30,7 +30,7 @@ class AwardNominationCreateRequest extends FormRequest
     {
         $minimum       = (int) request()->post('_minimum');
 
-        \array_filter(request()->post('fields'));
+        \array_filter(request()->post('fields') ?? []);
 
         return [
             'award_id'            => ['required',
