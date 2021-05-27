@@ -30,10 +30,13 @@
                     </div>
                 </div>
 
+                <div class="table-responsive" id="award-nominations-table">
+                    @if ($items)
+                        @include('award-nominations/partials/_table')
+                    @endif
+                </div>
+
                 @if ($items)
-
-                    @include('award-nominations/partials/_table')
-
                     <div id="pagination">
                         @include('pagination', [
                             'paginator' => $items,
