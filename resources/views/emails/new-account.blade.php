@@ -12,7 +12,7 @@
         We have created account for you. Your password is {{ $password }}
     </p>
     <p>
-        <a href="{{ route('login') }}">You can log here</a>
+        <a href="{{ route('login') }}">You can login here</a>
     </p>
 </body>
 </html>
