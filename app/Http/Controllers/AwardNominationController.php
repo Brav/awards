@@ -177,7 +177,8 @@ class AwardNominationController extends Controller
 
         return redirect()->route('home')->with([
             'status' => [
-                'message' => $result ? 'Thank you for submiting your nomination' : 'Something went wrong!',
+                'message' => $result ? view('award_nominations/_partials/_message_submitted')->render()
+                    : 'Something went wrong!',
                 'type'    => $result ? 'success' : 'error',
             ],
         ]);

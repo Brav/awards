@@ -138,8 +138,6 @@ Route::prefix('award-nominations')->middleware(['auth', 'admin'])->group(functio
         ->name('award-nominations.delete');
     Route::get('edit/{awardNomination}', [AwardNominationController::class, 'edit'])
         ->name('award-nominations.edit');
-    Route::post('store', [AwardNominationController::class, 'store'])
-        ->name('award-nominations.store');
     Route::put('update/{awardNomination}', [AwardNominationController::class, 'update'])
         ->name('award-nominations.update');
     Route::delete('destroy/{awardNomination}', [AwardNominationController::class, 'destroy'])
@@ -152,3 +150,6 @@ Route::prefix('nominate')->group(function () {
     Route::get('{award}', [AwardNominationController::class, 'create'])
         ->name('award-nominations.create');
 });
+
+Route::post('award-nominations/store', [AwardNominationController::class, 'store'])
+        ->name('award-nominations.store');
