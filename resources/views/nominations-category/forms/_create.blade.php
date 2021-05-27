@@ -4,7 +4,7 @@
     role="formAjax"
     id=formAjax>
     @csrf
-    <input type="hidden" name="table" id=table value="nominations-category">
+    <input type="hidden" name="table" id=table value="nomination-categories-table">
     <input type="hidden" name="action" id=action value="create">
 
     <div class="form-row align-items-center">

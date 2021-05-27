@@ -91,7 +91,9 @@ $(document).on("submit", "#formAjax", function (event) {
         // return the result
         success: function (result) {
 
-            if (action === 'create') {
+            if (action === 'create')
+            {
+                console.log(table);
                 $(`#${table}`).find("tbody").append(result);
             }
 
