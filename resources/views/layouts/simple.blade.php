@@ -52,7 +52,7 @@
                         <div class="card-body">
                             @if (session('status'))
                                 <div class="alert alert-{{ session('status.type') }}" role="alert">
-                                    {{ session('status.message') }}
+                                    {!! session('status.message') !!}
                                 </div>
                             @endif
                         </div>
