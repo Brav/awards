@@ -56,11 +56,6 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="col-md-12">
-                            <!-- Home Page start -->
-                            <h1>AWARDS NOMINATION</h1>
-                            <h4>Submit a nomination below by clicking in the award you wish to nominate for </h4>
-                        </div>
                         @yield('content')
                     </div>
 

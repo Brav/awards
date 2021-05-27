@@ -32,7 +32,7 @@ class AwardUpdateRequest extends FormRequest
             'name'        => ['required', 'min:3', 'string',
                 Rule::unique('awards')->ignore($this->award->id)
             ],
-            'order'       => ['required', 'numeric', 'min:1'],
+            'order'       => ['required', 'numeric', 'min:1', 'max:100'],
             'office_type' => ['required', Rule::in([
                     'department', 'clinic',
                 ])],

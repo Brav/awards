@@ -30,7 +30,7 @@ class AwardCreateRequest extends FormRequest
 
         return [
             'name'        => ['required', 'min:3', 'string', 'unique:App\Models\Award,name'],
-            'order'       => ['required', 'numeric', 'min:1'],
+            'order'       => ['required', 'numeric', 'min:1', 'max:100'],
             'office_type' => ['required', Rule::in([
                     'department', 'clinic',
                 ])],

@@ -19,6 +19,7 @@ require __DIR__.'/auth.php';
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/thanks', [App\Http\Controllers\HomeController::class, 'thanks'])->name('thanks');
 
 Route::prefix('user')->middleware(['auth'])->group(function () {
 
@@ -153,3 +154,5 @@ Route::prefix('nominate')->group(function () {
 
 Route::post('award-nominations/store', [AwardNominationController::class, 'store'])
         ->name('award-nominations.store');
+
+

@@ -1,3 +1,10 @@
+<div class="card-body">
+    @if (session('status'))
+        <div class="alert alert-{{ session('status.type') }}" role="alert">
+            {!! session('status.message') !!}
+        </div>
+    @endif
+</div>
 <form
     action="{{ route('awards.store') }}"
     method="POST">

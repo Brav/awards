@@ -41,11 +41,12 @@ class Award extends Model
      * @var array
      */
     protected $casts = [
-        'starting_at' => 'datetime',
-        'ending_at'   => 'datetime',
-        'options'     => 'array',
-        'fields'      => 'array',
-        'roles'       => 'array',
+        'starting_at'                     => 'datetime',
+        'ending_at'                       => 'datetime',
+        'options'                         => 'array',
+        'fields'                          => 'array',
+        'roles'                           => 'array',
+        'roles_can_access_for_nomination' => 'array',
     ];
 
     /**

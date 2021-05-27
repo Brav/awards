@@ -175,13 +175,18 @@ class AwardNominationController extends Controller
 
         $result = $model->create($data);
 
-        return redirect()->route('home')->with([
-            'status' => [
-                'message' => $result ? view('award-nominations/partials/_message_submitted')->render()
-                    : 'Something went wrong!',
-                'type'    => $result ? 'success' : 'error',
-            ],
-        ]);
+        if(!$result)
+        {
+            return redirect()->back()->withInput()
+            ->with([
+                'status' => [
+                    'message' => 'Something went wrong!',
+                    'type'    => 'error',
+                ],
+            ]);
+        }
+
+        return redirect()->route('thanks');
     }
 
     /**
