@@ -93,7 +93,6 @@ $(document).on("submit", "#formAjax", function (event) {
 
             if (action === 'create')
             {
-                console.log(table);
                 $(`#${table}`).find("tbody").append(result);
             }
 
