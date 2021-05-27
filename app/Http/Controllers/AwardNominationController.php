@@ -33,11 +33,6 @@ class AwardNominationController extends Controller
             }
         }
 
-        $awards = Award::whereJsonContains('roles_can_access_for_nomination', auth()->user()->role_id)
-            ->orWhereNull('roles_can_access_for_nomination')
-            ->withCount('submittedNominations')
-            ->orderBy('name')->get();
-
         if($award)
         {
             if ($award->options['office_type'] === 'clinic')
@@ -58,9 +53,18 @@ class AwardNominationController extends Controller
                     'department.manager',];
             }
 
+            $filterOptions = ['options' => [
+                'max_range' => date('Y'),
+            ]];
+
+            $year = request()->get('year');
+
             $items =
                 AwardNomination::with($with)
                 ->where('award_id', '=', (int) $award->id)
+                ->when(filter_var($year, \FILTER_VALIDATE_INT, $filterOptions), function($query) use($year){
+                    return $query->whereYear('created_at', '=', $year);
+                })
                 ->paginate(20);
 
             if(isset($award['options']['nominations']['categories']))
@@ -73,6 +77,14 @@ class AwardNominationController extends Controller
 
         if (!request()->ajax())
         {
+
+            $awards = Award::whereJsonContains('roles_can_access_for_nomination', auth()->user()->role_id)
+            ->orWhereNull('roles_can_access_for_nomination')
+            ->withCount('submittedNominations')
+            ->orderBy('name')->get();
+
+            $firstNomination = AwardNomination::orderBy('created_at', 'DESC')->first();
+
             return view('award-nominations/index', [
                 'items'                => $items,
                 'award'                => $award,
@@ -83,6 +95,8 @@ class AwardNominationController extends Controller
                 'managersLabel'        => ClinicManagers::$managersLabel,
                 'nominationCategories' => $nominationCategories ?? [],
                 'awards'               => $awards,
+                'startingYear'         => $firstNomination->created_at->format('Y'),
+                'currentYear'          => date('Y'),
             ]);
         }
 
@@ -96,7 +110,6 @@ class AwardNominationController extends Controller
                 'managerTypes'         => ClinicManagers::$managerTypes,
                 'managersLabel'        => ClinicManagers::$managersLabel,
                 'nominationCategories' => $nominationCategories ?? [],
-                'awards'               => $awards,
             ])->render(),
             'pagination' => view('pagination', [
                 'paginator' => $items,

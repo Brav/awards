@@ -1,3 +1,4 @@
+<a class="btn btn-primary" href="{{ route('award-nominations.export', $award->id) }}" role="button">Export</a>
 <table class="table table-bordered table-striped table-vcenter" id=award-nominations>
     <thead>
         <tr>

@@ -94,18 +94,23 @@ $('body').on('change', '#awardCategory', function (e) {
         return;
     }
 
-    $.get(url,
-        function (data, textStatus, jqXHR) {
+     getNominations(url, $("#selectYear").val());
 
-            let paginationID = data.id
-                ? `#pagination-${data.id}`
-                : "#pagination";
+});
 
-            $("#award-nominations-table").html(data.html);
-            $(paginationID).html(data.pagination);
-        },
-        "json"
-    );
+$("body").on("change", "#selectYear", function (e) {
+
+    let $this    = $(this);
+    let category = $("#awardCategory");
+
+    if (category.val() === "select")
+    {
+        alert('Please select category')
+        $this.val('all')
+        return;
+    }
+
+    getNominations(category.find('option:selected').data('url'), $this.val())
 
 });
 
@@ -147,4 +152,27 @@ function checkNumberOfAdditionalFields()
     }
 }
 
+/**
+ * Ajax call for fetching nominations
+ *
+ * @param {string} url
+ * @param {integer} year
+ */
+function getNominations(url, year)
+{
+    $.get(
+        url,
+        {
+            year: year
+        },
+        function (data, textStatus, jqXHR) {
+            let paginationID = data.id
+                ? `#pagination-${data.id}`
+                : "#pagination";
 
+            $("#award-nominations-table").html(data.html);
+            $(paginationID).html(data.pagination);
+        },
+        "json"
+    );
+}

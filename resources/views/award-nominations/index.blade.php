@@ -13,7 +13,7 @@
                     @endif
                 </div>
 
-                <div class="col-md-3">
+                <div class="col-md-3 d-inline-block">
                     <div class="form-group">
                     <label for="award_id">Select Award</label>
                     <select class="form-control" name="award_id" id="awardCategory">
@@ -26,6 +26,18 @@
                             @endif
                             value="{{ $category->id }}">{{ $category->name . '(' . $category->submitted_nominations_count . ')' }}</option>
                         @endforeach
+                    </select>
+                    </div>
+                </div>
+
+                <div class="col-md-3 d-inline-block">
+                    <div class="form-group">
+                    <label for="select_year">Select Year</label>
+                    <select class="form-control" name="select_year" id="selectYear">
+                        <option value="all">All</option>
+                        @for ($i = $startingYear; $i <= $currentYear; $i++)
+                            <option valeu={{ $i }}>{{ $i }}</option>
+                        @endfor
                     </select>
                     </div>
                 </div>
