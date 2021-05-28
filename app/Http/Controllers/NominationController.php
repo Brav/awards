@@ -18,10 +18,11 @@ class NominationController extends Controller
     public function index()
     {
         $nominations = Nomination::with(['category'])->paginate(20);
-        $categories  = NominationCategory::paginate(20);
 
         if(!request()->ajax())
         {
+            $categories  = NominationCategory::paginate(20);
+
             return view('nominations/index', [
                 'nominations' => $nominations,
                 'categories'  => $categories,

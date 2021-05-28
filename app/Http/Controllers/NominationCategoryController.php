@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Nomination;
 use App\Models\NominationCategory;
 use Illuminate\Http\Request;
 
@@ -119,10 +120,18 @@ class NominationCategoryController extends Controller
      */
     public function destroy(NominationCategory $nominationCategory)
     {
+
         if($nominationCategory->delete())
+        {
+            Nomination::where('nomination_category_id', '=', $nominationCategory->id)
+                ->delete();
+
             return response()->json([
-                'Deleted'
-            ], 200);
+                'link'       => route('nominations.index'),
+                'container'  => 'nominations-container',
+                'pagination' => 'pagination-nominations',
+            ]);
+        }
 
         return response()->json([
             'Something went wrong!'

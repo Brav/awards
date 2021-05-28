@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 
 class Award extends Model
 {
@@ -141,7 +142,7 @@ class Award extends Model
             array_filter( $data['roles_can_access_for_nomination'], 'is_numeric');
         }
 
-        $format['slug'] = \Str::slug($data['name'], '_');
+        $format['slug'] = Str::slug($data['name'], '_');
 
         return $format;
     }
@@ -162,7 +163,7 @@ class Award extends Model
 
         $nominations = $this['options']['nominations'];
 
-        $nominationCategories = NominationCategory::find($nominations['categories']);
+        $nominationCategories = NominationCategory::withTrashed()->find($nominations['categories']);
 
         if($nominationCategories->count())
         {

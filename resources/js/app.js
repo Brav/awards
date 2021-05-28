@@ -145,6 +145,18 @@ $(document).on("submit", "#delete-form", function (event) {
             } else {
                 $(`#${table.val()}`).find(`#item-${id}`).remove();
             }
+
+            if(result.link !== undefined)
+            {
+                $.get(
+                    result.link,
+                    function (data, textStatus, jqXHR) {
+                        $(`#${result.container}`).html(data.html);
+                        $(`#${result.pagination}`).html(data.pagination);
+                    },
+                    "json"
+                );
+            }
         },
         complete: function () {
             $("#loader").hide();

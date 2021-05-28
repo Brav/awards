@@ -69,7 +69,8 @@ class AwardNominationController extends Controller
 
             if(isset($award['options']['nominations']['categories']))
             {
-                $nominationCategories = NominationCategory::with(['nominations'])
+                $nominationCategories = NominationCategory::withTrashed()
+                ->with(['nominations'])
                 ->find($award['options']['nominations']['categories']);
             }
 

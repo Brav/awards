@@ -77,7 +77,8 @@ class FormsExport implements FromView
 
             if(isset($award['options']['nominations']['categories']))
             {
-                $nominationCategories = NominationCategory::with(['nominations'])
+                $nominationCategories = NominationCategory::withTrashed()
+                ->with(['nominations'])
                 ->find($award['options']['nominations']['categories']);
             }
 
