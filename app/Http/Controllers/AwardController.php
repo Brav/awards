@@ -112,7 +112,7 @@ class AwardController extends Controller
             'nominations'      => NominationCategory::orderBy('name')->get(),
             'periods'          => Award::$periods,
             'roles'            => Roles::all(),
-            'awardNominations' => $award['options']['nominations'] ?? [],
+            'awardNominations' => $award['options']['nominations'] ?? null,
         ]);
     }
 

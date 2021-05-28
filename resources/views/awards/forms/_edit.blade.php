@@ -162,9 +162,9 @@
         <div class="col">
             <div class="form-group">
               <label for="number_of_nomination_to_select">Minimum number of nomination to select</label>
-              <input type="number" name="number_of_nomination_to_select" id="number_of_nomination_to_select" class="form-control" value={{ old('number_of_nomination_to_select', $awardNominations ? $awardNominations['categories'] : 1) }}
+              <input type="number" name="number_of_nomination_to_select" id="number_of_nomination_to_select" class="form-control" value={{ old('number_of_nomination_to_select', $awardNominations ? $awardNominations['minimum'] : 1) }}
               min=1
-              @if (old('number_of_nomination_to_select', $awardNominations ? $awardNominations['categories'] : 1) == 1)
+              @if (old('number_of_nomination_to_select', $awardNominations ? $awardNominations['minimum'] : 1) == 1)
                   readonly
               @endif>
               <small id="helpId" class="text-muted">Minimum number of nomination categories user needs to select</small>
@@ -178,7 +178,7 @@
         <div class="col">
             <div class="form-group">
                 <label for="nomination_category_text">Nomination Category Text</label>
-                <input type="text" name="nomination_category_text" id="nomination_category_text" class="form-control" value="{{ old('nomination_category_text', $awardNominations ? $awardNominations['categories'] : 'Reason for nomination')}}">
+                <input type="text" name="nomination_category_text" id="nomination_category_text" class="form-control" value="{{ old('nomination_category_text', $awardNominations ? $awardNominations['text'] : 'Reason for nomination')}}">
 
                 @error('nomination_category_text')
                     <div class="alert alert-danger">{{ $message }}</div>
