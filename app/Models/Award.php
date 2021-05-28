@@ -17,6 +17,7 @@ class Award extends Model
      */
     protected $fillable = [
         'name',
+        'slug',
         'description',
         'order',
         'always_visible',
@@ -115,7 +116,7 @@ class Award extends Model
                 }
             }
 
-            $fieldsMinimum = $data['number_of_fields_to_fill'];
+            $fieldsMinimum = $data['number_of_fields_to_fill'] ?? 1;
 
             if($fieldsMinimum > count($data['additional_field']))
             {
@@ -139,6 +140,8 @@ class Award extends Model
             $format['roles_can_access_for_nomination'] =
             array_filter( $data['roles_can_access_for_nomination'], 'is_numeric');
         }
+
+        $format['slug'] = \Str::slug($data['name'], '_');
 
         return $format;
     }

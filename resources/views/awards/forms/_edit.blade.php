@@ -146,7 +146,7 @@
                     @foreach ($nominations as $nomination)
                         <option
                             @if (in_array($nomination->id,
-                                old('nominations', $award['options']['nominations']['categories']) ?? []))
+                                old('nominations', $awardNominations ? $awardNominations['categories'] : [])))
                                 selected
                             @endif
                             value="{{ $nomination->id }}">{{ $nomination->name }}</option>
@@ -162,9 +162,9 @@
         <div class="col">
             <div class="form-group">
               <label for="number_of_nomination_to_select">Minimum number of nomination to select</label>
-              <input type="number" name="number_of_nomination_to_select" id="number_of_nomination_to_select" class="form-control" value={{ old('number_of_nomination_to_select', 1) }}
+              <input type="number" name="number_of_nomination_to_select" id="number_of_nomination_to_select" class="form-control" value={{ old('number_of_nomination_to_select', $awardNominations ? $awardNominations['categories'] : 1) }}
               min=1
-              @if (old('number_of_nomination_to_select', $award['options']['nominations']['minimum']) == 1)
+              @if (old('number_of_nomination_to_select', $awardNominations ? $awardNominations['categories'] : 1) == 1)
                   readonly
               @endif>
               <small id="helpId" class="text-muted">Minimum number of nomination categories user needs to select</small>
@@ -178,7 +178,7 @@
         <div class="col">
             <div class="form-group">
                 <label for="nomination_category_text">Nomination Category Text</label>
-                <input type="text" name="nomination_category_text" id="nomination_category_text" class="form-control" value="{{ old('nomination_category_text', $award['options']['nominations']['text']) }}">
+                <input type="text" name="nomination_category_text" id="nomination_category_text" class="form-control" value="{{ old('nomination_category_text', $awardNominations ? $awardNominations['categories'] : 'Reason for nomination')}}">
 
                 @error('nomination_category_text')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -245,6 +245,21 @@
         id="add_field"
         >Add Text Field</button>
         <div id="fields" class=col-md-12>
+            <div class="col-md-3 d-none" id="number_of_fields">
+                <div class="form-group">
+                  <label for="">Minimum of fields to user need to fill</label>
+                  <input type="number"
+                    name="number_of_fields_to_fill"
+                    id="number_of_fields_to_fill"
+                    class="form-control"
+                    value="{{ old('number_of_fields_to_fill', 1) }}"
+                    min=1
+                    @if (!old('number_of_fields_to_fill') || old('number_of_fields_to_fill', $award['fields']['fields_minimum'] ?? 1) == 1)
+                        readonly
+                    @endif
+                    >
+                </div>
+            </div>
             @if (old('additional_field', $award['fields']))
                 @php
                     $i = 1;
@@ -280,7 +295,7 @@
 
                 @foreach ($roles as $role)
                     <option value="{{ $role->id }}"
-                        @if (in_array($role->id, old('roles', $award->roles)))
+                        @if (in_array($role->id, old('roles', $award->roles) ?? []))
                             selected
                         @endif>{{ $role->name }}</option>
                 @endforeach

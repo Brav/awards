@@ -105,13 +105,14 @@ class AwardController extends Controller
     public function edit(Award $award)
     {
         return view('form', [
-            'award'          => $award,
-            'task'           => 'edit',
-            'view'           => 'awards',
-            'clinicManagers' => ClinicManagers::$managerTypes,
-            'nominations'    => NominationCategory::orderBy('name')->get(),
-            'periods'        => Award::$periods,
-            'roles'          => Roles::all(),
+            'award'            => $award,
+            'task'             => 'edit',
+            'view'             => 'awards',
+            'clinicManagers'   => ClinicManagers::$managerTypes,
+            'nominations'      => NominationCategory::orderBy('name')->get(),
+            'periods'          => Award::$periods,
+            'roles'            => Roles::all(),
+            'awardNominations' => $award['options']['nominations'] ?? [],
         ]);
     }
 

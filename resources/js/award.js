@@ -61,7 +61,6 @@ $('body').on('click', '#add_field', function(e){
     `;
 
     $("#fields").append(template);
-    $("#number_of_fields").removeClass("d-none");
 
     checkNumberOfAdditionalFields()
 
@@ -137,6 +136,8 @@ function checkNumberOfAdditionalFields()
 {
     let numberOfFields = $("#fields").find(".additional_field").length;
 
+    $("#number_of_fields").removeClass("d-none")
+
     if (numberOfFields > 1)
     {
         $("#number_of_fields_to_fill").attr("readonly", false);
@@ -176,3 +177,5 @@ function getNominations(url, year)
         "json"
     );
 }
+
+checkNumberOfAdditionalFields();

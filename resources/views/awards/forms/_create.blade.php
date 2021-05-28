@@ -251,7 +251,7 @@
         >Add Text Field</button>
 
         <div id="fields" class=col-md-12>
-            <div class="col d-none" id="number_of_fields">
+            <div class="col-md-3 d-none" id="number_of_fields">
                 <div class="form-group">
                   <label for="">Minimum of fields to user need to fill</label>
                   <input type="number"

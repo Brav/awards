@@ -130,7 +130,7 @@ class AwardNominationController extends Controller
     {
         $today = date('Y-m-d');
 
-        $award = Award::where('name', 'like', '%' . \str_replace('_', ' ', $award))
+        $award = Award::where('slug', 'like', '%' . $award)
             ->where('always_visible', '=', true)
             ->orWhereRaw('(starting_at <= ? AND ending_at >= ?)', [$today, $today])
             ->firstOrFail();
