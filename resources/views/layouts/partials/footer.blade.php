@@ -1,5 +1,5 @@
 <!-- Footer -->
-<section class="d-sm-none d-md-block">
+<section class="d-none d-sm-none d-md-block">
 	<img  title="line1g" src="{{ asset('media/svg/line1g.svg')}}" class="img-fluid" style="margin-bottom: -2px;">
 </section>
 <footer id="page-footer" class="bg-primary-dark pt-5">
