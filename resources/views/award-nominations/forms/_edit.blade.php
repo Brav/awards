@@ -94,7 +94,7 @@
             <div class="col-md-4">
 
                 <div class="form-group">
-                    <label for="department_id">Departmant Name</label>
+                    <label for="department_id">Department Name</label>
                     <select class="form-control select2" name="department_id" id="department_id">
                         <option></option>
                         @foreach ($offices as $departmant)
@@ -110,7 +110,7 @@
                         @endforeach
                     </select>
 
-                    @error('departmant')
+                    @error('departmant_id')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>
@@ -120,7 +120,7 @@
                 <div class="form-group">
 
                     <div class="form-group">
-                        <label for="departmant_manager">Departmant Manager</label>
+                        <label for="departmant_manager">Department Manager</label>
                         <input type="text"
                         class="form-control" name="departmant_manager"
                         id="departmant_manager"
