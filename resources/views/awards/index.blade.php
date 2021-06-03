@@ -25,6 +25,8 @@
                                 <th class="small">Nomination Options</th>
                                 <th class="small">Order</th>
                                 <th class="small">Number of Nominations</th>
+                                <th class="small">Date Starting</th>
+                                <th class="small">Date Ending</th>
                                 <th class="small">Actions</th>
                             </tr>
                         </thead>

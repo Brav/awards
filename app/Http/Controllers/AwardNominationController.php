@@ -11,6 +11,7 @@ use App\Models\ClinicManagers;
 use App\Models\Department;
 use App\Models\NominationCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 
 class AwardNominationController extends Controller
@@ -129,9 +130,16 @@ class AwardNominationController extends Controller
      */
     public function create(string $award)
     {
+
+        if(trim($award) === '')
+        {
+            abort(404);
+        }
+
         $today = date('Y-m-d');
 
         $award = Award::where('slug', '=', $award)
+            ->whereRaw('((starting_at <= ? AND ending_at >= ?) OR always_visible = 1)', [$today, $today])
             ->firstOrFail();
 
         $awardOffice = $award['options']['office_type'];
@@ -306,7 +314,7 @@ class AwardNominationController extends Controller
 
     public function export(Award $award)
     {
-        $fileName = \strtolower(\str_replace(' ', '_', $award->name));
+        $fileName = \strtolower(Str::slug($award->name, '_'));
         return Excel::download(new FormsExport($award), $fileName . '.xlsx');
     }
 }

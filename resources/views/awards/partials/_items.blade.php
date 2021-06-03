@@ -8,7 +8,8 @@
         <th class="small">{!! $item->nominations !!}</th>
         <th>{{ $item->order }}</th>
         <th>{{ $item->submitted_nominations_count }}</th>
-
+        <th>{{ optional($item->starting_at)->format('d/m/Y') ?? '/' }}</th>
+        <th>{{ optional($item->ending_at)->format('d/m/Y') ?? '/'}}</th>
         <th>
 
             <a id="check_nomination"
