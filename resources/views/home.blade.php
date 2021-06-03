@@ -130,7 +130,7 @@
                         <h2 class="mb-4 text-primary2">View submitted entries</h2>
                         <div class="d-block" style="height: 2px; width: 200px; background:#fff"></div>
                         <br>
-                        <p class="text-white mb-3">Please login here to view the nominations for your relevant awards. If you need a login or cant see your award nominations please contact <a href="mailto:helpdesk@vet.partners">helpdesk@vet.partners</a></p>
+                        <p class="text-white mb-3">Please login here to view the nominations for your relevant awards. If you need a login or cant see your award nominations please contact <a href="mailto:helpdesk@vet.partners" class="text-white">helpdesk@vet.partners</a></p>
                         <br>
                         <a href="{{ route('award-nominations.index') }}" class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light">View submitted entries</a>
                     </div>                         
