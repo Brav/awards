@@ -1,7 +1,11 @@
 @foreach ($items as $item)
     <tr id="item-{{ $item->id }}">
         <th>{{ $item->id }}</th>
-        <th>{{ $item->name }}</th>
+        <th>{{ $item->name }}
+            @if ($item->deleted_at)
+                <span class="text-danger">DELETED</span>
+            @endif
+        </th>
         <th class="text-capitalize">{{ $periods[$item->period_type] }}</th>
         <th>{{ $item->always_visible ? 'Yes' : 'No' }}</th>
         <th class="text-capitalize">{{ $item['options']['office_type'] }}</th>

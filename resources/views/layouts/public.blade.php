@@ -7,7 +7,7 @@
 
         <title>{{ config('app.name', 'VetPartners') }}</title>
 
-        <meta name="description" content="Complaint Form">
+        <meta name="description" content="VetPartner Awards">
         <meta name="author" content="dushan887mob3">
         <meta name="robots" content="noindex, nofollow">
 
@@ -97,10 +97,10 @@
                         scrollTop: $(this).offset().top - 100
                     }, 600);
                  })
-                $('.header-scroll').on('click', function(e) { 
+                $('.header-scroll').on('click', function(e) {
                     $('html, body').animate({
                         scrollTop: $('#Available-Nominatons').offset().top - 180
-                    }, 600);                
+                    }, 600);
                 })
 
 

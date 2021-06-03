@@ -7,7 +7,7 @@
 
         <title>{{ config('app.name', 'VetPartners') }}</title>
 
-        <meta name="description" content="Complaint Form">
+        <meta name="description" content="VetPartner Awards">
         <meta name="author" content="dushan887mob3">
         <meta name="robots" content="noindex, nofollow">
 
