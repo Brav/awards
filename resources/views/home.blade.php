@@ -112,103 +112,6 @@
                         </div>
                     @endforeach
 
-
-                    <div class="col-lg-4 mb-4">
-
-                        <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in" href="#">
-                            <div class="d-block bg-image w-100 pb-lg-100 pb-150 ds-image-item ds-award-bg"></div>
-                            <div class="ds-image-overlay bg-black-50 align-items-end pb-3">
-                                <div class="ds-image-overlay-content text-left px-3">
-                                    <h3 class="h3 text-white mb-3">Test</h3>
-                                </div>
-                            </div>
-                            <div class="ds-image-overlay2 bg-white-50">
-                                <div class="ds-image-overlay-content text-center px-3">
-                                    <!-- <span class="h4 text-primary mb-2 text-uppercase px-5 py-3">Read More</span> -->
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-
-                    <div class="col-lg-4 mb-4">
-
-                        <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in" href="#">
-                            <div class="d-block bg-image w-100 pb-lg-100 pb-150 ds-image-item ds-award-bg"></div>
-                            <div class="ds-image-overlay bg-black-50 align-items-end pb-3">
-                                <div class="ds-image-overlay-content text-left px-3">
-                                    <h3 class="h3 text-white mb-3">Test</h3>
-                                </div>
-                            </div>
-                            <div class="ds-image-overlay2 bg-white-50">
-                                <div class="ds-image-overlay-content text-center px-3">
-                                    <!-- <span class="h4 text-primary mb-2 text-uppercase px-5 py-3">Read More</span> -->
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-
-                    <div class="col-lg-4 mb-4">
-
-                        <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in" href="#">
-                            <div class="d-block bg-image w-100 pb-lg-100 pb-150 ds-image-item ds-award-bg"></div>
-                            <div class="ds-image-overlay bg-black-50 align-items-end pb-3">
-                                <div class="ds-image-overlay-content text-left px-3">
-                                    <h3 class="h3 text-white mb-3">Test</h3>
-                                </div>
-                            </div>
-                            <div class="ds-image-overlay2 bg-white-50">
-                                <div class="ds-image-overlay-content text-center px-3">
-                                    <!-- <span class="h4 text-primary mb-2 text-uppercase px-5 py-3">Read More</span> -->
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-
-                    <div class="col-lg-4 mb-4">
-
-                        <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in" href="#">
-                            <div class="d-block bg-image w-100 pb-lg-100 pb-150 ds-image-item ds-award-bg"></div>
-                            <div class="ds-image-overlay bg-black-50 align-items-end pb-3">
-                                <div class="ds-image-overlay-content text-left px-3">
-                                    <h3 class="h3 text-white mb-3">Test</h3>
-                                </div>
-                            </div>
-                            <div class="ds-image-overlay2 bg-white-50">
-                                <div class="ds-image-overlay-content text-center px-3">
-                                    <!-- <span class="h4 text-primary mb-2 text-uppercase px-5 py-3">Read More</span> -->
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-
-                    <div class="col-lg-4 mb-4">
-
-                        <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in" href="#">
-                            <div class="d-block bg-image w-100 pb-lg-100 pb-150 ds-image-item ds-award-bg"></div>
-                            <div class="ds-image-overlay bg-black-50 align-items-end pb-3">
-                                <div class="ds-image-overlay-content text-left px-3">
-                                    <h3 class="h3 text-white mb-3">Test</h3>
-                                </div>
-                            </div>
-                            <div class="ds-image-overlay2 bg-white-50">
-                                <div class="ds-image-overlay-content text-center px-3">
-                                    <!-- <span class="h4 text-primary mb-2 text-uppercase px-5 py-3">Read More</span> -->
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-
-
-
-
-
-
-
                 </div>
 
             </div>
@@ -227,7 +130,7 @@
                         <h2 class="mb-4 text-primary2">View submitted entries</h2>
                         <div class="d-block" style="height: 2px; width: 200px; background:#fff"></div>
                         <br>
-                        <p class="text-white mb-3">Please login here to view the nominations for your relevant awards. If you need a login or cant see your award nominations please contact <a href="mailto:helpdesk@vet.partners">helpdesk@vet.partners</a></p>
+                        <p class="text-white mb-3">Please login here to view the nominations for your relevant awards. If you need a login or cant see your award nominations please contact <a href="mailto:helpdesk@vet.partners" class="text-white">helpdesk@vet.partners</a></p>
                         <br>
                         <a href="{{ route('award-nominations.index') }}" class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light">View submitted entries</a>
                     </div>                         
