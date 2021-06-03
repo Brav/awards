@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Award;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -15,7 +16,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $today = date('Y-m-d');
+        $today = Carbon::now()->timezone('Australia/Sydney')->format('Y-m-d H:m');
+
         $awards = Award::where('always_visible', '=', true)
             ->orWhereRaw('(starting_at <= ? AND ending_at >= ?)', [$today, $today])
             ->orderBy('order')
