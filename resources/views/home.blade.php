@@ -5,7 +5,7 @@
         <div class="js-slider slick-nav-black slick-dotted-inner slick-dotted-white" data-dots="true" data-arrows="true">
             <!-- slide -->
             <div>
-                <div class="bg-image d-flex w-100" style="background-image: url(https://media.istockphoto.com/photos/group-of-multiethnic-cheerful-people-applauding-picture-id488852553?s=2048x2048); height: 90vh; min-height: 500px">
+                <div class="bg-image d-flex w-100" style="background-image: url( {{ asset('media/photos/VetPartners-Awards-Banner-1.jpg')}} ); height: 90vh; min-height: 500px">
                     <div class="d-flex align-items-center justify-content-center w-100 h-100" style="background: rgba(0, 0, 0, .4);">
                         <div class="container">
                             <div class="row">
@@ -23,7 +23,7 @@
 
             <!-- slide -->
             <div>
-                <div class="bg-image d-flex w-100" style="background-image: url(https://media.istockphoto.com/photos/disfocus-of-the-award-ceremony-theme-creative-background-for-success-picture-id944886536?s=2048x2048); height: 90vh; min-height: 500px">
+                <div class="bg-image d-flex w-100" style="background-image: url({{ asset('media/photos/VetPartners-Awards-Banner-2.jpg')}}); height: 90vh; min-height: 500px">
                     <div class="d-flex align-items-center justify-content-center w-100 h-100" style="background: rgba(0, 0, 0, .4);">
                         <div class="container">
                             <div class="row">
@@ -41,7 +41,7 @@
 
             <!-- slide -->
             <div>
-                <div class="bg-image d-flex w-100" style="background-image: url(https://media.istockphoto.com/photos/close-up-group-of-business-people-applauding-together-picture-id1284766619?s=2048x2048); height: 90vh; min-height: 500px">
+                <div class="bg-image d-flex w-100" style="background-image: url({{ asset('media/photos/VetPartners-Awards-Banner-3.jpg')}}); height: 90vh; min-height: 500px">
                     <div class="d-flex align-items-center justify-content-center w-100 h-100" style="background: rgba(0, 0, 0, .4);">
                         <div class="container">
                             <div class="row">
@@ -84,8 +84,8 @@
         
             <div class="row">
                 <div class="col-md-6 offset-md-3 text-center">
-                    <h2 class="text-center h1 mb-3">Available Nominatons</h2>
-                    <p class="mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    <h2 class="text-center h1 mb-3">Available Nominations</h2>
+                    <p class="mb-5">Award nominations are designed for everyone to nominate their colleagues for recognition due to exemplary work, effort or other achievement. We appreciate you taking the time to help recognise the great work being done across VetPartners</p>
                 </div>
             </div>
 
@@ -96,7 +96,7 @@
                         <div class="col-lg-4 mb-4">
 
                             <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in" href="{{ route('award-nominations.create', $award->slug) }}">
-                                <div class="d-block bg-image w-100 pb-lg-100 pb-150 ds-image-item" style="background-image: url(https://media.istockphoto.com/photos/group-of-multiethnic-cheerful-people-applauding-picture-id488852553?s=2048x2048)"></div>
+                                <div class="d-block bg-image w-100 pb-lg-100 pb-150 ds-image-item ds-award-bg"></div>
                                 <div class="ds-image-overlay bg-black-50 align-items-end pb-3">
                                     <div class="ds-image-overlay-content text-left px-3">
                                         <h3 class="h3 text-white mb-3">{{ $award->name }}</h3>
@@ -112,13 +112,110 @@
                         </div>
                     @endforeach
 
+
+                    <div class="col-lg-4 mb-4">
+
+                        <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in" href="#">
+                            <div class="d-block bg-image w-100 pb-lg-100 pb-150 ds-image-item ds-award-bg"></div>
+                            <div class="ds-image-overlay bg-black-50 align-items-end pb-3">
+                                <div class="ds-image-overlay-content text-left px-3">
+                                    <h3 class="h3 text-white mb-3">Test</h3>
+                                </div>
+                            </div>
+                            <div class="ds-image-overlay2 bg-white-50">
+                                <div class="ds-image-overlay-content text-center px-3">
+                                    <!-- <span class="h4 text-primary mb-2 text-uppercase px-5 py-3">Read More</span> -->
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+
+                        <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in" href="#">
+                            <div class="d-block bg-image w-100 pb-lg-100 pb-150 ds-image-item ds-award-bg"></div>
+                            <div class="ds-image-overlay bg-black-50 align-items-end pb-3">
+                                <div class="ds-image-overlay-content text-left px-3">
+                                    <h3 class="h3 text-white mb-3">Test</h3>
+                                </div>
+                            </div>
+                            <div class="ds-image-overlay2 bg-white-50">
+                                <div class="ds-image-overlay-content text-center px-3">
+                                    <!-- <span class="h4 text-primary mb-2 text-uppercase px-5 py-3">Read More</span> -->
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+
+                        <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in" href="#">
+                            <div class="d-block bg-image w-100 pb-lg-100 pb-150 ds-image-item ds-award-bg"></div>
+                            <div class="ds-image-overlay bg-black-50 align-items-end pb-3">
+                                <div class="ds-image-overlay-content text-left px-3">
+                                    <h3 class="h3 text-white mb-3">Test</h3>
+                                </div>
+                            </div>
+                            <div class="ds-image-overlay2 bg-white-50">
+                                <div class="ds-image-overlay-content text-center px-3">
+                                    <!-- <span class="h4 text-primary mb-2 text-uppercase px-5 py-3">Read More</span> -->
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+
+                        <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in" href="#">
+                            <div class="d-block bg-image w-100 pb-lg-100 pb-150 ds-image-item ds-award-bg"></div>
+                            <div class="ds-image-overlay bg-black-50 align-items-end pb-3">
+                                <div class="ds-image-overlay-content text-left px-3">
+                                    <h3 class="h3 text-white mb-3">Test</h3>
+                                </div>
+                            </div>
+                            <div class="ds-image-overlay2 bg-white-50">
+                                <div class="ds-image-overlay-content text-center px-3">
+                                    <!-- <span class="h4 text-primary mb-2 text-uppercase px-5 py-3">Read More</span> -->
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+
+                        <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in" href="#">
+                            <div class="d-block bg-image w-100 pb-lg-100 pb-150 ds-image-item ds-award-bg"></div>
+                            <div class="ds-image-overlay bg-black-50 align-items-end pb-3">
+                                <div class="ds-image-overlay-content text-left px-3">
+                                    <h3 class="h3 text-white mb-3">Test</h3>
+                                </div>
+                            </div>
+                            <div class="ds-image-overlay2 bg-white-50">
+                                <div class="ds-image-overlay-content text-center px-3">
+                                    <!-- <span class="h4 text-primary mb-2 text-uppercase px-5 py-3">Read More</span> -->
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+
+
+
+
+
+
+
                 </div>
 
             </div>
         </div>
     </section>
 
-    <section class="bg-image" style="background: url(https://media.istockphoto.com/photos/close-up-group-of-business-people-applauding-together-picture-id1284766619?s=2048x2048)">
+    <section class="bg-image mb-5" style="background: url({{ asset('media/photos/VetPartners-Awards-4.jpg')}})">
         <div class="section-wrapper bg-black-50 py-5">
 
             <div class="container-xl pb-4 py-5">
@@ -130,7 +227,7 @@
                         <h2 class="mb-4 text-primary2">View submitted entries</h2>
                         <div class="d-block" style="height: 2px; width: 200px; background:#fff"></div>
                         <br>
-                        <p class="text-white mb-3">Lorem ipsum dolor sit amet consectetur adip elit. Maiores deleniti explicabo voluptatem quisquam nulla asperiores aspernatur aperiam voluptate et consectetur minima delectus, fugiat eum soluta blanditiis adipisci, velit dolore magnam.</p>
+                        <p class="text-white mb-3">Please login here to view the nominations for your relevant awards. If you need a login or cant see your award nominations please contact <a href="mailto:helpdesk@vet.partners">helpdesk@vet.partners</a></p>
                         <br>
                         <a href="{{ route('award-nominations.index') }}" class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light">View submitted entries</a>
                     </div>                         
@@ -142,12 +239,12 @@
         </div>                  
     </section>
 
-    <section>
+  <!--   <section>
         <div class="section-wrapper py-5">
             <div class="container-xl pb-4 py-5">
                 <div class="row no-gutters">
                     <div class="col-lg-8">
-                        <div class="d-block h-100 bg-image" style="background: url(http://vetpartnersbrand.bestvaluedigital.com/wp-content/uploads/2021/05/BetterPets22-flip.jpg);"></div>
+                        <div class="d-block h-100 bg-image" style="background: url({{ asset('media/photos/VetPartners-Awards-4.jpg')}});"></div>
                     </div>
                     <div class="col-lg-4">
                         <div class="col-inner py-4 px-5" style="background: #d8efee">                            
@@ -172,6 +269,17 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
+@endsection
+
+@section('js_after')
+<script type="text/javascript">
+$(document).ready(function() {
+     var images = ['VetPartners-Awards-1.jpg', 'VetPartners-Awards-2.jpg', 'VetPartners-Awards-3.jpg', 'VetPartners-Awards-4.jpg', 'VetPartners-Awards-5.jpg', 'VetPartners-Awards-6.jpg', 'VetPartners-Awards-7.jpg', 'VetPartners-Awards-8.jpg', 'VetPartners-Awards-9.jpg', 'VetPartners-Awards-10.jpg', 'VetPartners-Awards-11.jpg', 'VetPartners-Awards-12.jpg', 'VetPartners-Awards-13.jpg', 'VetPartners-Awards-14.jpg', 'VetPartners-Awards-15.jpg'];
+     $('.ds-award-bg').each(function() {
+        $(this).css({'background-image': 'url(media/photos/' + images[Math.floor(Math.random() * images.length)] + ')'});
+     })
+})
+</script>
 @endsection
