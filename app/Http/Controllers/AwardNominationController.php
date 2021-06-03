@@ -10,6 +10,7 @@ use App\Models\Clinic;
 use App\Models\ClinicManagers;
 use App\Models\Department;
 use App\Models\NominationCategory;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
@@ -136,7 +137,7 @@ class AwardNominationController extends Controller
             abort(404);
         }
 
-        $today = date('Y-m-d');
+        $today = Carbon::now()->timezone('Australia/Sydney')->format('Y-m-d H:m');
 
         $award = Award::where('slug', '=', $award)
             ->whereRaw('((starting_at <= ? AND ending_at >= ?) OR always_visible = 1)', [$today, $today])
