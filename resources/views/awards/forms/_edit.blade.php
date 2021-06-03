@@ -115,7 +115,7 @@
                         checked
                     @endif>
                     <label class="custom-control-label" for="{{ $value }}">{{
-                    ucwords(str_replace('_', ' ', $value)) }}</label>
+                    $managersLabels[$value] }}</label>
                 </div>
             @endforeach
         </div>

@@ -120,8 +120,7 @@
                     @if (in_array($key, old('clinic_managers_shown') ?? []))
                         checked
                     @endif>
-                    <label class="custom-control-label" for="{{ $value }}">{{
-                    ucwords(str_replace('_', ' ', $value)) }}</label>
+                    <label class="custom-control-label" for="{{ $value }}">{{ $managersLabels[$value] }}</label>
                 </div>
             @endforeach
         </div>

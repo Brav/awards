@@ -131,9 +131,7 @@ class AwardNominationController extends Controller
     {
         $today = date('Y-m-d');
 
-        $award = Award::where('slug', 'like', '%' . $award)
-            ->where('always_visible', '=', true)
-            ->orWhereRaw('(starting_at <= ? AND ending_at >= ?)', [$today, $today])
+        $award = Award::where('slug', '=', $award)
             ->firstOrFail();
 
         $awardOffice = $award['options']['office_type'];

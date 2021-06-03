@@ -2,14 +2,15 @@ const officeType = $("[name=office_type]");
 const nomination = $("#nomination")
 
 const managersRelationMap = [
-        'lead_vet',
-        'practice_manager',
-        'veterinary_manager',
-        'gm_veterinary_operations',
-        'general_manager',
-        'gm_vet_services',
-        'other',
-    ];
+    "lead_vet",
+    "practice_manager",
+    "veterinary_manager",
+    "gm_veterinary_operations",
+    "general_manager",
+    "gm_vet_services",
+    "regional_manager",
+    "other",
+];
 
 if(officeType.length)
 {
@@ -121,6 +122,7 @@ function setClinicManager() {
 
         let option = clinic.find("option:selected").data(element);
         $(`#${element}`).val(option);
+
     });
 }
 
