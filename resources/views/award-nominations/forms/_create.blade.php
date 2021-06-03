@@ -1,4 +1,4 @@
-<form action="{{ route('award-nominations.store') }}" method="POST">
+<form action="{{ route('award-nominations.store') }}" method="POST" style="padding-top: 150px; padding-bottom: 150px;">
     @csrf
     <h1>{{ $award->name }}</h1>
 

@@ -1,4 +1,4 @@
-<form action="{{ route('award-nominations.update', $item->id) }}" method="POST">
+<form action="{{ route('award-nominations.update', $item->id) }}" method="POST" style="padding-top: 150px; padding-bottom: 150px;">
     @csrf
     @method('PUT')
     <h1>{{ $award->name }}</h1>
