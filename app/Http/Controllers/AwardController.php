@@ -10,6 +10,7 @@ use App\Models\Nomination;
 use App\Models\NominationCategory;
 use App\Models\Roles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AwardController extends Controller
 {
@@ -165,9 +166,35 @@ class AwardController extends Controller
     public function destroy(Award $award)
     {
         if($award->delete())
+        {
+            $name = $award->name . ' deleted';
+            $slug =  Str::slug($name);
+
+            $awardExist = Award::where('slug', 'like', '%' . $slug)
+            ->orderBy('name', 'DESC')
+            ->get();
+
+            if($awardExist->count())
+            {
+                $last = $awardExist->first();
+
+                $deletedSuffix = explode('||', $last->name);
+
+                if(isset($deletedSuffix[1]))
+                {
+                    $name = $name . '||' . ($deletedSuffix + 1);
+                }
+            }
+
+            $award->name = $name;
+            $award->slug = Str::slug($name);
+            $award->update();
+
             return response()->json([
                 'Deleted'
             ], 200);
+        }
+
 
         return response()->json([
             'Something went wrong!'
