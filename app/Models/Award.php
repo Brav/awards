@@ -124,7 +124,7 @@ class Award extends Model
                 $fieldsMinimum = 1;
             }
 
-            $format['options']['fields_minimum'] = 1;
+            $format['options']['fields_minimum'] = $fieldsMinimum;
         }
 
         if(isset($data['roles']))

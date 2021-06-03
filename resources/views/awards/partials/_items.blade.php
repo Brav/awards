@@ -1,7 +1,10 @@
 @foreach ($items as $item)
     <tr id="item-{{ $item->id }}">
         <th>{{ $item->id }}</th>
-        <th>{{ $item->name }}
+        <th>
+            <a href="{{ route('award-nominations.create', $item->slug) }}" target=_blank rel=noopener rel=nofollow>
+                {{ $item->name }}
+            </a>
             @if ($item->deleted_at)
                 <span class="text-danger">DELETED</span>
             @endif

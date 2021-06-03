@@ -116,7 +116,7 @@
                         @endforeach
                     </select>
 
-                    @error('departmant')
+                    @error('department_id')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
                 </div>

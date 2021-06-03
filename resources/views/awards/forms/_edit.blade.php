@@ -199,7 +199,9 @@
                         data-target=".starting_at"
                         name="starting_at"
                         id="starting_at"
-                        value="{{ old('starting_at', $award->starting_at->format('d/m/Y')) }}"/>
+                        value="{{ old('starting_at',
+                            $award->starting_at ?
+                            $award->starting_at->timezone('Australia/Sydney')->format('d/m/Y') : null) }}"/>
                     <div class="input-group-append"
                         data-target=".starting_at"
                         data-toggle="datetimepicker">
@@ -221,7 +223,9 @@
                         data-target="#start_dt_2"
                         name="ending_at"
                         id="ending_at"
-                        value="{{ old('ending_at', $award->ending_at->format('d/m/Y')) }}"/>
+                        value="{{ old('ending_at',
+                            $award->ending_at ?
+                            $award->ending_at->timezone('Australia/Sydney')->format('d/m/Y') : null) }}"/>
                     <div class="input-group-append"
                         data-target="#start_dt_2"
                         data-toggle="datetimepicker">
@@ -237,13 +241,10 @@
         </div>
 
     </div>
-
     <div class="form-row align-items-center mb-3">
-
         <button type="button"
         class="btn btn-primary"
-        id="add_field"
-        >Add Text Field</button>
+        id="add_field">Add Text Field</button>
         <div id="fields" class=col-md-12>
             <div class="col-md-3 d-none" id="number_of_fields">
                 <div class="form-group">
@@ -252,9 +253,9 @@
                     name="number_of_fields_to_fill"
                     id="number_of_fields_to_fill"
                     class="form-control"
-                    value="{{ old('number_of_fields_to_fill', 1) }}"
+                    value="{{ old('number_of_fields_to_fill', $award['options']['fields_minimum'] ?? 1) }}"
                     min=1
-                    @if (!old('number_of_fields_to_fill') || old('number_of_fields_to_fill', $award['fields']['fields_minimum'] ?? 1) == 1)
+                    @if (!old('number_of_fields_to_fill') || old('number_of_fields_to_fill', $award['options']['fields_minimum'] ?? 1) == 1)
                         readonly
                     @endif
                     >

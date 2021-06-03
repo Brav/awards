@@ -80,8 +80,8 @@ $("body").on("change", "#clinic_id", function () {
     setClinicManager();
 });
 
-$("body").on("change", "#department", function () {
-    setDepartmantManager();
+$("body").on("change", "#department_id", function () {
+    setDepartmantManager($(this));
 });
 
 $('body').on('change', '#awardCategory', function (e) {
@@ -126,11 +126,11 @@ function setClinicManager() {
     });
 }
 
-function setDepartmantManager()
+function setDepartmantManager(element)
 {
-    let department = $("#department_id");
-
-    $('#department').val(department.find("option:selected").data('manager'));
+    $("#departmant_manager").val(
+        element.find("option:selected").data("manager")
+    );
 
 }
 
