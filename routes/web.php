@@ -66,7 +66,7 @@ Route::prefix('files')->middleware(['auth'])->group(function () {
 
 });
 
-Route::prefix('nominations')->middleware(['auth', 'admin'])->group(function () {
+Route::prefix('nominations')->middleware(['auth'])->group(function () {
 
     Route::get('', [NominationController::class, 'index'])->name('nominations.index');
     Route::get('create', [NominationController::class, 'create'])->name('nominations.create');
@@ -77,7 +77,7 @@ Route::prefix('nominations')->middleware(['auth', 'admin'])->group(function () {
     Route::delete('destroy/{nomination}', [NominationController::class, 'destroy'])->name('nominations.destroy');
 });
 
-Route::prefix('nominations-category')->middleware(['auth', 'admin'])->group(function () {
+Route::prefix('nominations-category')->middleware(['auth'])->group(function () {
 
     Route::get('', [NominationCategoryController::class, 'index'])
         ->name('nominations-category.index');
@@ -95,7 +95,7 @@ Route::prefix('nominations-category')->middleware(['auth', 'admin'])->group(func
         ->name('nominations-category.destroy');
 });
 
-Route::prefix('awards')->middleware(['auth', 'admin'])->group(function () {
+Route::prefix('awards')->middleware(['auth'])->group(function () {
 
     Route::get('', [AwardController::class, 'index'])
         ->name('awards.index');
@@ -113,7 +113,7 @@ Route::prefix('awards')->middleware(['auth', 'admin'])->group(function () {
         ->name('awards.destroy');
 });
 
-Route::prefix('departments')->middleware(['auth', 'admin'])->group(function () {
+Route::prefix('departments')->middleware(['auth'])->group(function () {
 
     Route::get('', [DepartmentController::class, 'index'])
         ->name('departments.index');
@@ -131,7 +131,7 @@ Route::prefix('departments')->middleware(['auth', 'admin'])->group(function () {
         ->name('departments.destroy');
 });
 
-Route::prefix('award-nominations')->middleware(['auth', 'admin'])->group(function () {
+Route::prefix('award-nominations')->middleware(['auth'])->group(function () {
 
     Route::get('{award?}', [AwardNominationController::class, 'index'])
         ->name('award-nominations.index');

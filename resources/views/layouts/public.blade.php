@@ -99,7 +99,7 @@
                  })
                 $('.header-scroll').on('click', function(e) {
                     $('html, body').animate({
-                        scrollTop: $('#Available-Nominatons').offset().top - 180
+                        scrollTop: $('#Available-Nominations').offset().top - 180
                     }, 600);
                 })
 

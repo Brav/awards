@@ -79,9 +79,9 @@
 @endsection
 @section('content')
 
-    <section id="Available-Nominatons">
+    <section id="Available-Nominations">
         <div class="container py-4">
-        
+
             <div class="row">
                 <div class="col-md-6 offset-md-3 text-center">
                     <h2 class="text-center h1 mb-3">Available Nominations</h2>
@@ -126,20 +126,20 @@
                 <div class="row pr-lg-5 h-100 align-items-center">
                   <div class="col-md-5 mb-4">
 
-                    <div>                                 
+                    <div>
                         <h2 class="mb-4 text-primary2">View submitted entries</h2>
                         <div class="d-block" style="height: 2px; width: 200px; background:#fff"></div>
                         <br>
                         <p class="text-white mb-3">Please login here to view the nominations for your relevant awards. If you need a login or cant see your award nominations please contact <a href="mailto:helpdesk@vet.partners" class="text-white">helpdesk@vet.partners</a></p>
                         <br>
                         <a href="{{ route('award-nominations.index') }}" class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light">View submitted entries</a>
-                    </div>                         
+                    </div>
 
                   </div>
                 </div>
 
             </div>
-        </div>                  
+        </div>
     </section>
 
   <!--   <section>
@@ -150,10 +150,10 @@
                         <div class="d-block h-100 bg-image" style="background: url({{ asset('media/photos/VetPartners-Awards-4.jpg')}});"></div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="col-inner py-4 px-5" style="background: #d8efee">                            
-                        
+                        <div class="col-inner py-4 px-5" style="background: #d8efee">
+
                             <h2 class="text-primary pt-4">Why I Joined<br /> VetPartners</h2>
-                            
+
                             <div class="d-block" style="height: 2px; width: 200px; background:#a5cf4c"></div>
                             <br>
                             <br>
