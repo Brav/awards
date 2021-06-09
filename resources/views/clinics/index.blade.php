@@ -102,6 +102,10 @@
                                         data-operator="like"
                                         data-type="text">
                                 </th>
+                                <th>
+                                    <button type="button" id="filter-reset"
+                                    class="btn btn-primary active">Reset</button>
+                                </th>
                             </tr>
                         </thead>
                         <tbody id=clinics-container>
