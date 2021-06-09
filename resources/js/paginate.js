@@ -28,6 +28,8 @@ $('body').on('click', '.page-link', function (e) {
     );
 })
 
+let timer = null
+
 $(".filters").on("input", ".filter-text", function (e)
 {
     let $this      = $(this);
@@ -36,22 +38,33 @@ $(".filters").on("input", ".filter-text", function (e)
     let container  = parent.data("container");
     let searchData = [];
 
-    let search = $this.val().trim();
+    console.log(timer);
 
-    searchData = filterFilters(parent);
+    if(timer !== null)
+    {
+        clearTimeout(timer);
+    }
 
-    if (search.length === 0) {
+    timer = setTimeout(function () {
+        let search = $this.val().trim();
+
+        searchData = filterFilters(parent);
+
+        if (search.length === 0) {
+            doSearch(url, searchData, container);
+            return;
+        }
+
+        if (search.length < 3) {
+            return;
+        }
+
+        $("#filter-reset").removeClass("active");
+
         doSearch(url, searchData, container);
-        return;
-    }
+    }, 500);
 
-    if (search.length < 3) {
-        return;
-    }
 
-    $("#filter-reset").removeClass("active");
-
-    doSearch(url, searchData, container);
 });
 
 $(".filters").on("change", ".filter-select", function (e)
