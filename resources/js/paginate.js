@@ -38,8 +38,6 @@ $(".filters").on("input", ".filter-text", function (e)
     let container  = parent.data("container");
     let searchData = [];
 
-    console.log(timer);
-
     if(timer !== null)
     {
         clearTimeout(timer);
