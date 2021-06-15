@@ -10,6 +10,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-8 offset-md-2 text-center">
+                                    <h4 class="text-danger bg-white p-2 rounded">Not Currently Live</h4>
                                     <h2 class="text-white display-4"><strong>Awards Nomination</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking in the award you wish to nominate for</p>
                                     <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 page-scroll">Find out more</a>
@@ -28,6 +29,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-8 offset-md-2 text-center">
+                                    <h4 class="text-danger bg-white p-2 rounded">Not Currently Live</h4>
                                     <h2 class="text-white display-4"><strong>Awards Nomination</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking in the award you wish to nominate for</p>
                                     <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 page-scroll">Find out more</a>
@@ -46,6 +48,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-8 offset-md-2 text-center">
+                                    <h4 class="text-danger bg-white p-2 rounded">Not Currently Live</h4>
                                     <h2 class="text-white display-4"><strong>Awards Nomination</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking in the award you wish to nominate for</p>
                                     <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 page-scroll">Find out more</a>
