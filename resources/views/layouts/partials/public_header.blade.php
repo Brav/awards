@@ -10,7 +10,7 @@
 
         <!-- Right Section -->
         <div>
-            <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg header-scroll">Available Nominations</a>
+            <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg header-scroll">Nominate a Superstarti</a>
         </div>
         <!-- END Right Section -->
     </div>

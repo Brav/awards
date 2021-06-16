@@ -11,16 +11,10 @@
         	</div>
 
         	<div class="col-lg-4">
-        		<p class="text-white">Australia General Enquiries:&nbsp;<a href="tel:+611800 881 864">1800 881 864</a><br>
-				Confidential Acquisitions:&nbsp;<a href="tel:+611300 412 300">1300 412 300</a><br>
-				<a href="mailto:confidential@vetpartners.com.au">confidential@vetpartners.com.au</a></p>
+        		<p class="text-white">Phone:&nbsp;<a href="tel:+610280260116">02 8026 0116</a><br>
+				<a href="mailto:hr@vetpartners.com.au">hr@vetpartners.com.au</a></p>
         	</div>
 
-        	<div class="col-lg-4">
-        		<p class="text-white">New Zealand General Enquiries:&nbsp;<a href="tel:+640800 426 488">0800 426 488</a><br>
-				Confidential Acquisitions:&nbsp;<a href="tel:+640800 423 617">0800 423 617</a><br>
-				<a href="mailto:confidential@vetpartners.co.nz">confidential@vetpartners.co.nz</a></p>
-        	</div>
         </div>
 
         <div class="row">
