@@ -187,6 +187,16 @@ class Award extends Model
     }
 
     /**
+     * Return formated period type
+     *
+     * @return string
+     */
+    public function getPeriodAttribute() :string
+    {
+        return \ucfirst(self::$periods[$this->period_type]);
+    }
+
+    /**
      * Get all of the submittedNominations for the Award
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -195,4 +205,6 @@ class Award extends Model
     {
         return $this->hasMany(AwardNomination::class);
     }
+
+
 }

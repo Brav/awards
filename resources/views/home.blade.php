@@ -112,11 +112,13 @@
                     @foreach ($awards as $award)
                         <div class="col-lg-4 mb-4 {{ $award['options']['office_type'] }} award">
 
-                            <a class="fx-item-zoom-in fx-overlay-zoom-in" href="{{ route('award-nominations.create', $award->slug) }}">
+                            <a class="fx-item-zoom-in fx-overlay-zoom-in"
+                                href="{{ route('award-nominations.create', $award->slug) }}">
                                 <div class="d-block bg-primary-green w-100 pb-lg-100 pb-150 ds-award-bg"></div>
                                 <div class="ds-image-overlay align-items-end pb-3">
                                     <div class="ds-image-overlay-content text-left px-3">
                                         <h3 class="h3 text-white mb-3">{{ $award->name }}</h3>
+                                        <h4 class="h4 text-primary mb-3 font-w400">{{ $award->period }}</h4>
                                     </div>
                                 </div>
                                 <div class="ds-image-overlay2">
