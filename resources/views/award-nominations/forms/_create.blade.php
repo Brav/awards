@@ -16,7 +16,7 @@
 
         <div class="col">
             <div class="form-group">
-                <label for="member_logged">Team member logging the nomination:</label>
+                <label for="member_logged">Nominaiton submitted by</label>
                 <input type="text" class="form-control" name=member_logged id="member_logged" value="{{ old('member_logged') }}">
 
                 @error('member_logged')
@@ -27,7 +27,7 @@
 
         <div class="col">
             <div class="form-group">
-                <label for="member_logged_email">Team member email</label>
+                <label for="member_logged_email">Sumbitting team member email</label>
                 <input type="text" class="form-control"
                 name=member_logged_email
                 id="member_logged_email"
@@ -46,7 +46,7 @@
 
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="clinic_id">Clinic Name</label>
+                    <label for="clinic_id">Clinic of Nomenee</label>
                     <select class="form-control select2" name="clinic_id" id="clinic_id">
                         <option></option>
                         @foreach ($offices as $clinic)
@@ -75,21 +75,7 @@
                 </div>
             </div>
 
-            @foreach ($managers as $manager)
-                <div class="col">
-                    <div class="form-group">
-
-                        <div class="form-group">
-                            <label for="{{ $managerTypes[$manager] }}">{{ $managersLabel[$managerTypes[$manager]] }}</label>
-                            <input type="text"
-                            class="form-control" name="{{ $managerTypes[$manager] }}"
-                            id="{{ $managerTypes[$manager] }}"
-                            readonly>
-                        </div>
-
-                    </div>
-                </div>
-            @endforeach
+            {{-- Place for managers --}}
 
         </div>
     @endif
@@ -100,7 +86,7 @@
             <div class="col-md-4">
 
                 <div class="form-group">
-                    <label for="department_id">Department Name</label>
+                    <label for="department_id">Support Office Name</label>
                     <select class="form-control select2" name="department_id" id="department_id">
                         <option></option>
                         @foreach ($offices as $departmant)

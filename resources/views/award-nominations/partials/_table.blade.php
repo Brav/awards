@@ -3,11 +3,11 @@
     <thead>
         <tr>
             <th class="small">Date/time submitted</th>
-            <th class="small">Team Member Logging the Nomination</th>
-            <th class="small">Email contact of Team member logging the nomination</th>
+            <th class="small">Nominaiton submitted by</th>
+            <th class="small">Sumbitting team member email</th>
 
             @if ($award->options['office_type'] === 'clinic')
-                <th class="small">Clinic Name</th>
+                <th class="small">Clinic of Nomenee</th>
                 @foreach ($managers as $manager)
                     <th class="small">{{ $managersLabel[$managerTypes[$manager]] }}</th>
                 @endforeach

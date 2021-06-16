@@ -254,7 +254,32 @@ $("body").on("click", ".file-delete", function (e) {
 });
 
 $(document).ajaxComplete(function () {
-   console.log(123);
+});
+
+$("body").on("click", "button[role=award-filter]", function (e) {
+
+    e.preventDefault()
+
+    let award = $(this).data('award')
+
+    console.log(award);
+
+    switch (award) {
+        case "all":
+            $(".award").removeClass("d-none");
+            break;
+
+        case "clinics":
+            $(".award.clinic").removeClass("d-none");
+            $(".award.deparmenet").addClass("d-none");
+            break;
+
+        case "deparments":
+            $(".award.clinic").addClass("d-none");
+            $(".award.department").removeClass("d-none");
+            break;
+    }
+
 });
 
 /**

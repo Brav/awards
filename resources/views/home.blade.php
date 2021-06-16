@@ -95,8 +95,22 @@
             <div class="container pb-4">
 
                 <div class="row">
+                    <button type="button" class="btn btn-primary"
+                        role="award-filter"
+                        data-award="all">All Awards</button>
+                    <button type="button" class="btn btn-primary"
+                        role="award-filter"
+                        data-award="clinics">Clinic Awards</button>
+                    <button type="button" class="btn btn-primary"
+                        role="award-filter"
+                        data-award="deparments">Support Office Awards</button>
+                    <a class="btn btn-primary" href="{{ route('award-nominations.index') }}"
+                    role="button">View Sumbitted Entries</a>
+                </div>
+
+                <div class="row">
                     @foreach ($awards as $award)
-                        <div class="col-lg-4 mb-4">
+                        <div class="col-lg-4 mb-4 {{ $award['options']['office_type'] }} award">
 
                             <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in" href="{{ route('award-nominations.create', $award->slug) }}">
                                 <div class="d-block bg-image w-100 pb-lg-100 pb-150 ds-image-item ds-award-bg"></div>

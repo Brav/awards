@@ -102,7 +102,7 @@ $(".filters").on("click", "#filter-reset", function (e)
 
     $this.addClass('active')
 
-    doSearch(url, filterFilters(parent), container);
+    doSearch(url, [], container);
 });
 
 function doSearch(url, searchData, container) {

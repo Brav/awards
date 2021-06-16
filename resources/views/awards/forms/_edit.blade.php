@@ -37,7 +37,7 @@
 
         <div class="col">
             <div class="form-group">
-                <label class="d-block">Office Type</label>
+                <label class="d-block">Award Category</label>
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" class="custom-control-input" id="office-type-department"
                     name="office_type"
@@ -45,7 +45,7 @@
                     @if (old('office_type', $award['options']['office_type']) === 'department')
                         checked
                     @endif>
-                    <label class="custom-control-label" for="office-type-department">Department</label>
+                    <label class="custom-control-label" for="office-type-department">Support Office</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio"

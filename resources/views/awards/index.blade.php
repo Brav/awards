@@ -21,7 +21,7 @@
                                 <th class="small">Name</th>
                                 <th class="small">Award Type</th>
                                 <th class="small">Always Visible</th>
-                                <th class="small">Office Type</th>
+                                <th class="small">Award Category</th>
                                 <th class="small">Nomination Options</th>
                                 <th class="small">Order</th>
                                 <th class="small">Number of Nominations</th>

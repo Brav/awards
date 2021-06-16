@@ -6,6 +6,7 @@ use App\Models\Award;
 use App\Models\Clinic;
 use App\Models\Department;
 use App\Rules\AdditionalFields;
+use App\Rules\MinWordsRule;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -49,7 +50,7 @@ class AwardNominationCreateRequest extends FormRequest
             'nominations.*' => ['string'],
             // 'fields'        => ['nullable', 'between:' . $minimumFields . ',5', 'array'],
             'fields'   => ['array', 'nullable', new AdditionalFields],
-            'fields.*' => ['nullable', 'string', 'min:3'],
+            'fields.*' => ['nullable', 'string', new MinWordsRule],
         ];
     }
 
