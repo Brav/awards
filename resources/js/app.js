@@ -262,8 +262,6 @@ $("body").on("click", "button[role=award-filter]", function (e) {
 
     let award = $(this).data('award')
 
-    console.log(award);
-
     switch (award) {
         case "all":
             $(".award").removeClass("d-none");
