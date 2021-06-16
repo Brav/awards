@@ -5,7 +5,7 @@
         <div class="js-slider slick-nav-black slick-dotted-inner slick-dotted-white" data-dots="true" data-arrows="true">
             <!-- slide -->
             <div>
-                <div class="bg-image d-flex w-100" style="background-image: url( {{ asset('media/photos/VetPartners-Awards-Banner-1.jpg')}} ); height: 90vh; min-height: 500px">
+                <div class="bg-image d-flex w-100" style="background-image: url( {{ asset('media/images/Clayfield5.jpg')}} ); height: 90vh; min-height: 500px">
                     <div class="d-flex align-items-center justify-content-center w-100 h-100" style="background: rgba(0, 0, 0, .4);">
                         <div class="container">
                             <div class="row">
@@ -24,7 +24,7 @@
 
             <!-- slide -->
             <div>
-                <div class="bg-image d-flex w-100" style="background-image: url({{ asset('media/photos/VetPartners-Awards-Banner-2.jpg')}}); height: 90vh; min-height: 500px">
+                <div class="bg-image d-flex w-100" style="background-image: url({{ asset('media/images/MontroseAndNewNorfolk.jpg')}}); height: 90vh; min-height: 500px">
                     <div class="d-flex align-items-center justify-content-center w-100 h-100" style="background: rgba(0, 0, 0, .4);">
                         <div class="container">
                             <div class="row">
@@ -43,7 +43,7 @@
 
             <!-- slide -->
             <div>
-                <div class="bg-image d-flex w-100" style="background-image: url({{ asset('media/photos/VetPartners-Awards-Banner-3.jpg')}}); height: 90vh; min-height: 500px">
+                <div class="bg-image d-flex w-100" style="background-image: url({{ asset('media/images/QuakersHill.jpg')}}); height: 90vh; min-height: 500px">
                     <div class="d-flex align-items-center justify-content-center w-100 h-100" style="background: rgba(0, 0, 0, .4);">
                         <div class="container">
                             <div class="row">
