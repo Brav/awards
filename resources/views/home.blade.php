@@ -11,8 +11,8 @@
                             <div class="row">
                                 <div class="col-md-8 offset-md-2 text-center">
                                     <h4 class="text-danger bg-white p-2 rounded">Not Currently Live</h4>
-                                    <h2 class="text-white display-4"><strong>Awards Nomination</strong></h2>
-                                    <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking in the award you wish to nominate for</p>
+                                    <h2 class="text-white display-4"><strong>VetPartners Excellence Awards</strong></h2>
+                                    <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
                                     <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 page-scroll">Find out more</a>
                                 </div>
                             </div>
@@ -30,8 +30,8 @@
                             <div class="row">
                                 <div class="col-md-8 offset-md-2 text-center">
                                     <h4 class="text-danger bg-white p-2 rounded">Not Currently Live</h4>
-                                    <h2 class="text-white display-4"><strong>Awards Nomination</strong></h2>
-                                    <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking in the award you wish to nominate for</p>
+                                    <h2 class="text-white display-4"><strong>VetPartners Excellence Awards</strong></h2>
+                                    <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
                                     <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 page-scroll">Find out more</a>
                                 </div>
                             </div>
@@ -49,8 +49,8 @@
                             <div class="row">
                                 <div class="col-md-8 offset-md-2 text-center">
                                     <h4 class="text-danger bg-white p-2 rounded">Not Currently Live</h4>
-                                    <h2 class="text-white display-4"><strong>Awards Nomination</strong></h2>
-                                    <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking in the award you wish to nominate for</p>
+                                    <h2 class="text-white display-4"><strong>VetPartners Excellence Awards</strong></h2>
+                                    <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
                                     <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 page-scroll">Find out more</a>
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
 
             <div class="row">
                 <div class="col-md-6 offset-md-3 text-center">
-                    <h2 class="text-center h1 mb-3">Available Nominations</h2>
+                    <h2 class="text-center h1 mb-3">Nominate a Superstar</h2>
                     <p class="mb-5">Award nominations are designed for everyone to nominate their colleagues for recognition due to exemplary work, effort or other achievement. We appreciate you taking the time to help recognise the great work being done across VetPartners</p>
                 </div>
             </div>
