@@ -87,8 +87,8 @@
 
             <div class="row">
                 <div class="col-md-6 offset-md-3 text-center">
-                    <h2 class="text-center h1 mb-3">Available Nominations</h2>
-                    <p class="mb-5">Award nominations are designed for everyone to nominate their colleagues for recognition due to exemplary work, effort or other achievement. We appreciate you taking the time to help recognise the great work being done across VetPartners</p>
+                    <h2 class="text-center h1 mb-3">Award Categories</h2>
+                    <p class="mb-5">The VetPartners Excellence Award Program is an opportunity to recognise the exceptional performance and commitment, hard work and dedication of clinics and team members within the VetPartners family.</p>
                 </div>
             </div>
 
@@ -112,14 +112,14 @@
                     @foreach ($awards as $award)
                         <div class="col-lg-4 mb-4 {{ $award['options']['office_type'] }} award">
 
-                            <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in" href="{{ route('award-nominations.create', $award->slug) }}">
-                                <div class="d-block bg-image w-100 pb-lg-100 pb-150 ds-image-item ds-award-bg"></div>
-                                <div class="ds-image-overlay bg-black-50 align-items-end pb-3">
+                            <a class="fx-item-zoom-in fx-overlay-zoom-in" href="{{ route('award-nominations.create', $award->slug) }}">
+                                <div class="d-block bg-primary-green w-100 pb-lg-100 pb-150 ds-award-bg"></div>
+                                <div class="ds-image-overlay align-items-end pb-3">
                                     <div class="ds-image-overlay-content text-left px-3">
                                         <h3 class="h3 text-white mb-3">{{ $award->name }}</h3>
                                     </div>
                                 </div>
-                                <div class="ds-image-overlay2 bg-white-50">
+                                <div class="ds-image-overlay2">
                                     <div class="ds-image-overlay-content text-center px-3">
                                         <!-- <span class="h4 text-primary mb-2 text-uppercase px-5 py-3">Read More</span> -->
                                     </div>
