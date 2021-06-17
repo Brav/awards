@@ -94,36 +94,45 @@
 
             <div class="container pb-4">
 
-                <div class="row">
-                    <button type="button" class="btn btn-primary"
+                <div class="row mb-5">
+                    <div class="col-xs-6 col-md-3">
+                        <button type="button" class="btn btn-hero-primary btn-block"
                         role="award-filter"
-                        data-award="all">All Awards</button>
-                    <button type="button" class="btn btn-primary"
+                        data-award="all">All<br />Awards</button>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <button type="button" class="btn btn-hero-primary btn-block"
                         role="award-filter"
-                        data-award="clinics">Clinic Awards</button>
-                    <button type="button" class="btn btn-primary"
+                        data-award="clinics">Clinic<br />Awards</button>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <button type="button" class="btn btn-hero-primary btn-block"
                         role="award-filter"
-                        data-award="deparments">Support Office Awards</button>
-                    <a class="btn btn-primary" href="{{ route('award-nominations.index') }}"
+                        data-award="deparments">Support<br />Office Awards</button>
+                    </div>
+                    <div class="col-xs-6 col-md-3">
+                        <a class="btn btn-hero-primary btn-block" href="{{ route('award-nominations.index') }}"
                     role="button">View Nomination Entries</a>
+                    </div>                    
                 </div>
 
                 <div class="row">
+                    
                     @foreach ($awards as $award)
                         <div class="col-lg-4 mb-4 {{ $award['options']['office_type'] }} award">
 
-                            <a class="fx-item-zoom-in fx-overlay-zoom-in"
-                                href="{{ route('award-nominations.create', $award->slug) }}">
-                                <div class="d-block bg-primary-green w-100 pb-lg-100 pb-150 ds-award-bg"></div>
-                                <div class="ds-image-overlay align-items-end pb-3">
-                                    <div class="ds-image-overlay-content text-left px-3">
-                                        <h3 class="h3 text-white mb-3">{{ $award->name }}</h3>
-                                        <h4 class="h4 text-primary mb-3 font-w400">{{ $award->period }}</h4>
+                            <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in" href="{{ route('award-nominations.create', $award->slug) }}">
+                                <div class="d-block bg-primary-green w-100 pb-150 ds-image-item"></div>
+                                <div class="ds-image-overlay ">
+                                    <div class="ds-image-overlay-content align-items-end text-center px-3">
+                                        <h3 class="h3 text-white mb-3">{{ $award->name }} <span class="font-w400 d-block pt-2">{{ $award->period }}</span></h3>
                                     </div>
                                 </div>
-                                <div class="ds-image-overlay2">
-                                    <div class="ds-image-overlay-content text-center px-3">
-                                        <!-- <span class="h4 text-primary mb-2 text-uppercase px-5 py-3">Read More</span> -->
+                                <div class="ds-image-overlay2 ">
+                                    <div class="ds-image-overlay-content text-center px-5">                                        
+                                        <p class="text-white mb-0">
+                                        <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. -->
+                                        </p>
                                     </div>
                                 </div>
                             </a>
@@ -150,7 +159,7 @@
                         <div class="d-block" style="height: 2px; width: 200px; background:#fff"></div>
                         <br>
                         <p class="text-white mb-3">
-                            Login here to view submitted nominations for your relevant award. If you need a login or are having issues seeing the nominations please contact a href="mailto:helpdesk@vet.partners" class="text-white">helpdesk@vet.partners</a></p>
+                            Login here to view submitted nominations for your relevant award. If you need a login or are having issues seeing the nominations please contact <a href="mailto:helpdesk@vet.partners" class="text-white">helpdesk@vet.partners</a></p>
                         <br>
                         <a href="{{ route('award-nominations.index') }}" class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light">View Nomination Entries</a>
                     </div>
