@@ -76,6 +76,7 @@
                         'layout'    => 'vendor.pagination.bootstrap-4',
                         'role'      => 'users',
                         'container' => 'users-container',
+                        'filter'    => 'user-filters',
                     ])
                 </div>
         </div>

@@ -62,10 +62,11 @@ class Award extends Model
         $format['options'] = [];
         $format['fields']  = [];
 
-        $format['name']        = \trim(\filter_var($data['name'], FILTER_SANITIZE_STRING));
-        $format['description'] = \trim(\filter_var($data['description'], FILTER_SANITIZE_STRING));
-        $format['order']       = (int) $data['order'];
-        $format['period_type'] = (int) $data['period_type'];
+        $format['name']           = \trim(\filter_var($data['name'], FILTER_SANITIZE_STRING));
+        $format['description']    = \trim(\filter_var($data['description'], FILTER_SANITIZE_STRING));
+        $format['order']          = (int) $data['order'];
+        $format['period_type']    = (int) $data['period_type'];
+        $format['always_visible'] = false;
 
         $startingAt = \DateTime::createFromFormat('d/m/Y', $data['starting_at']);
         $endingAt   = \DateTime::createFromFormat('d/m/Y', $data['ending_at']);

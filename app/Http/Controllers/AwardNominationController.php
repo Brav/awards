@@ -141,6 +141,14 @@ class AwardNominationController extends Controller
 
         $award = Award::where('slug', '=', $award)
             ->whereRaw('((starting_at <= ? AND ending_at >= ?) OR always_visible = 1)', [$today, $today])
+            ->when(auth()->guest(), function($query){
+                return $query->whereNull('roles_can_access_for_nomination');
+            })
+            ->when(auth()->user() && ! auth()->user()->admin, function($query)
+            {
+                return $query->whereJsonContains('roles_can_access_for_nomination', auth()->user()->role_id)
+                    ->orWhereNull('roles_can_access_for_nomination');
+            })
             ->firstOrFail();
 
         $awardOffice = $award['options']['office_type'];

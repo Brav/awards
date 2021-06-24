@@ -41,6 +41,16 @@
             var csrfToken = document.head.querySelector('meta[name="csrf-token"]');
         </script>
 
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-99338953-11"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-99338953-11');
+        </script>
+
     </head>
     <body>
         <!-- Page Container -->
