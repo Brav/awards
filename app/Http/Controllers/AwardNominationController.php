@@ -81,8 +81,11 @@ class AwardNominationController extends Controller
         if (!request()->ajax())
         {
 
-            $awards = Award::whereJsonContains('roles_can_access_for_nomination', auth()->user()->role_id)
-            ->orWhereNull('roles_can_access_for_nomination')
+            $awards = Award::when(!auth()->user()->admin, function($query)
+            {
+                return $query->whereJsonContains('roles_can_access_for_nomination', auth()->user()->role_id)
+                            ->orWhereNull('roles_can_access_for_nomination');
+            })
             ->withCount('submittedNominations')
             ->orderBy('name')->get();
 
