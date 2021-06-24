@@ -7,7 +7,7 @@
             <th class="small">Sumbitting team member email</th>
 
             @if ($award->options['office_type'] === 'clinic')
-                <th class="small">Clinic of Nomenee</th>
+                <th class="small">Clinic of Nominee</th>
                 @foreach ($managers as $manager)
                     <th class="small">{{ $managersLabel[$managerTypes[$manager]] }}</th>
                 @endforeach

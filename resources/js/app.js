@@ -262,6 +262,8 @@ $("body").on("click", "button[role=award-filter]", function (e) {
 
     let award = $(this).data('award')
 
+    console.log(award);
+
     switch (award) {
         case "all":
             $(".award").removeClass("d-none");
@@ -269,10 +271,11 @@ $("body").on("click", "button[role=award-filter]", function (e) {
 
         case "clinics":
             $(".award.clinic").removeClass("d-none");
-            $(".award.deparmenet").addClass("d-none");
+            $(".award.department").addClass("d-none");
             break;
 
         case "deparments":
+            console.log($(".award.department"));
             $(".award.clinic").addClass("d-none");
             $(".award.department").removeClass("d-none");
             break;

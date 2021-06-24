@@ -29,33 +29,6 @@ class HomeController extends Controller
             ->orderBy('order')
             ->get();
 
-        $awards = $awards->filter(function($item) use ($role)
-        {
-
-            if(!auth()->user())
-            {
-                return $item->roles_can_access_for_nomination === null;
-            }
-
-            if (!auth()->user()->admin)
-            {
-                if($item->roles_can_access_for_nomination === null)
-                {
-                    return $item;
-                }
-
-                if(in_array(auth()->user()->role_id, $item->roles_can_access_for_nomination))
-                {
-                    return $item;
-                }
-
-            }
-
-            return $item;
-
-
-        });
-
         return view('home', [
             'awards' => $awards,
         ]);

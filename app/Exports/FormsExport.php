@@ -60,7 +60,7 @@ class FormsExport implements FromView
                     'clinic.managers' => function($query) use ($award)
                     {
                         return
-                            $query->whereIn('manager_type_id', $award['options']['clinic_managers_shown']);
+                            $query->whereIn('manager_type_id', $award['options']['clinic_managers_shown'] ?? []);
                     },
                     'clinic.managers.user',];
             }

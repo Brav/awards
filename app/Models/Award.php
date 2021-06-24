@@ -83,7 +83,7 @@ class Award extends Model
 
         if($data['office_type'] === 'clinic')
         {
-            $format['options']['clinic_managers_shown'] = $data['clinic_managers_shown'];
+            $format['options']['clinic_managers_shown'] = $data['clinic_managers_shown'] ?? null;
         }
 
         if(isset($data['nominations']))

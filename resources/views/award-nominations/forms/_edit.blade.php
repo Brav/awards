@@ -21,7 +21,7 @@
 
         <div class="col">
             <div class="form-group">
-                <label for="member_logged_email">Sumbitting team member email</label>
+                <label for="member_logged_email">Submitting team member email</label>
                 <input type="text" class="form-control"
                 name=member_logged_email
                 id="member_logged_email"
@@ -40,7 +40,7 @@
 
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="clinic_id">Clinic of Nomenee</label>
+                    <label for="clinic_id">Clinic of Nominee</label>
                     <select class="form-control select2" name="clinic_id" id="clinic_id">
                         <option></option>
                         @foreach ($offices as $clinic)

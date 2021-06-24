@@ -44,7 +44,7 @@ class AwardNominationController extends Controller
                     'clinic.managers' => function($query) use ($award)
                     {
                         return
-                            $query->whereIn('manager_type_id', $award['options']['clinic_managers_shown']);
+                            $query->whereIn('manager_type_id', $award['options']['clinic_managers_shown'] ?? []);
                     },
                     'clinic.managers.user',];
             }
@@ -144,15 +144,19 @@ class AwardNominationController extends Controller
 
         $award = Award::where('slug', '=', $award)
             ->whereRaw('((starting_at <= ? AND ending_at >= ?) OR always_visible = 1)', [$today, $today])
-            ->when(auth()->guest(), function($query){
-                return $query->whereNull('roles_can_access_for_nomination');
-            })
             ->when(auth()->user() && ! auth()->user()->admin, function($query)
             {
                 return $query->whereJsonContains('roles_can_access_for_nomination', auth()->user()->role_id)
                     ->orWhereNull('roles_can_access_for_nomination');
             })
             ->firstOrFail();
+
+        if(auth()->guest() && $award->roles_can_access_for_nomination !== null)
+        {
+            request()->session()->put('url.intended', route('award-nominations.create', $award->slug));
+
+            return redirect('login');
+        }
 
         $awardOffice = $award['options']['office_type'];
 
@@ -162,7 +166,7 @@ class AwardNominationController extends Controller
                 'managers' => function($query) use ($award)
                 {
                     return
-                        $query->whereIn('manager_type_id', $award['options']['clinic_managers_shown']);
+                        $query->whereIn('manager_type_id', $award['options']['clinic_managers_shown'] ?? []);
                 },
                 'managers.user'])
                 ->orderBy('name', 'asc')
@@ -250,7 +254,7 @@ class AwardNominationController extends Controller
                 'managers' => function($query) use ($award)
                 {
                     return
-                        $query->whereIn('manager_type_id', $award['options']['clinic_managers_shown']);
+                        $query->whereIn('manager_type_id', $award['options']['clinic_managers_shown'] ?? []);
                 },
                 'managers.user'])
                 ->orderBy('name', 'asc')
