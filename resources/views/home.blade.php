@@ -172,47 +172,47 @@
         </div>
     </section>
 
-  <!--   <section>
+    <section>
         <div class="section-wrapper py-5">
             <div class="container-xl pb-4 py-5">
                 <div class="row no-gutters">
                     <div class="col-lg-8">
-                        <div class="d-block h-100 bg-image" style="background: url({{ asset('media/photos/VetPartners-Awards-4.jpg')}});"></div>
+                        <div class="d-block h-100 bg-image" style="background: url({{ asset('media/photos/VetPartners-Awards-5.jpg')}});"></div>
                     </div>
                     <div class="col-lg-4">
                         <div class="col-inner py-4 px-5" style="background: #d8efee">
 
-                            <h2 class="text-primary pt-4">Why I Joined<br /> VetPartners</h2>
+                            <h2 class="text-primary pt-4">Award <br /> Information</h2>
 
                             <div class="d-block" style="height: 2px; width: 200px; background:#a5cf4c"></div>
                             <br>
                             <br>
 
 
-                            <p>“The greatest advantage for us in transitioning to VetPartners is we’ve got more time to be vets, it’s business as usual without any of the noise”</p>
+                            <p>Find out more information about the many different Clinic and SO awards!</p>
 
                             <br>
                             <br>
 
-                            <p class="mb-0"><strong>DR HOLLY GOLDRING & DR ASHLEY YOUNG</strong></p>
-                            <p><strong>BETTER PET VETS, MACKAY</strong></p>
+                            <p class="mb-0"><strong><a href="#" download>PDF 1</a></strong></p>
+                            <p><strong><a href="#" download>PDF 2</a></strong></p>
                         </div>
 
                     </div>
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
 @endsection
 
 @section('js_after')
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function() {
      var images = ['VetPartners-Awards-1.jpg', 'VetPartners-Awards-2.jpg', 'VetPartners-Awards-3.jpg', 'VetPartners-Awards-4.jpg', 'VetPartners-Awards-5.jpg', 'VetPartners-Awards-6.jpg', 'VetPartners-Awards-7.jpg', 'VetPartners-Awards-8.jpg', 'VetPartners-Awards-9.jpg', 'VetPartners-Awards-10.jpg', 'VetPartners-Awards-11.jpg', 'VetPartners-Awards-12.jpg', 'VetPartners-Awards-13.jpg', 'VetPartners-Awards-14.jpg', 'VetPartners-Awards-15.jpg'];
      $('.ds-award-bg').each(function() {
         $(this).css({'background-image': 'url(media/photos/' + images[Math.floor(Math.random() * images.length)] + ')'});
      })
 })
-</script>
+</script> -->
 @endsection
