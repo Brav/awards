@@ -22,7 +22,7 @@ class AwardController extends Controller
     public function index()
     {
         $items = Award::withCount(['submittedNominations'])
-            ->withTrashed()
+            // ->withTrashed()
             ->when(!auth()->user()->admin, function($query)
             {
                 return $query->whereJsonContains('roles', auth()->user()->role_id);

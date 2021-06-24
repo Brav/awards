@@ -39,7 +39,7 @@ class AwardCreateRequest extends FormRequest
             'description'             => ['nullable', 'string'],
             'starting_at'             => ['nullable', 'date_format:d/m/Y'],
             'ending_at'               => ['nullable', 'date_format:d/m/Y'],
-            'clinic_managers_shown'   => ['required_if:office_type,clinic'],
+            'clinic_managers_shown'   => ['nullable'],
             'clinic_managers_shown.*' => ['nullable', 'string',
                     Rule::in(\array_keys(ClinicManagers::$managerTypes))],
             'nominations'                    => ['nullable',],
