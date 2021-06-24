@@ -33,7 +33,7 @@ class MinWordsRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        return \str_word_count($value) <= $this->minWords;
+        return \str_word_count($value) >= $this->minWords;
     }
 
     /**
