@@ -21,7 +21,7 @@
                         <strong class="text-primary2">Thank You!</strong>
                     </h1>
                     <br>
-                    <p class="mb-5">Your nomination has been added to the list of candidates. We really appreciate you recognising the good work of a college and letting us know! If your nominee is selected, he/she will be contacted directly.</p>
+                    <p class="mb-5">Your nomination has been added to the list of candidates. We really appreciate you recognising the good work of a colleague and letting us know! If your nominee is selected, he/she will be contacted directly.</p>
 
                     <a class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light" href="{{ route('home') }}" role="button">New Nomination</a>
                 </div>
