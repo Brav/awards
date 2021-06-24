@@ -131,6 +131,9 @@ h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong,
 .bg-primary-green {
     background-color: #a5cf4c !important;
 }
+.bg-primary-turquoise {
+    background-color: #009292 !important;
+}
 .bg-primary-dark {
     background-color: #00434f !important;
 }
@@ -795,13 +798,7 @@ footer .view {
 #world-map {
     padding-left: 100px;
 }
-path:not(.ds-disable):hover, circle:not(.ds-disable):hover {
-  stroke: #00616d !important;
-  stroke-width:2px;
-  stroke-linejoin: round;
-  fill: #00616d !important;
-  cursor: pointer;
-}
+
 .ds-disable {
 fill: #bbb !important;
 }
