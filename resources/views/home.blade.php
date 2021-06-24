@@ -117,7 +117,7 @@
                 </div>
 
                 <div class="row">
-
+        
                     @foreach ($awards as $award)
                         <div class="col-lg-4 mb-4 {{ $award['options']['office_type'] }} award">
 
@@ -194,7 +194,7 @@
                             <br>
                             <br>
 
-                            <p class="mb-0"><strong><a href="#" download>PDF 1</a></strong></p>
+                            <p class="mb-0"><strong><a href="{{ asset('media/downloads/Awards-Clinic-Information.pdf')}}" download>Awards-Clinic-Information.pdf</a></strong></p>
                             <p><strong><a href="#" download>PDF 2</a></strong></p>
                         </div>
 
