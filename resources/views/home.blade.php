@@ -195,7 +195,7 @@
                             <br>
 
                             <p class="mb-0"><strong><a href="{{ asset('media/downloads/Awards-Clinic-Information.pdf')}}" download>Awards-Clinic-Information.pdf</a></strong></p>
-                            <p><strong><a href="#" download>PDF 2</a></strong></p>
+                            <p><strong><a href="{{ asset('media/downloads/Awards-Support-Information.pdf')}}" download>Awards-Support-Information.pdf</a></strong></p>
                         </div>
 
                     </div>
