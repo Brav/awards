@@ -10,7 +10,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6 pt-5 mt-5">
-                                    
+
                                     <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
                                     <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 page-scroll">Find out more</a>
@@ -29,7 +29,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6 pt-5 mt-5">
-                                    
+
                                     <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
                                     <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 page-scroll">Find out more</a>
@@ -48,7 +48,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-6 pt-5 mt-5">
-                                    
+
                                     <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
                                     <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 page-scroll">Find out more</a>
@@ -113,11 +113,11 @@
                     <div class="col-xs-6 col-md-3">
                         <a class="btn btn-hero-primary btn-block" href="{{ route('award-nominations.index') }}"
                     role="button">View Nomination Entries</a>
-                    </div>                    
+                    </div>
                 </div>
 
                 <div class="row">
-                    
+
                     @foreach ($awards as $award)
                         <div class="col-lg-4 mb-4 {{ $award['options']['office_type'] }} award">
 
@@ -130,9 +130,9 @@
                                     </div>
                                 </div>
                                 <div class="ds-image-overlay2 ">
-                                    <div class="ds-image-overlay-content text-center px-5">                                        
+                                    <div class="ds-image-overlay-content text-center px-5">
                                         <p class="text-white mb-0">
-                                        <!-- Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. -->
+                                            {{ $award->description }}
                                         </p>
                                     </div>
                                 </div>
