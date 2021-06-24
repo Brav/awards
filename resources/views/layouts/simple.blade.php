@@ -26,6 +26,7 @@
 
         <!-- You can include a specific file from public/css/themes/ folder to alter the default color theme of the template. eg: -->
         <link rel="stylesheet" id="css-theme" href="{{ asset('css/themes/xinspire.css') }}">
+        <link rel="stylesheet" id="css-theme" href="{{ asset('css/custom.css') }}">
         @yield('css_after')
 
         <!-- Scripts -->
@@ -41,6 +42,7 @@
         </script>
     </head>
     <body>
+
         <!-- Page Container -->
         <div id="page-container">
 
@@ -48,17 +50,51 @@
             <main id="main-container">
                 <!-- Page Content -->
                 <div class="row no-gutters justify-content-center bg-body-dark">
-                    <div class="hero-static col-sm-12 col-md-10 col-xl-8 align-items-center p-2 px-sm-0 bg-body-white">
-                        <div class="card-body">
-                            @if (session('status'))
-                                <div class="alert alert-{{ session('status.type') }}" role="alert">
-                                    {!! session('status.message') !!}
-                                </div>
-                            @endif
-                        </div>
-                        @yield('content')
-                    </div>
+                    <div class="hero-static col-sm-12 col-md-10 col-xl-8 d-flex align-items-center p-2 px-sm-0">
+                        <!-- Sign In Block -->
+                        <div class="block block-rounded block-transparent block-fx-pop w-100 mb-0 overflow-hidden bg-image" style="background-image: url();">
+                            <div class="row no-gutters">
+                                <div class="col-md-6 order-md-1 bg-white">
+                                    <div class="block-content block-content-full px-lg-5 py-md-5 py-lg-6">
 
+                                        <!-- Header -->
+                                        <div class="mb-3 d-block text-center">
+
+                                            <div class="card-body">
+                                                @if (session('status'))
+                                                    <div class="alert alert-{{ session('status.type') }}" role="alert">
+                                                        {!! session('status.message') !!}
+                                                    </div>
+                                                @endif
+                                            </div>
+
+                                            @include('layouts.partials.logo')
+                                        </div>
+                                        <!-- END Header -->
+
+                                        @yield('content')
+                                    </div>
+                                </div>
+                                <div class="col-md-6 order-md-0 bg-primary d-flex align-items-center">
+                                    <div class="block-content block-content-full px-lg-5 py-md-5 py-lg-6">
+                                        <div class="media">
+                                           <!--  <a class="img-link mr-3" href="javascript:void(0)">
+                                                <img class="img-avatar img-avatar-thumb" src="{{ asset('media/avatars/avatar16.jpg') }}" alt="">
+                                            </a> -->
+                                            <div class="media-body">
+                                                <p class="text-white font-w600 mb-1">
+                                                    Award nominations are designed for everyone to nominate their colleagues for recognition due to exemplary work, effort or other achievement. We appreciate you taking the time to help recognise the great work being done across VetPartners
+
+
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Sign In Block -->
+                    </div>
                 </div>
                 <!-- END Page Content -->
             </main>
