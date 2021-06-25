@@ -94,7 +94,7 @@ $('body').on('change', '#awardCategory', function (e) {
         return;
     }
 
-     getNominations(url, $("#selectYear").val());
+    getNominations(url, $("#selectYear").val());
 
 });
 
@@ -112,6 +112,17 @@ $("body").on("change", "#selectYear", function (e) {
 
     getNominations(category.find('option:selected').data('url'), $this.val())
 
+});
+
+$(function () {
+    let category = $("#awardCategory");
+
+    if(category.length && category.val() !== 'select')
+    {
+        let url = category.find("option:selected").data("url");
+
+        getNominations(url, $("#selectYear").val());
+    }
 });
 
 function setClinicManager() {
