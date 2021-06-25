@@ -121,7 +121,7 @@
                     @foreach ($awards as $award)
                         <div class="col-lg-4 mb-4 {{ $award['options']['office_type'] }} award">
 
-                            <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in overflow-auto" href="{{ route('award-nominations.create', $award->slug) }}">
+                            <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in overflow-visible" href="{{ route('award-nominations.create', $award->slug) }}">
                                 <div class="d-block bg-primary-turquoise w-100 pb-150 ds-image-item"></div>
                                 <div class="ds-image-overlay ">
                                     <div class="ds-image-overlay-content align-items-end text-center px-3">
