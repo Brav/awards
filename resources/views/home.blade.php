@@ -86,7 +86,7 @@
         <div class="container py-4">
 
             <div class="row">
-                <div class="col-md-6 ">
+                <div class="col-12 ">
                     <h2 class="h1 mb-3">Nominate a Superstar</h2>
                     <p class="mb-5">Award nominations are designed for everyone to nominate their colleagues for recognition due to exemplary work, effort or other achievement. We appreciate you taking the time to help recognise the great work being done across VetPartners</p>
                 </div>
@@ -121,7 +121,7 @@
                     @foreach ($awards as $award)
                         <div class="col-lg-4 mb-4 {{ $award['options']['office_type'] }} award">
 
-                            <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in" href="{{ route('award-nominations.create', $award->slug) }}">
+                            <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in overflow-auto" href="{{ route('award-nominations.create', $award->slug) }}">
                                 <div class="d-block bg-primary-turquoise w-100 pb-150 ds-image-item"></div>
                                 <div class="ds-image-overlay ">
                                     <div class="ds-image-overlay-content align-items-end text-center px-3">
@@ -146,32 +146,7 @@
             </div>
         </div>
     </section>
-
-    <section class="bg-image mb-5" style="background: url({{ asset('media/photos/VetPartners-Awards-4.jpg')}})">
-        <div class="section-wrapper bg-black-50 py-5">
-
-            <div class="container-xl pb-4 py-5">
-
-                <div class="row pr-lg-5 h-100 align-items-center">
-                  <div class="col-md-5 mb-4">
-
-                    <div>
-                        <h2 class="mb-4 text-primary2">View Nomination Entries</h2>
-                        <div class="d-block" style="height: 2px; width: 200px; background:#fff"></div>
-                        <br>
-                        <p class="text-white mb-3">
-                            Login here to view submitted nominations for your relevant award. If you need a login or are having issues seeing the nominations please contact <a href="mailto:helpdesk@vet.partners" class="text-white">helpdesk@vet.partners</a></p>
-                        <br>
-                        <a href="{{ route('award-nominations.index') }}" class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light">View Nomination Entries</a>
-                    </div>
-
-                  </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
+ 
     <section>
         <div class="section-wrapper py-5">
             <div class="container-xl pb-4 py-5">
@@ -189,7 +164,7 @@
                             <br>
 
 
-                            <p>Find out more information about the many different Clinic and SO awards!</p>
+                            <p>Find out more information about the many different Clinic and Support Office awards!</p>
 
                             <br>
                             <br>
@@ -200,6 +175,31 @@
 
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-image" style="background: url({{ asset('media/photos/VetPartners-Awards-4.jpg')}});">
+        <div class="section-wrapper bg-black-50 py-5">
+
+            <div class="container-xl pb-4 py-5">
+
+                <div class="row pr-lg-5 h-100 align-items-center">
+                  <div class="col-md-5 mb-4">
+
+                    <div>
+                        <h2 class="mb-4 text-primary2">View Nomination Entries</h2>
+                        <div class="d-block" style="height: 2px; width: 200px; background:#fff"></div>
+                        <br>
+                        <p class="text-white mb-3">
+                            Login here to view submitted nominations for your team. If you need a login or are having issues seeing the nominations please contact <a href="mailto:helpdesk@vet.partners" class="text-white">helpdesk@vet.partners</a></p>
+                        <br>
+                        <a href="{{ route('award-nominations.index') }}" class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light">View Nomination Entries</a>
+                    </div>
+
+                  </div>
+                </div>
+
             </div>
         </div>
     </section>
