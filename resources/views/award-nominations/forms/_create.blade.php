@@ -149,11 +149,11 @@
 
         @if (count($award['fields']) > 1)
             <div class="form-row align-items-center mb-3">
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <label>Nomination</label>
                 </div>
 
-                <div class="col">
+                <div class="col-md-8">
                     <label>Nomination based on {{ $award->options['fields_minimum'] }} or more of the following  categories</label>
                     @error('fields')
                         <div class="alert alert-danger">You need to write at least {{ $award->options['fields_minimum'] }} or more of the following  categories</div>
@@ -167,11 +167,11 @@
                 $fieldName = \str_replace(' ', '_', $field);
             @endphp
             <div class="form-row align-items-center">
-                <div class="col-md-2">
+                <div class="col-md-4">
                     <label for="fields_{{ $fieldName }}">{{ $field }}</label>
                 </div>
 
-                <div class="col">
+                <div class="col-md-8">
                     <div class="form-group">
                       <textarea class="form-control"
                         placeholder="Please write your answer here. {{ $field }}"
