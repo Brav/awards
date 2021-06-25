@@ -24,7 +24,7 @@
             <div class="form-group">
 
                 <div class="form-group">
-                  <label for="nomination_category_id">Nominaiton Category</label>
+                  <label for="nomination_category_id">Nomination Category</label>
                   <select class="form-control" name="nomination_category_id" id="nomination_category_id">
                       @foreach ($categories as $category)
                         <option

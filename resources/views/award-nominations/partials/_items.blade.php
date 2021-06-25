@@ -7,7 +7,7 @@
         <th>{{ $item->member_logged_email }}</th>
 
         @if ($award->options['office_type'] === 'clinic')
-            <th>{{ $item->clinic->name }}</th>
+            <th>{{ optional($item->clinic)->name ?? '/' }}</th>
             @foreach ($managers as $manager)
                 @php
                     $managerType = $managerTypes[$manager];

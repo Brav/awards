@@ -16,7 +16,7 @@
 
         <div class="col">
             <div class="form-group">
-                <label for="member_logged">Nominaiton submitted by</label>
+                <label for="member_logged">Nomination submitted by</label>
                 <input type="text" class="form-control" name=member_logged id="member_logged" value="{{ old('member_logged') }}">
 
                 @error('member_logged')
@@ -141,9 +141,9 @@
 
     </div>
 
-    @if ($nominationCategories)
+    {{-- @if ($nominationCategories)
         @include('award-nominations/partials/_nominations')
-    @endif
+    @endif --}}
 
     @if (!empty($award['fields']))
 
@@ -174,7 +174,7 @@
                 <div class="col">
                     <div class="form-group">
                       <textarea class="form-control"
-                        placeholder="Please write a brief description of how the team member demonstrates a commitment to {{ $field }}"
+                        placeholder="Please write your answer here. {{ $field }}"
                         name="fields[{{$fieldName  }}]"
                         id="fields_{{ $fieldName }}">{{ old('fields') ? old('fields')[$fieldName] : '' }}</textarea>
 

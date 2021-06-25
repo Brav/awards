@@ -44,8 +44,8 @@ class AwardUpdateRequest extends FormRequest
             'clinic_managers_shown'   => ['nullable'],
             'clinic_managers_shown.*' => ['nullable', 'string',
                     Rule::in(\array_keys(ClinicManagers::$managerTypes))],
-            'nominations'                    => ['required', 'min:1'],
-            'nominations.*'                  => ['required', 'numeric'],
+            'nominations'                    => ['nullable', 'min:1'],
+            'nominations.*'                  => ['nullable', 'numeric'],
             'number_of_nomination_to_select' => ['nullable', 'numeric', 'min:1'],
             'nomination_category_text'       => ['nullable', 'string', 'min:3'],
             'additional_field.*'             => ['nullable', 'string']

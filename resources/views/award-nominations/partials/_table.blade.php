@@ -3,8 +3,8 @@
     <thead>
         <tr>
             <th class="small">Date/time submitted</th>
-            <th class="small">Nominaiton submitted by</th>
-            <th class="small">Sumbitting team member email</th>
+            <th class="small">Nomination submitted by</th>
+            <th class="small">Submitting team member email</th>
 
             @if ($award->options['office_type'] === 'clinic')
                 <th class="small">Clinic of Nominee</th>

@@ -47,7 +47,7 @@ class AwardNominationCreateRequest extends FormRequest
             ],
             'nominee'       => ['required', 'min:3', 'string'],
             'nominations'   => ['nullable', 'min:' . $minimum],
-            'nominations.*' => ['string'],
+            'nominations.*' => ['nullable','string'],
             // 'fields'        => ['nullable', 'between:' . $minimumFields . ',5', 'array'],
             'fields'   => ['array', 'nullable', new AdditionalFields],
             'fields.*' => ['nullable', 'string', new MinWordsRule],

@@ -9,7 +9,7 @@
 
         <div class="col">
             <div class="form-group">
-                <label for="member_logged">Nominaiton submitted by</label>
+                <label for="member_logged">Nomination submitted by</label>
                 <input type="text" class="form-control" name=member_logged id="member_logged"
                 value="{{ old('member_logged', $item->member_logged) }}">
 
