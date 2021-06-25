@@ -199,6 +199,7 @@
                 <div class="col">
                     <div class="form-group">
                       <textarea class="form-control"
+                        placeholder="Please write your answer here."
                         name="fields[{{$fieldName  }}]"
                         id="fields_{{ $fieldName }}">{{ old('fields') ? old('fields')[$fieldName] : '' }}</textarea>
 
