@@ -70,7 +70,7 @@
                     </select>
 
                     @error('clinic_id')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger">Please select clinic</div>
                     @enderror
                 </div>
             </div>
@@ -103,7 +103,7 @@
                     </select>
 
                     @error('department_id')
-                        <div class="alert alert-danger">{{ $message }}</div>
+                        <div class="alert alert-danger">Please select support office</div>
                     @enderror
                 </div>
             </div>

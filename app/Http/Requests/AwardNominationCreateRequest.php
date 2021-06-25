@@ -39,10 +39,10 @@ class AwardNominationCreateRequest extends FormRequest
             ],
             'member_logged'       => ['required', 'min:3', 'string'],
             'member_logged_email' => ['required', 'email'],
-            'clinic_id'           => ['nullable',
+            'clinic_id'           => ['required_without:department_id',
                 Rule::in(Clinic::all()->pluck('id')->toArray())
             ],
-            'department_id'       => ['nullable',
+            'department_id'       => ['required_without:clinic_id',
                 Rule::in(Department::all()->pluck('id')->toArray())
             ],
             'nominee'       => ['required', 'min:3', 'string'],
