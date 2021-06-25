@@ -146,38 +146,6 @@
             </div>
         </div>
     </section>
- 
-    <section>
-        <div class="section-wrapper py-5">
-            <div class="container-xl pb-4 py-5">
-                <div class="row no-gutters">
-                    <div class="col-lg-8">
-                        <div class="d-block h-100 bg-image" style="background: url({{ asset('media/photos/VetPartners-Awards-5.jpg')}});"></div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="col-inner py-4 px-5" style="background: #d8efee">
-
-                            <h2 class="text-primary pt-4">Award <br /> Information</h2>
-
-                            <div class="d-block" style="height: 2px; width: 200px; background:#a5cf4c"></div>
-                            <br>
-                            <br>
-
-
-                            <p>Find out more information about the many different Clinic and Support Office awards!</p>
-
-                            <br>
-                            <br>
-
-                            <p class="mb-0"><strong><a href="{{ asset('media/downloads/Awards-Clinic-Information.pdf')}}" download>Awards Clinic Information</a></strong></p>
-                            <p><strong><a href="{{ asset('media/downloads/Awards-Support-Information.pdf')}}" download>Awards Support Information</a></strong></p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="bg-image" style="background: url({{ asset('media/photos/VetPartners-Awards-4.jpg')}});">
         <div class="section-wrapper bg-black-50 py-5">
@@ -188,13 +156,14 @@
                   <div class="col-md-5 mb-4">
 
                     <div>
-                        <h2 class="mb-4 text-primary2">View Nomination Entries</h2>
+                        <h2 class="mb-4 text-primary2">Award Information</h2>
                         <div class="d-block" style="height: 2px; width: 200px; background:#fff"></div>
                         <br>
                         <p class="text-white mb-3">
-                            Login here to view submitted nominations for your team. If you need a login or are having issues seeing the nominations please contact <a href="mailto:helpdesk@vet.partners" class="text-white">helpdesk@vet.partners</a></p>
+                            Find out more information about the many different Clinic and Support Office awards!</a></p>
                         <br>
-                        <a href="{{ route('award-nominations.index') }}" class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light">View Nomination Entries</a>
+                        <a href="{{ asset('media/downloads/Awards-Clinic-Information.pdf')}}" download class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light mb-3">Awards Clinic Information</a>
+                        <a href="{{ asset('media/downloads/Awards-Support-Information.pdf')}}" download class="btn btn-hero btn-hero-light btn-hero-lg waves-effect waves-light">Awards Support Information</a>
                     </div>
 
                   </div>
@@ -203,6 +172,40 @@
             </div>
         </div>
     </section>
+
+    <section>
+        <div class="section-wrapper py-5">
+            <div class="container-xl pb-4 py-5">
+                <div class="row no-gutters">
+                    <div class="col-lg-8">
+                        <div class="d-block h-100 bg-image" style="background: url({{ asset('media/photos/VetPartners-Awards-5.jpg')}});"></div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="col-inner py-4 px-5" style="background: #d8efee">
+
+                            <h2 class="text-primary pt-4">View Nomination <br /> Entries</h2>
+
+                            <div class="d-block" style="height: 2px; width: 200px; background:#a5cf4c"></div>
+                            <br>
+                            <br>
+
+
+                            <p>Login here to view submitted nominations for your team. If you need a login or are having issues seeing the nominations please contact <a href="mailto:helpdesk@vet.partners" class="font-w700">helpdesk@vet.partners</a></p>
+
+                            <br>
+                            <br>
+
+                            <p class="mb-0"><strong><a href="{{ route('award-nominations.index') }}" class="">View Nomination Entries</a></strong></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
 
 @endsection
 
