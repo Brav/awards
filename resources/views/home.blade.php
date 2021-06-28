@@ -9,11 +9,11 @@
                     <div class="d-flex align-items-center justify-content-center w-100 h-100" style="background: rgba(0, 0, 0, .4);">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-6 pt-5 mt-5">
+                                <div class="col-md-12 pt-5 mt-5">
 
                                     <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
-                                    <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 page-scroll">Find out more</a>
+                                    <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
                                 </div>
                             </div>
                         </div>
@@ -28,11 +28,11 @@
                     <div class="d-flex align-items-center justify-content-center w-100 h-100" style="background: rgba(0, 0, 0, .4);">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-6 pt-5 mt-5">
+                                <div class="col-md-12 pt-5 mt-5">
 
                                     <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
-                                    <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 page-scroll">Find out more</a>
+                                    <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
                                 </div>
                             </div>
                         </div>
@@ -47,11 +47,11 @@
                     <div class="d-flex align-items-center justify-content-center w-100 h-100" style="background: rgba(0, 0, 0, .4);">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-6 pt-5 mt-5">
+                                <div class="col-md-12 pt-5 mt-5">
 
                                     <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
-                                    <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 page-scroll">Find out more</a>
+                                    <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
                                 </div>
                             </div>
                         </div>
@@ -117,16 +117,16 @@
                 </div>
 
                 <div class="row">
-
+                    
                     @foreach ($awards as $award)
                         <div class="col-lg-4 mb-4 {{ $award['options']['office_type'] }} award">
 
                             <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in overflow-visible" href="{{ route('award-nominations.create', $award->slug) }}">
-                                <div class="d-block bg-primary-turquoise w-100 pb-150 ds-image-item"></div>
+                                <div class="d-block bg-primary-sky w-100 pb-150 ds-image-item"></div>
                                 <div class="ds-image-overlay ">
                                     <div class="ds-image-overlay-content align-items-end text-center px-3">
-                                        <i class="fas fa-award d-block text-center fa-3x mb-3"></i>
-                                        <h3 class="h3 text-white mb-3">{{ $award->name }} <span class="font-w400 d-block pt-2">{{ $award->period }}</span></h3>
+                                        <img src="{{ asset('media/images/VP_Awards_Icon_GEM.png')}}" alt="" class="d-block m-auto" style="max-width: 80px;">
+                                        <h3 class="h3 text-white my-3">{{ $award->name }} <span class="font-w400 d-block pt-2">{{ $award->period }}</span></h3>
                                     </div>
                                 </div>
                                 <div class="ds-image-overlay2 ">
@@ -147,7 +147,7 @@
         </div>
     </section>
 
-    <section class="bg-image" style="background: url({{ asset('media/photos/VetPartners-Awards-4.jpg')}});">
+    <section id="Award-Information" class="bg-image" style="background: url({{ asset('media/photos/VetPartners-Awards-4.jpg')}});">
         <div class="section-wrapper bg-black-50 py-5">
 
             <div class="container-xl pb-4 py-5">
@@ -162,8 +162,8 @@
                         <p class="text-white mb-3">
                             Find out more information about the many different Clinic and Support Office awards!</a></p>
                         <br>
-                        <a href="{{ asset('media/downloads/Awards-Clinic-Information.pdf')}}" download class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light mb-3">Awards Clinic Information</a>
-                        <a href="{{ asset('media/downloads/Awards-Support-Information.pdf')}}" download class="btn btn-hero btn-hero-light btn-hero-lg waves-effect waves-light">Awards Support Information</a>
+                        <a href="{{ asset('media/downloads/Awards-Clinic-Information.pdf')}}" download class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light mb-3">CLINIC AWARDS INFORMATION</a>
+                        <a href="{{ asset('media/downloads/Awards-Support-Information.pdf')}}" download class="btn btn-hero btn-hero-light btn-hero-lg waves-effect waves-light">SUPPORT OFFICE AWARDS INFORMATION</a>
                     </div>
 
                   </div>
