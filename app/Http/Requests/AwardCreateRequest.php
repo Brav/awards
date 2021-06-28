@@ -47,7 +47,8 @@ class AwardCreateRequest extends FormRequest
             'number_of_nomination_to_select' => ['nullable', 'numeric', 'min:1'],
             'nomination_category_text'       => ['nullable', 'string', 'min:3'],
             'additional_field.*'             => ['nullable', 'string'],
-            'number_of_fields_to_fill.*'     => ['nullable', 'numeric']
+            'number_of_fields_to_fill.*'     => ['nullable', 'numeric'],
+            'background'                     => ['image' , 'mimes:jpeg,png,jpg', 'max:2048',]
 
         ];
     }

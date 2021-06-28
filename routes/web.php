@@ -111,6 +111,9 @@ Route::prefix('awards')->middleware(['auth'])->group(function () {
         ->name('awards.update');
     Route::delete('destroy/{award}', [AwardController::class, 'destroy'])
         ->name('awards.destroy');
+
+    Route::delete('background-delete/{award}', [AwardController::class, 'backgroundDelete'])
+        ->name('award.background-delete');
 });
 
 Route::prefix('departments')->middleware(['auth'])->group(function () {

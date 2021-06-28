@@ -7,7 +7,8 @@
 </div>
 <form
     action="{{ route('awards.store') }}"
-    method="POST">
+    method="POST"
+    enctype="multipart/form-data">
     @csrf
 
     <div class="form-row align-items-center">
@@ -281,6 +282,14 @@
             </div>
         </div>
     </div>
+
+    <div class="form-row align-items-center mb-3">
+        <div class="form-group">
+            <label class="d-block" for="background">Background</label>
+            <input type="file" id="background" name="background">
+        </div>
+    </div>
+
 
     <button type="submit" class="btn btn-primary">Create</button>
 </form>

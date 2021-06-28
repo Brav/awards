@@ -1,3 +1,6 @@
+@php
+    use Illuminate\Support\Facades\Storage;
+@endphp
 @extends('layouts.public')
 
 @section('banner')
@@ -119,11 +122,23 @@
                 <div class="row">
 
                     @foreach ($awards as $award)
+                        @php
+                            $background = null;
+                        @endphp
+                        @if (Storage::disk('local')->exists('background/awards_' . $award->id))
+                            @php
+                                $background = Storage::url('background/awards_' . $award->id);
+                            @endphp
+                        @endif
                         <div class="col-lg-4 mb-4 {{ $award['options']['office_type'] }} award">
-
-                            <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in overflow-visible" href="{{ route('award-nominations.create', $award->slug) }}">
+                            <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in overflow-visible"
+                                href="{{ route('award-nominations.create', $award->slug) }}"
+                                >
                                 <div class="d-block bg-primary-sky w-100 pb-150 ds-image-item"></div>
-                                <div class="ds-image-overlay ">
+                                <div class="ds-image-overlay "
+                                @if ($background)
+                                    style='background-image: url("{{ $background }}/background.png")'
+                                @endif>
                                     <div class="ds-image-overlay-content align-items-end text-center px-3">
                                         <img src="{{ asset('media/images/VP_Awards_Icon_GEM.png')}}" alt="" class="d-block m-auto" style="max-width: 100px;">
                                         <h3 class="h3 text-primary my-3">{{ $award->name }} <span class="font-w400 d-block pt-2">{{ $award->period }}</span></h3>
@@ -210,12 +225,4 @@
 @endsection
 
 @section('js_after')
-<!-- <script type="text/javascript">
-$(document).ready(function() {
-     var images = ['VetPartners-Awards-1.jpg', 'VetPartners-Awards-2.jpg', 'VetPartners-Awards-3.jpg', 'VetPartners-Awards-4.jpg', 'VetPartners-Awards-5.jpg', 'VetPartners-Awards-6.jpg', 'VetPartners-Awards-7.jpg', 'VetPartners-Awards-8.jpg', 'VetPartners-Awards-9.jpg', 'VetPartners-Awards-10.jpg', 'VetPartners-Awards-11.jpg', 'VetPartners-Awards-12.jpg', 'VetPartners-Awards-13.jpg', 'VetPartners-Awards-14.jpg', 'VetPartners-Awards-15.jpg'];
-     $('.ds-award-bg').each(function() {
-        $(this).css({'background-image': 'url(media/photos/' + images[Math.floor(Math.random() * images.length)] + ')'});
-     })
-})
-</script> -->
 @endsection

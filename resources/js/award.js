@@ -155,6 +155,22 @@ $("body").on("click", ".change-winner-status", function (e) {
     });
 });
 
+$("body").on("click", "#background-delete", function (e)
+{
+    e.preventDefault()
+    let $this = $(this);
+
+    $.ajax({
+        type: "DELETE",
+        url: $this.data("url"),
+        dataType: "json",
+        data: { _token: $('meta[name="csrf-token"]').attr("content") },
+        success: function (response) {
+            $("#background-image").remove();
+        },
+    });
+});
+
 $('body').on('click', '#export', function (e)
 {
     e.preventDefault()
