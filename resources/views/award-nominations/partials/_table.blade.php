@@ -1,7 +1,14 @@
-<a class="btn btn-primary" href="{{ route('award-nominations.export', $award->id) }}" role="button">Export</a>
+<a class="btn btn-primary"
+    href="{{ route('award-nominations.export', $award->id) }}"
+    role="button"
+    data-name="{{ \strtolower(Str::slug($award->name, '_')) }}"
+    id="export">Export</a>
 <table class="table table-bordered table-striped table-vcenter" id=award-nominations>
     <thead>
         <tr>
+            @if ($actions)
+                <th class="small">Actions</th>
+            @endif
             <th class="small">Date/time submitted</th>
             <th class="small">Nomination submitted by</th>
             <th class="small">Submitting team member email</th>

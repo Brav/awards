@@ -59,13 +59,20 @@ class AwardNominationController extends Controller
                 'max_range' => date('Y'),
             ]];
 
-            $year = request()->get('year');
+            $year   = request()->get('year');
+            $status = request()->get('status');
 
             $items =
                 AwardNomination::with($with)
                 ->where('award_id', '=', (int) $award->id)
                 ->when(filter_var($year, \FILTER_VALIDATE_INT, $filterOptions), function($query) use($year){
                     return $query->whereYear('created_at', '=', $year);
+                })
+                ->when($status !== 'all', function($query) use ($status)
+                {
+                    $status = $status === 'winners' ? true : false;
+
+                    return $query->where('winner', '=', $status);
                 })
                 ->paginate(20);
 
@@ -293,6 +300,29 @@ class AwardNominationController extends Controller
     public function update(Request $request, AwardNomination $awardNomination)
     {
         abort(404);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\AwardNomination  $awardNomination
+     * @return \Illuminate\Http\Response
+     */
+    public function changeWinnerStatus(AwardNomination $awardNomination)
+    {
+        $awardNomination->winner = !$awardNomination->winner;
+
+        if($awardNomination->save())
+            return response()->json([
+                'status' => $awardNomination->winner,
+            ], 200);
+
+        return response()->json([
+            'Something went wrong!'
+        ], 500);
+
+
     }
 
     /**

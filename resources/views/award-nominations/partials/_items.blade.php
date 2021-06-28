@@ -1,5 +1,15 @@
 @foreach ($items as $item)
     <tr id="item-{{ $item->id }}">
+        @if ($actions)
+            <th>
+                <button
+                    data-id={{ $item->id }}
+                    data-url="{{ route('award-nominations.winner', $item->id) }}"
+                        class="btn btn-{{ $item->winner ? 'danger' : 'primary' }} change-winner-status">
+                    {{ $item->winner ? 'Remove Winner Status' : 'Make Winner'}}
+                </button>
+            </th>
+        @endif
         <th>{{ $item->created_at
             ->timezone('Australia/Sydney')
             ->format('d/m/Y g:i A') }}</th>

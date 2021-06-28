@@ -114,6 +114,86 @@ $("body").on("change", "#selectYear", function (e) {
 
 });
 
+$("body").on("change", "#winnerStatus", function (e) {
+    let $this = $(this);
+    let category = $("#awardCategory");
+
+    if (category.val() === "select") {
+        alert("Please select category");
+        $this.val("all");
+        return;
+    }
+
+    getNominations(category.find("option:selected").data("url"), $this.val());
+});
+
+$("body").on("click", ".change-winner-status", function (e) {
+
+    let $this = $(this)
+
+    $.ajax({
+        type: "PUT",
+        url: $this.data('url'),
+        dataType: "json",
+        data: { _token: $('meta[name="csrf-token"]').attr("content") },
+        success: function (response) {
+
+            if (response.status)
+            {
+                 $this.removeClass("btn-primary")
+                    .addClass("btn-danger")
+                    .text("Remove Winner Status");
+            }
+            else
+            {
+                 $this.removeClass("btn-danger")
+                    .addClass("btn-primary")
+                    .text('Make Winner');
+            }
+
+        }
+    });
+});
+
+$('body').on('click', '#export', function (e)
+{
+    e.preventDefault()
+
+    let $this = $(this)
+
+    $.ajax({
+        type: "GET",
+        url: $this.attr("href"),
+        xhrFields: {
+            responseType: "blob",
+        },
+        data: {
+            year: $("#selectYear").val(),
+            status: $("#winnerStatus").val(),
+        },
+        success: function (result, status, xhr) {
+
+            let disposition = xhr.getResponseHeader("content-disposition");
+            let matches = /"([^"]*)"/.exec(disposition);
+            let filename =
+                matches != null && matches[1] ? matches[1] : `${$this.data('name')}.xlsx`;
+
+            // The actual download
+            let blob = new Blob([result], {
+                type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            });
+            let link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.download = filename;
+
+            document.body.appendChild(link);
+
+            link.click();
+            document.body.removeChild(link);
+        },
+    });
+});
+
 $(function () {
     let category = $("#awardCategory");
 
@@ -177,7 +257,8 @@ function getNominations(url, year)
     $.get(
         url,
         {
-            year: year
+            year: year,
+            status: $("#winnerStatus").val(),
         },
         function (data, textStatus, jqXHR) {
             let paginationID = data.id
