@@ -1,4 +1,3 @@
-@php
     use Illuminate\Support\Facades\Storage;
 @endphp
 @extends('layouts.public')
@@ -95,7 +94,7 @@
 
                     <p>Everyone at VetPartners can contribute to the program and we encourage team members to nominate their colleagues that go above and beyond.</p>
 
-                    <p>Third paragraph - Find all active awards below. Nominations for annual awards, Dr Stephen Coles award and additional support office values awards will be available later in the year. <a href="#" class="d-scroll">Find out more here</a></p>
+                    <p>Find all active awards below. Nominations for annual awards, Dr Stephen Coles award and additional support office values awards will be available later in the year. <a href="#" class="d-scroll">Find out more here</a></p>
 
                 </div>
             </div>
