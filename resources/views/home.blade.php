@@ -89,9 +89,14 @@
         <div class="container py-4">
 
             <div class="row">
-                <div class="col-12 ">
+                <div class="col-12 mb-4">
                     <h2 class="h1 mb-3">Nominate a Superstar</h2>
-                    <p class="mb-5">Award nominations are designed for everyone to nominate their colleagues for recognition due to exemplary work, effort or other achievement. We appreciate you taking the time to help recognise the great work being done across VetPartners</p>
+                    <p>The VetPartners Excellence Award Program is an opportunity to recognise the exceptional performance and commitment, hard work and dedication of team members at VetPartners.</p>
+
+                    <p>Everyone at VetPartners can contribute to the program and we encourage team members to nominate their colleagues that go above and beyond.</p>
+
+                    <p>Third paragraph - Find all active awards below. Nominations for annual awards, Dr Stephen Coles award and additional support office values awards will be available later in the year. <a href="#" class="d-scroll">Find out more here</a></p>
+
                 </div>
             </div>
 
@@ -140,7 +145,8 @@
                                     style='background-image: url("{{ $background }}/background.png")'
                                 @endif>
                                     <div class="ds-image-overlay-content align-items-end text-center px-3">
-                                        <img src="{{ asset('media/images/VP_Awards_Icon_GEM.png')}}" alt="" class="d-block m-auto" style="max-width: 100px;">
+                                        <!-- <img src="{{ asset('media/images/VP_Awards_Icon_GEM.png')}}" alt="" class="d-block m-auto" style="max-width: 100px;"> -->
+                                        <i class="fas fa-award d-block text-center fa-3x mb-3"></i>
                                         <h3 class="h3 text-primary my-3">{{ $award->name }} <span class="font-w400 d-block pt-2">{{ $award->period }}</span></h3>
                                     </div>
                                 </div>
@@ -177,8 +183,8 @@
                         <p class="text-white mb-3">
                             Find out more information about the many different Clinic and Support Office awards!</a></p>
                         <br>
-                        <a href="{{ asset('media/downloads/Awards-Clinic-Information.pdf')}}" download class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light mb-3">CLINIC AWARDS INFORMATION</a>
-                        <a href="{{ asset('media/downloads/Awards-Support-Information.pdf')}}" download class="btn btn-hero btn-hero-light btn-hero-lg waves-effect waves-light">SUPPORT OFFICE AWARDS INFORMATION</a>
+                        <a href="{{ asset('media/downloads/VP_Clinic_Awards_Infographic_V2.png')}}" download class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light mb-3">CLINIC AWARDS INFORMATION</a>
+                        <a href="{{ asset('media/downloads/VP_SO_Awards_Infographic_V1.png')}}" download class="btn btn-hero btn-hero-light btn-hero-lg waves-effect waves-light">SUPPORT OFFICE AWARDS INFORMATION</a>
                     </div>
 
                   </div>
@@ -225,4 +231,9 @@
 @endsection
 
 @section('js_after')
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('button[data-award="clinics"]').click()
+    })
+</script>
 @endsection
