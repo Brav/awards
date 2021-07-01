@@ -1,5 +1,3 @@
-    use Illuminate\Support\Facades\Storage;
-@endphp
 @extends('layouts.public')
 
 @section('banner')
