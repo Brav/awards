@@ -182,8 +182,8 @@
                         <p class="text-white mb-3">
                             Find out more information about the many different Clinic and Support Office awards!</a></p>
                         <br>
-                        <a href="{{ asset('media/downloads/VP_Clinic_Awards_Infographic_V2.png')}}" download class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light mb-3">CLINIC AWARDS INFORMATION</a>
-                        <a href="{{ asset('media/downloads/VP_SO_Awards_Infographic_V1.png')}}" download class="btn btn-hero btn-hero-light btn-hero-lg waves-effect waves-light">SUPPORT OFFICE AWARDS INFORMATION</a>
+                        <a href="{{ asset('media/downloads/VP_Awards_Clinics_Infograph.png')}}" download class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light mb-3">CLINIC AWARDS INFORMATION</a>
+                        <a href="{{ asset('media/downloads/VP_Awards_Support_Office_Infograph.png')}}" download class="btn btn-hero btn-hero-light btn-hero-lg waves-effect waves-light">SUPPORT OFFICE AWARDS INFORMATION</a>
                     </div>
 
                   </div>
