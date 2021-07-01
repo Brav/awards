@@ -104,6 +104,11 @@
                         scrollTop: $('#Available-Nominations').offset().top - 180
                     }, 600);
                 })
+                $('.d-scroll').on('click', function(e) {
+                    $('html, body').animate({
+                        scrollTop: $('#Award-Information').offset().top - 180
+                    }, 600);
+                })
 
 
                 let dateOfIncidentDate        = $("#date_of_incident").val();

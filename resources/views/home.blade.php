@@ -1,3 +1,5 @@
+    use Illuminate\Support\Facades\Storage;
+@endphp
 @extends('layouts.public')
 
 @section('banner')
@@ -9,11 +11,11 @@
                     <div class="d-flex align-items-center justify-content-center w-100 h-100" style="background: rgba(0, 0, 0, .4);">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-6 pt-5 mt-5">
+                                <div class="col-md-12 pt-5 mt-5">
 
                                     <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
-                                    <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 page-scroll">Find out more</a>
+                                    <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
                                 </div>
                             </div>
                         </div>
@@ -28,11 +30,11 @@
                     <div class="d-flex align-items-center justify-content-center w-100 h-100" style="background: rgba(0, 0, 0, .4);">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-6 pt-5 mt-5">
+                                <div class="col-md-12 pt-5 mt-5">
 
                                     <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
-                                    <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 page-scroll">Find out more</a>
+                                    <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
                                 </div>
                             </div>
                         </div>
@@ -47,11 +49,11 @@
                     <div class="d-flex align-items-center justify-content-center w-100 h-100" style="background: rgba(0, 0, 0, .4);">
                         <div class="container">
                             <div class="row">
-                                <div class="col-md-6 pt-5 mt-5">
+                                <div class="col-md-12 pt-5 mt-5">
 
                                     <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
-                                    <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 page-scroll">Find out more</a>
+                                    <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
                                 </div>
                             </div>
                         </div>
@@ -86,9 +88,14 @@
         <div class="container py-4">
 
             <div class="row">
-                <div class="col-12 ">
+                <div class="col-12 mb-4">
                     <h2 class="h1 mb-3">Nominate a Superstar</h2>
-                    <p class="mb-5">Award nominations are designed for everyone to nominate their colleagues for recognition due to exemplary work, effort or other achievement. We appreciate you taking the time to help recognise the great work being done across VetPartners</p>
+                    <p>The VetPartners Excellence Award Program is an opportunity to recognise the exceptional performance and commitment, hard work and dedication of team members at VetPartners.</p>
+
+                    <p>Everyone at VetPartners can contribute to the program and we encourage team members to nominate their colleagues that go above and beyond.</p>
+
+                    <p>Find all active awards below. Nominations for annual awards, Dr Stephen Coles award and additional support office values awards will be available later in the year. <a href="#" class="d-scroll">Find out more here</a></p>
+
                 </div>
             </div>
 
@@ -119,19 +126,32 @@
                 <div class="row">
 
                     @foreach ($awards as $award)
+                        @php
+                            $background = null;
+                        @endphp
+                        @if (Storage::disk('local')->exists('background/awards_' . $award->id))
+                            @php
+                                $background = Storage::url('background/awards_' . $award->id);
+                            @endphp
+                        @endif
                         <div class="col-lg-4 mb-4 {{ $award['options']['office_type'] }} award">
-
-                            <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in overflow-visible" href="{{ route('award-nominations.create', $award->slug) }}">
-                                <div class="d-block bg-primary-turquoise w-100 pb-150 ds-image-item"></div>
-                                <div class="ds-image-overlay ">
+                            <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in overflow-visible"
+                                href="{{ route('award-nominations.create', $award->slug) }}"
+                                >
+                                <div class="d-block bg-primary-sky w-100 pb-150 ds-image-item"></div>
+                                <div class="ds-image-overlay "
+                                @if ($background)
+                                    style='background-image: url("{{ $background }}/background.png")'
+                                @endif>
                                     <div class="ds-image-overlay-content align-items-end text-center px-3">
+                                        <!-- <img src="{{ asset('media/images/VP_Awards_Icon_GEM.png')}}" alt="" class="d-block m-auto" style="max-width: 100px;"> -->
                                         <i class="fas fa-award d-block text-center fa-3x mb-3"></i>
-                                        <h3 class="h3 text-white mb-3">{{ $award->name }} <span class="font-w400 d-block pt-2">{{ $award->period }}</span></h3>
+                                        <h3 class="h3 text-primary my-3">{{ $award->name }} <span class="font-w400 d-block pt-2">{{ $award->period }}</span></h3>
                                     </div>
                                 </div>
                                 <div class="ds-image-overlay2 ">
                                     <div class="ds-image-overlay-content text-center px-5">
-                                        <p class="text-white mb-0">
+                                        <p class="text-primary mb-0">
                                             {{ $award->description }}
                                         </p>
                                     </div>
@@ -147,7 +167,7 @@
         </div>
     </section>
 
-    <section class="bg-image" style="background: url({{ asset('media/photos/VetPartners-Awards-4.jpg')}});">
+    <section id="Award-Information" class="bg-image" style="background: url({{ asset('media/photos/VetPartners-Awards-4.jpg')}});">
         <div class="section-wrapper bg-black-50 py-5">
 
             <div class="container-xl pb-4 py-5">
@@ -162,8 +182,13 @@
                         <p class="text-white mb-3">
                             Find out more information about the many different Clinic and Support Office awards!</a></p>
                         <br>
-                        <a href="{{ asset('media/downloads/Awards-Clinic-Information.pdf')}}" download class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light mb-3">Awards Clinic Information</a>
-                        <a href="{{ asset('media/downloads/Awards-Support-Information.pdf')}}" download class="btn btn-hero btn-hero-light btn-hero-lg waves-effect waves-light">Awards Support Information</a>
+                        <!-- <a href="{{ asset('media/downloads/VP_Awards_Clinics_Infograph.png')}}" download class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light mb-3">CLINIC AWARDS INFORMATION</a> -->
+                        <!-- <a href="{{ asset('media/downloads/VP_Awards_Support_Office_Infograph.png')}}" download class="btn btn-hero btn-hero-light btn-hero-lg waves-effect waves-light">SUPPORT OFFICE AWARDS INFORMATION</a> -->
+
+                        <a href="https://vet.partners/wp-content/uploads/2021/07/VP_Awards_Clinics_Infograph-scaled.jpg" download class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light mb-3" target="
+                        _blank">CLINIC AWARDS INFORMATION</a>
+                        <a href="https://vet.partners/wp-content/uploads/2021/07/VP_Awards_Support_Office_Infograph.jpg" download class="btn btn-hero btn-hero-light btn-hero-lg waves-effect waves-light" target="
+                        _blank">SUPPORT OFFICE AWARDS INFORMATION</a>
                     </div>
 
                   </div>
@@ -210,12 +235,9 @@
 @endsection
 
 @section('js_after')
-<!-- <script type="text/javascript">
-$(document).ready(function() {
-     var images = ['VetPartners-Awards-1.jpg', 'VetPartners-Awards-2.jpg', 'VetPartners-Awards-3.jpg', 'VetPartners-Awards-4.jpg', 'VetPartners-Awards-5.jpg', 'VetPartners-Awards-6.jpg', 'VetPartners-Awards-7.jpg', 'VetPartners-Awards-8.jpg', 'VetPartners-Awards-9.jpg', 'VetPartners-Awards-10.jpg', 'VetPartners-Awards-11.jpg', 'VetPartners-Awards-12.jpg', 'VetPartners-Awards-13.jpg', 'VetPartners-Awards-14.jpg', 'VetPartners-Awards-15.jpg'];
-     $('.ds-award-bg').each(function() {
-        $(this).css({'background-image': 'url(media/photos/' + images[Math.floor(Math.random() * images.length)] + ')'});
-     })
-})
-</script> -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('button[data-award="clinics"]').click()
+    })
+</script>
 @endsection
