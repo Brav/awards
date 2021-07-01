@@ -153,8 +153,10 @@ class AwardNominationController extends Controller
             ->whereRaw('((starting_at <= ? AND ending_at >= ?) OR always_visible = 1)', [$today, $today])
             ->when(auth()->user() && ! auth()->user()->admin, function($query)
             {
-                return $query->whereJsonContains('roles_can_access_for_nomination', auth()->user()->role_id)
-                    ->orWhereNull('roles_can_access_for_nomination');
+                return $query->where(function($queury){
+                    $queury->whereJsonContains('roles_can_access_for_nomination', strval(auth()->user()->role_id));
+                    $queury->orWhereNull('roles_can_access_for_nomination');
+                });
             })
             ->firstOrFail();
 
