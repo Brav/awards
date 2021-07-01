@@ -1,5 +1,11 @@
-@php 
+@php
     $layout = auth()->user() ? 'layouts.app' : 'layouts.public';
+
+    if(Request::route()->getName() === 'award-nominations.create')
+    {
+        $layout =  'layouts.public';
+    };
+
 @endphp
 @extends($layout)
 
