@@ -32,6 +32,17 @@
 
                 <div class="col-md-3 d-inline-block">
                     <div class="form-group">
+                    <label for="winner_status">Select Status</label>
+                    <select class="form-control" name="winner_status" id="winnerStatus">
+                        <option value="all">All</option>
+                        <option value="winners">Winners</option>
+                        <option value="non-winner">Non-Winner</option>
+                    </select>
+                    </div>
+                </div>
+
+                <div class="col-md-3 d-inline-block">
+                    <div class="form-group">
                     <label for="select_year">Select Year</label>
                     <select class="form-control" name="select_year" id="selectYear">
                         <option value="all">All</option>

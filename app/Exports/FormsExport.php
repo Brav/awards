@@ -71,9 +71,26 @@ class FormsExport implements FromView
                     'department.manager',];
             }
 
+            $filterOptions = ['options' => [
+                'max_range' => date('Y'),
+            ]];
+
+            $year   = request()->get('year');
+            $status = request()->get('status');
+
             $items =
                 AwardNomination::with($with)
-                ->where('award_id', '=', (int) $award->id)->paginate(20);
+                ->where('award_id', '=', (int) $award->id)
+                ->when(filter_var($year, \FILTER_VALIDATE_INT, $filterOptions), function($query) use($year){
+                    return $query->whereYear('created_at', '=', $year);
+                })
+                ->when($status !== 'all', function($query) use ($status)
+                {
+                    $status = $status === 'winners' ? true : false;
+
+                    return $query->where('winner', '=', $status);
+                })
+                ->get();
 
             if(isset($award['options']['nominations']['categories']))
             {

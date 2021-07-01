@@ -1,6 +1,7 @@
 <form
     action="{{ route('awards.update', $award->id) }}"
-    method="POST">
+    method="POST"
+    enctype="multipart/form-data">
     @csrf
     @method('PUT')
     <div class="form-row align-items-center">
@@ -281,6 +282,22 @@
               </select>
 
             </div>
+        </div>
+    </div>
+
+    <div class="form-row align-items-center mb-3">
+        @if ($background)
+            <div id="background-image">
+                <button class="btn btn-danger"
+                id="background-delete"
+                data-url="{{ route('award.background-delete', $award->id) }}">Delete Image</button>
+                <img
+                src="{{ Storage::url('background/awards_' . $award->id) . '/background.png' }}">
+            </div>
+        @endif
+        <div class="form-group col-md-12">
+            <label class="d-block" for="background">Background</label>
+            <input type="file" id="background" name="background">
         </div>
     </div>
 

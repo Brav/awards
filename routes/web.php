@@ -111,6 +111,9 @@ Route::prefix('awards')->middleware(['auth'])->group(function () {
         ->name('awards.update');
     Route::delete('destroy/{award}', [AwardController::class, 'destroy'])
         ->name('awards.destroy');
+
+    Route::delete('background-delete/{award}', [AwardController::class, 'backgroundDelete'])
+        ->name('award.background-delete');
 });
 
 Route::prefix('departments')->middleware(['auth'])->group(function () {
@@ -143,6 +146,9 @@ Route::prefix('award-nominations')->middleware(['auth'])->group(function () {
         ->name('award-nominations.update');
     Route::delete('destroy/{awardNomination}', [AwardNominationController::class, 'destroy'])
         ->name('award-nominations.destroy');
+
+    Route::put('update/{awardNomination}', [AwardNominationController::class, 'changeWinnerStatus'])
+        ->name('award-nominations.winner');
 
     Route::get('export/{award}',  [AwardNominationController::class, 'export'])->name('award-nominations.export');
 });

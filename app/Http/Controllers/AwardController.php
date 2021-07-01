@@ -10,6 +10,7 @@ use App\Models\Nomination;
 use App\Models\NominationCategory;
 use App\Models\Roles;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class AwardController extends Controller
@@ -80,6 +81,18 @@ class AwardController extends Controller
 
         $result = $model->create($data);
 
+        if(request()->hasFile('background'))
+        {
+
+            $directory = 'public/background/awards_' . $result->id;
+            $file = request()->file('background');
+
+            Storage::putFileAs($directory,
+                $file,
+                'background.png');
+
+        }
+
         return redirect()->route('awards.index')->with([
             'status' => [
                 'message' => $result ? 'Award Created' : 'Something went wrong!',
@@ -117,6 +130,7 @@ class AwardController extends Controller
             'periods'          => Award::$periods,
             'roles'            => Roles::all(),
             'awardNominations' => $award['options']['nominations'] ?? null,
+            'background'       => Storage::disk('local')->exists('background/awards_' . $award->id),
         ]);
     }
 
@@ -133,6 +147,18 @@ class AwardController extends Controller
         $data = $award->formatData($request->all());
 
         $result = $award->update($data);
+
+        if(request()->hasFile('background'))
+        {
+
+            $directory = 'public/background/awards_' . $award->id;
+            $file = request()->file('background');
+
+            Storage::putFileAs($directory,
+                $file,
+                'background.png');
+
+        }
 
         return redirect()->route('awards.index')->with([
             'status' => [
@@ -195,6 +221,25 @@ class AwardController extends Controller
             ], 200);
         }
 
+
+        return response()->json([
+            'Something went wrong!'
+        ], 500);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Award  $award
+     * @return \Illuminate\Http\Response
+     */
+    public function backgroundDelete(Award $award)
+    {
+        Storage::deleteDirectory('background/awards_' . $award->id);
+
+        return response()->json([
+            'deleted!'
+        ], 200);
 
         return response()->json([
             'Something went wrong!'
