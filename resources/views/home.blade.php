@@ -188,7 +188,7 @@
                         <a href="https://vet.partners/wp-content/uploads/2021/07/VP_Awards_Clinics_Infograph-scaled.jpg" download class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light mb-3" target="
                         _blank">CLINIC AWARDS INFORMATION</a>
                         <a href="https://vet.partners/wp-content/uploads/2021/07/VP_Awards_Support_Office_Infograph.jpg" download class="btn btn-hero btn-hero-light btn-hero-lg waves-effect waves-light" target="
-                        <!-- _blank">SUPPORT OFFICE AWARDS INFORMATION</a> -->
+                        _blank">SUPPORT OFFICE AWARDS INFORMATION</a>
                     </div>
 
                   </div>
