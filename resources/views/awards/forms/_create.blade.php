@@ -315,3 +315,13 @@
 
     })
 </script>
+
+<script src="{{ asset('js/tinymce.js') }}"></script>
+<script>
+tinymce.init({
+    selector: '#description',
+    menubar : false,
+    toolbar: "undo redo | paragraph bold italic"
+});
+</script>
+

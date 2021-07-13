@@ -150,7 +150,7 @@
                                 <div class="ds-image-overlay2 ">
                                     <div class="ds-image-overlay-content text-center px-5">
                                         <p class="text-primary mb-0">
-                                            {{ $award->description }}
+                                            {!! $award->description !!}
                                         </p>
                                     </div>
                                 </div>

@@ -63,7 +63,8 @@ class Award extends Model
         $format['fields']  = [];
 
         $format['name']           = \trim(\filter_var($data['name'], FILTER_SANITIZE_STRING));
-        $format['description']    = \trim(\filter_var($data['description'], FILTER_SANITIZE_STRING));
+        $format['description']    = \trim(\strip_tags($data['description'],
+            '<br><p><em><strong>'));
         $format['order']          = (int) $data['order'];
         $format['period_type']    = (int) $data['period_type'];
         $format['always_visible'] = false;
