@@ -230,6 +230,11 @@ $('body').on('click', '.file-remove', function (e)
 
 });
 
+$("body").on("click", ".modal-action-delete", function () {
+    $(".modal-action").addClass("d-none");
+    $(".dialog").removeClass("d-none");
+});
+
 $("body").on("click", ".file-delete", function (e) {
     e.preventDefault();
 
