@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class Award extends Model
 {
@@ -29,6 +30,7 @@ class Award extends Model
         'fields',
         'roles',
         'roles_can_access_for_nomination',
+        'background',
     ];
 
     static $periods = [
@@ -146,6 +148,11 @@ class Award extends Model
 
         $format['slug'] = Str::slug($data['name'], '_');
 
+        if(request()->hasFile('background'))
+        {
+            $format['background'] = Str::random(16)  . '.png';
+        }
+
         return $format;
     }
 
@@ -199,6 +206,21 @@ class Award extends Model
     }
 
     /**
+     * Get formated background link
+     *
+     * @return string|null
+     */
+    public function getBackgroundLinkAttribute() :?string
+    {
+        if(!$this->background)
+        {
+            return 'media/images/Clayfield5.jpg';
+        }
+
+        return Storage::url('public/background/awards_' . $this->id . '/' . $this->background);
+    }
+
+    /**
      * Get all of the submittedNominations for the Award
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -207,6 +229,5 @@ class Award extends Model
     {
         return $this->hasMany(AwardNomination::class);
     }
-
 
 }

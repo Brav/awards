@@ -124,23 +124,13 @@
                 <div class="row">
 
                     @foreach ($awards as $award)
-                        @php
-                            $background = null;
-                        @endphp
-                        @if (Storage::disk('local')->exists('background/awards_' . $award->id))
-                            @php
-                                $background = Storage::url('background/awards_' . $award->id);
-                            @endphp
-                        @endif
                         <div class="col-lg-4 mb-4 {{ $award['options']['office_type'] }} award">
                             <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in overflow-visible"
                                 href="{{ route('award-nominations.create', $award->slug) }}"
                                 >
                                 <div class="d-block bg-primary-sky w-100 pb-150 ds-image-item"></div>
                                 <div class="ds-image-overlay "
-                                @if ($background)
-                                    style='background-image: url("{{ $background }}/background.png")'
-                                @endif>
+                                    style='background-image: url("{{ $award->backgroundLink }}")'>
                                     <div class="ds-image-overlay-content align-items-end text-center px-3">
                                         <img src="{{ asset('media/images/VP_Awards_Icon_GEM.png')}}" alt="" class="d-block m-auto" style="max-width: 100px;">
                                         <!-- <i class="fas fa-award d-block text-center fa-3x mb-3"></i> -->

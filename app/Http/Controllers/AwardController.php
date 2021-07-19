@@ -89,7 +89,7 @@ class AwardController extends Controller
 
             Storage::putFileAs($directory,
                 $file,
-                'background.png');
+                $data['background']);
 
         }
 
@@ -130,7 +130,7 @@ class AwardController extends Controller
             'periods'          => Award::$periods,
             'roles'            => Roles::all(),
             'awardNominations' => $award['options']['nominations'] ?? null,
-            'background'       => Storage::disk('local')->exists('background/awards_' . $award->id),
+            'backgrounds'      => Storage::files('public/background/awards_' . $award->id),
         ]);
     }
 
@@ -156,7 +156,7 @@ class AwardController extends Controller
 
             Storage::putFileAs($directory,
                 $file,
-                'background.png');
+                $data['background']);
 
         }
 
@@ -233,12 +233,53 @@ class AwardController extends Controller
      * @param  \App\Models\Award  $award
      * @return \Illuminate\Http\Response
      */
-    public function backgroundDelete(Award $award)
+    public function deleteBackground(Award $award)
     {
-        Storage::deleteDirectory('background/awards_' . $award->id);
+        $data = request()->all();
+        $file = \filter_var($data['file'], \FILTER_SANITIZE_STRING);
+
+        if(Storage::delete($file))
+        {
+            $file = \pathinfo($file);
+
+            if($award->background === $file['basename'])
+            {
+                $award->background = null;
+                $award->update();
+            }
+        };
 
         return response()->json([
             'deleted!'
+        ], 200);
+
+        return response()->json([
+            'Something went wrong!'
+        ], 500);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Award  $award
+     * @return \Illuminate\Http\Response
+     */
+    public function setBackground(Award $award)
+    {
+
+        $data = request()->all();
+        $file = \filter_var($data['file'], \FILTER_SANITIZE_STRING);
+
+        $file = \pathinfo($file);
+
+        if($file['basename'])
+        {
+            $award->background = $file['basename'];
+            $award->update();
+        }
+
+        return response()->json([
+            'set!'
         ], 200);
 
         return response()->json([

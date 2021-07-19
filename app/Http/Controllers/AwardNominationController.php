@@ -167,6 +167,13 @@ class AwardNominationController extends Controller
             return redirect('login');
         }
 
+        if($award->always_visible &&
+            $award->starting_at->gt($today)
+        )
+        {
+            return view('award-nominations/comeback-later');
+        }
+
         $awardOffice = $award['options']['office_type'];
 
         if($awardOffice === 'clinic')

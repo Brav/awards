@@ -112,7 +112,9 @@ Route::prefix('awards')->middleware(['auth'])->group(function () {
     Route::delete('destroy/{award}', [AwardController::class, 'destroy'])
         ->name('awards.destroy');
 
-    Route::delete('background-delete/{award}', [AwardController::class, 'backgroundDelete'])
+    Route::put('background-set/{award}', [AwardController::class, 'setBackground'])
+        ->name('award.background-set');
+    Route::delete('background-delete/{award}', [AwardController::class, 'deleteBackground'])
         ->name('award.background-delete');
 });
 

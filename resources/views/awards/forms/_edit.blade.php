@@ -286,14 +286,29 @@
     </div>
 
     <div class="form-row align-items-center mb-3">
-        @if ($background)
-            <div id="background-image">
-                <button class="btn btn-danger"
-                id="background-delete"
-                data-url="{{ route('award.background-delete', $award->id) }}">Delete Image</button>
-                <img
-                src="{{ Storage::url('background/awards_' . $award->id) . '/background.png' }}">
-            </div>
+        @if ($backgrounds)
+            @foreach ($backgrounds as $image)
+                @php
+                    $data = pathinfo($image);
+                @endphp
+                <div class="col-md-4" id="{{ $data['filename'] }}">
+
+                    <a class="btn btn-danger btn-sm background-delete"
+                    data-file="{{ $image }}"
+                    data-url="{{ route('award.background-delete', $award->id) }}">Delete Image</a>
+
+                    <button class="btn btn-primary btn-sm background-set
+                        @if ($award->background === $data['basename'])
+                        d-none
+                        @endif"
+                        data-file="{{ $image }}"
+                        data-url="{{ route('award.background-set', $award->id) }}">Set Background</button>
+
+                    <img class="img-thumbnail"
+                    src="{{ Storage::url($image) }}">
+                </div>
+            @endforeach
+
         @endif
         <div class="form-group col-md-12">
             <label class="d-block" for="background">Background</label>

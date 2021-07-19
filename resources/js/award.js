@@ -155,18 +155,46 @@ $("body").on("click", ".change-winner-status", function (e) {
     });
 });
 
-$("body").on("click", "#background-delete", function (e)
-{
-    e.preventDefault()
+$("body").on("click", ".background-delete", function (e) {
+    e.preventDefault();
     let $this = $(this);
+    let id = $this.parent().attr("id");
+
+    if(!confirm('Are you sure you want to delete this image?'))
+    {
+        return;
+    }
 
     $.ajax({
         type: "DELETE",
         url: $this.data("url"),
         dataType: "json",
-        data: { _token: $('meta[name="csrf-token"]').attr("content") },
+        data: {
+            _token: $('meta[name="csrf-token"]').attr("content"),
+            file: $this.data("file"),
+        },
         success: function (response) {
-            $("#background-image").remove();
+            $(`#${id}`).remove();
+        },
+    });
+});
+
+$("body").on("click", ".background-set", function (e) {
+    e.preventDefault();
+    let $this = $(this);
+    let id = $this.parent().attr("id");
+
+    $.ajax({
+        type: "PUT",
+        url: $this.data("url"),
+        dataType: "json",
+        data: {
+            _token: $('meta[name="csrf-token"]').attr("content"),
+            file: $this.data("file"),
+        },
+        success: function (response) {
+            $(".background-set").removeClass('d-none')
+            $(`#${id}`).find(".background-set").addClass("d-none");
         },
     });
 });
