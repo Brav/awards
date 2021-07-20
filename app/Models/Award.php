@@ -214,7 +214,7 @@ class Award extends Model
     {
         if(!$this->background)
         {
-            return 'media/images/Clayfield5.jpg';
+            return 'media/images/bg-deafult-award.jpg';
         }
 
         return Storage::url('public/background/awards_' . $this->id . '/' . $this->background);
