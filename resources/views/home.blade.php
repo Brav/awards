@@ -202,7 +202,7 @@
                             <br>
 
 
-                            <p>Login here to view submitted nominations for your team. If you need a login or are having issues seeing the nominations please contact <a href="mailto:helpdesk@vet.partners" class="font-w700">helpdesk@vet.partners</a></p>
+                            <p>Regional Managers and Human Resources can login here to view submitted nominations for your team. If you need a login or are having issues seeing the nominations please contact <a href="mailto:helpdesk@vet.partners" class="font-w700">helpdesk@vet.partners</a></p>
 
                             <br>
                             <br>
