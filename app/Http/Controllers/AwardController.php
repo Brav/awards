@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AwardCreateRequest;
 use App\Http\Requests\AwardUpdateRequest;
 use App\Models\Award;
+use App\Models\Background;
 use App\Models\ClinicManagers;
 use App\Models\Nomination;
 use App\Models\NominationCategory;
@@ -56,6 +57,20 @@ class AwardController extends Controller
      */
     public function create()
     {
+        $images     = Storage::files('public/backgrounds');
+        $background = Background::first();
+
+        if($background)
+        {
+            $default = 'public/backgrounds/' . $background->default;
+
+            $index = array_search($default, $images);
+
+            unset($images[$index]);
+
+            \array_unshift($images, $default);
+        }
+
         return view('form', [
             'task'           => 'create',
             'view'           => 'awards',
@@ -64,6 +79,8 @@ class AwardController extends Controller
             'nominations'    => NominationCategory::orderBy('name')->get(),
             'periods'        => Award::$periods,
             'roles'          => Roles::all(),
+            'images'         => $images,
+            'background'     => $background,
         ]);
     }
 
@@ -84,7 +101,7 @@ class AwardController extends Controller
         if(request()->hasFile('background'))
         {
 
-            $directory = 'public/background/awards_' . $result->id;
+            $directory = 'public/backgrounds';
             $file = request()->file('background');
 
             Storage::putFileAs($directory,
@@ -120,6 +137,35 @@ class AwardController extends Controller
      */
     public function edit(Award $award)
     {
+
+        $images     = Storage::files('public/backgrounds');
+        $background = Background::first();
+
+        $default = null;
+
+        if($award->background)
+        {
+            $default = $award->background;
+        }
+        else
+        {
+            if($background)
+            {
+                $default = $background->default;
+            }
+        }
+
+        if($default)
+        {
+            $default = 'public/backgrounds/' . $default;
+
+            $index = array_search($default, $images);
+
+            unset($images[$index]);
+
+            \array_unshift($images, $default);
+        }
+
         return view('form', [
             'award'            => $award,
             'task'             => 'edit',
@@ -130,7 +176,9 @@ class AwardController extends Controller
             'periods'          => Award::$periods,
             'roles'            => Roles::all(),
             'awardNominations' => $award['options']['nominations'] ?? null,
-            'backgrounds'      => Storage::files('public/background/awards_' . $award->id),
+            'images'           => $images,
+            'background'       => $background,
+            'default'          => $default,
         ]);
     }
 
@@ -151,7 +199,7 @@ class AwardController extends Controller
         if(request()->hasFile('background'))
         {
 
-            $directory = 'public/background/awards_' . $award->id;
+            $directory = 'public/backgrounds';
             $file = request()->file('background');
 
             Storage::putFileAs($directory,
@@ -247,11 +295,11 @@ class AwardController extends Controller
                 $award->background = null;
                 $award->update();
             }
-        };
 
-        return response()->json([
-            'deleted!'
-        ], 200);
+            return response()->json([
+                'deleted!'
+            ], 200);
+        };
 
         return response()->json([
             'Something went wrong!'
@@ -276,11 +324,11 @@ class AwardController extends Controller
         {
             $award->background = $file['basename'];
             $award->update();
-        }
 
-        return response()->json([
-            'set!'
-        ], 200);
+            return response()->json([
+                'set!'
+            ], 200);
+        }
 
         return response()->json([
             'Something went wrong!'

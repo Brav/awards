@@ -4,6 +4,10 @@
     enctype="multipart/form-data">
     @csrf
     @method('PUT')
+
+    <input type="hidden" id="background-set"
+        name="background-set" value="{{ $default }}">
+
     <div class="form-row align-items-center">
 
         <div class="col">
@@ -286,29 +290,33 @@
     </div>
 
     <div class="form-row align-items-center mb-3">
-        @if ($backgrounds)
-            @foreach ($backgrounds as $image)
-                @php
-                    $data = pathinfo($image);
-                @endphp
-                <div class="col-md-4" id="{{ $data['filename'] }}">
+        @if ($images)
+            <div class="col-md-12" id="images-container">
+                    @foreach ($images as $image)
+                        @php
+                            $data = pathinfo($image);
+                        @endphp
+                        <div class="col-md-4 background-image
+                                @if ($background && ($background->default === $data['basename']))
+                                    border border-danger
+                                @endif" id="{{ $data['filename'] }}">
 
-                    <a class="btn btn-danger btn-sm background-delete"
-                    data-file="{{ $image }}"
-                    data-url="{{ route('award.background-delete', $award->id) }}">Delete Image</a>
+                            <button class="btn btn-primary btn-sm background-use
+                                @if ($background && ($background->default === $data['basename']))
+                                    d-none
+                                @endif"
+                                data-file="{{ $data['basename'] }}"
+                                data-url="{{ route('backgrounds.update') }}">Use as Background</button>
 
-                    <button class="btn btn-primary btn-sm background-set
-                        @if ($award->background === $data['basename'])
-                        d-none
-                        @endif"
-                        data-file="{{ $image }}"
-                        data-url="{{ route('award.background-set', $award->id) }}">Set Background</button>
+                            @if ($background && ($background->default === $data['basename']))
+                                <span>Default Background</span>
+                            @endif
 
-                    <img class="img-thumbnail"
-                    src="{{ Storage::url($image) }}">
+                            <img class="img-thumbnail"
+                            src="{{ Storage::url($image) }}">
+                        </div>
+                    @endforeach
                 </div>
-            @endforeach
-
         @endif
         <div class="form-group col-md-12">
             <label class="d-block" for="background">Background</label>

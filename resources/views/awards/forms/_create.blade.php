@@ -11,8 +11,10 @@
     enctype="multipart/form-data">
     @csrf
 
-    <div class="form-row align-items-center">
+    <input type="hidden" id="background-set"
+        name="background-set" value="{{ $background ? $background->default : null }}">
 
+    <div class="form-row align-items-center">
         <div class="col">
             <div class="form-group">
                 <label for="name">Award Name</label>
@@ -287,9 +289,38 @@
         <div class="form-group">
             <label class="d-block" for="background">Background</label>
             <input type="file" id="background" name="background">
+            <small>This will upload new image and use it as background</small>
         </div>
     </div>
 
+    @if ($images)
+        <div class="col-md-12" id="images-container">
+                @foreach ($images as $image)
+                    @php
+                        $data = pathinfo($image);
+                    @endphp
+                    <div class="col-md-4 background-image
+                            @if ($background && ($background->default === $data['basename']))
+                                border border-danger
+                            @endif" id="{{ $data['filename'] }}">
+
+                        <button class="btn btn-primary btn-sm background-use
+                            @if ($background && ($background->default === $data['basename']))
+                                d-none
+                            @endif"
+                            data-file="{{ $data['basename'] }}"
+                            data-url="{{ route('backgrounds.update') }}">Use as Background</button>
+
+                        @if ($background && ($background->default === $data['basename']))
+                            <span>Default Background</span>
+                        @endif
+
+                        <img class="img-thumbnail"
+                        src="{{ Storage::url($image) }}">
+                    </div>
+                @endforeach
+            </div>
+    @endif
 
     <button type="submit" class="btn btn-primary">Create</button>
 </form>

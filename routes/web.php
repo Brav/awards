@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AwardController;
 use App\Http\Controllers\AwardNominationController;
+use App\Http\Controllers\BackgroundController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ClinicController;
@@ -116,6 +117,22 @@ Route::prefix('awards')->middleware(['auth'])->group(function () {
         ->name('award.background-set');
     Route::delete('background-delete/{award}', [AwardController::class, 'deleteBackground'])
         ->name('award.background-delete');
+});
+
+Route::prefix('backgrounds')->middleware(['auth'])->group(function () {
+
+    Route::get('', [BackgroundController::class, 'index'])
+        ->name('backgrounds.index');
+    Route::get('create', [BackgroundController::class, 'create'])
+        ->name('backgrounds.create');
+    Route::delete('destroy', [BackgroundController::class, 'destroy'])
+        ->name('backgrounds.delete');
+    Route::get('edit/{award}', [BackgroundController::class, 'edit'])
+        ->name('backgrounds.edit');
+    Route::post('store', [BackgroundController::class, 'store'])
+        ->name('backgrounds.store');
+    Route::put('update', [BackgroundController::class, 'update'])
+        ->name('backgrounds.update');
 });
 
 Route::prefix('departments')->middleware(['auth'])->group(function () {

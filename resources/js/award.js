@@ -199,6 +199,20 @@ $("body").on("click", ".background-set", function (e) {
     });
 });
 
+$("body").on("click", ".background-use", function (e) {
+    e.preventDefault();
+    let $this = $(this);
+    let id = $this.parent().attr("id");
+
+    $(".background-use").removeClass("d-none");
+    $(`#${id}`).find(".background-use").addClass("d-none");
+
+    $(".background-image").removeClass("border border-danger");
+    $this.parent().addClass("border border-danger");
+
+    $('#background-set').val($this.data('file'))
+});
+
 $('body').on('click', '#export', function (e)
 {
     e.preventDefault()

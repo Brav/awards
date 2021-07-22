@@ -29,26 +29,27 @@ class AwardCreateRequest extends FormRequest
         $allowedManager = \implode(',', ClinicManagers::$managerTypes);
 
         return [
-            'name'        => ['required', 'min:3', 'string', 'unique:App\Models\Award,name'],
-            'order'       => ['required', 'numeric', 'min:1', 'max:100'],
-            'office_type' => ['required', Rule::in([
+            'name'                           => ['required', 'min:3', 'string', 'unique:App\Models\Award,name'],
+            'order'                          => ['required', 'numeric', 'min:1', 'max:100'],
+            'office_type'                    => ['required', Rule::in([
                     'department', 'clinic',
                 ])],
-            'period_type'             => ['required', Rule::in(array_keys(Award::$periods))],
-            'always_visible'          => ['nullable'],
-            'description'             => ['nullable', 'string'],
-            'starting_at'             => ['nullable', 'date_format:d/m/Y'],
-            'ending_at'               => ['nullable', 'date_format:d/m/Y'],
-            'clinic_managers_shown'   => ['nullable'],
-            'clinic_managers_shown.*' => ['nullable', 'string',
-                    Rule::in(\array_keys(ClinicManagers::$managerTypes))],
+            'period_type'                    => ['required', Rule::in(array_keys(Award::$periods))],
+            'always_visible'                 => ['nullable'],
+            'description'                    => ['nullable', 'string'],
+            'starting_at'                    => ['nullable', 'date_format:d/m/Y'],
+            'ending_at'                      => ['nullable', 'date_format:d/m/Y'],
+            'clinic_managers_shown'          => ['nullable'],
+            'clinic_managers_shown.*'        => ['nullable', 'string',
+                    Rule                     :: in(\array_keys(ClinicManagers::$managerTypes))],
             'nominations'                    => ['nullable',],
             'nominations.*'                  => ['nullable', 'numeric'],
             'number_of_nomination_to_select' => ['nullable', 'numeric', 'min:1'],
             'nomination_category_text'       => ['nullable', 'string', 'min:3'],
             'additional_field.*'             => ['nullable', 'string'],
             'number_of_fields_to_fill.*'     => ['nullable', 'numeric'],
-            'background'                     => ['image' , 'mimes:jpeg,png,jpg', 'max:2048',]
+            'background'                     => ['image' , 'mimes:jpeg,png,jpg', 'max:2048',],
+            'background-set'                 => ['nullable', 'string', 'size:19'],
 
         ];
     }

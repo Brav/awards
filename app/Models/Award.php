@@ -148,6 +148,11 @@ class Award extends Model
 
         $format['slug'] = Str::slug($data['name'], '_');
 
+        if($data['background-set'] !== null && !request()->hasFile('background'))
+        {
+            $format['background'] = $data['background-set'];
+        }
+
         if(request()->hasFile('background'))
         {
             $format['background'] = Str::random(16)  . '.png';
@@ -214,10 +219,17 @@ class Award extends Model
     {
         if(!$this->background)
         {
+            $background = Background::first();
+
+            if($background)
+            {
+                return Storage::url('public/backgrounds/' . $background->default);
+            }
+
             return 'media/images/bg-deafult-award.jpg';
         }
 
-        return Storage::url('public/background/awards_' . $this->id . '/' . $this->background);
+        return Storage::url('public/backgrounds/' . $this->background);
     }
 
     /**
