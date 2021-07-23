@@ -292,11 +292,12 @@
     <div class="form-row align-items-center mb-3">
         @if ($images)
             <div class="col-md-12" id="images-container">
+                <div class="row">
                     @foreach ($images as $image)
                         @php
                             $data = pathinfo($image);
                         @endphp
-                        <div class="col-md-4 background-image
+                        <div class="col-lg-4 col-xl-2 background-image
                                 @if ($background && ($background->default === $data['basename']))
                                     border border-danger
                                 @endif" id="{{ $data['filename'] }}">
@@ -312,11 +313,11 @@
                                 <span>Default Background</span>
                             @endif
 
-                            <img class="img-thumbnail"
-                            src="{{ Storage::url($image) }}">
+                            <div class="d-block bg-image w-100 pb-100 ds-image-item mt-2" style="background-image: url({{ Storage::url($image) }})"></div>
                         </div>
                     @endforeach
                 </div>
+            </div>
         @endif
         <div class="form-group col-md-12">
             <label class="d-block" for="background">Background</label>

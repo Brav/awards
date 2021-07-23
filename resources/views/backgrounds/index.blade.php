@@ -22,13 +22,15 @@
     </div>
 
     <div class="container mt-2">
+        <div class="row">
         @if ($images)
-            <div class="col-md-12" id="images-container">
+            <div class="col-md-12" id="images-container">                
+                <div class="row">
                 @foreach ($images as $image)
                     @php
                         $data = pathinfo($image);
                     @endphp
-                    <div class="col-md-4" id="{{ $data['filename'] }}">
+                    <div class="col-lg-4 col-xl-2" id="{{ $data['filename'] }}">
 
                         <a class="btn btn-danger btn-sm background-delete"
                         data-file="{{ $image }}"
@@ -41,12 +43,13 @@
                             data-file="{{ $image }}"
                             data-url="{{ route('backgrounds.update') }}">Set as Default</button>
 
-                        <img class="img-thumbnail"
-                        src="{{ Storage::url($image) }}">
+                        <div class="d-block bg-image w-100 pb-100 ds-image-item mt-2" style="background-image: url({{ Storage::url($image) }})"></div>
                     </div>
                 @endforeach
+                </div>
             </div>
         @endif
+        </div>
     </div>
 @endsection
 @section('js_after')
