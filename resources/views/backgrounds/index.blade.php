@@ -73,7 +73,7 @@
             const validImageTypes = ['image/jpeg', 'image/png'];
 
             let formData   = new FormData(this);
-            let totalFiles = $('#files')[0].files.length;
+            let totalFiles = 0;
 
             let $this = $(this)
 
@@ -86,6 +86,8 @@
                 if (validImageTypes.includes(files.files[i].type) && filesize < 2049)
                 {
                     formData.append('files' + i, files.files[i]);
+
+                    totalFiles++
                 }
             }
 
