@@ -9949,3 +9949,6 @@ h3 {
     border-color: #dee2e6;
   }
 }
+.avoid-clicks {
+  pointer-events: none;
+}
