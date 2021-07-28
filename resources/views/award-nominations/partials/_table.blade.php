@@ -4,36 +4,36 @@
     data-name="{{ \strtolower(Str::slug($award->name, '_')) }}"
     id="export">Export</a>
 <table class="table table-bordered table-striped table-vcenter">
-    <thead class="thead-dark">
+    <thead>
         <tr>
             @if ($actions)
-                <th scope="col" class="small col sticky-top">Actions</th>
+                <th scope="col" class="small">Actions</th>
             @endif
-            <th scope="col" class="small col sticky-top">Date/time submitted</th>
-            <th scope="col" class="small col sticky-top">Nomination submitted by</th>
-            <th scope="col" class="small col sticky-top" style="max-width: 125px;">Submitting team member email</th>
+            <th scope="col" class="small">Date/time submitted</th>
+            <th scope="col" class="small">Nomination submitted by</th>
+            <th scope="col" class="small" style="max-width: 125px;">Submitting team member email</th>
 
             @if ($award->options['office_type'] === 'clinic')
-                <th scope="col" class="small col sticky-top">Clinic of Nominee</th>
+                <th scope="col" class="small">Clinic of Nominee</th>
                 @foreach ($managers as $manager)
-                    <th scope="col" class="small col sticky-top">{{ $managersLabel[$managerTypes[$manager]] }}</th>
+                    <th scope="col" class="small">{{ $managersLabel[$managerTypes[$manager]] }}</th>
                 @endforeach
             @else
-                <th scope="col" class="small col sticky-top">Department Name</th>
+                <th scope="col" class="small">Department Name</th>
             @endif
 
-            <th scope="col" class="small col sticky-top">Name of Nominee</th>
+            <th scope="col" class="small">Name of Nominee</th>
 
             @foreach ($nominationCategories as $category)
-                <th scope="col" class="small col sticky-top">{{ $category->name }}</th>
+                <th scope="col" class="small">{{ $category->name }}</th>
             @endforeach
 
             @foreach ($award->fields as $field)
-                <th scope="col" class="small col sticky-top" style="min-width: 250px">{{ $field }}</th>
+                <th scope="col" class="small" style="min-width: 250px">{{ $field }}</th>
             @endforeach
 
             @if ($actions)
-                <th scope="col" class="small col sticky-top">Actions</th>
+                <th scope="col" class="small">Actions</th>
             @endif
 
         </tr>
