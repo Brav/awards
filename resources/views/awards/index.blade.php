@@ -30,7 +30,7 @@
                                 <th scope="col" class="small col sticky-top">Actions</th>
                             </tr>
                         </thead>
-                        <tbody id=awards-container >
+                        <tbody id=awards-container style="height: 100vh" >
                             @include('awards/partials/_items')
                         </tbody>
                     </table>
