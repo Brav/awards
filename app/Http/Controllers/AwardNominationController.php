@@ -85,6 +85,17 @@ class AwardNominationController extends Controller
 
         }
 
+        $data = [
+            'items'                => $items,
+            'award'                => $award,
+            'actions'              => true,
+            'managers'             => $award['options']['clinic_managers_shown'] ?? [],
+            'managersRelationMap'  => ClinicManagers::$managersRelationMap,
+            'managerTypes'         => ClinicManagers::$managerTypes,
+            'managersLabel'        => ClinicManagers::$managersLabel,
+            'nominationCategories' => $nominationCategories ?? [],
+        ];
+
         if (!request()->ajax())
         {
 
@@ -98,32 +109,17 @@ class AwardNominationController extends Controller
 
             $firstNomination = AwardNomination::orderBy('created_at', 'DESC')->first();
 
-            return view('award-nominations/index', [
-                'items'                => $items,
-                'award'                => $award,
-                'actions'              => true,
-                'managers'             => $award['options']['clinic_managers_shown'] ?? [],
-                'managersRelationMap'  => ClinicManagers::$managersRelationMap,
-                'managerTypes'         => ClinicManagers::$managerTypes,
-                'managersLabel'        => ClinicManagers::$managersLabel,
-                'nominationCategories' => $nominationCategories ?? [],
-                'awards'               => $awards,
-                'startingYear'         => $firstNomination->created_at->format('Y'),
-                'currentYear'          => date('Y'),
-            ]);
+
+
+            return view('award-nominations/index', \array_merge($data, [
+                'awards'       => $awards,
+                'startingYear' => $firstNomination->created_at->format('Y'),
+                'currentYear'  => date('Y'),
+            ]));
         }
 
         return [
-            'html' => view('award-nominations/partials/_table', [
-                'items'                => $items,
-                'award'                => $award,
-                'actions'              => true,
-                'managers'             => $award['options']['clinic_managers_shown'] ?? [],
-                'managersRelationMap'  => ClinicManagers::$managersRelationMap,
-                'managerTypes'         => ClinicManagers::$managerTypes,
-                'managersLabel'        => ClinicManagers::$managersLabel,
-                'nominationCategories' => $nominationCategories ?? [],
-            ])->render(),
+            'html' => view('award-nominations/partials/_table', $data)->render(),
             'pagination' => view('pagination', [
                 'paginator' => $items,
                 'layout'    => 'vendor.pagination.bootstrap-4',
