@@ -112,9 +112,9 @@ class AwardNominationController extends Controller
 
 
             return view('award-nominations/index', \array_merge($data, [
-                'awards'       => $awards,
-                'startingYear' => $firstNomination->created_at->format('Y'),
-                'currentYear'  => date('Y'),
+                'awards'               => $awards,
+                'startingYear'         => $firstNomination->created_at->format('Y'),
+                'currentYear'          => date('Y'),
             ]));
         }
 
@@ -124,8 +124,9 @@ class AwardNominationController extends Controller
                 'paginator' => $items,
                 'layout'    => 'vendor.pagination.bootstrap-4',
                 'role'      => 'award-nominations',
-                'container' => 'award-nominations-container',
-            ])->render()
+                'container' => 'award-nominations-table',
+            ])->render(),
+            'container' => 'award-nominations-table',
         ];
 
     }
