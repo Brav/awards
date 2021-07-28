@@ -323,7 +323,7 @@ function getNominations(url, year)
                 ? `#pagination-${data.id}`
                 : "#pagination";
 
-            $("#award-nominations-table").empty().html(data.html);
+            $("#award-nominations-table").empty();
             $(paginationID).html(data.pagination);
         },
         "json"
