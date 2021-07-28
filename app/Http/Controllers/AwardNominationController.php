@@ -74,7 +74,7 @@ class AwardNominationController extends Controller
 
                     return $query->where('winner', '=', $status);
                 })
-                ->paginate(5);
+                ->paginate(20);
 
             if(isset($award['options']['nominations']['categories']))
             {
