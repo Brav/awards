@@ -66,7 +66,7 @@
                             'paginator' => $items,
                             'layout'    => 'vendor.pagination.bootstrap-4',
                             'role'      => 'award-nominations',
-                            'container' => 'award-nominations-container',
+                            'container' => 'award-nominations-table',
                         ])
 
                     @endif
