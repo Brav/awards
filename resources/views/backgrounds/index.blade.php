@@ -70,7 +70,7 @@
 
             e.preventDefault();
 
-            const validImageTypes = ['image/jpeg', 'image/png'];
+            const validImageTypes = ['image/jpeg', 'image/png', 'image/jpg'];
 
             let formData   = new FormData(this);
             let totalFiles = 0;
@@ -79,7 +79,7 @@
 
             let files = $('#files')[0];
 
-            for (let i = 0; i < totalFiles; i++)
+            for (let i = 0; i < files.files.length; i++)
             {
                 let filesize = Math.round((files.files[i].size / 1024));
 

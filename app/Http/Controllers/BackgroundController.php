@@ -80,7 +80,9 @@ class BackgroundController extends Controller
 
         }
 
-        return response()->json(["message" => "Please try again."]);
+        return response()->json([
+            'Please try again!'
+        ], 500);
     }
 
     /**
