@@ -59,16 +59,18 @@
                     @endif
                 </div>
 
-                @if ($items)
-                    <div id="pagination">
+                <div id="pagination">
+                    @if ($items)
+
                         @include('pagination', [
                             'paginator' => $items,
                             'layout'    => 'vendor.pagination.bootstrap-4',
                             'role'      => 'award-nominations',
                             'container' => 'award-nominations-container',
                         ])
-                    </div>
-                @endif
+
+                    @endif
+                </div>
 
             </div>
         </div>

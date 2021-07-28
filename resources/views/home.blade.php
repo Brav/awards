@@ -127,11 +127,10 @@
                             <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in overflow-visible"
                                 href="{{ route('award-nominations.create', $award->slug) }}"
                                 >
-                                <div class="d-block bg-image w-100 pb-150 ds-image-item" 
+                                <div class="d-block bg-image w-100 pb-150 ds-image-item"
                                     style='background-image: url("{{ $award->backgroundLink }}")'></div>
-                                <div class="ds-image-overlay bg-white-75">
+                                <div class="">
                                     <div class="ds-image-overlay-content align-items-end text-center px-3">
-                                        <img src="{{ asset('media/images/VP_Awards_Icon_GEM.png')}}" alt="" class="d-block m-auto" style="max-width: 100px;">
                                         <!-- <i class="fas fa-award d-block text-center fa-3x mb-3"></i> -->
                                         <h3 class="h3 text-primary my-3">{{ $award->name }} <span class="font-w400 d-block pt-2">{{ $award->period }}</span></h3>
                                     </div>

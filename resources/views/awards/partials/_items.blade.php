@@ -1,27 +1,27 @@
 @foreach ($items as $item)
     <tr id="item-{{ $item->id }}">
-        <th>{{ $item->id }}</th>
-        <th>
+        <td class=col>{{ $item->id }}</td>
+        <td class=col>
             <a href="{{ route('award-nominations.create', $item->slug) }}" target=_blank rel=noopener rel=nofollow>
                 {{ $item->name }}
             </a>
             @if ($item->deleted_at)
                 <span class="text-danger">DELETED</span>
             @endif
-        </th>
+        </td>
         <th class="text-capitalize">{{ $periods[$item->period_type] }}</th>
-        <th>{{ $item->always_visible ? 'Yes' : 'No' }}</th>
+        <td class=col>{{ $item->always_visible ? 'Yes' : 'No' }}</td>
         <th class="text-capitalize">{{ $item['options']['office_type'] ?? '/' }}</th>
         <th class="small">{!! $item->nominations !!}</th>
-        <th>{{ $item->order }}</th>
-        <th>{{ $item->submitted_nominations_count }}</th>
-        <th>{{ $item->starting_at ?
+        <td class=col>{{ $item->order }}</td>
+        <td class=col>{{ $item->submitted_nominations_count }}</td>
+        <td class=col>{{ $item->starting_at ?
             $item->starting_at->timezone('Australia/Sydney')
-            ->format('d/m/Y') : '/' }}</th>
-        <th>{{ $item->ending_at ?
+            ->format('d/m/Y') : '/' }}</td>
+        <td class=col>{{ $item->ending_at ?
             $item->starting_at->timezone('Australia/Sydney')
-            ->format('d/m/Y') : '/'}}</th>
-        <th>
+            ->format('d/m/Y') : '/'}}</td>
+        <td class=col>
 
             <a id="check_nomination"
             class="btn btn-primary"
@@ -41,6 +41,6 @@
                 </a>
             @endif
 
-        </th>
+        </td>
     </tr>
 @endforeach

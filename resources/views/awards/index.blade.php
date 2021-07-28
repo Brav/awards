@@ -15,22 +15,22 @@
 
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped table-vcenter" id=awards>
-                        <thead>
+                        <thead class="thead-dark">
                             <tr>
-                                <th class="small">ID</th>
-                                <th class="small">Name</th>
-                                <th class="small">Award Type</th>
-                                <th class="small">Always Visible</th>
-                                <th class="small">Award Category</th>
-                                <th class="small">Nomination Options</th>
-                                <th class="small">Order</th>
-                                <th class="small">Number of Nominations</th>
-                                <th class="small">Date Starting</th>
-                                <th class="small">Date Ending</th>
-                                <th class="small">Actions</th>
+                                <th scope="col" class="small col sticky-top">ID</th>
+                                <th scope="col" class="small col sticky-top">Name</th>
+                                <th scope="col" class="small col sticky-top">Award Type</th>
+                                <th scope="col" class="small col sticky-top">Always Visible</th>
+                                <th scope="col" class="small col sticky-top">Award Category</th>
+                                <th scope="col" class="small col sticky-top" style="min-width: 250px">Nomination Options</th>
+                                <th scope="col" class="small col sticky-top">Order</th>
+                                <th scope="col" class="small col sticky-top">Number of Nominations</th>
+                                <th scope="col" class="small col sticky-top">Date Starting</th>
+                                <th scope="col" class="small col sticky-top">Date Ending</th>
+                                <th scope="col" class="small col sticky-top">Actions</th>
                             </tr>
                         </thead>
-                        <tbody id=awards-container>
+                        <tbody id=awards-container >
                             @include('awards/partials/_items')
                         </tbody>
                     </table>

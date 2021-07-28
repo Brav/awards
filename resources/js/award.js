@@ -323,6 +323,7 @@ function getNominations(url, year)
                 ? `#pagination-${data.id}`
                 : "#pagination";
 
+            console.log($(paginationID));
             $("#award-nominations-table").html(data.html);
             $(paginationID).html(data.pagination);
         },
