@@ -11,7 +11,7 @@
             @endif
             <th scope="col" class="small col sticky-top">Date/time submitted</th>
             <th scope="col" class="small col sticky-top">Nomination submitted by</th>
-            <th scope="col" class="small col sticky-top" style="max-width: 100px;">Submitting team member email</th>
+            <th scope="col" class="small col sticky-top" style="max-width: 125px;">Submitting team member email</th>
 
             @if ($award->options['office_type'] === 'clinic')
                 <th scope="col" class="small col sticky-top">Clinic of Nominee</th>
