@@ -54,6 +54,11 @@
                 </div>
 
                 <div class="table-responsive" id="award-nominations-table" style="height: 100vh">
+                    <a class="btn btn-primary"
+                        href="{{ route('award-nominations.export', $award->id) }}"
+                        role="button"
+                        data-name="{{ \strtolower(Str::slug($award->name, '_')) }}"
+                        id="export">Export</a>
                     @if ($items)
                         @include('award-nominations/partials/_table')
                     @endif
