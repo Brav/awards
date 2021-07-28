@@ -13,7 +13,7 @@
                     @endif
                 </div>
 
-                <div class="table-responsive">
+                <div class="table-responsive" style="height: 100vh">
                     <table class="table table-bordered table-striped table-vcenter" id=awards>
                         <thead class="thead-dark">
                             <tr>
@@ -30,7 +30,7 @@
                                 <th scope="col" class="small col sticky-top">Actions</th>
                             </tr>
                         </thead>
-                        <tbody id=awards-container style="height: 100vh" >
+                        <tbody id=awards-container>
                             @include('awards/partials/_items')
                         </tbody>
                     </table>
