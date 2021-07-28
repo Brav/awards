@@ -129,14 +129,14 @@
                                 >
                                 <div class="d-block bg-image w-100 pb-150 ds-image-item"
                                     style='background-image: url("{{ $award->backgroundLink }}")'></div>
-                                <div class="ds-image-overlay bg-white-75">
+                                <div class="ds-image-overlay">
                                     <div class="ds-image-overlay-content align-items-end text-center px-3">
 
                                         <!-- <i class="fas fa-award d-block text-center fa-3x mb-3"></i> -->
                                         <h3 class="h3 text-primary my-3">{{ $award->name }} <span class="font-w400 d-block pt-2">{{ $award->period }}</span></h3>
                                     </div>
                                 </div>
-                                <div class="ds-image-overlay2 bg-white-75">
+                                <div class="ds-image-overlay2">
                                     <div class="ds-image-overlay-content text-center px-5">
                                         <p class="text-primary mb-0">
                                             {!! $award->description !!}
