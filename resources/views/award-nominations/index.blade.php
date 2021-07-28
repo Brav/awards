@@ -54,7 +54,9 @@
                 </div>
 
                 <div class="table-responsive" id="award-nominations-table" style="height: 100vh">
-                    @include('award-nominations/partials/_table')
+                    @if ($items)
+                        @include('award-nominations/partials/_table')
+                    @endif
                 </div>
 
                 <div id="pagination">

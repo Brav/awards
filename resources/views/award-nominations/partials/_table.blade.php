@@ -38,10 +38,8 @@
 
         </tr>
     </thead>
-    @if ($items)
-        <tbody id=award-nominations-container>
-            @include('award-nominations/partials/_items')
-        </tbody>
-    @endif
+    <tbody id=award-nominations-container>
+        @include('award-nominations/partials/_items')
+    </tbody>
 </table>
 
