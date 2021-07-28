@@ -14,7 +14,7 @@
             ->timezone('Australia/Sydney')
             ->format('d/m/Y g:i A') }}</th>
         <th>{{ $item->member_logged }}</th>
-        <th>{{ $item->member_logged_email }}</th>
+        <th style="max-width: 100px; word-break: break-all">{{ $item->member_logged_email }}</th>
 
         @if ($award->options['office_type'] === 'clinic')
             <th>{{ optional($item->clinic)->name ?? '/' }}</th>
