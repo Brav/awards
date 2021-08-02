@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
+    <div class="px-2">
+        <div class="justify-content-center">
+            <div class="">
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,7 +17,7 @@
                     <table class="table table-bordered table-striped table-vcenter" id=awards>
                         <thead class="thead-dark">
                             <tr>
-                                <th scope="col" class="small col sticky-top">ID</th>
+                                <th scope="col" class="small sticky-top item-id">ID</th>
                                 <th scope="col" class="small col sticky-top">Name</th>
                                 <th scope="col" class="small col sticky-top">Award Type</th>
                                 <th scope="col" class="small col sticky-top">Always Visible</th>

@@ -1,7 +1,7 @@
 @foreach ($items as $item)
     <tr id="item-{{ $item->id }}">
-        <td class=col>{{ $item->id }}</td>
-        <td class=col>
+        <td class="item-id">{{ $item->id }}</td>
+        <td>
             <a href="{{ route('award-nominations.create', $item->slug) }}" target=_blank rel=noopener rel=nofollow>
                 {{ $item->name }}
             </a>
