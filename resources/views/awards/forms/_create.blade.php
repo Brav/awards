@@ -32,6 +32,23 @@
         </div>
 
         <div class="col">
+
+            <div class="form-group">
+              <label for="order">Order on screen</label>
+              <input type="number" name="order"
+              id="order" class="form-control"
+              min=1
+              value="{{ old('order') }}"
+              placeholder="Order on home screen" >
+
+                @error('order')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+
+        </div>
+
+        <div class="col">
             <div class="form-group">
                 <label class="d-block">Award Category</label>
                 <div class="custom-control custom-radio custom-control-inline">

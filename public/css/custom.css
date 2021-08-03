@@ -477,8 +477,8 @@ footer .view {
     transform: scale(1,1);
 }
 .fx-item-zoom-in:hover .ds-image-item {
-    -webkit-transform: scale(.65,.65);
-    transform: scale(.65,.65);
+    -webkit-transform: scale(0.9,0.9);
+    transform: scale(0.9,0.9);
 }
 .ds-image-container .ds-image-overlay,
 .ds-image-container .ds-image-overlay2 {
