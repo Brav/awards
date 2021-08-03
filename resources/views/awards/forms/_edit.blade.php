@@ -6,16 +6,17 @@
     @method('PUT')
 
     <input type="hidden" id="background-set"
-        name="background-set" value="{{ $default }}">
+        name="background-set"
+        value="{{ $defaultBackground['basename'] }}">
 
     <div class="form-row align-items-center">
 
         <div class="col">
             <div class="form-group">
                 <label for="name">Award Name</label>
-                <input type="text" class="form-control"
-                name=name id="name"
-                value="{{ old('name', $award->name) }}">
+                <textarea class="form-control" name="name" id="name">{{
+                    old('name', $award->name)
+                }}</textarea>
 
                 @error('name')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -298,12 +299,13 @@
                             $data = pathinfo($image);
                         @endphp
                         <div class="col-lg-4 col-xl-2 background-image
-                                @if ($background && ($background->default === $data['basename']))
+                                @if ($default && ($data['basename'] === $defaultBackground['basename']))
                                     border border-danger
-                                @endif" id="{{ $data['filename'] }}">
+                                @endif"
+                                id="{{ $data['filename'] }}">
 
                             <button class="btn btn-primary btn-sm background-use
-                                @if ($background && ($background->default === $data['basename']))
+                                @if ($default && ($data['basename'] === $defaultBackground['basename']))
                                     d-none
                                 @endif"
                                 data-file="{{ $data['basename'] }}"
@@ -328,6 +330,7 @@
     <button type="submit" class="btn btn-primary">Update</button>
 </form>
 
+<script src="{{ asset('js/tinymce.js') }}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
 
@@ -348,13 +351,15 @@
         });
 
     })
-</script>
 
-<script src="{{ asset('js/tinymce.js') }}"></script>
-<script>
-tinymce.init({
-    selector: '#description',
-    menubar : false,
-    toolbar: "undo redo | paragraph bold italic"
-});
+    tinymce.init({
+        selector: '#description',
+        menubar : false,
+        toolbar: "undo redo | paragraph bold italic"
+    });
+    tinymce.init({
+        selector: '#name',
+        menubar : false,
+        toolbar: "undo redo | paragraph bold italic"
+    });
 </script>

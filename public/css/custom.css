@@ -27,7 +27,7 @@
     padding-bottom: 20px;
 }
 a,
-a:hover {    
+a:hover {
     color: #00616d
 }
 .text-primary {
@@ -172,7 +172,7 @@ h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong,
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,transform .12s ease-out,-webkit-transform .12s ease-out;
 }
 .btn-hero-primary {
-    color: #fff;    
+    color: #fff;
     background-color: #0665d0;
     box-shadow: 0 0.125rem 0.75rem rgba(4,65,134,.25);
 }
@@ -259,7 +259,7 @@ h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong,
     margin-right: 3px;
     margin-left: 3px;
     text-indent: -999px;
-    position: relative;    
+    position: relative;
 }
 .slick-dots li {
     width: auto;
@@ -274,7 +274,7 @@ h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong,
     background-color: #fff;
     background-clip: padding-box;
     opacity: .5;
-    transition: opacity .6s ease;    
+    transition: opacity .6s ease;
     width: 30px;
     content: '';
     background-color: #fff;
@@ -477,8 +477,8 @@ footer .view {
     transform: scale(1,1);
 }
 .fx-item-zoom-in:hover .ds-image-item {
-    -webkit-transform: scale(.8,.8);
-    transform: scale(.8,.8);
+    -webkit-transform: scale(.65,.65);
+    transform: scale(.65,.65);
 }
 .ds-image-container .ds-image-overlay,
 .ds-image-container .ds-image-overlay2 {
@@ -509,11 +509,11 @@ footer .view {
     -webkit-transform: scale(1,1);
     transform: scale(1,1);
 }
-.ds-image-container:hover .ds-image-overlay {    
+.ds-image-container:hover .ds-image-overlay {
     opacity: 0;
     visibility: hidden;
 }
-.ds-image-container:hover .ds-image-overlay2 {    
+.ds-image-container:hover .ds-image-overlay2 {
     opacity: 1;
     visibility: visible;
 }
@@ -571,7 +571,7 @@ footer .view {
     right: 0;
     bottom: 0;
 }
-.vjs-poster {    
+.vjs-poster {
     background-size: cover ;
 }
 /*./video*/
@@ -675,7 +675,7 @@ footer .view {
 #linec1c {
   stroke-dasharray: 150;
   stroke-dashoffset: 0;
-  animation: dash3 2s linear alternate;  
+  animation: dash3 2s linear alternate;
   animation-delay: 2s;
 }
 @keyframes showline {
@@ -766,7 +766,7 @@ footer .view {
     background-color: rgba(22,106,143,0.2);
 }
 .ds-hover-ico-blocks > div:nth-child(even) .card {
-    background-color: rgba(95,164,154,0.2);    
+    background-color: rgba(95,164,154,0.2);
 }
 .ds-hover-ico-blocks .icon-boxed-3x {
     border: 1px solid #fff;
@@ -954,7 +954,7 @@ fill: #bbb !important;
 /*PROCESS*/
 .process-item {
     position: relative;
-    display: inline-block;  
+    display: inline-block;
 }
 .process-item .process-item-number {
     position: absolute;
@@ -1153,13 +1153,13 @@ fill: #bbb !important;
 /*TEMP COLORS*/
 /*#00616d*/
 .btn-hero-primary {
-    color: #fff;    
+    color: #fff;
     background-color: #00616d;
     box-shadow: 0 0.125rem 0.75rem rgba(4,65,134,.25);
     border-radius: 50px;
 }
 .btn-hero-secundary {
-    color: #fff;    
+    color: #fff;
     background-color: #333;
     box-shadow: 0 0.125rem 0.75rem rgba(0,0,0,.25);
     border-radius: 50px;
@@ -1566,7 +1566,7 @@ textarea.input1 + .shadow-input1 {
         right: 0;
         top: 0;
         bottom: 0;
-        background: rgba(0,0,0,.5);        
+        background: rgba(0,0,0,.5);
     }
     .ds-nav-continue-1:before {
         content: '';
@@ -1589,7 +1589,7 @@ textarea.input1 + .shadow-input1 {
         transition: all 0.25s ease-out;
         -webkit-transition: all 0.25s ease-out;
     }
-    #page-header .navbar-collapse.collapse.show .navbar-nav { 
+    #page-header .navbar-collapse.collapse.show .navbar-nav {
         transform: translateX(0);
         -ms-transform: translateX(0);
         -webkit-transform: translateX(0);
@@ -1650,7 +1650,7 @@ textarea.input1 + .shadow-input1 {
     }
     #page-header .navbar-nav > .nav-item.show > a:before,
     .ds-nav-continue-1.ds-active:after,
-    .ds-nav-continue-2.ds-active:after {        
+    .ds-nav-continue-2.ds-active:after {
         content: "↑";
         color: rgba(255,255,255,.5) !important;
     }
@@ -1688,7 +1688,7 @@ textarea.input1 + .shadow-input1 {
     }
     .mr-lg-8, .mx-lg-8 {
         margin-right: 7.5rem!important;
-    }    
+    }
     .mt-lg-8, .my-lg-8 {
         margin-top: 7.5rem!important;
     }
@@ -1701,7 +1701,7 @@ textarea.input1 + .shadow-input1 {
     }
     .mr-lg-6, .mx-lg-6 {
         margin-right: 4rem!important;
-    }    
+    }
     .mt-lg-6, .my-lg-6 {
         margin-top: 4rem!important;
     }

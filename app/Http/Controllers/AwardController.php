@@ -166,19 +166,22 @@ class AwardController extends Controller
             \array_unshift($images, $default);
         }
 
+        $defaultBackground = pathinfo($default);
+
         return view('form', [
-            'award'            => $award,
-            'task'             => 'edit',
-            'view'             => 'awards',
-            'clinicManagers'   => ClinicManagers::$managerTypes,
-            'managersLabels'   => ClinicManagers::$managersLabel,
-            'nominations'      => NominationCategory::orderBy('name')->get(),
-            'periods'          => Award::$periods,
-            'roles'            => Roles::all(),
-            'awardNominations' => $award['options']['nominations'] ?? null,
-            'images'           => $images,
-            'background'       => $background,
-            'default'          => $default,
+            'award'             => $award,
+            'task'              => 'edit',
+            'view'              => 'awards',
+            'clinicManagers'    => ClinicManagers::$managerTypes,
+            'managersLabels'    => ClinicManagers::$managersLabel,
+            'nominations'       => NominationCategory::orderBy('name')->get(),
+            'periods'           => Award::$periods,
+            'roles'             => Roles::all(),
+            'awardNominations'  => $award['options']['nominations'] ?? null,
+            'images'            => $images,
+            'background'        => $background,
+            'default'           => $default,
+            'defaultBackground' => $defaultBackground,
         ]);
     }
 

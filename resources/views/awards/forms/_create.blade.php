@@ -18,25 +18,13 @@
         <div class="col">
             <div class="form-group">
                 <label for="name">Award Name</label>
-                <input type="text" class="form-control" name=name id="name" value="{{ old('name') }}">
+
+                <textarea class="form-control" name="name" id="name">{{
+                    old('name')
+                }}</textarea>
+
 
                 @error('name')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
-            </div>
-        </div>
-
-        <div class="col">
-
-            <div class="form-group">
-              <label for="order">Order on screen</label>
-              <input type="number" name="order"
-              id="order" class="form-control"
-              min=1
-              value="{{ old('order') }}"
-              placeholder="Order on home screen" >
-
-                @error('order')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
@@ -352,6 +340,12 @@
 <script>
 tinymce.init({
     selector: '#description',
+    menubar : false,
+    toolbar: "undo redo | paragraph bold italic"
+});
+
+tinymce.init({
+    selector: '#name',
     menubar : false,
     toolbar: "undo redo | paragraph bold italic"
 });

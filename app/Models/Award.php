@@ -64,7 +64,7 @@ class Award extends Model
         $format['options'] = [];
         $format['fields']  = [];
 
-        $format['name']           = \trim(\filter_var($data['name'], FILTER_SANITIZE_STRING));
+        $format['name']           = \trim(\strip_tags($data['name'], '<br><p><em><strong>'));
         $format['description']    = \trim(\strip_tags($data['description'],
             '<br><p><em><strong>'));
         $format['order']          = (int) $data['order'];
@@ -150,7 +150,7 @@ class Award extends Model
 
         if($data['background-set'] !== null && !request()->hasFile('background'))
         {
-            $format['background'] = $data['background-set'];
+            $format['background'] = \filter_var($data['background-set'], FILTER_SANITIZE_STRING);
         }
 
         if(request()->hasFile('background'))

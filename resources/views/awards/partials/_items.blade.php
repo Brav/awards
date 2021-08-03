@@ -3,7 +3,7 @@
         <td class="item-id">{{ $item->id }}</td>
         <td>
             <a href="{{ route('award-nominations.create', $item->slug) }}" target=_blank rel=noopener rel=nofollow>
-                {{ $item->name }}
+                {!! $item->name !!}
             </a>
             @if ($item->deleted_at)
                 <span class="text-danger">DELETED</span>

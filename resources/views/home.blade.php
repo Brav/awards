@@ -108,7 +108,9 @@
                     <div class="col-xs-6 col-md-3">
                         <button type="button" class="btn btn-hero-primary btn-block"
                         role="award-filter"
-                        data-award="clinics">Clinic<br />Awards</button>
+                        data-award="clinics">Clinic & Ancillary <br>
+                        Businesses Awards
+                    </button>
                     </div>
                     <div class="col-xs-6 col-md-3">
                         <button type="button" class="btn btn-hero-primary btn-block"
@@ -133,12 +135,12 @@
                                     <div class="ds-image-overlay-content align-items-end text-center px-3">
 
                                         <!-- <i class="fas fa-award d-block text-center fa-3x mb-3"></i> -->
-                                        <h3 class="h3 text-primary my-3">{{ $award->name }} <span class="font-w400 d-block pt-2">{{ $award->period }}</span></h3>
+                                        <h3 class="h3 text-primary my-5">{!! $award->name !!} <span class="font-w400 d-block pt-2">{{ $award->period }}</span></h3>
                                     </div>
                                 </div>
                                 <div class="ds-image-overlay2">
                                     <div class="ds-image-overlay-content text-center px-5">
-                                        <p class="text-primary mb-0">
+                                        <p class="text-primary mb-0 my-5">
                                             {!! $award->description !!}
                                         </p>
                                     </div>
