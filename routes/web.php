@@ -13,6 +13,7 @@ use App\Http\Controllers\UserImportController;
 use App\Http\Controllers\FilesController;
 use App\Http\Controllers\NominationCategoryController;
 use App\Http\Controllers\NominationController;
+use App\Http\Controllers\WinnerController;
 use Illuminate\Support\Facades\Auth;
 
 require __DIR__.'/auth.php';
@@ -171,6 +172,24 @@ Route::prefix('award-nominations')->middleware(['auth'])->group(function () {
 
     Route::get('export/{award}',  [AwardNominationController::class, 'export'])->name('award-nominations.export');
 });
+
+Route::prefix('winners')->middleware(['auth'])->group(function () {
+
+    Route::get('{winner?}', [WinnerController::class, 'index'])
+        ->name('winners.index');
+    Route::post('store', [WinnerController::class, 'store'])
+        ->name('winners.store');
+    Route::get('delete/{winner}', [WinnerController::class, 'delete'])
+        ->name('winners.delete');
+    Route::get('edit/{winner}', [WinnerController::class, 'edit'])
+        ->name('winners.edit');
+    Route::put('update/{winner}', [WinnerController::class, 'update'])
+        ->name('winners.update');
+    Route::delete('destroy/{winner:award_nomination_id}', [WinnerController::class, 'destroy'])
+        ->name('winners.destroy');
+
+});
+
 
 Route::prefix('nominate')->group(function () {
     Route::get('{award}', [AwardNominationController::class, 'create'])

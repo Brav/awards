@@ -75,4 +75,9 @@
             </div>
         </div>
     </div>
+
+    <template id="winners-create">
+        @include('winners/forms/_create')
+    </template>
+
 @endsection

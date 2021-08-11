@@ -155,6 +155,74 @@ $("body").on("click", ".change-winner-status", function (e) {
     });
 });
 
+$("body").on("click", ".winner-show", function (e) {
+
+    let $this = $(this);
+
+
+    $("#bigBody").html($("#winners-create").html().trim());
+
+    $("#bigBody").find('#name').val($this.data('name'));
+    $("#bigBody").find("#clinic").val($this.data("clinic"));
+    $("#bigBody").find("#clinic_id").val($this.data("clinicid"));
+    $("#bigBody").find("#award").val($this.data("award"));
+    $("#bigBody").find("#award_id").val($this.data("awardid"));
+    $("#bigBody").find("#award_nomination_id").val($this.data("id"));
+
+    $("#bigModal").modal("show");
+});
+
+$("body").on("click", ".winner-remove", function (e)
+{
+    let $this = $(this);
+
+    if (!confirm('Are you sure you want to remove this form home page?')) {
+        return;
+    }
+
+    $.ajax({
+        type: "DELETE",
+        url: $this.data("url"),
+        dataType: "json",
+        data: { _token: $('meta[name="csrf-token"]').attr("content") },
+        success: function (response)
+        {
+             let itemID = $this.data('id');
+
+             $(`#item-${itemID}`).find(".winner-show").removeClass("d-none");
+
+             $(`#item-${itemID}`).find(".winner-remove").addClass("d-none");
+        },
+    });
+});
+
+$("body").on("submit", "#winners-store", function (e) {
+
+    e.preventDefault()
+
+    let $this = $(this);
+
+    let data = $this.serialize()
+
+    $.ajax({
+        type: "POST",
+        url: $this.attr("action"),
+        dataType: "json",
+        data: data,
+        success: function (response) {
+
+            let itemID = $this.find("#award_nomination_id").val()
+
+            $(`#item-${itemID}`).find(".winner-show").addClass("d-none");
+
+            $(`#item-${itemID}`).find(".winner-remove").removeClass("d-none");
+
+            $("#bigModal").modal("hide");
+        },
+    }).fail(function (jqXHR, textStatus) {
+    });
+});
+
 $("body").on("click", ".background-delete", function (e) {
     e.preventDefault();
     let $this = $(this);

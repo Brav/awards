@@ -8,6 +8,32 @@
                         class="btn btn-{{ $item->winner ? 'danger' : 'primary' }} change-winner-status">
                     {{ $item->winner ? 'Remove Winner Status' : 'Make Winner'}}
                 </button>
+
+                @if ($item->winner)
+
+                    <button
+                        data-id={{ $item->id }}
+                        data-clinic="{{ optional($item->clinic)->name ?? '/' }}"
+                        data-clinicid="{{ $item->clinic->id }}"
+                        data-name="{{ $item->nominee }}"
+                        data-award="{{ trim(strip_tags(
+                            str_replace(['<br>', '<br />', '<br/>', '</p>'], ' ', $item->award->name)
+                            )) }}"
+                        data-awardid="{{ $item->award->id }}"
+                        type="button"
+                        class="btn btn-primary winner-show @if($item->winnerShown)
+                            d-none
+                            @endif
+                        ">Show on home page</button>
+
+                        <button
+                        data-id={{ $item->id }}
+                        data-url="{{ route('winners.destroy', $item->id) }}"
+                        type="button"
+                        class="btn btn-primary winner-remove @if(!$item->winnerShown)
+                            d-none
+                            @endif">Remove from home page</button>
+                @endif
             </th>
         @endif
         <th>{{ $item->created_at

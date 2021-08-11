@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class AwardNomination extends Model
@@ -117,5 +118,15 @@ class AwardNomination extends Model
     public function department(): BelongsTo
     {
         return $this->belongsTo(Department::class);
+    }
+
+    /**
+     * Get all of the winner for the AwardNomination
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function winnerShown(): HasOne
+    {
+        return $this->HasOne(Winner::class);
     }
 }

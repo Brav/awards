@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Award;
+use App\Models\Winner;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -29,8 +30,16 @@ class HomeController extends Controller
             ->orderBy('order')
             ->get();
 
+
+        $awardWinners = Winner::with([
+                'nomination',
+                'nomination.clinic',
+                'nomination.award',
+            ])->get();
+
         return view('home', [
-            'awards' => $awards,
+            'awards'       => $awards,
+            'awardWinners' => $awardWinners,
         ]);
     }
 

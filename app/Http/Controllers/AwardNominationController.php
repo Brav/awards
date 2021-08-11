@@ -55,6 +55,9 @@ class AwardNominationController extends Controller
                     'department.manager',];
             }
 
+            $with[] = 'winnerShown';
+            $with[] = 'award';
+
             $filterOptions = ['options' => [
                 'max_range' => date('Y'),
             ]];
