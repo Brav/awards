@@ -34,6 +34,15 @@
     </div>
 
     <div class="form-group">
+        <label for="name">Order</label>
+        <input type="number" class="form-control" name=order id="order" value="1">
+
+        @error('order')
+            <div class="alert alert-danger">{{ $message }}</div>
+        @enderror
+    </div>
+
+    <div class="form-group">
       <label for="">Reason for Nomination</label>
       <textarea class="form-control" name="reason" id="reason" rows="5"></textarea>
     </div>

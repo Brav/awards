@@ -19,6 +19,7 @@ class CreateWinnersTable extends Migration
             $table->text('reason');
             $table->string('clinic')->nullable()->default(null);
             $table->string('award')->nullable()->default(null);
+            $table->tinyInteger('order')->default(1);
             $table->unsignedBigInteger('award_nomination_id');
             $table->unsignedBigInteger('clinic_id');
             $table->timestamps();
@@ -36,10 +37,8 @@ class CreateWinnersTable extends Migration
     public function down()
     {
         Schema::table('winners', function (Blueprint $table) {
-            $table->dropForeign([
-                'award_nomination_id',
-                'clinic_id',
-            ]);
+            $table->dropForeign(['award_nomination_id',]);
+            $table->dropForeign(['clinic_id',]);
         });
 
         Schema::dropIfExists('winners');

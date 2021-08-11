@@ -166,146 +166,11 @@
 
                 </div>
             </div>
-           
-            <div class="row">
 
-                    <div class="col-md-12">
-                        <div class="js-slider text-center" data-autoplay="true" data-dots="true" data-arrows="true" data-slides-to-show="3">
+            @if ($awardWinners)
+                @include('winners/partials/_winners')
+            @endif
 
-                            <!-- Awarad Winner -->
-                            <div class="py-3">
-                                <a class="ds-image-container"
-                                    href="#" data-toggle="modal" data-target="#award-modal">
-                                    <div class="d-block bg-image w-100 pb-100 ds-image-item bg-primary"
-                                        style='background-image: url("{{ asset('media/photos/VetPartners-Awards-4.jpg')}}")'></div>
-                                    <div class="ds-image-overlay bg-black-50">
-                                        <div class="ds-image-overlay-content align-items-end text-center px-3">
-                                            <h3 class="h3 text-white my-5">
-                                                <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0">Award</span>
-                                                <span class="mt-2 py-0 d-block text-primary2">Full Name</span>
-                                                <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0">Award</span>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="ds-image-overlay2  bg-primary">
-                                        <div class="ds-image-overlay-content text-center px-5">
-                                            <p class="text-white mb-0 my-5">
-                                               View Reason for Nomination
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- END Awarad Winner -->
-
-                            <!-- Awarad Winner -->
-                            <div class="py-3">
-                                <a class="ds-image-container"
-                                    href="#" data-toggle="modal" data-target="#award-modal">
-                                    <div class="d-block bg-image w-100 pb-100 ds-image-item bg-primary"
-                                        style='background-image: url("{{ asset('media/photos/VetPartners-Awards-4.jpg')}}")'></div>
-                                    <div class="ds-image-overlay bg-black-50">
-                                        <div class="ds-image-overlay-content align-items-end text-center px-3">
-                                            <h3 class="h3 text-white my-5">
-                                                <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0">Award</span>
-                                                <span class="mt-2 py-0 d-block text-primary2">Full Name</span>
-                                                <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0">Award</span>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="ds-image-overlay2  bg-primary">
-                                        <div class="ds-image-overlay-content text-center px-5">
-                                            <p class="text-white mb-0 my-5">
-                                               View Reason for Nomination
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- END Awarad Winner -->
-
-                            <!-- Awarad Winner -->
-                            <div class="py-3">
-                                <a class="ds-image-container"
-                                    href="#" data-toggle="modal" data-target="#award-modal">
-                                    <div class="d-block bg-image w-100 pb-100 ds-image-item bg-primary"
-                                        style='background-image: url("{{ asset('media/photos/VetPartners-Awards-4.jpg')}}")'></div>
-                                    <div class="ds-image-overlay bg-black-50">
-                                        <div class="ds-image-overlay-content align-items-end text-center px-3">
-                                            <h3 class="h3 text-white my-5">
-                                                <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0">Award</span>
-                                                <span class="mt-2 py-0 d-block text-primary2">Full Name</span>
-                                                <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0">Award</span>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="ds-image-overlay2  bg-primary">
-                                        <div class="ds-image-overlay-content text-center px-5">
-                                            <p class="text-white mb-0 my-5">
-                                               View Reason for Nomination
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- END Awarad Winner -->
-
-                            <!-- Awarad Winner -->
-                            <div class="py-3">
-                                <a class="ds-image-container"
-                                    href="#" data-toggle="modal" data-target="#award-modal">
-                                    <div class="d-block bg-image w-100 pb-100 ds-image-item bg-primary"
-                                        style='background-image: url("{{ asset('media/photos/VetPartners-Awards-4.jpg')}}")'></div>
-                                    <div class="ds-image-overlay bg-black-50">
-                                        <div class="ds-image-overlay-content align-items-end text-center px-3">
-                                            <h3 class="h3 text-white my-5">
-                                                <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0">Award</span>
-                                                <span class="mt-2 py-0 d-block text-primary2">Full Name</span>
-                                                <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0">Award</span>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="ds-image-overlay2  bg-primary">
-                                        <div class="ds-image-overlay-content text-center px-5">
-                                            <p class="text-white mb-0 my-5">
-                                               View Reason for Nomination
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- END Awarad Winner -->
-
-                            <!-- Awarad Winner -->
-                            <div class="py-3">
-                                <a class="ds-image-container"
-                                    href="#" data-toggle="modal" data-target="#award-modal">
-                                    <div class="d-block bg-image w-100 pb-100 ds-image-item bg-primary"
-                                        style='background-image: url("{{ asset('media/photos/VetPartners-Awards-4.jpg')}}")'></div>
-                                    <div class="ds-image-overlay bg-black-50">
-                                        <div class="ds-image-overlay-content align-items-end text-center px-3">
-                                            <h3 class="h3 text-white my-5">
-                                                <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0">Award</span>
-                                                <span class="mt-2 py-0 d-block text-primary2">Full Name</span>
-                                                <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0">Award</span>
-                                            </h3>
-                                        </div>
-                                    </div>
-                                    <div class="ds-image-overlay2  bg-primary">
-                                        <div class="ds-image-overlay-content text-center px-5">
-                                            <p class="text-white mb-0 my-5">
-                                               View Reason for Nomination
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <!-- END Awarad Winner -->
-
-                        </div>
-                    </div>
-
-            </div>
 
             <!-- Award Winner Modal -->
             <div class="modal" id="award-modal" tabindex="-1" role="dialog" aria-labelledby="award-modal" aria-hidden="true">
@@ -328,7 +193,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-8">
-                                        <p>Potenti elit lectus augue eget iaculis vitae etiam, ullamcorper etiam bibendum ad feugiat magna accumsan dolor, nibh molestie cras hac ac ad massa, fusce ante convallis ante urna molestie vulputate bibendum tempus ante justo arcu erat accumsan adipiscing risus, libero condimentum venenatis sit nisl nisi ultricies sed, fames aliquet consectetur consequat nostra molestie neque nullam scelerisque neque commodo turpis quisque etiam egestas vulputate massa, curabitur tellus massa venenatis congue dolor enim integer luctus, nisi suscipit gravida fames quis vulputate nisi viverra luctus id leo dictum lorem, inceptos nibh orci.</p>
+                                        <p id=modal-text></p>
                                     </div>
                                 </div>
                             </div>
@@ -415,6 +280,15 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('button[data-award="clinics"]').click()
+    })
+
+    $('#award-modal').on('shown.bs.modal', function (event) {
+
+        let target = event.relatedTarget
+        let reason = target.dataset.reason
+
+        $(this).find('#modal-text').html(reason)
+
     })
 </script>
 @endsection

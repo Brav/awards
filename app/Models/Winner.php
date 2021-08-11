@@ -17,6 +17,7 @@ class Winner extends Model
         'clinic',
         'award',
         'reason',
+        'order',
         'award_nomination_id',
         'clinic_id',
     ];
@@ -37,6 +38,7 @@ class Winner extends Model
         $format['clinic'] = \filter_var($data['clinic'], \FILTER_SANITIZE_STRING);
         $format['award']  = \filter_var($data['award'], \FILTER_SANITIZE_STRING);
 
+        $format['order']               = \filter_var($data['order'], \FILTER_SANITIZE_NUMBER_INT);
         $format['award_nomination_id'] = \filter_var($data['award_nomination_id'], \FILTER_SANITIZE_NUMBER_INT);
         $format['clinic_id']           = \filter_var($data['clinic_id'], \FILTER_SANITIZE_NUMBER_INT);
         $format['award_id']            = \filter_var($data['award_id'], \FILTER_SANITIZE_NUMBER_INT);
@@ -61,6 +63,26 @@ class Winner extends Model
 
         return $format;
 
+    }
+
+    /**
+     * Return award name
+     *
+     * @return string
+     */
+    public function getAwardNameAttribute() :string
+    {
+        return $this->award ?? $this->nomination->award->name;
+    }
+
+    /**
+     * Return award name
+     *
+     * @return string
+     */
+    public function getClinicNameAttribute() :string
+    {
+        return $this->clinic ?? $this->nomination->clinic->name;
     }
 
     /**
