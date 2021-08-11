@@ -35,7 +35,8 @@ class HomeController extends Controller
                 'nomination',
                 'nomination.clinic',
                 'nomination.award',
-            ])->get();
+            ])->orderBy('order')
+            ->get();
 
         return view('home', [
             'awards'       => $awards,
