@@ -192,6 +192,7 @@ $("body").on("click", ".winner-remove", function (e)
              $(`#item-${itemID}`).find(".winner-show").removeClass("d-none");
 
              $(`#item-${itemID}`).find(".winner-remove").addClass("d-none");
+             $(`#item-${itemID}`).find(".winner-update").addClass("d-none");
         },
     });
 });
@@ -215,6 +216,7 @@ $("body").on("submit", "#winners-store", function (e) {
 
             $(`#item-${itemID}`).find(".winner-show").addClass("d-none");
 
+            $(`#item-${itemID}`).find(".winner-update").removeClass("d-none");
             $(`#item-${itemID}`).find(".winner-remove").removeClass("d-none");
 
             $("#bigModal").modal("hide");

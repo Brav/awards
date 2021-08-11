@@ -72,7 +72,15 @@ class WinnerController extends Controller
      */
     public function edit(Winner $winner)
     {
-        //
+        return view('form-ajax', [
+            'winner' => $winner->load([
+                'nomination',
+                'nomination.clinic',
+                'nomination.award',
+            ]),
+            'view' => 'winners',
+            'task' => 'edit',
+        ]);
     }
 
     /**
@@ -82,9 +90,15 @@ class WinnerController extends Controller
      * @param  \App\Models\Winner  $winner
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Winner $winner)
+    public function update(WinnerCreateRequest $request, Winner $winner)
     {
-        //
+        $data = $winner->formatData($request->all());
+
+        $winner->update($data);
+
+        return response()->json([
+            'Update'
+        ], 200);
     }
 
     /**

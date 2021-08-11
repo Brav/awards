@@ -70,9 +70,13 @@ class Winner extends Model
      *
      * @return string
      */
-    public function getAwardNameAttribute() :string
+    public function getAwardName($withHTML = false) :string
     {
-        return $this->award ?? $this->nomination->award->name;
+        return $this->award ??
+            $withHTML ? $this->nomination->award->name :
+            trim(trim(strip_tags(
+                str_replace(['<br>', '<br />', '<br/>', '</p>'], ' ', $this->nomination->award->name)
+                )) );
     }
 
     /**

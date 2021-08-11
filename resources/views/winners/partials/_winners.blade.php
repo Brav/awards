@@ -16,7 +16,7 @@
                         <div class="ds-image-overlay bg-black-50">
                             <div class="ds-image-overlay-content align-items-end text-center px-3">
                                 <h3 class="h3 text-white my-5">
-                                    <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0">{!! $winner->awardName !!}</span>
+                                    <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0">{!! $winner->getAwardName(true) !!}</span>
                                     <span class="mt-2 py-0 d-block text-primary2">{{ $winner->name }}</span>
                                     <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0">{{ $winner->clinicName }}</span>
                                 </h3>

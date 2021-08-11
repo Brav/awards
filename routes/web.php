@@ -181,7 +181,7 @@ Route::prefix('winners')->middleware(['auth'])->group(function () {
         ->name('winners.store');
     Route::get('delete/{winner}', [WinnerController::class, 'delete'])
         ->name('winners.delete');
-    Route::get('edit/{winner}', [WinnerController::class, 'edit'])
+    Route::get('edit/{winner:award_nomination_id}', [WinnerController::class, 'edit'])
         ->name('winners.edit');
     Route::put('update/{winner}', [WinnerController::class, 'update'])
         ->name('winners.update');

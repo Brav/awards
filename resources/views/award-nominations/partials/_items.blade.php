@@ -26,6 +26,17 @@
                             @endif
                         ">Show on home page</button>
 
+                        <a
+                        data-id={{ $item->id }}
+                        data-url="{{ route('winners.edit', $item->id) }}"
+                        type="button"
+                        data-target="#bigModal"
+                        role="bigModal"
+                        data-attr="{{ route('winners.edit', $item->id) }}"
+                        class="btn btn-primary winner-update @if(!$item->winnerShown)
+                            d-none
+                            @endif">Update</a>
+
                         <button
                         data-id={{ $item->id }}
                         data-url="{{ route('winners.destroy', $item->id) }}"
