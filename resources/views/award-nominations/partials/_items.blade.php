@@ -11,8 +11,8 @@
 
                 <button
                     data-id={{ $item->id }}
-                    data-clinic="{{ optional($item->clinic)->name ?? '/' }}"
-                    data-clinicid="{{ $item->clinic->id }}"
+                    data-clinic="{{ optional($item->clinic)->name ?? $item->department->name }}"
+                    data-clinicid="{{ optional($item->clinic)->id ?? $item->department->id }}"
                     data-name="{{ $item->nominee }}"
                     data-award="{{ trim(strip_tags(
                         str_replace(['<br>', '<br />', '<br/>', '</p>'], ' ', $item->award->name)
