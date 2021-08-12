@@ -86,7 +86,9 @@ class Winner extends Model
      */
     public function getClinicNameAttribute() :string
     {
-        return $this->clinic ?? $this->nomination->clinic->name;
+        return $this->clinic ??
+        optional($this->nomination->clinic)->name ??
+        $this->nomination->department->name;
     }
 
     /**

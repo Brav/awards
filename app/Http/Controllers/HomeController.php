@@ -34,6 +34,7 @@ class HomeController extends Controller
         $awardWinners = Winner::with([
                 'nomination',
                 'nomination.clinic',
+                'nomination.department',
                 'nomination.award',
             ])->orderBy('order')
             ->get();
