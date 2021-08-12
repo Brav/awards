@@ -138,17 +138,28 @@ $("body").on("click", ".change-winner-status", function (e) {
         data: { _token: $('meta[name="csrf-token"]').attr("content") },
         success: function (response) {
 
+            let itemID = $this.data("id");
+
             if (response.status)
             {
                  $this.removeClass("btn-primary")
                     .addClass("btn-danger")
                     .text("Remove Winner Status");
+
+                $(`#item-${itemID}`).find(".winner-show").removeClass('d-none');
             }
             else
             {
                  $this.removeClass("btn-danger")
                     .addClass("btn-primary")
                     .text('Make Winner');
+
+                $(`#item-${itemID}`)
+                    .find(".winner-show")
+                    .addClass("d-none");
+
+                $(`#item-${itemID}`).find(".winner-update").addClass("d-none");
+                $(`#item-${itemID}`).find(".winner-remove").addClass("d-none");
             }
 
         }
