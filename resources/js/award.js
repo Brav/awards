@@ -205,7 +205,7 @@ $("body").on("click", ".winner-remove", function (e)
             $(`#item-${itemID}`).find(".winner-update").addClass("d-none");
         },
     }).fail(function (jqXHR, textStatus, errorThrown) {
-        alert("Something went wrong, please try again");
+        alert("Something went wrong, please try refresh the page and try again");
     });
 });
 
