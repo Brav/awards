@@ -196,15 +196,16 @@ $("body").on("click", ".winner-remove", function (e)
         url: $this.data("url"),
         dataType: "json",
         data: { _token: $('meta[name="csrf-token"]').attr("content") },
-        success: function (response)
-        {
-             let itemID = $this.data('id');
+        success: function (response) {
+            let itemID = $this.data("id");
 
-             $(`#item-${itemID}`).find(".winner-show").removeClass("d-none");
+            $(`#item-${itemID}`).find(".winner-show").removeClass("d-none");
 
-             $(`#item-${itemID}`).find(".winner-remove").addClass("d-none");
-             $(`#item-${itemID}`).find(".winner-update").addClass("d-none");
+            $(`#item-${itemID}`).find(".winner-remove").addClass("d-none");
+            $(`#item-${itemID}`).find(".winner-update").addClass("d-none");
         },
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        alert("Something went wrong, please try again");
     });
 });
 
