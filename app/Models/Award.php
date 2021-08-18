@@ -231,10 +231,14 @@ class Award extends Model
     public function getAwardBackgroundLinkAttribute() :?string
     {
         $defaultBackground = 'media/images/bg-deafult-award.jpg';
+        static $background = null;
 
         if(!$this->background)
         {
-            $background = Background::first();
+            if(!$background)
+            {
+                $background = Background::first();
+            }
 
             if($background && $background->award)
             {
@@ -261,10 +265,14 @@ class Award extends Model
     public function getWinnerBackgroundLinkAttribute() :?string
     {
         $defaultBackground = 'media/images/VetPartners-Awards-4.jpg';
+        static $background = null;
 
         if(!$this->background)
         {
-            $background = Background::first();
+            if(!$background)
+            {
+                $background = Background::first();
+            }
 
             if($background && $background->winner)
             {
