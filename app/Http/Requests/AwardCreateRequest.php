@@ -49,8 +49,8 @@ class AwardCreateRequest extends FormRequest
             'additional_field.*'             => ['nullable', 'string'],
             'number_of_fields_to_fill.*'     => ['nullable', 'numeric'],
             'background'                     => ['image' , 'mimes:jpeg,png,jpg', 'max:2048',],
-            'background-set'                 => ['nullable', 'string', 'size:20'],
-
+            'background-award'               => ['nullable', 'string', 'size:20'],
+            'background-winner'              => ['nullable', 'string', 'size:20'],
         ];
     }
 }

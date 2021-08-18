@@ -12,10 +12,14 @@
                         data-target="#award-modal"
                         data-reason="{{ $winner->reason }}">
                         <div class="d-block bg-image w-100 pb-100 ds-image-item bg-primary"
-                            style='background-image: url("{{ asset('media/photos/VetPartners-Awards-4.jpg')}}")'></div>
+                            style='background-image: url("{{ $award->winnerBackgroundLink }}")'
+                            ></div>
                         <div class="ds-image-overlay bg-black-50">
                             <div class="ds-image-overlay-content align-items-end text-center px-3">
                                 <h3 class="h3 text-white my-5">
+                                    <span>{{ $winner->nomination->created_at
+                                            ->timezone('Australia/Sydney')
+                                            ->format('F Y') }}</span>
                                     <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0">{!! $winner->getAwardName(true) !!}</span>
                                     <span class="mt-2 py-0 d-block text-primary2">{{ $winner->name }}</span>
                                     <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0">{{ $winner->clinicName }}</span>

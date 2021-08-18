@@ -40,12 +40,21 @@
                         data-file="{{ $image }}"
                         data-url="{{ route('backgrounds.delete') }}">Delete Image</a>
 
-                        <button class="btn btn-primary btn-sm background-set
-                            @if ($background && ($background->default === $data['basename']))
+                        <button class="btn btn-outline-info btn-sm background-set award
+                            @if ($background && ($background->award === $data['basename']))
                             d-none
                             @endif"
+                            data-column="award"
                             data-file="{{ $image }}"
-                            data-url="{{ route('backgrounds.update') }}">Set as Default</button>
+                            data-url="{{ route('backgrounds.update') }}">Set as Award Background</button>
+
+                        <button class="btn btn-outline-dark btn-sm background-set winner
+                            @if ($background && ($background->winner === $data['basename']))
+                            d-none
+                            @endif"
+                            data-column="winner"
+                            data-file="{{ $image }}"
+                            data-url="{{ route('backgrounds.update') }}">Set as Winner Background</button>
 
                         <div class="d-block bg-image w-100 pb-100 ds-image-item my-2" style="background-image: url({{ Storage::url($image) }})"></div>
                     </div>

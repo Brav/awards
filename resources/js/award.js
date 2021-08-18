@@ -262,9 +262,12 @@ $("body").on("click", ".background-delete", function (e) {
 });
 
 $("body").on("click", ".background-set", function (e) {
+
     e.preventDefault();
-    let $this = $(this);
-    let id = $this.parent().attr("id");
+
+    let $this  = $(this);
+    let id     = $this.parent().attr("id");
+    let column = $this.data('column')
 
     $.ajax({
         type: "PUT",
@@ -273,26 +276,30 @@ $("body").on("click", ".background-set", function (e) {
         data: {
             _token: $('meta[name="csrf-token"]').attr("content"),
             file: $this.data("file"),
+            column: column,
         },
         success: function (response) {
-            $(".background-set").removeClass('d-none')
-            $(`#${id}`).find(".background-set").addClass("d-none");
+            $(`.background-set.${column}`).removeClass("d-none");
+            $(`#${id}`).find(`.background-set.${column}`).addClass("d-none");
         },
     });
 });
 
 $("body").on("click", ".background-use", function (e) {
+
     e.preventDefault();
+
     let $this = $(this);
-    let id = $this.parent().attr("id");
+    let id    = $this.parent().attr("id");
+    let type  = $this.data('type')
 
-    $(".background-use").removeClass("d-none");
-    $(`#${id}`).find(".background-use").addClass("d-none");
+    $(`.background-use.${type}`).removeClass("d-none");
+    $(`#${id}`).find(`.background-use.${type}`).addClass("d-none");
 
-    $(".background-image").removeClass("border border-danger");
+    $(`.background-image.${type}`).removeClass("border border-danger");
     $this.parent().addClass("border border-danger");
 
-    $('#background-set').val($this.data('file'))
+    $(`#background-${type}`).val($this.data('file'))
 });
 
 $('body').on('click', '#export', function (e)

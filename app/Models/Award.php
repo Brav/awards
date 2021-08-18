@@ -50,6 +50,7 @@ class Award extends Model
         'options'                         => 'array',
         'fields'                          => 'array',
         'roles'                           => 'array',
+        'background'                      => 'array',
         'roles_can_access_for_nomination' => 'array',
     ];
 
@@ -63,6 +64,11 @@ class Award extends Model
     {
         $format['options'] = [];
         $format['fields']  = [];
+
+        $background = [
+            'award'  => null,
+            'winner' => null,
+        ];
 
         $format['name']           = \trim(\strip_tags($data['name'], '<br><p><em><strong>'));
         $format['description']    = \trim(\strip_tags($data['description'],
@@ -148,15 +154,22 @@ class Award extends Model
 
         $format['slug'] = Str::slug($data['name'], '_');
 
-        if($data['background-set'] !== null && !request()->hasFile('background'))
+        if($data['background-award'] !== null && !request()->hasFile('background'))
         {
-            $format['background'] = \filter_var($data['background-set'], FILTER_SANITIZE_STRING);
+            $background['award'] = \filter_var($data['background-award'], FILTER_SANITIZE_STRING);
+        }
+
+        if($data['background-winner'] !== null && !request()->hasFile('background'))
+        {
+            $background['winner'] = \filter_var($data['background-winner'], FILTER_SANITIZE_STRING);
         }
 
         if(request()->hasFile('background'))
         {
-            $format['background'] = Str::random(16)  . '.png';
+            $background['award'] = Str::random(16)  . '.png';
         }
+
+        $format['background'] = $background;
 
         return $format;
     }
@@ -215,21 +228,59 @@ class Award extends Model
      *
      * @return string|null
      */
-    public function getBackgroundLinkAttribute() :?string
+    public function getAwardBackgroundLinkAttribute() :?string
     {
+        $defaultBackground = 'media/images/bg-deafult-award.jpg';
+
         if(!$this->background)
         {
             $background = Background::first();
 
-            if($background)
+            if($background && $background->award)
             {
-                return Storage::url('public/backgrounds/' . $background->default);
+                return Storage::url('public/backgrounds/' . $background->award);
             }
 
-            return 'media/images/bg-deafult-award.jpg';
+            return $defaultBackground;
         }
 
-        return Storage::url('public/backgrounds/' . $this->background);
+        if(isset($this->background['award']))
+        {
+            return Storage::url('public/backgrounds/' . $this->background['award']);
+        }
+
+        return $defaultBackground;
+
+    }
+
+    /**
+     * Get formated background link
+     *
+     * @return string|null
+     */
+    public function getWinnerBackgroundLinkAttribute() :?string
+    {
+        $defaultBackground = 'media/images/VetPartners-Awards-4.jpg';
+
+        if(!$this->background)
+        {
+            $background = Background::first();
+
+            if($background && $background->winner)
+            {
+                return Storage::url('public/backgrounds/' . $background->winner);
+            }
+
+            return $defaultBackground;
+        }
+
+        if(isset($this->background['winner']))
+        {
+            return Storage::url('public/backgrounds/' . $this->background['winner']);
+        }
+
+        return $defaultBackground;
+
     }
 
     /**

@@ -5,9 +5,13 @@
     @csrf
     @method('PUT')
 
-    <input type="hidden" id="background-set"
-        name="background-set"
-        value="{{ $defaultBackground['basename'] }}">
+    <input type="hidden" id="background-award"
+        name="background-award"
+        value="{{ $defaultAward['basename'] ?? null }}">
+
+    <input type="hidden" id="background-winner"
+        name="background-winner"
+        value="{{ $defaultWinner['basename'] ?? null }}">
 
     <div class="form-row align-items-center">
 
@@ -290,42 +294,67 @@
         </div>
     </div>
 
-    <div class="form-row align-items-center mb-3">
-        @if ($images)
-            <div class="col-md-12" id="images-container">
-                <div class="row">
-                    @foreach ($images as $image)
-                        @php
-                            $data = pathinfo($image);
-                        @endphp
-                        <div class="col-lg-4 col-xl-2 background-image
-                                @if ($default && ($data['basename'] === $defaultBackground['basename']))
-                                    border border-danger
-                                @endif"
-                                id="{{ $data['filename'] }}">
+    @if ($images)
+        <div class="col-md-12" id="award-images-container">
+            <h3 class="d-block">Award Background</h3>
+            <div class="row">
+                @foreach ($awardImages as $image)
+                    @php
+                        $data = pathinfo($image);
+                    @endphp
+                    <div class="col-lg-4 col-xl-2 background-image award
+                            @if ($background && ($background->award === $data['basename']))
+                                border border-danger
+                            @endif" id="award-{{ $data['filename'] }}">
 
-                            <button class="btn btn-primary btn-sm background-use
-                                @if ($default && ($data['basename'] === $defaultBackground['basename']))
-                                    d-none
-                                @endif"
-                                data-file="{{ $data['basename'] }}"
-                                data-url="{{ route('backgrounds.update') }}">Use as Background</button>
+                        <button class="btn btn-primary btn-sm background-use award
+                            @if ($background && ($background->award === $data['basename']))
+                                d-none
+                            @endif"
+                            data-type="award"
+                            data-file="{{ $data['basename'] }}"
+                            data-url="{{ route('backgrounds.update') }}">Use as Background</button>
 
-                            @if ($background && ($background->default === $data['basename']))
-                                <span>Default Background</span>
-                            @endif
+                        @if ($background && ($background->award === $data['basename']))
+                            <span>Default Background</span>
+                        @endif
 
-                            <div class="d-block bg-image w-100 pb-100 ds-image-item mt-2" style="background-image: url({{ Storage::url($image) }})"></div>
-                        </div>
-                    @endforeach
-                </div>
+                        <div class="d-block bg-image w-100 pb-100 ds-image-item mt-2" style="background-image: url({{ Storage::url($image) }})"></div>
+                    </div>
+                @endforeach
             </div>
-        @endif
-        <div class="form-group col-md-12">
-            <label class="d-block" for="background">Background</label>
-            <input type="file" id="background" name="background">
         </div>
-    </div>
+
+        <div class="col-md-12 my-3" id="winner-images-container">
+            <h3 class="d-block">Winner Background</h3>
+            <div class="row">
+                @foreach ($winnerImages as $image)
+                    @php
+                        $data = pathinfo($image);
+                    @endphp
+                    <div class="col-lg-4 col-xl-2 background-image winner
+                            @if ($background && ($background->winner === $data['basename']))
+                                border border-danger
+                            @endif" id="winner-{{ $data['filename'] }}">
+
+                        <button class="btn btn-primary btn-sm background-use winner
+                            @if ($background && ($background->winner === $data['basename']))
+                                d-none
+                            @endif"
+                            data-type="winner"
+                            data-file="{{ $data['basename'] }}"
+                            data-url="{{ route('backgrounds.update') }}">Use as Background</button>
+
+                        @if ($background && ($background->winner === $data['basename']))
+                            <span>Default Background</span>
+                        @endif
+
+                        <div class="d-block bg-image w-100 pb-100 ds-image-item mt-2" style="background-image: url({{ Storage::url($image) }})"></div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    @endif
 
     <button type="submit" class="btn btn-primary">Update</button>
 </form>

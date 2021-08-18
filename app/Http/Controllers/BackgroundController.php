@@ -107,7 +107,14 @@ class BackgroundController extends Controller
                 $background = new Background();
             }
 
-            $background->default = $file['basename'];
+            $column = 'award';
+
+            if(request()->post('column') === 'winner')
+            {
+                $column = 'winner';
+            }
+
+            $background->$column = $file['basename'];
 
             $background->save();
 
@@ -136,9 +143,18 @@ class BackgroundController extends Controller
             $file       = \pathinfo($file);
             $background = Background::first();
 
-            if($background && ($background->default === $file['basename']))
+            if($background)
             {
-                $background->default = null;
+                if ($background->award === $file['basename'])
+                {
+                    $background->award = null;
+                }
+
+                if ($background->winner === $file['basename'])
+                {
+                    $background->winner = null;
+                }
+
                 $background->update();
             }
 

@@ -12,6 +12,7 @@ class Background extends Model
      * @var array
      */
     protected $fillable = [
-        'default',
+        'award',
+        'winner',
     ];
 }

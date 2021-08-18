@@ -57,18 +57,35 @@ class AwardController extends Controller
      */
     public function create()
     {
-        $images     = Storage::files('public/backgrounds');
-        $background = Background::first();
+        $images       = Storage::files('public/backgrounds');
+        $background   = Background::first();
+        $awardImages  = $images;
+        $winnerImages = $images;
 
         if($background)
         {
-            $default = 'public/backgrounds/' . $background->default;
+            if($background->award)
+            {
+                $award = 'public/backgrounds/' . $background->award;
 
-            $index = array_search($default, $images);
+                $index = array_search($award, $awardImages);
 
-            unset($images[$index]);
+                unset($awardImages[$index]);
 
-            \array_unshift($images, $default);
+                \array_unshift($awardImages, $award);
+            }
+
+            if($background->winner)
+            {
+                $winner = 'public/backgrounds/' . $background->winner;
+
+                $index = array_search($winner, $winnerImages);
+
+                unset($winnerImages[$index]);
+
+                \array_unshift($winnerImages, $winner);
+            }
+
         }
 
         return view('form', [
@@ -81,6 +98,8 @@ class AwardController extends Controller
             'roles'          => Roles::all(),
             'images'         => $images,
             'background'     => $background,
+            'awardImages'    => $awardImages,
+            'winnerImages'   => $winnerImages,
         ]);
     }
 
@@ -138,50 +157,83 @@ class AwardController extends Controller
     public function edit(Award $award)
     {
 
-        $images     = Storage::files('public/backgrounds');
-        $background = Background::first();
+        $images       = Storage::files('public/backgrounds');
+        $background   = Background::first();
+        $awardImages  = $images;
+        $winnerImages = $images;
 
-        $default = null;
+        $defaultAward  = null;
+        $defaultWinner = null;
 
         if($award->background)
         {
-            $default = $award->background;
-        }
-        else
-        {
-            if($background)
+            if($award->background['award'])
             {
-                $default = $background->default;
+                $defaultAward = $award->background['award'];
+            }
+            else
+            {
+                if($background)
+                {
+                    $defaultAward = $background->award;
+                }
+            }
+
+            if($award->background['winner'])
+            {
+                $defaultWinner = $award->background['winner'];
+            }
+            else
+            {
+                if($background)
+                {
+                    $defaultWinner = $background->winner;
+                }
             }
         }
 
-        if($default)
+        if($background)
         {
-            $default = 'public/backgrounds/' . $default;
+            if($background->award)
+            {
+                $award = 'public/backgrounds/' . $background->award;
 
-            $index = array_search($default, $images);
+                $index = array_search($award, $awardImages);
 
-            unset($images[$index]);
+                unset($awardImages[$index]);
 
-            \array_unshift($images, $default);
+                \array_unshift($images, $awardImages);
+            }
+
+            if($background->winner)
+            {
+                $winner = 'public/backgrounds/' . $background->winner;
+
+                $index = array_search($winner, $winnerImages);
+
+                unset($winnerImages[$index]);
+
+                \array_unshift($images, $winnerImages);
+            }
+
         }
 
-        $defaultBackground = pathinfo($default);
-
         return view('form', [
-            'award'             => $award,
-            'task'              => 'edit',
-            'view'              => 'awards',
-            'clinicManagers'    => ClinicManagers::$managerTypes,
-            'managersLabels'    => ClinicManagers::$managersLabel,
-            'nominations'       => NominationCategory::orderBy('name')->get(),
-            'periods'           => Award::$periods,
-            'roles'             => Roles::all(),
-            'awardNominations'  => $award['options']['nominations'] ?? null,
-            'images'            => $images,
-            'background'        => $background,
-            'default'           => $default,
-            'defaultBackground' => $defaultBackground,
+            'award'            => $award,
+            'task'             => 'edit',
+            'view'             => 'awards',
+            'clinicManagers'   => ClinicManagers::$managerTypes,
+            'managersLabels'   => ClinicManagers::$managersLabel,
+            'nominations'      => NominationCategory::orderBy('name')->get(),
+            'periods'          => Award::$periods,
+            'roles'            => Roles::all(),
+            'awardNominations' => $award['options']['nominations'] ?? null,
+            'images'           => $images,
+            'background'       => $background,
+            'defaultAward'     => $defaultAward,
+            'defaultWinner'    => $defaultWinner,
+            'awardImages'      => $awardImages,
+            'winnerImages'     => $winnerImages,
         ]);
     }
 

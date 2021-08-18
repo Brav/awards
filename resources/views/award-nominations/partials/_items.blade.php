@@ -5,7 +5,7 @@
                 <button
                     data-id={{ $item->id }}
                     data-url="{{ route('award-nominations.winner', $item->id) }}"
-                        class="btn btn-{{ $item->winner ? 'danger' : 'primary' }} change-winner-status">
+                        class="btn btn-{{ $item->winner ? 'danger' : 'primary' }} btn-sm change-winner-status">
                     {{ $item->winner ? 'Remove Winner Status' : 'Make Winner'}}
                 </button>
 
@@ -19,7 +19,7 @@
                         )) }}"
                     data-awardid="{{ $item->award->id }}"
                     type="button"
-                    class="btn btn-primary winner-show @if($item->winnerShown)
+                    class="btn btn-primary btn-sm winner-show @if($item->winnerShown)
                         d-none
                         @endif
                         @if (!$item->winner)
@@ -34,7 +34,7 @@
                     data-target="#bigModal"
                     role="bigModal"
                     data-attr="{{ route('winners.edit', $item->id) }}"
-                    class="btn btn-primary winner-update @if(!$item->winnerShown)
+                    class="btn btn-primary btn-sm winner-update @if(!$item->winnerShown)
                         d-none
                         @endif">Update</a>
 
@@ -42,7 +42,7 @@
                     data-id={{ $item->id }}
                     data-url="{{ route('winners.destroy', $item->id) }}"
                     type="button"
-                    class="btn btn-primary winner-remove @if(!$item->winnerShown)
+                    class="btn btn-success btn-sm winner-remove @if(!$item->winnerShown)
                         d-none
                         @endif">Remove from home page</button>
 

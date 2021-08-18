@@ -50,7 +50,8 @@ class AwardUpdateRequest extends FormRequest
             'nomination_category_text'       => ['nullable', 'string', 'min:3'],
             'additional_field.*'             => ['nullable', 'string'],
             'background'                     => ['image', 'mimes:jpeg,png,jpg', 'max:2048',],
-            'background-set'                 => ['nullable', 'string', 'size:20'],
+            'background-award'               => ['nullable', 'string', 'size:20'],
+            'background-winner'              => ['nullable', 'string', 'size:20'],
 
         ];
     }

@@ -130,7 +130,7 @@
                                 href="{{ route('award-nominations.create', $award->slug) }}"
                                 >
                                 <div class="d-block bg-image w-100 pb-150 ds-image-item"
-                                    style='background-image: url("{{ $award->backgroundLink }}")'></div>
+                                    style='background-image: url("{{ $award->awardBackgroundLink }}")'></div>
                                 <div class="ds-image-overlay">
                                     <div class="ds-image-overlay-content align-items-end text-center px-3">
 
