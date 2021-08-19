@@ -42,6 +42,6 @@ class AdditionalFields implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return 'Pleasse fill all the required fields.';
     }
 }
