@@ -12,9 +12,14 @@
                         data-target="#award-modal"
                         data-reason="{{ $winner->reason }}">
                         <div class="d-block bg-image w-100 pb-150 ds-image-item bg-primary-turquoise"
-                            style='background-image: url("{{ $award->winnerBackgroundLink }}")'
+                            @if ($award->winnerBackgroundLink)
+                                style='background-image: url("{{ $award->winnerBackgroundLink }}")'
+                            @endif
+
                             ></div>
-                        <div class="ds-image-overlay">
+                        <div class="ds-image-overlay @if ($award->winnerBackgroundLink)
+                            bg-black-50
+                        @endif">
                         <!-- <div class="ds-image-overlay bg-black-50">  AKO IMA SLIKA -->
                             <div class="ds-image-overlay-content align-items-end text-center px-3">
                                 <h3 class="h3 text-white my-5">

@@ -264,7 +264,7 @@ class Award extends Model
      */
     public function getWinnerBackgroundLinkAttribute() :?string
     {
-        $defaultBackground = 'media/images/VetPartners-Awards-4.jpg';
+        $defaultBackground = null;
         static $background = null;
 
         if(!$this->background)
