@@ -157,19 +157,22 @@
     </section>
 
     <section id="Winners" class="bg-light pt-4">
-        <div class="container py-4">
+        <div class="container pt-4">
 
             <div class="row">
                 <div class="col-12 ">
-                    <h2 class="h1 mb-3">Some of Our Superstars</h2>
-                    <p>Meet some of the VetPartners superstars that make this such an amazing place. And if you know someone that deserves recognition we’d encourage you to nominate them and tell everyone how they go above and beyond.</p>
-
+                    <h2 class="h1 mb-3">Congratulations to our Winners</h2>
+                    <p>Recognising our VetPartners team members and clinics who have demonstrated exceptional performance and commitment, hard work and dedication!</p>
                 </div>
             </div>
+        </div>
+
+        <div class="container-xl pb-4">
 
             @if ($awardWinners)
                 @include('winners/partials/_winners')
             @endif
+
 
 
             <!-- Award Winner Modal -->
@@ -187,12 +190,7 @@
                             </div>
                             <div class="block-content">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="d-flex align-items-center justify-content-center h-100 bg-primary py-3">
-                                            <i class="si fa-8x si-trophy text-primary2"></i>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
+                                    <div class="col-md-12">
                                         <p id=modal-text></p>
                                     </div>
                                 </div>
