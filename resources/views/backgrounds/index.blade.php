@@ -40,7 +40,7 @@
                         data-file="{{ $image }}"
                         data-url="{{ route('backgrounds.delete') }}">Delete Image</a>
 
-                        <button class="btn btn-outline-info btn-sm background-set award
+                        <button class="btn btn-outline-info btn-sm background-set award my-1
                             @if ($background && ($background->award === $data['basename']))
                             d-none
                             @endif"
@@ -55,6 +55,16 @@
                             data-column="winner"
                             data-file="{{ $image }}"
                             data-url="{{ route('backgrounds.update') }}">Set as Winner Background</button>
+
+                        <button class="btn btn-secondary btn-sm award-default my-1
+                            @if (!$background || ($background->award !== $data['basename']))
+                            d-none
+                            @endif">Default Award Background</button>
+
+                        <button class="btn btn-secondary btn-sm winner-default
+                            @if (!$background || ($background->winner !== $data['basename']))
+                            d-none
+                            @endif">Default Winner Background</button>
 
                         <div class="d-block bg-image w-100 pb-100 ds-image-item my-2" style="background-image: url({{ Storage::url($image) }})"></div>
                     </div>
@@ -129,9 +139,15 @@
                                 data-file="public/backgrounds/${element}.png"
                                 data-url="{{ route('backgrounds.delete') }}">Delete Image</a>
 
-                                <button class="btn btn-primary btn-sm background-set"
+                                <button class="btn btn-outline-info btn-sm background-set award
+                                    data-column="award"
                                     data-file="${element}.png"
-                                    data-url="{{ route('backgrounds.update') }}">Set as Default</button>
+                                    data-url="{{ route('backgrounds.update') }}">Set as Award Background</button>
+
+                                <button class="btn btn-outline-dark btn-sm background-set winner
+                                    data-column="winner"
+                                    data-file="${element}.png"
+                                    data-url="{{ route('backgrounds.update') }}">Set as Winner Background</button>
 
                                 <div class="d-block bg-image w-100 pb-100 ds-image-item my-2" style="background-image: url(${image})"></div>
                              </div>

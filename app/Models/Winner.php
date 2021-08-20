@@ -72,8 +72,10 @@ class Winner extends Model
      */
     public function getAwardName($withHTML = false) :string
     {
-        return $this->award ??
-            $withHTML ? $this->nomination->award->name :
+        if($this->award)
+            return $this->award;
+
+        return $withHTML ? $this->nomination->award->name :
             trim(trim(strip_tags(
                 str_replace(['<br>', '<br />', '<br/>', '</p>'], ' ', $this->nomination->award->name)
                 )) );

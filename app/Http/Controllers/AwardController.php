@@ -196,9 +196,9 @@ class AwardController extends Controller
         {
             if($background->award)
             {
-                $award = 'public/backgrounds/' . $background->award;
+                $image = 'public/backgrounds/' . $background->award;
 
-                $index = array_search($award, $awardImages);
+                $index = array_search($image, $awardImages);
 
                 unset($awardImages[$index]);
 

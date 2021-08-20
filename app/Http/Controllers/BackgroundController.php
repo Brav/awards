@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Award;
 use App\Models\Background;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -156,6 +157,12 @@ class BackgroundController extends Controller
                 }
 
                 $background->update();
+
+                Award::where('background->award', $file['basename'])
+                ->update(['background->award' => null]);
+
+                Award::where('background->winner', $file['basename'])
+                ->update(['background->winner' => null]);
             }
 
             return response()->json([

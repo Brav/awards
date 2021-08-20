@@ -7,44 +7,37 @@
     </div>
 
     <div class="form-group">
-        <label for="name">Nomenee Name</label>
+        <label for="name">Nominee Name</label>
         <input type="text" class="form-control" name=name id="name" value="">
 
-        @error('name')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+        <div class="alert alert-danger d-none alert-name">Please write nominee name</div>
     </div>
 
     <div class="form-group">
         <label for="name">Clinic/Department Name</label>
         <input type="text" class="form-control" name=clinic id="clinic" value="">
 
-        @error('clinic')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+        <div class="alert alert-danger d-none alert-clinic">Please write clinic or departmant name</div>
     </div>
 
     <div class="form-group">
         <label for="name">Award</label>
         <input type="text" class="form-control" name=award id="award" value="">
 
-        @error('award')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+        <div class="alert alert-danger d-none alert-award">Please write award name</div>
     </div>
 
     <div class="form-group">
         <label for="name">Order</label>
         <input type="number" class="form-control" name=order id="order" value="1">
 
-        @error('order')
-            <div class="alert alert-danger">{{ $message }}</div>
-        @enderror
+        <div class="alert alert-danger d-none alert-order">Please write proper order number</div>
     </div>
 
     <div class="form-group">
-      <label for="">Reason for Nomination</label>
-      <textarea class="form-control" name="reason" id="reason" rows="5"></textarea>
+        <label for="">Reason for Nomination</label>
+        <textarea class="form-control" name="reason" id="reason" rows="5"></textarea>
+        <div class="alert alert-danger d-none alert-reason">Please write the reason for the nomination</div>
     </div>
 
 

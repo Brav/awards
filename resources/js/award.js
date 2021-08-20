@@ -223,8 +223,7 @@ $("body").on("submit", "#winners-store", function (e) {
         dataType: "json",
         data: data,
         success: function (response) {
-
-            let itemID = $this.find("#award_nomination_id").val()
+            let itemID = $this.find("#award_nomination_id").val();
 
             $(`#item-${itemID}`).find(".winner-show").addClass("d-none");
 
@@ -233,7 +232,12 @@ $("body").on("submit", "#winners-store", function (e) {
 
             $("#bigModal").modal("hide");
         },
-    }).fail(function (jqXHR, textStatus) {
+    }).fail(function (jqXHR, textStatus, errorThrown) {
+        let errors = Object.keys(jqXHR.responseJSON.errors)
+
+        errors.forEach(element => {
+            $(`.alert-${element}`).removeClass('d-none')
+        });
     });
 });
 
@@ -281,6 +285,11 @@ $("body").on("click", ".background-set", function (e) {
         success: function (response) {
             $(`.background-set.${column}`).removeClass("d-none");
             $(`#${id}`).find(`.background-set.${column}`).addClass("d-none");
+
+            $(`.${column}-default`).addClass('d-none')
+
+            $(`#${id}`).find(`.${column}-default`).removeClass("d-none");
+
         },
     });
 });

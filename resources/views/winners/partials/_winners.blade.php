@@ -12,12 +12,12 @@
                         data-target="#award-modal"
                         data-reason="{{ $winner->reason }}">
                         <div class="d-block bg-image w-100 pb-150 ds-image-item bg-primary-turquoise"
-                            @if ($award->winnerBackgroundLink)
-                                style='background-image: url("{{ $award->winnerBackgroundLink }}")'
+                            @if ($winner->nomination->award->winnerBackgroundLink)
+                                style='background-image: url("{{ $winner->nomination->award->winnerBackgroundLink }}")'
                             @endif
 
                             ></div>
-                        <div class="ds-image-overlay @if ($award->winnerBackgroundLink)
+                        <div class="ds-image-overlay @if ($winner->nomination->award->winnerBackgroundLink)
                             bg-black-50
                         @endif">
                         <!-- <div class="ds-image-overlay bg-black-50">  AKO IMA SLIKA -->
@@ -27,9 +27,9 @@
                                     <span class="mb-4 py-0 d-block text-primary2 small">{{ $winner->nomination->created_at
                                             ->timezone('Australia/Sydney')
                                             ->format('F Y') }}</span>
-                                    <span class="font-w700 d-block pt-2 h4 text-white my-5 py-0">{!! $winner->getAwardName(true) !!}</span>
+                                    <span class="font-w700 d-block pt-2 h4 text-white my-5 py-0">{!! $winner->clinicName !!}</span>
                                     <span class="mt-4 py-0 d-block text-primary2 small">{{ $winner->name }}</span>
-                                    <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0 small">{{ $winner->clinicName }}</span>
+                                    <span class="font-w400 d-block pt-2 h4 text-white my-0 py-0 small">{!! $winner->getAwardName(true) !!}</span>
                                 </h3>
                             </div>
                         </div>
