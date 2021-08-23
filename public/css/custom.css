@@ -314,6 +314,15 @@ h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong,
 .ds-arrow.ds-testimonial-arrow {
     background: transparent;
 }
+
+.ds-slider .slick-slider .slick-next {
+    background-color: rgba(0,0,0,.33) !important;
+    right: 15px !important; 
+}
+.ds-slider .slick-slider .slick-prev  {
+    background-color: rgba(0,0,0,.33) !important;
+    left: 15px !important; 
+}
 /*END GLOBAL*/
 /*HEADER*/
 header .logo-1x {
