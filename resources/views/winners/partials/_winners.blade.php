@@ -23,7 +23,9 @@
                         <!-- <div class="ds-image-overlay bg-black-50">  AKO IMA SLIKA -->
                             <div class="ds-image-overlay-content align-items-start text-center px-3">
                                 <h3 class="h3 text-white my-3">
-                                    <img src="{{ asset('media/images/VP_Awards_Icon_GEM.png') }}" alt="" class="d-block mx-auto mb-4" style="max-width: 100px">
+                                    <img src="{{ asset('media/images/VP_Awards_Icon_GEM.png') }}" alt="" class="d-block mx-auto mb-4 @if ($winner->nomination->award->winnerBackgroundLink)
+                                        opacity-0
+                                    @endif" style="max-width: 100px">
                                     <span class="mb-4 py-0 d-block text-primary2 small">{{ $winner->nomination->created_at
                                             ->timezone('Australia/Sydney')
                                             ->format('F Y') }}</span>
