@@ -194,26 +194,30 @@ class AwardController extends Controller
 
         if($background)
         {
-            if($background->award)
+
+            $awardImageSet  = $defaultAward ?? $background->award;
+            $winnerImageSet = $defaultWinner ?? $background->winner;
+
+            if($awardImageSet)
             {
-                $image = 'public/backgrounds/' . $background->award;
+                $image = 'public/backgrounds/' . $awardImageSet;
 
                 $index = array_search($image, $awardImages);
 
                 unset($awardImages[$index]);
 
-                \array_unshift($images, $awardImages);
+                \array_unshift($awardImages, $image);
             }
 
-            if($background->winner)
+            if($winnerImageSet)
             {
-                $winner = 'public/backgrounds/' . $background->winner;
+                $winner = 'public/backgrounds/' . $winnerImageSet;
 
                 $index = array_search($winner, $winnerImages);
 
                 unset($winnerImages[$index]);
 
-                \array_unshift($images, $winnerImages);
+                \array_unshift($winnerImages, $winner);
             }
 
         }

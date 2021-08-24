@@ -7,11 +7,11 @@
 
     <input type="hidden" id="background-award"
         name="background-award"
-        value="{{ $defaultAward['basename'] ?? null }}">
+        value="{{ $defaultAward ?? null }}">
 
     <input type="hidden" id="background-winner"
         name="background-winner"
-        value="{{ $defaultWinner['basename'] ?? null }}">
+        value="{{ $defaultWinner ?? null }}">
 
     <div class="form-row align-items-center">
 
@@ -303,20 +303,20 @@
                         $data = pathinfo($image);
                     @endphp
                     <div class="col-lg-4 col-xl-2 background-image award
-                            @if ($background && ($background->award === $data['basename']))
+                            @if ($defaultAward === $data['basename'])
                                 border border-danger
                             @endif" id="award-{{ $data['filename'] }}">
 
                         <button class="btn btn-primary btn-sm background-use award
-                            @if ($background && ($background->award === $data['basename']))
+                            @if ($defaultAward === $data['basename'])
                                 d-none
                             @endif"
                             data-type="award"
                             data-file="{{ $data['basename'] }}"
                             data-url="{{ route('backgrounds.update') }}">Use as Background</button>
 
-                        @if ($background && ($background->award === $data['basename']))
-                            <span>Default Background</span>
+                        @if ($defaultAward === $data['basename'])
+                            <span>Used as award background</span>
                         @endif
 
                         <div class="d-block bg-image w-100 pb-100 ds-image-item mt-2" style="background-image: url({{ Storage::url($image) }})"></div>
@@ -333,20 +333,20 @@
                         $data = pathinfo($image);
                     @endphp
                     <div class="col-lg-4 col-xl-2 background-image winner
-                            @if ($background && ($background->winner === $data['basename']))
+                            @if ($defaultWinner === $data['basename'])
                                 border border-danger
                             @endif" id="winner-{{ $data['filename'] }}">
 
                         <button class="btn btn-primary btn-sm background-use winner
-                            @if ($background && ($background->winner === $data['basename']))
+                            @if ($defaultWinner === $data['basename'])
                                 d-none
                             @endif"
                             data-type="winner"
                             data-file="{{ $data['basename'] }}"
                             data-url="{{ route('backgrounds.update') }}">Use as Background</button>
 
-                        @if ($background && ($background->winner === $data['basename']))
-                            <span>Default Background</span>
+                        @if ($defaultWinner === $data['basename'])
+                            <span>Used as winner background</span>
                         @endif
 
                         <div class="d-block bg-image w-100 pb-100 ds-image-item mt-2" style="background-image: url({{ Storage::url($image) }})"></div>

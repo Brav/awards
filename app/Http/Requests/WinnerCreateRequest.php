@@ -26,8 +26,8 @@ class WinnerCreateRequest extends FormRequest
         return [
             'name'                => ['string', 'min:3', 'required',],
             'reason'              => ['string', 'min:3', 'required',],
-            'award'               => ['string', 'min:3', 'nullable'],
-            'clinic'              => ['string', 'min:3', 'nullable'],
+            'award'               => ['string', 'min:3', 'required'],
+            'clinic'              => ['string', 'min:3', 'required'],
             'order'               => ['required', 'numeric'],
             'award_nomination_id' => ['required', 'numeric'],
             'clinic_id'           => ['required', 'numeric'],
