@@ -18,13 +18,13 @@
 
                             ></div>
                         <div class="ds-image-overlay align-items-start @if ($winner->nomination->award->winnerBackgroundLink)
-                            bg-black-50
+                            
                         @endif">
                         <!-- <div class="ds-image-overlay bg-black-50">  AKO IMA SLIKA -->
                             <div class="ds-image-overlay-content align-items-start text-center px-3">
                                 <h3 class="h3 text-white my-3">
-                                    <img src="{{ asset('media/images/VP_Awards_Icon_GEM.png') }}" alt="" class="d-block mx-auto mb-4 @if ($winner->nomination->award->winnerBackgroundLink)
-                                        opacity-0
+                                    <img src="{{ asset('media/images/VP_Awards_Icon_GEM.png') }}" alt="" class="opacity-0 d-block mx-auto mb-4 @if ($winner->nomination->award->winnerBackgroundLink)
+                                        
                                     @endif" style="max-width: 100px">
                                     <span class="mb-4 py-0 d-block text-primary2 small">{{ $winner->nomination->created_at
                                             ->timezone('Australia/Sydney')
