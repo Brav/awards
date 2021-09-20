@@ -3,10 +3,10 @@
     method="POST"
     role="formAjax"
     id=formAjax>
-    @csrf
     @method('PUT')
+    @csrf
     <input type="hidden" name="table" id=table value="departments">
-    <input type="hidden" name="action" id=action value="update">
+    <input type="hidden" name="action" id=action value="edit">
     <input type="hidden" name="_id" id=_id value="{{ $item->id }}">
 
     <div class="form-row align-items-center">
@@ -41,7 +41,6 @@
                     @error('manager_id')
                         <div class="alert alert-danger">{{ $message }}</div>
                     @enderror
-                </div>
             </div>
 
         </div>

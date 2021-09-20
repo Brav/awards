@@ -43,6 +43,7 @@ $(document).on("click", "a[role=smallModal]", function (event) {
 
 $(document).on("click", "a[role=bigModal]", function (event) {
     event.preventDefault();
+
     let href = $(this).attr("data-attr");
     $.ajax({
         url: href,
@@ -73,7 +74,8 @@ $(document).on("click", "a[role=bigModal]", function (event) {
 });
 
 
-$(document).on("submit", "#formAjax", function (event) {
+$(document).on("submit", "#formAjax", function (event)
+{
     event.preventDefault();
 
     let $this  = $(this)
