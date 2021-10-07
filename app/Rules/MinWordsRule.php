@@ -12,14 +12,14 @@ class MinWordsRule implements Rule
      *
      * @var int
      */
-    private $minWords = 25;
+    private $minWords;
 
     /**
      * Create a new rule instance.
      *
      * @return void
      */
-    public function __construct($minWords = 25)
+    public function __construct($minWords = 15)
     {
         $this->minWords = $minWords;
     }

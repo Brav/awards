@@ -179,7 +179,7 @@
                         id="fields_{{ $fieldName }}">{{ old('fields') ? old('fields')[$fieldName] : '' }}</textarea>
 
                         @error('fields.' . $fieldName)
-                            <div class="alert alert-danger">Please write more than 25 words in this field</div>
+                            <div class="alert alert-danger">Please write more than 15 words in this field</div>
                         @enderror
                     </div>
                 </div>
