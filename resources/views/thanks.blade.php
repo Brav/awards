@@ -3,7 +3,7 @@
 <style type="text/css">
     #page-header {display: none !important;}
 </style>
-@endsection 
+@endsection
 @section('content')
 
     <section class="pb-5">
@@ -21,14 +21,14 @@
                         <strong class="text-primary2">Thank You!</strong>
                     </h1>
                     <br>
-                    <p class="mb-5">Your nomination has been added to the list of candidates. We really appreciate you recognising the good work of a colleague and letting us know! If your nominee is selected, he/she will be contacted directly.</p>
+                    <p class="mb-5">Thank you, your nomination has been submitted. We appreciate you taking the time to recognise the exceptional performance and commitment, hard work and dedication of team members at VetPartners.</p>
 
                     <a class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light" href="{{ route('home') }}" role="button">New Nomination</a>
                 </div>
             </div>
 
-            
+
         </div>
     </section>
-    
+
 @endsection
