@@ -63,13 +63,20 @@ class AwardNominationController extends Controller
             ]];
 
             $year   = request()->get('year');
-            $status = request()->get('status');
+            $month  = request()->get('month');
+            $status = request()->get('month');
 
             $items =
                 AwardNomination::with($with)
                 ->where('award_id', '=', (int) $award->id)
                 ->when(filter_var($year, \FILTER_VALIDATE_INT, $filterOptions), function($query) use($year){
                     return $query->whereYear('created_at', '=', $year);
+                })
+                ->when(filter_var($month, \FILTER_VALIDATE_INT, [
+                    'min_range' => 1,
+                    'max_range' => 12,
+                ]), function($query) use($month){
+                    return $query->whereMonth('created_at', '=', $month);
                 })
                 ->when($status !== 'all', function($query) use ($status)
                 {

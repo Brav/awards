@@ -94,7 +94,7 @@ $('body').on('change', '#awardCategory', function (e) {
         return;
     }
 
-    getNominations(url, $("#selectYear").val());
+    getNominations(url);
 
 });
 
@@ -110,8 +110,21 @@ $("body").on("change", "#selectYear", function (e) {
         return;
     }
 
-    getNominations(category.find('option:selected').data('url'), $this.val())
+    getNominations(category.find('option:selected').data('url'))
 
+});
+
+$("body").on("change", "#selectMonth", function (e) {
+    let $this = $(this);
+    let category = $("#awardCategory");
+
+    if (category.val() === "select") {
+        alert("Please select category");
+        $this.val("all");
+        return;
+    }
+
+    getNominations(category.find("option:selected").data("url"));
 });
 
 $("body").on("change", "#winnerStatus", function (e) {
@@ -124,7 +137,7 @@ $("body").on("change", "#winnerStatus", function (e) {
         return;
     }
 
-    getNominations(category.find("option:selected").data("url"), $this.val());
+    getNominations(category.find("option:selected").data("url"));
 });
 
 $("body").on("click", ".change-winner-status", function (e) {
@@ -357,7 +370,7 @@ $(function () {
     {
         let url = category.find("option:selected").data("url");
 
-        getNominations(url, $("#selectYear").val());
+        getNominations(url);
     }
 });
 
@@ -413,7 +426,8 @@ function getNominations(url, year)
     $.get(
         url,
         {
-            year: year,
+            year: $("#selectYear").val(),
+            month: $("#selectMonth").val(),
             status: $("#winnerStatus").val(),
         },
         function (data, textStatus, jqXHR) {
