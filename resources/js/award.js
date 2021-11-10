@@ -119,16 +119,13 @@ $("body").on("change", "#clinic", function (e)
     let $this = $(this);
     let category = $("#awardCategory");
 
-    if($this.val() !== 'select')
+    if (category.val() === "select")
     {
-        if (category.val() === "select")
-        {
-            alert("Please select category");
-            return;
-        }
-
-        getNominations(category.find("option:selected").data("url"));
+        alert("Please select category");
+        return;
     }
+
+    getNominations(category.find("option:selected").data("url"));
 
 });
 
