@@ -114,6 +114,34 @@ $("body").on("change", "#selectYear", function (e) {
 
 });
 
+$("body").on("change", "#clinic", function (e)
+{
+    let $this = $(this);
+    let category = $("#awardCategory");
+
+    if($this.val() !== 'select')
+    {
+        if (category.val() === "select")
+        {
+            alert("Please select category");
+            return;
+        }
+
+        getNominations(category.find("option:selected").data("url"));
+    }
+
+});
+
+
+$("body").on("change", "#nominee", function (e) {
+
+    let $this = $(this);
+    let category = $("#awardCategory");
+
+    getNominations(category.find("option:selected").data("url"), true);
+
+});
+
 $("body").on("change", "#selectMonth", function (e) {
     let $this = $(this);
     let category = $("#awardCategory");
@@ -419,16 +447,21 @@ function checkNumberOfAdditionalFields()
  * Ajax call for fetching nominations
  *
  * @param {string} url
- * @param {integer} year
+ * @param {bool} nomineeChange
  */
-function getNominations(url, year)
+function getNominations(url, nomineeChange)
 {
+
+    let clinic = $("#clinic").val();
+
     $.get(
         url,
         {
             year: $("#selectYear").val(),
             month: $("#selectMonth").val(),
             status: $("#winnerStatus").val(),
+            clinic: clinic,
+            nominee: $('#nominee').val(),
         },
         function (data, textStatus, jqXHR) {
             let paginationID = data.id
@@ -437,6 +470,22 @@ function getNominations(url, year)
 
             $("#award-nominations-table").empty().html(data.html);
             $(paginationID).html(data.pagination);
+
+            if (nomineeChange !== true)
+            {
+                $("#nominee").empty();
+
+                $("#nominee").append(
+                    `<option value="select">Select Nominee</option>`
+                );
+
+                data.nominees.forEach((nominee) => {
+                    $("#nominee").append(
+                        `<option value="${nominee}">${nominee}</option>`
+                    );
+                });
+            }
+
         },
         "json"
     );

@@ -7,14 +7,26 @@ $('body').on('click', '.page-link', function (e) {
     let page       = parseInt($(this).data("page"));
     let role       = $this.closest("ul").attr("role");
     let data       = []
+    let link       = $this.attr('href')
 
     if(pagination.data('filter'))
     {
         data = filterFilters($(`#${pagination.data('filter')}`))
     }
 
+    if ($(".award-nomination-filter").length)
+    {
+
+        data.status  = $("#winnerStatus").val();
+        data.year    = $("#selectYear").val();
+        data.month   = $("#selectMonth").val();
+        data.clinic  = $('#clinic').val();
+        data.nominee = $('#nominee').val();
+
+    }
+
     $.get(
-        $this.attr("href"),
+        link,
         Object.assign({}, data),
         function (data, textStatus, jqXHR) {
             let paginationID = data.id

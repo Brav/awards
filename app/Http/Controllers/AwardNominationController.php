@@ -35,6 +35,11 @@ class AwardNominationController extends Controller
             }
         }
 
+        $clinics = \DB::table('clinics')
+            ->select('id', 'name')
+            ->orderBy('name', 'ASC')
+            ->get();
+
         if($award)
         {
             if ($award->options['office_type'] === 'clinic')
@@ -62,9 +67,11 @@ class AwardNominationController extends Controller
                 'max_range' => date('Y'),
             ]];
 
-            $year   = request()->get('year');
-            $month  = request()->get('month');
-            $status = request()->get('month');
+            $year    = request()->get('year');
+            $month   = request()->get('month');
+            $status  = request()->get('status');
+            $clinic  = request()->get('clinic');
+            $nominee = \filter_var(request()->get('nominee'));
 
             $items =
                 AwardNomination::with($with)
@@ -84,6 +91,16 @@ class AwardNominationController extends Controller
 
                     return $query->where('winner', '=', $status);
                 })
+                ->when($clinic !== 'select' && \is_numeric($clinic),
+                    function($query) use ($clinic)
+                {
+                    return $query->where('clinic_id', '=', $clinic);
+                })
+                ->when($nominee !== 'select' && $nominee !== '',
+                    function($query) use ($nominee)
+                {
+                    return $query->where('nominee', '=', $nominee);
+                })
                 ->orderBY('created_at', 'DESC')
                 ->paginate(20);
 
@@ -97,6 +114,7 @@ class AwardNominationController extends Controller
         }
 
         $data = [
+            'clinics'              => $clinics,
             'items'                => $items,
             'award'                => $award,
             'actions'              => true,
@@ -120,8 +138,6 @@ class AwardNominationController extends Controller
 
             $firstNomination = AwardNomination::orderBy('created_at', 'DESC')->first();
 
-
-
             return view('award-nominations/index', \array_merge($data, [
                 'awards'               => $awards,
                 'startingYear'         => $firstNomination->created_at->format('Y'),
@@ -138,6 +154,7 @@ class AwardNominationController extends Controller
                 'container' => 'award-nominations-table',
             ])->render(),
             'container' => 'award-nominations-table',
+            'nominees'  => $items->sortBy('nominee')->unique('nominee')->pluck('nominee'),
         ];
 
     }
