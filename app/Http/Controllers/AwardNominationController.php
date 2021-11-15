@@ -74,7 +74,7 @@ class AwardNominationController extends Controller
             $nominee = \filter_var(request()->get('nominee'));
 
             $items =
-                AwardNomination::with($with)
+                AwardNomination::query()->with($with)
                 ->where('award_id', '=', (int) $award->id)
                 ->when(filter_var($year, \FILTER_VALIDATE_INT, $filterOptions), function($query) use($year){
                     return $query->whereYear('created_at', '=', $year);
@@ -100,9 +100,7 @@ class AwardNominationController extends Controller
                     function($query) use ($nominee)
                 {
                     return $query->where('nominee', '=', $nominee);
-                })
-                ->orderBY('created_at', 'DESC')
-                ->paginate(20);
+                });
 
             if(isset($award['options']['nominations']['categories']))
             {
@@ -115,7 +113,7 @@ class AwardNominationController extends Controller
 
         $data = [
             'clinics'              => $clinics,
-            'items'                => $items,
+            'items'                => $items ? $items->orderBY('created_at', 'DESC')->paginate(20) : $items,
             'award'                => $award,
             'actions'              => true,
             'managers'             => $award['options']['clinic_managers_shown'] ?? [],
@@ -148,13 +146,13 @@ class AwardNominationController extends Controller
         return [
             'html' => view('award-nominations/partials/_table', $data)->render(),
             'pagination' => view('pagination', [
-                'paginator' => $items,
+                'paginator' => $items->orderBY('created_at', 'DESC')->paginate(20),
                 'layout'    => 'vendor.pagination.bootstrap-4',
                 'role'      => 'award-nominations',
                 'container' => 'award-nominations-table',
             ])->render(),
             'container' => 'award-nominations-table',
-            'nominees'  => $items->sortBy('nominee')->unique('nominee')->pluck('nominee'),
+            'nominees'  => $items->select('nominee')->limit(10000)->get()->sortBy('nominee')->pluck('nominee'),
         ];
 
     }
