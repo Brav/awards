@@ -117,19 +117,15 @@ class UserImportController extends Controller
      */
     private function clinic(array $data) :void
     {
+        $clinicCode = trim($data['clinic_code'] ?? '');
+
         $clinic = Clinic::withTrashed()->updateOrCreate([
             'name' => $data['clinic_name'],
+            'code' => !empty($clinicCode) ? $clinicCode : null,
         ],
         [
             'name'       => $data['clinic_name'],
-            'deleted_at' => null,
-        ]);
-
-        $clinic = Clinic::updateOrCreate([
-            'name' => $data['clinic_name'],
-        ],
-        [
-            'name'       => $data['clinic_name'],
+            'code'       => !empty($clinicCode) ? $clinicCode : null,
             'deleted_at' => null,
         ]);
 
