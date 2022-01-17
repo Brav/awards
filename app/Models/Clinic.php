@@ -218,4 +218,24 @@ class Clinic extends Model
 
         return $data;
     }
+
+    /**
+     * Print comma separated users
+     *
+     * @param object $users
+     * @param string $field
+     *
+     * @return string
+     */
+    public static function printUsers(object $users, string $field) :string
+    {
+        $data = [];
+
+        foreach ($users as $user)
+        {
+            $data[] = $user->user->$field;
+        }
+
+        return implode(',', $data);
+    }
 }
