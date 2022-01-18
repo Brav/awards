@@ -75,8 +75,11 @@ class FormsExport implements FromView
                 'max_range' => date('Y'),
             ]];
 
-            $year   = request()->get('year');
-            $status = request()->get('status');
+            $year    = request()->get('year');
+            $month   = request()->get('month');
+            $status  = request()->get('status');
+            $clinic  = request()->get('clinic');
+            $nominee = \filter_var(request()->get('nominee'));
 
             $items =
                 AwardNomination::with($with)
@@ -84,12 +87,29 @@ class FormsExport implements FromView
                 ->when(filter_var($year, \FILTER_VALIDATE_INT, $filterOptions), function($query) use($year){
                     return $query->whereYear('created_at', '=', $year);
                 })
+                ->when(filter_var($month, \FILTER_VALIDATE_INT, [
+                    'min_range' => 1,
+                    'max_range' => 12,
+                ]), function($query) use($month){
+                    return $query->whereMonth('created_at', '=', $month);
+                })
                 ->when($status !== 'all', function($query) use ($status)
                 {
                     $status = $status === 'winners' ? true : false;
 
                     return $query->where('winner', '=', $status);
                 })
+                ->when($clinic !== 'select' && \is_numeric($clinic),
+                    function($query) use ($clinic)
+                {
+                    return $query->where('clinic_id', '=', $clinic);
+                })
+                ->when($nominee !== 'select' && $nominee !== '',
+                    function($query) use ($nominee)
+                {
+                    return $query->where('nominee', '=', $nominee);
+                })
+                ->orderBy('created_at', 'DESC')
                 ->get();
 
             if(isset($award['options']['nominations']['categories']))

@@ -134,12 +134,14 @@ class AwardNominationController extends Controller
             ->withCount('submittedNominations')
             ->orderBy('name')->get();
 
-            $firstNomination = AwardNomination::orderBy('created_at', 'ASC')->first();
+            $firstNomination = \DB::table('award_nominations')
+                ->select('created_at')
+                ->orderBy('created_at', 'ASC')->first();
 
             return view('award-nominations/index', \array_merge($data, [
-                'awards'               => $awards,
-                'startingYear'         => $firstNomination->created_at->format('Y'),
-                'currentYear'          => date('Y'),
+                'awards'       => $awards,
+                'startingYear' => date('Y', strtotime($firstNomination->created_at)),
+                'currentYear'  => date('Y'),
             ]));
         }
 

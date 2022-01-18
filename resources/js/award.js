@@ -363,14 +363,18 @@ $('body').on('click', '#export', function (e)
         },
         data: {
             year: $("#selectYear").val(),
+            month: $("#selectMonth").val(),
             status: $("#winnerStatus").val(),
+            clinic: $("#clinic").val(),
+            nominee: $("#nominee").val(),
         },
         success: function (result, status, xhr) {
-
             let disposition = xhr.getResponseHeader("content-disposition");
             let matches = /"([^"]*)"/.exec(disposition);
             let filename =
-                matches != null && matches[1] ? matches[1] : `${$this.data('name')}.xlsx`;
+                matches != null && matches[1]
+                    ? matches[1]
+                    : `${$this.data("name")}.xlsx`;
 
             // The actual download
             let blob = new Blob([result], {
