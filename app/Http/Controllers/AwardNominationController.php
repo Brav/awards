@@ -134,7 +134,7 @@ class AwardNominationController extends Controller
             ->withCount('submittedNominations')
             ->orderBy('name')->get();
 
-            $firstNomination = AwardNomination::orderBy('created_at', 'DESC')->first();
+            $firstNomination = AwardNomination::orderBy('created_at', 'ASC')->first();
 
             return view('award-nominations/index', \array_merge($data, [
                 'awards'               => $awards,
