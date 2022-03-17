@@ -6,7 +6,7 @@
         <th>
             @if ($clinic->leadVet)
                 @foreach ($clinic->leadVet as $user)
-                    {{ $user->user->name }} <br>
+                    {{ optional($user->user)->name ?? '/'}} <br>
                 @endforeach
             @endif
 
@@ -14,7 +14,7 @@
         <th>
             @if ($clinic->practiseManager)
                 @foreach ($clinic->practiseManager as $user)
-                    {{ $user->user->name }} <br>
+                    {{ optional($user->user)->name ?? '/' }} <br>
                 @endforeach
             @endif
 
@@ -22,28 +22,28 @@
         <th>
             @if ($clinic->vetManager)
                 @foreach ($clinic->vetManager as $user)
-                    {{ $user->user->name }} <br>
+                    {{ optional($user->user)->name ?? '/' }} <br>
                 @endforeach
             @endif
         </th>
         <th>
             @if ($clinic->gmVeterinaryOperation)
                 @foreach ($clinic->gmVeterinaryOperation as $user)
-                    {{ $user->user->name }} <br>
+                    {{ optional($user->user)->name ?? '/' }} <br>
                 @endforeach
             @endif
         </th>
         <th>
             @if ($clinic->generalManager)
                 @foreach ($clinic->generalManager as $user)
-                    {{ $user->user->name }} <br>
+                    {{ optional($user->user)->name ?? '/' }} <br>
                 @endforeach
             @endif
         </th>
         <th>
             @if ($clinic->regionalManager)
                 @foreach ($clinic->regionalManager as $user)
-                    {{ $user->user->name }} <br>
+                    {{ optional($user->user)->name ?? '/' }} <br>
                 @endforeach
             @endif
         </th>
