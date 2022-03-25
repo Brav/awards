@@ -73,6 +73,12 @@
 
         <th>{{ $item->nominee }}</th>
 
+        @if ($award->options['office_type'] === 'values')
+            <th>{{ $supportOfficeValues[$item->support_office_value] }}</th>
+
+            <th>{{ $item->support_office_description }}</th>
+        @endif
+
         @foreach ($nominationCategories as $category)
             <th>
                 @if (in_array($category->id, array_column($item->options, 'category')))

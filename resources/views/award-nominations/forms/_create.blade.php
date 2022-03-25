@@ -80,54 +80,15 @@
         </div>
     @endif
 
-    @if ($awardOffice === 'department')
-        <div class="form-row align-items-center">
-
-            <div class="col-md-4">
-
-                <div class="form-group">
-                    <label for="department_id">Support Office Name</label>
-                    <select class="form-control select2" name="department_id" id="department_id">
-                        <option></option>
-                        @foreach ($offices as $departmant)
-                            <option value="{{ $departmant->id }}"
-
-                                data-manager={{ $departmant->manager->name }}
-
-                                @if (old('department_id') == $departmant->id)
-                                    selected
-                                @endif
-                                >{{ $departmant->name }}</option>
-
-                        @endforeach
-                    </select>
-
-                    @error('department_id')
-                        <div class="alert alert-danger">Please select support office</div>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="form-group">
-
-                    <div class="form-group">
-                        <label for="departmant_manager">Department Manager</label>
-                        <input type="text"
-                        class="form-control" name="departmant_manager"
-                        id="departmant_manager"
-                        readonly>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
+    @if (in_array($awardOffice, ['department', 'values']))
+        @include('award-nominations/forms/fields/_supportOfficeName', [
+            'departmantID' => null,
+        ])
     @endif
 
     <div class="form-row align-items-center">
 
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="form-group">
               <label for="nominee">Name of Nominee</label>
               <input type="text" name="nominee" id="nominee" class="form-control"
@@ -139,7 +100,25 @@
             </div>
         </div>
 
+        @if ($awardOffice === 'values')
+            <div class="col-md-6">
+                @include('award-nominations/forms/fields/_supportOfficeValues',
+                [
+                    'supportOfficeValue' => null,
+                ])
+            </div>
+        @endif
+
     </div>
+
+    @if ($awardOffice === 'values')
+        <div class="form-row align-items-center form-group row">
+            @include('award-nominations/forms/fields/_supportOfficeDescription',
+            [
+                '_supportOfficeDescription' => null,
+            ])
+        </div>
+    @endif
 
     {{-- @if ($nominationCategories)
         @include('award-nominations/partials/_nominations')

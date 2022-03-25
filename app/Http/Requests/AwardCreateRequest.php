@@ -32,7 +32,7 @@ class AwardCreateRequest extends FormRequest
             'name'                           => ['required', 'min:3', 'string', 'unique:App\Models\Award,name'],
             'order'                          => ['required', 'numeric', 'min:1', 'max:100'],
             'office_type'                    => ['required', Rule::in([
-                    'department', 'clinic',
+                    'department', 'clinic', 'values',
                 ])],
             'period_type'                    => ['required', Rule::in(array_keys(Award::$periods))],
             'always_visible'                 => ['nullable'],

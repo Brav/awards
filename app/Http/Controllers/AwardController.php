@@ -343,7 +343,7 @@ class AwardController extends Controller
     public function deleteBackground(Award $award)
     {
         $data = request()->all();
-        $file = \filter_var($data['file'], \FILTER_SANITIZE_STRING);
+        $file = \filter_var($data['file'], \FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         if(Storage::delete($file))
         {
@@ -375,7 +375,7 @@ class AwardController extends Controller
     {
 
         $data = request()->all();
-        $file = \filter_var($data['file'], \FILTER_SANITIZE_STRING);
+        $file = \filter_var($data['file'], \FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         $file = \pathinfo($file);
 

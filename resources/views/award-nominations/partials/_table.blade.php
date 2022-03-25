@@ -24,6 +24,12 @@
 
             <th scope="col" class="small sticky-top">Name of Nominee</th>
 
+            @if ($award->options['office_type'] === 'values')
+                <th scope="col" class="small sticky-top">Support Office Value</th>
+
+                <th scope="col" class="small sticky-top">Value Description</th>
+            @endif
+
             @foreach ($nominationCategories as $category)
                 <th scope="col" class="small sticky-top">{{ $category->name }}</th>
             @endforeach

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Models\Award;
+use App\Models\AwardNomination;
 use App\Models\Clinic;
 use App\Models\Department;
 use App\Rules\AdditionalFields;
@@ -45,6 +46,10 @@ class AwardNominationCreateRequest extends FormRequest
             'department_id'       => ['required_without:clinic_id',
                 Rule::in(Department::all()->pluck('id')->toArray())
             ],
+            'support_office_value'       => ['nullable',
+                Rule::in( \array_keys(AwardNomination::$supportOfficeValue))
+            ],
+            'support_office_description' => ['nullable', 'string', 'min:3'],
             'nominee'       => ['required', 'min:3', 'string'],
             'nominations'   => ['nullable', 'min:' . $minimum],
             'nominations.*' => ['nullable','string'],
@@ -53,6 +58,7 @@ class AwardNominationCreateRequest extends FormRequest
             'fields.*' => ['nullable', 'string', new MinWordsRule],
         ];
     }
+
 
     /**
  * Get the error messages for the defined validation rules.

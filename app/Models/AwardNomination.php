@@ -13,6 +13,18 @@ class AwardNomination extends Model
     public $timestamps = true;
 
     /**
+     * Support office values
+     *
+     * @var array
+     */
+    public static $supportOfficeValue = [
+        1 => 'We Act with Integrity',
+        2 => 'We Inspire Excellence',
+        3 => 'We Build Community',
+        4 => 'We Genuinely Care',
+    ];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -21,6 +33,8 @@ class AwardNomination extends Model
         'member_logged',
         'member_logged_email',
         'nominee',
+        'support_office_value',
+        'support_office_description',
         'award_id',
         'clinic_id',
         'department_id',
@@ -51,13 +65,20 @@ class AwardNomination extends Model
         $format['options'] = [];
         $format['fields']  =  [];
 
-        $format['member_logged']       = \filter_var($data['member_logged'], FILTER_SANITIZE_STRING);
+        $format['member_logged']       = \filter_var($data['member_logged'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $format['member_logged_email'] = \filter_var($data['member_logged_email'], FILTER_SANITIZE_EMAIL);
-        $format['nominee']             = \filter_var($data['nominee'], FILTER_SANITIZE_STRING);
+        $format['nominee']             = \filter_var($data['nominee'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         $format['award_id']      = (int) $data['award_id'];
         $format['clinic_id']     = isset($data['clinic_id']) ? (int) $data['clinic_id'] : null;
         $format['department_id'] = isset($data['department_id']) ? (int) $data['department_id'] : null;
+
+        $format['support_office_value'] = (int) $data['support_office_value'] ?? null;
+
+        if(isset($data['support_office_description']))
+        {
+            $format['support_office_description'] = \filter_var($data['support_office_description'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        }
 
         if(isset($data['nominations']))
         {
@@ -83,7 +104,7 @@ class AwardNomination extends Model
 
             foreach ($fields as $key => $value)
             {
-                $format['fields'][$key] =  \trim(\filter_var($value, FILTER_SANITIZE_STRING));
+                $format['fields'][$key] =  \trim(\filter_var($value, FILTER_SANITIZE_FULL_SPECIAL_CHARS));
             }
         }
 

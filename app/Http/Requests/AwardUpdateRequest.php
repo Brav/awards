@@ -34,7 +34,7 @@ class AwardUpdateRequest extends FormRequest
             ],
             'order'       => ['required', 'numeric', 'min:1', 'max:100'],
             'office_type' => ['required', Rule::in([
-                    'department', 'clinic',
+                    'department', 'clinic', 'values',
                 ])],
             'period_type'             => ['required', Rule::in(array_keys(Award::$periods))],
             'always_visible'          => ['nullable'],

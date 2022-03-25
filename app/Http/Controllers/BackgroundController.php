@@ -95,7 +95,7 @@ class BackgroundController extends Controller
     public function update(Request $request)
     {
         $data = request()->all();
-        $file = \filter_var($data['file'], \FILTER_SANITIZE_STRING);
+        $file = \filter_var($data['file'], \FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         $file = \pathinfo($file);
 
@@ -137,7 +137,7 @@ class BackgroundController extends Controller
     public function destroy()
     {
         $data = request()->all();
-        $file = \filter_var($data['file'], \FILTER_SANITIZE_STRING);
+        $file = \filter_var($data['file'], \FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         if(Storage::delete($file))
         {

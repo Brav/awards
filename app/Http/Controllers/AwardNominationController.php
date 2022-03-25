@@ -120,6 +120,7 @@ class AwardNominationController extends Controller
             'managersRelationMap'  => ClinicManagers::$managersRelationMap,
             'managerTypes'         => ClinicManagers::$managerTypes,
             'managersLabel'        => ClinicManagers::$managersLabel,
+            'supportOfficeValues'  => AwardNomination::$supportOfficeValue,
             'nominationCategories' => $nominationCategories ?? [],
         ];
 
@@ -235,6 +236,7 @@ class AwardNominationController extends Controller
             'managerTypes'         => ClinicManagers::$managerTypes,
             'managersLabel'        => ClinicManagers::$managersLabel,
             'nominationCategories' => $nominationCategories ?? [],
+            'supportOfficeValues'  => AwardNomination::$supportOfficeValue,
         ]);
     }
 
@@ -321,6 +323,7 @@ class AwardNominationController extends Controller
             'managerTypes'         => ClinicManagers::$managerTypes,
             'managersLabel'        => ClinicManagers::$managersLabel,
             'nominationCategories' => $nominationCategories,
+            'supportOfficeValues'  => AwardNomination::$supportOfficeValue,
         ]);
     }
 

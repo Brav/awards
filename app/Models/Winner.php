@@ -33,10 +33,10 @@ class Winner extends Model
 
         $format = [];
 
-        $format['name']   = \filter_var($data['name'], \FILTER_SANITIZE_STRING);
-        $format['reason'] = \filter_var($data['reason'], \FILTER_SANITIZE_STRING);
-        $format['clinic'] = \filter_var($data['clinic'], \FILTER_SANITIZE_STRING);
-        $format['award']  = \filter_var($data['award'], \FILTER_SANITIZE_STRING);
+        $format['name']   = \filter_var($data['name'], \FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $format['reason'] = \filter_var($data['reason'], \FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $format['clinic'] = \filter_var($data['clinic'], \FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $format['award']  = \filter_var($data['award'], \FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
         $format['order']               = \filter_var($data['order'], \FILTER_SANITIZE_NUMBER_INT);
         $format['award_nomination_id'] = \filter_var($data['award_nomination_id'], \FILTER_SANITIZE_NUMBER_INT);
