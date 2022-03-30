@@ -73,7 +73,8 @@ class AwardNomination extends Model
         $format['clinic_id']     = isset($data['clinic_id']) ? (int) $data['clinic_id'] : null;
         $format['department_id'] = isset($data['department_id']) ? (int) $data['department_id'] : null;
 
-        $format['support_office_value'] = (int) $data['support_office_value'] ?? null;
+        $format['support_office_value']       = $data['support_office_value'] ?? null;
+        $format['support_office_description'] = '';
 
         if(isset($data['support_office_description']))
         {
