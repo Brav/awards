@@ -68,6 +68,17 @@
                         @endif>
                     <label class="custom-control-label" for="office-type-clinic">Clinic</label>
                 </div>
+                <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio"
+                        class="custom-control-input"
+                        id="office-type-values"
+                        value=values
+                        name="office_type"
+                        @if (old('office_type', $award['options']['office_type']) === 'values')
+                            checked
+                        @endif>
+                    <label class="custom-control-label" for="office-type-values">Values Awards</label>
+                </div>
             </div>
         </div>
 

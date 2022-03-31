@@ -101,7 +101,7 @@
         </div>
 
         @if ($awardOffice === 'values')
-            <div class="col-md-6">
+            Remember
                 @include('award-nominations/forms/fields/_supportOfficeValues',
                 [
                     'supportOfficeValue' => null,

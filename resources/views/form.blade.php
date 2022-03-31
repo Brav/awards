@@ -1,4 +1,5 @@
 @php
+    dump($errors);
     $layout = auth()->user() ? 'layouts.app' : 'layouts.public';
 
     if(Request::route()->getName() === 'award-nominations.create')
