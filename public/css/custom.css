@@ -1315,6 +1315,12 @@ fill: #bbb !important;
     box-shadow: 0 0.125rem 0.75rem rgba(4,65,134,.25);
     border-radius: 50px;
 }
+.btn-hero-green {
+    color: #00616d;
+    background-color: #a5cf4c;
+    box-shadow: 0 0.125rem 0.75rem rgba(4,65,134,.25);
+    border-radius: 50px;
+}
 .btn-hero-secundary {
     color: #fff;
     background-color: #333;

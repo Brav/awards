@@ -268,30 +268,28 @@
     </section>
 
     <section>
-        <div class="section-wrapper py-5">
-            <div class="container-xl pb-4 py-5">
+        <div class="section-wrapper">
+            <div class="container-xxl pb-4 ">
                 <div class="row no-gutters">
                     <div class="col-lg-8">
-                        <div class="d-block h-100 bg-image" style="background: url({{ asset('media/photos/VetPartners-Awards-5.jpg')}});"></div>
-                    </div>
-                    <div class="col-lg-4">
                         <div class="col-inner py-4 px-5" style="background: #d8efee">
 
-                            <h2 class="text-primary pt-4">View Nomination <br /> Entries</h2>
+                            <h2 class="text-primary m-0">View Nomination Entries</h2>
 
-                            <div class="d-block" style="height: 2px; width: 200px; background:#a5cf4c"></div>
-                            <br>
-                            <br>
+                            <h4 class="text-primary2 pt-4">
+                                Regional Managers and Human Resources only
+                            </h4>
 
 
-                            <p>Regional Managers and Human Resources can login here to view submitted nominations for your team. If you need a login or are having issues seeing the nominations please contact <a href="mailto:helpdesk@vet.partners" class="font-w700">helpdesk@vet.partners</a></p>
-
-                            <br>
-                            <br>
-
-                            <p class="mb-0"><strong><a href="{{ route('award-nominations.index') }}" class="">View Nomination Entries</a></strong></p>
+                            <p>Regional Managers and Human Resources can
+                            <a href="{{ route('login') }}" class="font-w700"><u>login here</u></a>
+                            to view submitted nominations for your team. If you need a login or are having issues seeing the nominations please contact <a href="mailto:helpdesk@vet.partners" class="font-w700">helpdesk@vet.partners</a></p>
                         </div>
 
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="d-block h-100 bg-image" style="background: url({{ asset('media/photos/VetPartners-Awards-5.jpg')}});"></div>
                     </div>
                 </div>
             </div>
