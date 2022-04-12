@@ -98,6 +98,31 @@ $('body').on('change', '#awardCategory', function (e) {
 
 });
 
+$("body").on("mouseenter", ".award", function (e) {
+    $(this).find(".award-description").removeClass("d-none");
+});
+
+$("body").on("mouseleave", ".award", function (e) {
+    $(".award-description").addClass("d-none");
+});
+
+$("body").on("mouseenter", ".winner", function (e) {
+
+    $(this).find(".winner-inner-container-main").addClass("invisible");
+    $(this).find(".winner-inner-container-hover").removeClass("invisible");
+
+    $(this).find(".winner-clinic").addClass("invisible");
+    $(this).find(".winner-footer-logo").removeClass("invisible");
+});
+
+$("body").on("mouseleave", ".winner", function (e) {
+    $(".winner-inner-container-hover").addClass("invisible");
+    $(".winner-inner-container-main").removeClass("invisible");
+
+    $(".winner-footer-logo").addClass("invisible");
+    $(".winner-clinic").removeClass("invisible");
+});
+
 $("body").on("change", "#selectYear", function (e) {
 
     let $this    = $(this);

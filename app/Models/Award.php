@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
@@ -68,6 +69,7 @@ class Award extends Model
         $background = [
             'award'  => null,
             'winner' => null,
+            'logo'   => null,
         ];
 
         $format['name']           = \trim(\strip_tags($data['name'], '<br><p><em><strong>'));
@@ -152,7 +154,12 @@ class Award extends Model
             array_filter( $data['roles_can_access_for_nomination'], 'is_numeric');
         }
 
-        $format['slug'] = Str::slug($data['name'], '_');
+        if(!empty(\trim(strip_tags($data['award-footer-info']))))
+        {
+            $format['options']['award-footer-info'] = \trim(strip_tags($data['award-footer-info']));
+        }
+
+        $format['slug'] = Str::slug(strip_tags($data['name']), '_');
 
         if($data['background-award'] !== null && !request()->hasFile('background'))
         {
@@ -164,9 +171,22 @@ class Award extends Model
             $background['winner'] = \filter_var($data['background-winner'], FILTER_SANITIZE_STRING);
         }
 
+        if($data['background-logo'] !== null && !request()->hasFile('logo'))
+        {
+            $background['logo'] = \filter_var($data['background-logo'], FILTER_SANITIZE_STRING);
+        }
+
         if(request()->hasFile('background'))
         {
-            $background['award'] = Str::random(16)  . '.png';
+            $fileName = Str::random(16)  . '.png';
+
+            $background['award']  = $fileName;
+            $background['winner'] = $fileName;
+        }
+
+        if(request()->hasFile('logo'))
+        {
+            $background['logo'] = Str::random(16)  . '.png';
         }
 
         $format['background'] = $background;
@@ -289,6 +309,124 @@ class Award extends Model
 
         return $defaultBackground;
 
+    }
+
+    /**
+     * Get award logo for the home page
+     *
+     * @return string|null
+     */
+    public function getAwardLogoAttribute(): ?string
+    {
+        $logo = null;
+        static $defaultLogo = null;
+
+        if(!$defaultLogo)
+        {
+            $defaultLogo = Logo::first();
+        }
+
+        if(isset($this->background['logo']))
+        {
+            return Storage::url('public/logos/' . $this->background['logo']);
+        }
+
+        if(!$this->background)
+        {
+
+            if($logo && $logo->name)
+            {
+                return Storage::url('public/logos/' . $defaultLogo->name);
+            }
+
+        }
+
+        if(!isset($this->background['logo']))
+        {
+            return Storage::url('public/logos/' . $defaultLogo->name);
+        }
+
+        return $logo;
+    }
+
+    /**
+     * Return link info for the award home page
+     *
+     * @return array
+     */
+    public function getAwardLinkAttribute() :array
+    {
+        static $roles = null;
+
+        if(!$roles)
+        {
+            $roles = Roles::all();
+        }
+
+        $link = [
+            'link'     => null,
+            'linkText' => '',
+            'isLink'   => false,
+        ];
+
+        if(!$this->roles_can_access_for_nomination)
+        {
+            return [
+                'link'     => route('award-nominations.create', $this->slug),
+                'linkText' => 'Click to nominate a colleague today',
+                'isLink'   => true,
+            ];
+        }
+
+        if($this->roles_can_access_for_nomination)
+        {
+
+            $roleText = '';
+
+            $usedRoles = $roles->filter(function($item){
+                return \in_array($item->id, $this->roles_can_access_for_nomination);
+            });
+
+            $roleText = \implode(',', $usedRoles->pluck('name')->toArray());
+
+            if(Auth::guest())
+            {
+                $link['linkText'] = 'Nominated by ' . $roleText;
+
+                return $link;
+            }
+
+            if(Auth::user())
+            {
+                $link['linkText'] = 'Nominated by ' . $roleText;
+
+                if(in_array(auth()->user()->role_id, $this->roles_can_access_for_nomination) ||
+                auth()->user()->admin)
+                {
+                    $link['isLink'] = true;
+                    $link['link'] =route('award-nominations.create', $this->slug);
+                }
+
+                return $link;
+            }
+
+
+        }
+
+        return $link;
+    }
+
+    /**
+     * Return award footer info text
+     *
+     * @return array|null
+     */
+    public function getAwardFooterInfoAttribute(): ?array
+    {
+        if(!isset($this->options['award-footer-info']))
+            return [];
+
+        return \explode(',', $this->options['award-footer-info']);
     }
 
     /**

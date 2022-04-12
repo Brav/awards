@@ -48,10 +48,12 @@ class AwardUpdateRequest extends FormRequest
             'nominations.*'                  => ['nullable', 'numeric'],
             'number_of_nomination_to_select' => ['nullable', 'numeric', 'min:1'],
             'nomination_category_text'       => ['nullable', 'string', 'min:3'],
+            'award-footer-info'              => ['nullable', 'string', 'min:3'],
             'additional_field.*'             => ['nullable', 'string'],
             'background'                     => ['image', 'mimes:jpeg,png,jpg', 'max:2048',],
             'background-award'               => ['nullable', 'string', 'size:20'],
             'background-winner'              => ['nullable', 'string', 'size:20'],
+            'background-logo'                => ['nullable', 'string', 'size:20'],
 
         ];
     }

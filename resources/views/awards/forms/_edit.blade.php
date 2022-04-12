@@ -13,6 +13,9 @@
         name="background-winner"
         value="{{ $defaultWinner ?? null }}">
 
+    <input type="hidden" id="background-logo"
+        name="background-logo" value="{{ $defaultWinner ?? null }}">
+
     <div class="form-row align-items-center">
 
         <div class="col">
@@ -155,6 +158,22 @@
             @enderror
         </div>
         </div>
+    </div>
+
+    <div class="form-row align-items-center mb-4">
+        <div class="form-group col-md-12">
+            <label for="award-footer-info-1">Award Footer Extra Info Text
+            </label>
+            <textarea type="text"
+            class="form-control"
+            name="award-footer-info"
+            id="award-footer-info-1"
+            value=""
+            rows="4"
+            placeholder="1 x overall annual winner">{{ old('award-footer-info', implode(',', $award->awardFooterInfo)) }}</textarea>
+        </div>
+
+        <small id="award-footer-info-help" class="form-text text-danger col-md-12">This text will be used in the footer of the award on the home page (leave emtpy if no extra text is needed). Separate new line with comma (,)</small>
     </div>
 
     <div class="form-row">
@@ -304,6 +323,52 @@
             </div>
         </div>
     </div>
+
+    <div class="form-row align-items-center mb-3">
+        <div class="form-group">
+            <label class="d-block" for="logo">Icon (logo)</label>
+            <input type="file" id="logo" name="logo">
+            <small class="row p-2">This will upload new icon (logo) image and use it as icon in the footer of the category on the landing page</small>
+        </div>
+    </div>
+
+    @if ($logos)
+
+        <hr>
+
+        <div class="col-md-12" id="award-logos-container">
+            <h3 class="d-block">Award Logos</h3>
+            <small>This logo will be placed in the lower left corner in the award box, on the landing page</small>
+
+            <div class="row">
+                @foreach ($logos as $image)
+                    @php
+                        $data = pathinfo($image);
+                    @endphp
+                    <div class="col-lg-4 col-xl-2 background-image logo
+                            @if ($defaultLogo === $data['basename'])
+                                border border-danger
+                            @endif" id="award-{{ $data['filename'] }}">
+
+                        <button class="btn btn-primary btn-sm background-use logo
+                            @if ($defaultLogo === $data['basename'])
+                                d-none
+                            @endif"
+                            data-type="logo"
+                            data-file="{{ $data['basename'] }}"
+                            data-url="{{ route('logos.update') }}">Use as Logo</button>
+
+                        @if ($defaultLogo === $data['basename'])
+                            <span>Used as award logo</span>
+                        @endif
+
+                        <div class="d-block bg-image w-100 pb-100 ds-image-item mt-2" style="background-image: url({{ Storage::url($image) }})"></div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+
+    @endif
 
     @if ($images)
         <div class="col-md-12" id="award-images-container">

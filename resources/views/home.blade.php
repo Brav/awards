@@ -87,15 +87,25 @@
 
             <div class="row">
                 <div class="col-12 mb-4">
-                    <h2 class="h1 mb-3">Nominate a Superstar</h2>
-                    <p>The VetPartners Excellence Award Program is an opportunity to recognise the exceptional performance and commitment, hard work and dedication of team members at VetPartners.</p>
+                    <h2 class="h1 mb-3">Recognising Our People</h2>
+                    <p>The VetPartners Excellence Award Program is an opportunity to recognise the exceptional performance and commitment, hard work and dedication of team members at VetPartners. Launched in 2021, the awards provides us with an opportunity to celebrate our hard working team and provide opportunities for our people to excel their careers and receive the recognition they deserve for their outstanding contribution to the business.</p>
 
-                    <p>Everyone at VetPartners can contribute to the program and we encourage team members to nominate their colleagues that go above and beyond.</p>
+                    <p>While the Annual Awards Ceremony is the jewel in the crown, we’re thrilled to have opportunities to recognise our stars throughout the year, with our monthly GEM clinic awards and Values awards for our Support Office team.</p>
+
+                    <p>
+                        Everyone at VetPartners can contribute to the program and we encourage you to nominate your colleagues that go above and beyond today and throughout the year. Your nominations ensure that your colleagues have the opportunity to be recognised and in the running for some amazing prizes.
+                    </p>
+
+                    <p>
+                        For full details on the awards, prizes and how to nominate scroll down and use the handy infographics for the Clinic Awards and Support Office here.
+                    </p>
 
                 </div>
             </div>
 
             <div class="container pb-4">
+
+                <h2>Award Categories and Nominations</h2>
 
                 <div class="row mb-5">
                     <div class="col-xs-6 col-md-3">
@@ -123,31 +133,86 @@
 
                 <div class="row">
                     @foreach ($awards as $award)
-                        <div class="col-lg-4 mb-4 {{ $award['options']['office_type'] }} award">
-                            <a class="ds-image-container fx-item-zoom-in fx-overlay-zoom-in overflow-visible"
-                                href="{{ route('award-nominations.create', $award->slug) }}"
-                                >
-                                <div class="d-block bg-image w-100 pb-150 ds-image-item"
-                                    style='background-image: url("{{ $award->awardBackgroundLink }}")'></div>
-                                <div class="ds-image-overlay">
-                                    <div class="ds-image-overlay-content align-items-end text-center px-3">
 
-                                        <!-- <i class="fas fa-award d-block text-center fa-3x mb-3"></i> -->
-                                        <h3 class="h3 text-primary my-5">{!! $award->name !!} <span class="font-w400 d-block pt-2">{{ $award->period }}</span></h3>
-                                    </div>
+                    <div class="col-md-4 col-xs-6 mb-4 {{ $award['options']['office_type'] }} award">
+                        <div class="col-md-12 award-inner p-0">
+                            <h5 class="h5 text-primary award-title">{!! $award->name !!}</h5>
+                            <div class="award-body">
+                                <div class="award-background"
+                                    style='background-image: url("{{ $award->awardBackgroundLink }}")'
+                                ></div>
+                                <div class="award-description py-0 px-1 d-none">
+                                    {!! $award->description !!}
                                 </div>
-                                <div class="ds-image-overlay2">
-                                    <div class="ds-image-overlay-content text-center px-5">
-                                        <p class="text-primary mb-0 my-5">
-                                            {!! $award->description !!}
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
+                            </div>
 
+                            <div class="award-footer container d-flex py-2">
+                                <img src="{{ $award->awardLogo }}" alt="Logo" class="award-logo">
+                                <div class="col">
+                                <div class="award-footer-info">
+                                    > Awarded {{ $award->period }}
+                                </div>
+
+                                @foreach ($award->awardFooterInfo as $item)
+                                    <div class="award-footer-info">
+                                    > {{ $item }}
+                                </div>
+                                @endforeach
+
+                                <div class="award-footer-info-link">
+                                    <strong>
+                                    > @if ($award->awardLink['isLink'])
+                                        <a href="{{ $award->awardLink['link'] }}">
+                                            {{ $award->awardLink['linkText']  }}
+                                        </a>
+                                    @else
+                                        <span>{{ $award->awardLink['linkText'] }}</span>
+                                    @endif
+                                    </strong>
+                                </div>
+                                </div>
+                            </div>
                         </div>
-                    @endforeach
+                    </div>
 
+                    @endforeach
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="Award-Infographics" class="mb-3">
+        <div class="section-wrapper py-0">
+
+            <div class="container-xxl p-0 m-0">
+
+                <div class="row">
+                    <div class="col-md-6 px-6 py-4 left">
+
+                        <h2 class="h2">
+                            Find out more about the VetPartners Excellence Awards
+                        </h2>
+
+                        <p class="bottom">
+                            Click below to view the infographics
+                        </p>
+
+                        <a href="{{ url('/media/images/clinic-infographic.png')}}" target=_blank rel=noopener rel=nofollow>
+                            <div class="infographic-container mr-6">
+                                <img src="{{ asset('media/images/clinic-infographic-small.jpg')}}">
+                            </div>
+                        </a>
+                        <a href="{{ url('/media/images/so-infographic.jpg')}}"
+                        target=_blank rel=noopener rel=nofollow>
+                            <div class="infographic-container">
+                                <img src="{{ asset('media/images/so-infographic-small.jpg')}}">
+                            </div>
+                        </a>
+
+
+                    </div>
+                    <div class="col-md-6 p-0 m-0 bg-image" style="background: url({{ asset('media/photos/award-infographics.png')}});"></div>
                 </div>
 
             </div>
@@ -159,8 +224,7 @@
 
             <div class="row">
                 <div class="col-12 ">
-                    <h2 class="h1 mb-3">Congratulations to our Winners</h2>
-                    <p>Recognising our VetPartners team members and clinics who have demonstrated exceptional performance and commitment, hard work and dedication!</p>
+                    <h3 class="mb-3 text-center">Congratulations to our award winners!</h3>
                 </div>
             </div>
         </div>
@@ -170,8 +234,6 @@
             @if ($awardWinners)
                 @include('winners/partials/_winners')
             @endif
-
-
 
             <!-- Award Winner Modal -->
             <div class="modal" id="award-modal" tabindex="-1" role="dialog" aria-labelledby="award-modal" aria-hidden="true">
@@ -202,37 +264,6 @@
             </div>
             <!-- END Award Winner Modal -->
 
-        </div>
-    </section>
-
-    <section id="Award-Information" class="bg-image" style="background: url({{ asset('media/photos/VetPartners-Awards-4.jpg')}});">
-        <div class="section-wrapper bg-black-50 py-5">
-
-            <div class="container-xl pb-4 py-5">
-
-                <div class="row pr-lg-5 h-100 align-items-center">
-                  <div class="col-md-5 mb-4">
-
-                    <div>
-                        <h2 class="mb-4 text-primary2">Award Information</h2>
-                        <div class="d-block" style="height: 2px; width: 200px; background:#fff"></div>
-                        <br>
-                        <p class="text-white mb-3">
-                            Find out more information about the many different Clinic and Support Office awards!</a></p>
-                        <br>
-                        <!-- <a href="{{ asset('media/downloads/VP_Awards_Clinics_Infograph.png')}}" download class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light mb-3">CLINIC AWARDS INFORMATION</a> -->
-                        <!-- <a href="{{ asset('media/downloads/VP_Awards_Support_Office_Infograph.png')}}" download class="btn btn-hero btn-hero-light btn-hero-lg waves-effect waves-light">SUPPORT OFFICE AWARDS INFORMATION</a> -->
-
-                        {{-- <a href="https://vet.partners/wp-content/uploads/2021/07/VP_Awards_Clinics_Infograph-scaled.jpg" download class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light mb-3" target="
-                        _blank">CLINIC AWARDS INFORMATION</a>
-                        <a href="https://vet.partners/wp-content/uploads/2021/07/VP_Awards_Support_Office_Infograph.jpg" download class="btn btn-hero btn-hero-light btn-hero-lg waves-effect waves-light" target="
-                        _blank">SUPPORT OFFICE AWARDS INFORMATION</a> --}}
-                    </div>
-
-                  </div>
-                </div>
-
-            </div>
         </div>
     </section>
 

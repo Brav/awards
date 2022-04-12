@@ -65,6 +65,13 @@
                     </a>
                 </li>
 
+                <li class="nav-main-item">
+                    <a class="nav-main-link" href="{{ route('logos.index') }}">
+                        <i class="nav-main-link-icon fa fa-folder-open"></i>
+                        <span class="nav-main-link-name">Award Logos</span>
+                    </a>
+                </li>
+
                 <li class="nav-main-heading">Users</li>
 
                 <li class="nav-main-item">

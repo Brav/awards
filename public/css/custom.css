@@ -41,7 +41,6 @@ body {
   color: #00616d;
   background-color: #fff;
 }
-
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: "Objektiv Mk2";
@@ -317,11 +316,11 @@ h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong,
 
 .ds-slider .slick-slider .slick-next {
     background-color: rgba(0,0,0,.33) !important;
-    right: 15px !important; 
+    right: 15px !important;
 }
 .ds-slider .slick-slider .slick-prev  {
     background-color: rgba(0,0,0,.33) !important;
-    left: 15px !important; 
+    left: 15px !important;
 }
 /*END GLOBAL*/
 /*HEADER*/
@@ -458,12 +457,12 @@ footer .view {
 
 /*image containers*/
 .ds-image-container {
-    position: relative;
+    /* position: relative; */
     overflow: hidden;
-    z-index: 1;
-    display: block;
+    /* z-index: 1; */
+    /* display: block; */
 }
-.ds-image-container:before {
+/* .ds-image-container:before {
     content: '';
     border: 1px solid;
     position: absolute;
@@ -473,7 +472,7 @@ footer .view {
     height: 100%;
     -webkit-transform: scale(.8,.8);
     transform: scale(.8,.8);
-}
+} */
 .ds-image-container:before,
 .ds-image-container .ds-image-item {
     transition: -webkit-transform .4s ease-out;
@@ -627,6 +626,155 @@ footer .view {
     background-repeat: no-repeat;
     display: block;
 }
+
+/* Award Homepage styles */
+
+.avoid-clicks {
+  pointer-events: none;
+}
+#Award-Infographics,
+#Award-Infographics div {
+    height: 500px;
+}
+#Award-Infographics .left
+{
+    background-color: #00616d;
+    color: white;
+}
+#Award-Infographics .left h2
+{
+    color: white
+}
+#Award-Infographics .bottom
+{
+    color:#a5cf4c;
+    font-size: 1.75em;
+}
+.infographic-container
+{
+    height: 300px;
+    display: inline-block;
+}
+.infographic-container:hover
+{
+    cursor: pointer;
+}
+.infographic-container img
+{
+    width: 200px;
+    height: 300px;
+    object-fit: cover
+}
+.award-inner
+{
+    background-color: #d8efee;
+    border-radius: 10px;
+}
+.award-inner:hover
+{
+    box-shadow: 10px 0 20px -5px rgba(115,115,115,0.75);
+}
+.award-title
+{
+    font-size: 18px;
+    padding-top: 10px;
+    text-align: center;
+    height: 50px;
+}
+.award-title p {
+    margin: 0;
+}
+.award-body {
+    position: relative;
+}
+.award-description {
+    font-size: 14px;
+    text-align: center;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    height: 200px;
+    width: 97%;
+    background: white;
+    opacity: 0.95;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.award-background
+{
+    height: 215px;
+    background-size:     cover;
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+.award-footer
+{
+    align-items: center;
+}
+.award-logo
+{
+    height: 46px;
+    width: 54px;
+}
+.award-footer-info
+{
+    margin-bottom: 2px;
+}
+.award-footer-info,
+.award-footer-info-link
+{
+    font-size: 12px;
+}
+.winner-person
+{
+    margin-top: 50px;
+    font-weight: 100;
+}
+.winner-logo {
+    margin: 25px auto;
+}
+.winner-logo img
+{
+    width: 117px;
+    height: 100px;
+}
+.winner-inner-container
+{
+    position: relative;
+    height: 210px;
+}
+.winner-inner-container-hover
+{
+    font-size: 12px;
+    font-weight: 300;
+    padding: 10px;
+    position: absolute;
+    top: -10px;
+    left: 0;
+}
+.winner-footer-logo
+{
+    width: 94px;
+    height: 80px;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+}
+.winner-footer
+{
+    height: 60px;
+    position: relative;
+}
+.shadow-right {
+    box-shadow: 10px 0 20px -5px rgba(115,115,115,0.75);
+}
+.shadow-bottom {
+    box-shadow: 0 10px 20px -5px rgba(115,115,115,0.75);
+}
+
 @media screen and (max-width: 1024px) {
     .ds-seperator {
         max-width: 100vw;

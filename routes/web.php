@@ -11,6 +11,7 @@ use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserImportController;
 use App\Http\Controllers\FilesController;
+use App\Http\Controllers\LogoController;
 use App\Http\Controllers\NominationCategoryController;
 use App\Http\Controllers\NominationController;
 use App\Http\Controllers\WinnerController;
@@ -136,6 +137,22 @@ Route::prefix('backgrounds')->middleware(['auth'])->group(function () {
         ->name('backgrounds.store');
     Route::put('update', [BackgroundController::class, 'update'])
         ->name('backgrounds.update');
+});
+
+Route::prefix('logos')->middleware(['auth'])->group(function () {
+
+    Route::get('', [LogoController::class, 'index'])
+        ->name('logos.index');
+    Route::get('create', [LogoController::class, 'create'])
+        ->name('logos.create');
+    Route::delete('destroy', [LogoController::class, 'destroy'])
+        ->name('logos.delete');
+    Route::get('edit/{award}', [LogoController::class, 'edit'])
+        ->name('logos.edit');
+    Route::post('store', [LogoController::class, 'store'])
+        ->name('logos.store');
+    Route::put('update', [LogoController::class, 'update'])
+        ->name('logos.update');
 });
 
 Route::prefix('departments')->middleware(['auth'])->group(function () {

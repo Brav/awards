@@ -58,9 +58,11 @@ class AwardController extends Controller
     public function create()
     {
         $images       = Storage::files('public/backgrounds');
+        $logos        = Storage::files('public/logos');
         $background   = Background::first();
         $awardImages  = $images;
         $winnerImages = $images;
+        $logoImages   = $logos;
 
         if($background)
         {
@@ -88,6 +90,21 @@ class AwardController extends Controller
 
         }
 
+        if($logos)
+        {
+            if($background->logo)
+            {
+                $logo = 'public/logos/' . $background->logo;
+
+                $index = array_search($logo, $logos);
+
+                unset($logos[$index]);
+
+                \array_unshift($logoImages, $logo);
+            }
+
+        }
+
         return view('form', [
             'task'           => 'create',
             'view'           => 'awards',
@@ -100,6 +117,7 @@ class AwardController extends Controller
             'background'     => $background,
             'awardImages'    => $awardImages,
             'winnerImages'   => $winnerImages,
+            'logos'          => $logoImages,
         ]);
     }
 
@@ -127,6 +145,17 @@ class AwardController extends Controller
                 $file,
                 $data['background']);
 
+        }
+
+        if(request()->hasFile('logo'))
+        {
+
+            $directory = 'public/logos';
+            $file = request()->file('logos');
+
+            Storage::putFileAs($directory,
+                $file,
+                $data['logo']);
         }
 
         return redirect()->route('awards.index')->with([
@@ -158,12 +187,15 @@ class AwardController extends Controller
     {
 
         $images       = Storage::files('public/backgrounds');
+        $logos        = Storage::files('public/logos');
         $background   = Background::first();
         $awardImages  = $images;
         $winnerImages = $images;
+        $logoImages   = $logos;
 
         $defaultAward  = null;
         $defaultWinner = null;
+        $defaultLogo   = null;
 
         if($award->background)
         {
@@ -188,6 +220,18 @@ class AwardController extends Controller
                 if($background)
                 {
                     $defaultWinner = $background->winner;
+                }
+            }
+
+            if(isset($award->background['logo']) && $award->background['logo'])
+            {
+                $defaultLogo = $award->background['logo'];
+            }
+            else
+            {
+                if($background)
+                {
+                    $defaultLogo = $background->winner;
                 }
             }
         }
@@ -222,6 +266,21 @@ class AwardController extends Controller
 
         }
 
+        if($logos)
+        {
+            if($background->logo)
+            {
+                $logo = 'public/logos/' . $background->logo;
+
+                $index = array_search($logo, $logos);
+
+                unset($logos[$index]);
+
+                \array_unshift($logoImages, $logo);
+            }
+
+        }
+
         return view('form', [
             'award'            => $award,
             'task'             => 'edit',
@@ -236,8 +295,10 @@ class AwardController extends Controller
             'background'       => $background,
             'defaultAward'     => $defaultAward,
             'defaultWinner'    => $defaultWinner,
+            'defaultLogo'      => $defaultLogo,
             'awardImages'      => $awardImages,
             'winnerImages'     => $winnerImages,
+            'logos'            => $logoImages,
         ]);
     }
 
