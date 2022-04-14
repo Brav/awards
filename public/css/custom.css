@@ -632,10 +632,6 @@ footer .view {
 .avoid-clicks {
   pointer-events: none;
 }
-#Award-Infographics,
-#Award-Infographics div {
-    height: 500px;
-}
 #Award-Infographics .left
 {
     background-color: #00616d;
