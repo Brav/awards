@@ -343,7 +343,7 @@ class Award extends Model
 
         if(!isset($this->background['logo']))
         {
-            return Storage::url('public/logos/' . $defaultLogo->name ?? '');
+            return Storage::url('public/logos/' . optional($defaultLogo)->name ?? '');
         }
 
         return $logo;
