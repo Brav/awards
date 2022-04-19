@@ -10,7 +10,7 @@
 
         <!-- Right Section -->
         <div>
-            <a href="#" class="btn btn-hero btn-hero-green btn-hero-lg header-scroll">Nominate a Superstar</a>
+            <a href="#" class="btn btn-hero btn-hero-green btn-hero-lg header-scroll">Nominate a Superstar!</a>
         </div>
         <!-- END Right Section -->
     </div>

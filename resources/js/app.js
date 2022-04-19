@@ -267,6 +267,10 @@ $("body").on("click", "button[role=award-filter]", function (e) {
 
     e.preventDefault()
 
+    $("button[role=award-filter]").removeClass('active');
+
+    $(this).addClass('active')
+
     let award = $(this).data('award')
 
     switch (award) {
