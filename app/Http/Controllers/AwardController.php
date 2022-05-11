@@ -149,9 +149,8 @@ class AwardController extends Controller
 
         if(request()->hasFile('logo'))
         {
-
             $directory = 'public/logos';
-            $file = request()->file('logos');
+            $file = request()->file('logo');
 
             Storage::putFileAs($directory,
                 $file,
@@ -326,6 +325,16 @@ class AwardController extends Controller
                 $file,
                 $data['background']);
 
+        }
+
+        if(request()->hasFile('logo'))
+        {
+            $directory = 'public/logos';
+            $file = request()->file('logo');
+
+            Storage::putFileAs($directory,
+                $file,
+                $data['logo']);
         }
 
         return redirect()->route('awards.index')->with([

@@ -97,7 +97,7 @@
                     </p>
 
                     <p>
-                        For full details on the awards, prizes and how to nominate scroll down and use the handy infographics for the Clinic Awards and Support Office here.
+                        For full details on the awards, prizes and how to nominate scroll down and use the handy infographics for the Clinic Awards and Support Office <u><a href="#Award-Infographics">here</a></u>.
                     </p>
 
                 </div>
@@ -203,7 +203,7 @@
                                 <img src="{{ asset('media/images/clinic-infographic-small.jpg')}}">
                             </div>
                         </a>
-                        <a href="{{ url('/media/images/so-infographic.jpg')}}"
+                        <a href="{{ url('/media/images/so-infographic.png')}}"
                         target=_blank rel=noopener rel=nofollow>
                             <div class="infographic-container">
                                 <img src="{{ asset('media/images/so-infographic-small.jpg')}}">
