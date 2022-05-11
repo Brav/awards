@@ -5,7 +5,7 @@
             @php
                 $data = pathinfo($image);
             @endphp
-            <div class="col-lg-4 col-xl-2 background-image winner
+            <div class="col-lg-4 col-xl-2 background-image winner-cagetory
                     @if ($defaultWinner === $data['basename'])
                         border border-danger
                     @endif" id="winner-{{ $data['filename'] }}">

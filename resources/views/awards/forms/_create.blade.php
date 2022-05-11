@@ -354,7 +354,7 @@
                     @php
                         $data = pathinfo($image);
                     @endphp
-                    <div class="col-lg-4 col-xl-2 background-image logo
+                    <div class="col-lg-4 col-xl-2 background-image logo-category
                             @if ($background && ($background->logo === $data['basename']))
                                 border border-danger
                             @endif" id="award-{{ $data['filename'] }}">
@@ -390,7 +390,7 @@
                     @php
                         $data = pathinfo($image);
                     @endphp
-                    <div class="col-lg-4 col-xl-2 background-image award
+                    <div class="col-lg-4 col-xl-2 background-image award-category
                             @if ($background && ($background->award === $data['basename']))
                                 border border-danger
                             @endif" id="award-{{ $data['filename'] }}">
