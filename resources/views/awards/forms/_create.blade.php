@@ -395,7 +395,7 @@
                                 border border-danger
                             @endif" id="award-{{ $data['filename'] }}">
 
-                        <button class="btn btn-primary btn-sm background-use award
+                        <button class="btn btn-primary btn-sm background-use award-category
                             @if ($background && ($background->award === $data['basename']))
                                 d-none
                             @endif"
