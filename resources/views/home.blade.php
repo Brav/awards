@@ -97,7 +97,7 @@
                     </p>
 
                     <p>
-                        For full details on the awards, prizes and how to nominate scroll down and use the handy infographics for the Clinic Awards and Support Office <u><a href="#Award-Infographics">here</a></u>.
+                        For full details on the awards, prizes and how to nominate scroll down and use the handy infographics for the Clinic Awards and Support Office <a href="#Award-Infographics">here</a>.
                     </p>
 
                 </div>
@@ -109,7 +109,7 @@
 
                 <div class="row mb-5">
                     <div class="col-xs-6 col-md-3">
-                        <button type="button" class="btn btn-hero-primary btn-block"
+                        <button type="button" class="btn btn-hero-primary btn-block active"
                         role="award-filter"
                         data-award="all">All<br />Awards</button>
                     </div>
@@ -127,7 +127,7 @@
                     </div>
                     <div class="col-xs-6 col-md-3">
                         <a class="btn btn-hero-primary btn-block" href="{{ route('award-nominations.index') }}"
-                    role="button">View Nomination Entries</a>
+                    role="award-filter">View Nomination Entries</a>
                     </div>
                 </div>
 

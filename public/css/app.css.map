@@ -1,1 +1,1 @@
-{"version":3,"sources":["webpack:///./app.scss"],"names":[],"mappings":"AAAA,cACE,mBACF,C","file":"css/app.css","sourcesContent":[".avoid-clicks {\n  pointer-events: none;\n}\n"],"sourceRoot":""}
+{"version":3,"sources":["webpack:///./app.scss"],"names":[],"mappings":"AAAA,cACE,mBACF,CACA,OAEE,yBACA,YACF,C","file":"css/app.css","sourcesContent":[".avoid-clicks {\n  pointer-events: none;\n}\n.award\n{\n  background-color: #d8efee;\n  height: 333px;\n}\n"],"sourceRoot":""}
