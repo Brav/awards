@@ -704,6 +704,8 @@ footer .view {
     border-radius: 10px;
     margin-left: 5px;
     margin-right: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .award-background
 {
@@ -756,6 +758,12 @@ footer .view {
     position: absolute;
     top: -10px;
     left: 0;
+}
+.winner-inner-container-text
+{
+    height: 180px;
+    overflow: hidden;
+    text-overflow: clip;
 }
 .winner-footer-logo
 {
