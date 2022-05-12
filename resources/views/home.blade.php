@@ -97,7 +97,7 @@
                     </p>
 
                     <p>
-                        For full details on the awards, prizes and how to nominate scroll down and use the handy infographics for the Clinic Awards and Support Office <a href="#Award-Infographics">here</a>.
+                        For full details on the awards, prizes and how to nominate scroll down and use the handy infographics for the Clinic Awards and Support Office </u><a href="#Award-Infographics"><u>here</u></a>.
                     </p>
 
                 </div>
@@ -198,16 +198,14 @@
                             Click below to view the infographics
                         </p>
 
-                        <a href="{{ url('/media/images/clinic-infographic.png')}}" target=_blank rel=noopener rel=nofollow>
-                            <div class="infographic-container mr-6">
-                                <img src="{{ asset('media/images/clinic-infographic-small.jpg')}}">
-                            </div>
+                        <a class="btn btn-hero btn-hero-green btn-hero-lg"
+                            href="{{ url('/media/images/clinic-infographic.png')}}" target=_blank rel=noopener rel=nofollow>
+                            Business Ancillary Awards
                         </a>
-                        <a href="{{ url('/media/images/so-infographic.png')}}"
-                        target=_blank rel=noopener rel=nofollow>
-                            <div class="infographic-container">
-                                <img src="{{ asset('media/images/so-infographic-small.jpg')}}">
-                            </div>
+                        <a class="btn btn-hero btn-hero-green btn-hero-lg"
+                            href="{{ url('/media/images/so-infographic.png')}}"
+                            target=_blank rel=noopener rel=nofollow>
+                            Support Office Awards
                         </a>
 
 
