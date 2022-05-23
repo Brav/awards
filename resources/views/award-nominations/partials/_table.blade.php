@@ -7,7 +7,7 @@
     <thead class="thead-dark">
         <tr>
             @if ($actions)
-                <th scope="col" class="small sticky-top">Actions</th>
+                <th scope="col" class="small sticky-top" style="width:100px">Actions</th>
             @endif
             <th scope="col" class="small sticky-top">Date/time submitted</th>
             <th scope="col" class="small sticky-top">Nomination submitted by</th>

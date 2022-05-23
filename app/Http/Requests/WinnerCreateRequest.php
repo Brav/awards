@@ -32,6 +32,8 @@ class WinnerCreateRequest extends FormRequest
             'award_nomination_id' => ['required', 'numeric'],
             'clinic_id'           => ['required', 'numeric'],
             'award_id'            => ['required', 'numeric'],
+            'month'            => ['required', 'string'],
+            'year'            => ['required', 'string'],
         ];
     }
 }

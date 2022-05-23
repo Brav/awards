@@ -1,7 +1,8 @@
 @foreach ($items as $item)
     <tr id="item-{{ $item->id }}">
         @if ($actions)
-            <th>
+            <th scope="col" style="min-width: 115px">
+
                 <button
                     data-id={{ $item->id }}
                     data-url="{{ route('award-nominations.winner', $item->id) }}"

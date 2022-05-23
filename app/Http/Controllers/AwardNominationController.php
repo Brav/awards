@@ -348,7 +348,8 @@ class AwardNominationController extends Controller
      */
     public function changeWinnerStatus(AwardNomination $awardNomination)
     {
-        $awardNomination->winner = !$awardNomination->winner;
+
+       $awardNomination->winner = !$awardNomination->winner;
 
         if($awardNomination->save())
             return response()->json([

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -20,6 +21,7 @@ class Winner extends Model
         'order',
         'award_nomination_id',
         'clinic_id',
+        'created_at',
     ];
 
     /**
@@ -60,6 +62,14 @@ class Winner extends Model
         {
             $format['award'] = null;
         }
+
+        $day = Carbon::now()->format("l");
+        $month = $data['month'];
+        $year = $data['year'];
+
+        $date = $day . '-' . $month . '-' . $year;
+
+        $format['created_at'] = Carbon::createFromFormat('l-n-Y', $date)->format('Y-m-d H:i:s');
 
         return $format;
 

@@ -193,12 +193,19 @@ $("body").on("change", "#winnerStatus", function (e) {
 $("body").on("click", ".change-winner-status", function (e) {
 
     let $this = $(this)
+    let id = $this.data('id')
+
+    let selectDate = $this.next()
 
     $.ajax({
         type: "PUT",
         url: $this.data('url'),
         dataType: "json",
-        data: { _token: $('meta[name="csrf-token"]').attr("content") },
+        data: {
+            _token: $('meta[name="csrf-token"]').attr("content"),
+            month: selectDate.find(`#month_${id}`).val(),
+            year: selectDate.find(`#year_${id}`).val(),
+        },
         success: function (response) {
 
             let itemID = $this.data("id");
