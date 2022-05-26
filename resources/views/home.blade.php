@@ -198,7 +198,7 @@
                             Click below to view the infographics
                         </p>
 
-                        <a class="btn btn-hero btn-hero-green btn-hero-lg"
+                        <a class="btn btn-hero btn-hero-green btn-hero-lg my-2"
                             href="{{ url('/media/images/clinic-infographic.png')}}" target=_blank rel=noopener rel=nofollow>
                             Business Ancillary Awards
                         </a>
