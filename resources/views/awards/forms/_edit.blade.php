@@ -1,4 +1,3 @@
-@dump($errors)
 <form
     action="{{ route('awards.update', $award->id) }}"
     method="POST"
