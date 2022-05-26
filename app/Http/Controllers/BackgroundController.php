@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Award;
 use App\Models\Background;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Http\UploadedFile;
+use Image;
 
 class BackgroundController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -43,10 +47,8 @@ class BackgroundController extends Controller
     {
         $validatedData = $request->validate([
             'files'   => 'required',
-            'files.*' => ['image' , 'mimes:jpeg,png,jpg', 'max:2048',]
+            'files.*' => ['image' , 'mimes:jpeg,png,jpg', 'max:20048',]
         ]);
-
-        $directory = 'public/backgrounds';
 
         if($request->totalFiles > 0)
         {
@@ -56,19 +58,10 @@ class BackgroundController extends Controller
            for ($x = 0; $x < $request->totalFiles; $x++)
            {
 
-               if ($request->hasFile('files' . $x))
-                {
-                    $file = $request->file('files' . $x);
-
-                    $name = Str::random(16);
-
-                    $images[] = $name;
-
-                    Storage::putFileAs($directory,
-                    $file,
-                    $name . '.png');
-
-                }
+            if ($request->hasFile('files' . $x))
+            {
+                $images[] = self::upload($request->file('files' . $x));
+            }
 
            }
 
@@ -173,5 +166,38 @@ class BackgroundController extends Controller
         return response()->json([
             'Something went wrong!'
         ], 500);
+    }
+
+    /**
+     *
+     * @param Illuminate\Http\UploadedFile $image
+     * @return string
+     * @throws Exception
+     */
+    static public function upload(UploadedFile $image, ?string $imageName = null): string
+    {
+
+        $publicPath = \public_path('media/backgrounds');
+        $storagePath = 'public/backgrounds';
+
+        $name = $imageName ?? Str::random(16) . '.png';
+
+        $image = Image::make($image->path());
+
+        $imagePath = $publicPath . '/' . $name;
+
+        $image->resize(350, 215, function ($const) {
+            $const->aspectRatio();
+        })
+        ->encode('png', 75)
+        ->save($imagePath);
+
+        Storage::putFileAs($storagePath,
+        $imagePath,
+        $name);
+
+        \File::delete($imagePath);
+
+        return $name;
     }
 }

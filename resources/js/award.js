@@ -353,8 +353,10 @@ $("body").on("click", ".background-set", function (e) {
             column: column,
         },
         success: function (response) {
-            $(`.background-set.${column}`).removeClass("d-none");
-            $(`#${id}`).find(`.background-set.${column}`).addClass("d-none");
+            $(`.background-set.${column}-type`).removeClass("d-none");
+            $(`#${id}`)
+                .find(`.background-set.${column}-type`)
+                .addClass("d-none");
 
             $(`.${column}-default`).addClass('d-none')
 

@@ -40,7 +40,7 @@
                         data-file="{{ $image }}"
                         data-url="{{ route('backgrounds.delete') }}">Delete Image</a>
 
-                        <button class="btn btn-outline-info btn-sm background-set award my-1
+                        <button class="btn btn-outline-info btn-sm background-set award-type my-1
                             @if ($background && ($background->award === $data['basename']))
                             d-none
                             @endif"
@@ -48,7 +48,7 @@
                             data-file="{{ $image }}"
                             data-url="{{ route('backgrounds.update') }}">Set as Award Background</button>
 
-                        <button class="btn btn-outline-dark btn-sm background-set winner
+                        <button class="btn btn-outline-dark btn-sm background-set winner-type
                             @if ($background && ($background->winner === $data['basename']))
                             d-none
                             @endif"
@@ -139,12 +139,12 @@
                                 data-file="public/backgrounds/${element}.png"
                                 data-url="{{ route('backgrounds.delete') }}">Delete Image</a>
 
-                                <button class="btn btn-outline-info btn-sm background-set award
+                                <button class="btn btn-outline-info btn-sm background-set award-type
                                     data-column="award"
                                     data-file="${element}.png"
                                     data-url="{{ route('backgrounds.update') }}">Set as Award Background</button>
 
-                                <button class="btn btn-outline-dark btn-sm background-set winner
+                                <button class="btn btn-outline-dark btn-sm background-set winner-type
                                     data-column="winner"
                                     data-file="${element}.png"
                                     data-url="{{ route('backgrounds.update') }}">Set as Winner Background</button>

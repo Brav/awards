@@ -1,3 +1,4 @@
+@dump($errors)
 <form
     action="{{ route('awards.update', $award->id) }}"
     method="POST"
@@ -321,6 +322,14 @@
               </select>
 
             </div>
+        </div>
+    </div>
+
+    <div class="form-row align-items-center mb-3">
+        <div class="form-group">
+            <label class="d-block" for="background">Background</label>
+            <input type="file" id="background" name="background">
+            <small class="row p-2">This will upload new image and use it as background</small>
         </div>
     </div>
 

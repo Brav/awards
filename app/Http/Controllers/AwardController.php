@@ -13,6 +13,7 @@ use App\Models\Roles;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Image;
 
 class AwardController extends Controller
 {
@@ -137,14 +138,7 @@ class AwardController extends Controller
 
         if(request()->hasFile('background'))
         {
-
-            $directory = 'public/backgrounds';
-            $file = request()->file('background');
-
-            Storage::putFileAs($directory,
-                $file,
-                $data['background']);
-
+            BackgroundController::upload(request()->file('background'), $data['background']['award']);
         }
 
         if(request()->hasFile('logo'))
@@ -317,14 +311,7 @@ class AwardController extends Controller
 
         if(request()->hasFile('background'))
         {
-
-            $directory = 'public/backgrounds';
-            $file = request()->file('background');
-
-            Storage::putFileAs($directory,
-                $file,
-                $data['background']);
-
+            BackgroundController::upload(request()->file('background'), $data['background']['award']);
         }
 
         if(request()->hasFile('logo'))
