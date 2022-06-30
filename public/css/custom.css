@@ -682,16 +682,12 @@ footer .view {
     font-size: 18px;
     padding-top: 10px;
     text-align: center;
-    height: 100px;
+    height: 120px;
     margin-top: auto;
     margin-bottom: auto;
 }
 .award-title p {
     margin: 0;
-}
-.award-title p:only-child
-{
-    margin-top: 13px;
 }
 .award-body {
     position: relative;
