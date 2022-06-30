@@ -682,7 +682,9 @@ footer .view {
     font-size: 18px;
     padding-top: 10px;
     text-align: center;
-    height: 50px;
+    height: 100px;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .award-title p {
     margin: 0;
