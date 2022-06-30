@@ -136,7 +136,7 @@
 
                     <div class="col-md-4 col-xs-6 mb-4 {{ $award['options']['office_type'] }} award">
                         <div class="col-md-12 award-inner p-0">
-                            <h5 class="h5 text-primary award-title">{!! $award->name !!}</h5>
+                            <h5 class="h5 text-primary award-title align-middle">{!! $award->name !!}</h5>
                             <div class="award-body">
                                 <div class="award-background"
                                     style='background-image: url("{{ $award->awardBackgroundLink }}")'
@@ -198,15 +198,31 @@
                             Click below to view the infographics
                         </p>
 
-                        <a class="btn btn-hero btn-hero-green btn-hero-lg my-2"
-                            href="{{ url('/media/images/clinic-infographic.png')}}" target=_blank rel=noopener rel=nofollow>
-                            Business Ancillary Awards
-                        </a>
-                        <a class="btn btn-hero btn-hero-green btn-hero-lg"
-                            href="{{ url('/media/images/so-infographic.png')}}"
-                            target=_blank rel=noopener rel=nofollow>
-                            Support Office Awards
-                        </a>
+                        <div class="d-inline-flex justify-content-center align-items-center">
+                            <div class="mx-3">
+                                <div class="infographic-container text-center">
+                                    <img src="{{ asset('media/images/clinic-infographic-small.jpg')}}">
+                                </div>
+
+                                <a class="btn btn-hero btn-hero-green my-2"
+                                href="{{ url('/media/images/clinic-infographic.png')}}" target=_blank rel=noopener rel=nofollow>
+                                Business Ancillary Awards
+                                </a>
+                            </div>
+                            <div>
+
+                                <div class="infographic-container text-center">
+                                    <img src="{{ asset('media/images/so-infographic-small.jpg')}}">
+                                </div>
+
+                                <a class="btn btn-hero btn-hero-green"
+                                href="{{ url('/media/images/so-infographic.png')}}"
+                                target=_blank rel=noopener rel=nofollow>
+                                    Support Office Awards
+                                </a>
+
+                            </div>
+                        </div>
 
 
                     </div>

@@ -657,7 +657,6 @@ footer .view {
 .infographic-container
 {
     height: 300px;
-    display: inline-block;
 }
 .infographic-container:hover
 {
@@ -687,6 +686,10 @@ footer .view {
 }
 .award-title p {
     margin: 0;
+}
+.award-title p:only-child
+{
+    margin-top: 13px;
 }
 .award-body {
     position: relative;
