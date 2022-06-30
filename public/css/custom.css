@@ -677,13 +677,15 @@ footer .view {
 {
     box-shadow: 10px 0 20px -5px rgba(115,115,115,0.75);
 }
-.award-title
-{
+.award-title {
     font-size: 18px;
     padding-top: 10px;
     text-align: center;
     height: 105px;
     margin-bottom: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .award-title p {
     margin: 0;
