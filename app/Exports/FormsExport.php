@@ -130,6 +130,7 @@ class FormsExport implements FromView
             'managerTypes'         => ClinicManagers::$managerTypes,
             'managersLabel'        => ClinicManagers::$managersLabel,
             'nominationCategories' => $nominationCategories ?? [],
+            'supportOfficeValues'  => AwardNomination::$supportOfficeValue,
         ]);
     }
 }
