@@ -35,7 +35,7 @@
             @endforeach
 
             @foreach ($award->fields as $field)
-                <th scope="col" class="small sticky-top" style="min-width: 250px">{{ $field }}</th>
+                <th scope="col" class="small sticky-top" style="min-width: 250px">{!! $field !!}</th>
             @endforeach
 
             @if ($actions)
