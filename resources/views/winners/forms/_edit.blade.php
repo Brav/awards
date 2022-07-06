@@ -48,7 +48,7 @@
 
     <div class="form-group">
       <label for="">Reason for Nomination</label>
-      <textarea class="form-control" name="reason" id="reason" rows="5">{{ $winner->reason }}</textarea>
+      <textarea class="form-control" name="reason" id="reason" rows="5">{!! $winner->reason !!}</textarea>
       <div class="alert alert-danger d-none alert-reason">Please write the reason for the nomination</div>
     </div>
 

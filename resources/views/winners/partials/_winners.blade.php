@@ -37,7 +37,7 @@
                             </div>
 
                             <div class="winner-inner-container-hover invisible">
-                                <p class="winner-inner-container-text">{{ $winner->reason }}</p>
+                                <p class="winner-inner-container-text">{!! $winner->reason !!}</p>
                             </div>
 
                         </div>
