@@ -91,7 +91,14 @@
         @foreach ($award->fields as $field)
             <th>
                 @if (isset($item->fields[str_replace(' ', '_', $field)]))
-                {!! $item->fields[str_replace(' ', '_', $field)] !!}
+
+                @if ($actions)
+                    {!! $item->fields[str_replace(' ', '_', $field)] !!}
+                @else
+                    {{ $item->fields[str_replace(' ', '_', $field)]  }}
+                @endif
+
+
                 @endif
             </th>
         @endforeach

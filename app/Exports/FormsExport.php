@@ -121,7 +121,7 @@ class FormsExport implements FromView
 
         }
 
-        return view('exports.forms', [
+    return view('exports.forms', [
             'items'                => $items,
             'award'                => $award,
             'actions'              => false,
