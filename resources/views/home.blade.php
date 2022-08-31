@@ -13,7 +13,7 @@
 
                                     <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
-                                    <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
+                                    <a href="#recognising-our-people" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
 
                                     <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
-                                    <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
+                                    <a href="#recognising-our-people" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
 
                                     <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
-                                    <a href="#" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
+                                    <a href="#recognising-our-people" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
                                 </div>
                             </div>
                         </div>
@@ -87,7 +87,8 @@
 
             <div class="row">
                 <div class="col-12 mb-4">
-                    <h2 class="h1 mb-3">Recognising Our People</h2>
+                    <h2 class="h1 mb-3"
+                    id="recognising-our-people">Recognising Our People</h2>
                     <p>The VetPartners Excellence Award Program is an opportunity to recognise the exceptional performance and commitment, hard work and dedication of team members at VetPartners. Launched in 2021, the awards provides us with an opportunity to celebrate our hard working team and provide opportunities for our people to excel their careers and receive the recognition they deserve for their outstanding contribution to the business.</p>
 
                     <p>While the Annual Awards Ceremony is the jewel in the crown, we’re thrilled to have opportunities to recognise our stars throughout the year, with our monthly GEM clinic awards and Values awards for our Support Office team.</p>
