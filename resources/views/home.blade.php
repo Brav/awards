@@ -13,7 +13,7 @@
 
                                     <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
-                                    <a href="#recognising-our-people" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
+                                    <a href="#main-container" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
                                 </div>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
 
                                     <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
-                                    <a href="#recognising-our-people" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
+                                    <a href="#main-container" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
 
                                     <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
                                     <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
-                                    <a href="#recognising-our-people" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
+                                    <a href="#main-container" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
                                 </div>
                             </div>
                         </div>
