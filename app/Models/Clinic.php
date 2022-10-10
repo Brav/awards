@@ -239,6 +239,6 @@ class Clinic extends Model
             }
         }
 
-        return implode(',', $data);
+        return str_replace('/', ', ' ,(implode(',', $data)));
     }
 }
