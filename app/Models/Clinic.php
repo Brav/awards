@@ -233,6 +233,7 @@ class Clinic extends Model
 
         foreach ($users as $user)
         {
+            var_dump('<pre>', $user, '</pre>');die;
             if($user && $user->user)
             {
                 $data[] = $user->user->$field ?? '';
