@@ -233,12 +233,12 @@ class Clinic extends Model
 
         foreach ($users as $user)
         {
-            if($user->user)
+            if($user && $user->user)
             {
-                $data[] = $user->user->$field;
+                $data[] = $user->user->$field ?? '';
             }
         }
 
-        return implode(',', $data);
+        return trim(implode(',', $data));
     }
 }
