@@ -229,6 +229,7 @@ class Clinic extends Model
      */
     public static function printUsers(object $users, string $field) :string
     {
+        dd(1233);
         return '';
         // $data = [];
 
