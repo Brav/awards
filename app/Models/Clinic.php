@@ -229,16 +229,17 @@ class Clinic extends Model
      */
     public static function printUsers(object $users, string $field) :string
     {
-        $data = [];
+        return '';
+        // $data = [];
 
-        foreach ($users as $user)
-        {
-            if($user && $user->user)
-            {
-                $data[] = optional($user->user)->$field ?? '';
-            }
-        }
+        // foreach ($users as $user)
+        // {
+        //     if($user && $user->user)
+        //     {
+        //         $data[] = optional($user->user)->$field ?? '';
+        //     }
+        // }
 
-        return trim(implode(',', $data));
+        // return trim(implode(',', $data));
     }
 }
