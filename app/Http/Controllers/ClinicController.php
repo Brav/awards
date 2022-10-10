@@ -226,6 +226,31 @@ class ClinicController extends Controller
     /** @return BinaryFileResponse  */
     public function export()
     {
+        // $query = Clinic::query();
+
+        // $managerTypes = ClinicManagers::$managerTypes;
+
+        // $query->with(['managers', 'managers.user'])
+        // ->when(!auth()->user()->admin, function($query){
+        //     $userID = auth()->id();
+
+        //     return $query->where('owner_id', '=', $userID)
+        //         ->whereIn('id', function($query) use ($userID)
+        //         {
+        //             return $query->select('clinic_id')
+        //                 ->from('clinic_managers')
+        //                 ->where('user_id', '=', $userID)
+        //                 ->whereIn('manager_type_id', [
+        //                     \array_search('lead_vet', ClinicManagers::$managerTypes),
+        //                     \array_search('regional_manager', ClinicManagers::$managerTypes),
+        //                 ]);
+
+        //         });
+        // })->orderBy('name', 'ASC');
+
+        // return view('clinics/export/clinics', [
+        //     'clinics' => $query->withTrashed()->get(),
+        // ]);
         return Excel::download(new ClinicExport, 'clinics.xlsx');
     }
 

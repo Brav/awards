@@ -22,9 +22,7 @@
 
         <th>
             @if ($clinic->leadVet)
-                <?php
-                    echo Clinic::printUsers($clinic->leadVet, 'name');
-                ?>
+                {{ Clinic::printUsers($clinic->leadVet, 'name') }}
             @endif
         </th>
 

@@ -239,6 +239,6 @@ class Clinic extends Model
             }
         }
 
-        return trim(implode(',', $data));
+        return implode(',', $data);
     }
 }
