@@ -389,22 +389,24 @@ class Award extends Model
 
             $roleText = \implode(',', $usedRoles->pluck('name')->toArray());
 
+            $link['linkText'] = 'Nominated by ' . $roleText;
+
             if(Auth::guest())
             {
-                $link['linkText'] = 'Nominated by ' . $roleText;
-
+                $link['link'] = route('login', $this->slug);
                 return $link;
             }
 
             if(Auth::user())
             {
-                $link['linkText'] = 'Nominated by ' . $roleText;
+
+                $link['isLink'] = true;
+                $link['link']   = route('login', $this->slug);
 
                 if(in_array(auth()->user()->role_id, $this->roles_can_access_for_nomination) ||
                 auth()->user()->admin)
                 {
-                    $link['isLink'] = true;
-                    $link['link'] =route('login', $this->slug);
+                    $link['link'] =route('award-nominations.create', $this->slug);
                 }
 
                 return $link;
