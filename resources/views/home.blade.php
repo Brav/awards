@@ -136,6 +136,7 @@
                     @foreach ($awards as $award)
 
                     <div class="col-md-4 col-xs-6 mb-4 {{ $award['options']['office_type'] }} award">
+                        <a href="{{ $award->awardLink['link'] }}">
                         <div class="col-md-12 award-inner p-0">
                             <h5 class="h5 text-primary award-title align-middle">{!! $award->name !!}</h5>
                             <div class="award-body">
@@ -174,6 +175,7 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
 
                     @endforeach

@@ -404,7 +404,7 @@ class Award extends Model
                 auth()->user()->admin)
                 {
                     $link['isLink'] = true;
-                    $link['link'] =route('award-nominations.create', $this->slug);
+                    $link['link'] =route('login', $this->slug);
                 }
 
                 return $link;
