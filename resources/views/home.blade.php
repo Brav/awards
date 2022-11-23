@@ -109,26 +109,22 @@
                 <h2>Award Categories and Nominations</h2>
 
                 <div class="row mb-5">
-                    <div class="col-xs-6 col-md-3">
+                    <div class="col-xs-6 col-md">
                         <button type="button" class="btn btn-hero-primary btn-block active"
                         role="award-filter"
                         data-award="all">All<br />Awards</button>
                     </div>
-                    <div class="col-xs-6 col-md-3">
+                    <div class="col-xs-6 col-md">
                         <button type="button" class="btn btn-hero-primary btn-block"
                         role="award-filter"
                         data-award="clinics">Clinic & Ancillary <br>
                         Businesses Awards
                     </button>
                     </div>
-                    <div class="col-xs-6 col-md-3">
+                    <div class="col-xs-6 col-md">
                         <button type="button" class="btn btn-hero-primary btn-block"
                         role="award-filter"
                         data-award="deparments">Support<br />Office Awards</button>
-                    </div>
-                    <div class="col-xs-6 col-md-3">
-                        <a class="btn btn-hero-primary btn-block" href="{{ route('award-nominations.index') }}"
-                    role="award-filter">View Nomination Entries</a>
                     </div>
                 </div>
 
