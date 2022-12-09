@@ -289,12 +289,11 @@
 
                             <h2 class="text-primary m-0">View Nomination Entries</h2>
 
-                            <h4 class="text-primary2 pt-4">
-                                Regional Managers and Human Resources only
+                            <h4 class="text-primary2 pt-4">Human Resources only
                             </h4>
 
 
-                            <p>Regional Managers and Human Resources can
+                            <p>Human Resources can
                             <a href="{{ route('login') }}" class="font-w700"><u>login here</u></a>
                             to view submitted nominations for your team. If you need a login or are having issues seeing the nominations please contact <a href="mailto:helpdesk@vet.partners" class="font-w700">helpdesk@vet.partners</a></p>
                         </div>
