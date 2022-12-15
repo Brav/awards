@@ -326,8 +326,6 @@ class Award extends Model
             $defaultLogo = Logo::first();
         }
 
-        \var_dump($this->background);
-
         if(isset($this->background['logo']))
         {
             return Storage::url('public/logos/' . $this->background['logo']);
