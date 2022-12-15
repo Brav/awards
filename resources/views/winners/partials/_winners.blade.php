@@ -27,7 +27,7 @@
                             <div class="winner-inner-container-main">
 
                                 <div class="col-md-12 winner-logo">
-                                    <img src="{{ $award->awardLogo }}" alt="Logo" class="winner-logo">
+                                    <img src="{{ $winner->nomination->award->awardLogo }}" alt="Logo" class="winner-logo">
                                 </div>
 
                                 <div class="col-md-12 winner-award">
@@ -47,8 +47,9 @@
                                     {{ $winner->clinicName }}
                             </div>
 
-                            <img src="{{ $award->awardLogo }}"
-                                alt="Logo" class="winner-footer-logo invisible">
+                            <img src="{{ $winner->nomination->award->awardLogo }}"
+                                alt="Logo"
+                                class="winner-footer-logo invisible">
                         </div>
 
                     </div>

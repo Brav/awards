@@ -328,7 +328,8 @@ class Award extends Model
 
         if(isset($this->background['logo']))
         {
-            return Storage::url('public/logos/' . $this->background['logo']);
+            $logoA = Storage::url('public/logos/' . $this->background['logo']);
+            return $logoA;
         }
 
         if(!$this->background)
