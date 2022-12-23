@@ -358,6 +358,12 @@ class Award extends Model
     public function getAwardLinkAttribute() :array
     {
         static $roles = null;
+        $linkText = 'Click to nominate a colleague today';
+
+        if($this->id == 27)
+        {
+            $linkText = 'Click to self-nominate';
+        }
 
         if(!$roles)
         {
@@ -374,7 +380,7 @@ class Award extends Model
         {
             return [
                 'link'     => route('award-nominations.create', $this->slug),
-                'linkText' => 'Click to nominate a colleague today',
+                'linkText' => $linkText,
                 'isLink'   => true,
             ];
         }
