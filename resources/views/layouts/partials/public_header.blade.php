@@ -15,9 +15,15 @@
             @if(Auth::user())
                 <a href="{{ route('awards.index') }}" class="btn btn-hero btn-hero-primary btn-hero-lg header-scroll">Admin Panel</a>
 
-                <a href="{{ route('logout') }}" class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light">
+                <a href="{{ route('logout') }}" class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light"
+                onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
                     <i class="far fa-fw fa-arrow-alt-circle-left mr-1"></i>
                      Logout</a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
             @endif
         </div>
         <!-- END Right Section -->
