@@ -24,6 +24,18 @@
                     <p class="mb-5">Thank you, your nomination has been submitted. We appreciate you taking the time to recognise the exceptional performance and commitment, hard work and dedication of team members at VetPartners.</p>
 
                     <a class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light" href="{{ route('home') }}" role="button">New Nomination</a>
+
+                    @if(Auth::user())
+                        <a class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                            <i class="far fa-fw fa-arrow-alt-circle-left mr-1"></i> {{ __('Logout') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    @endif
                 </div>
             </div>
 

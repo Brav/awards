@@ -11,6 +11,14 @@
         <!-- Right Section -->
         <div>
             <a href="#" class="btn btn-hero btn-hero-green btn-hero-lg header-scroll">Nominate a Superstar!</a>
+
+            @if(Auth::user())
+                <a href="{{ route('awards.index') }}" class="btn btn-hero btn-hero-primary btn-hero-lg header-scroll">Admin Panel</a>
+
+                <a href="{{ route('logout') }}" class="btn btn-hero btn-hero-primary btn-hero-lg waves-effect waves-light">
+                    <i class="far fa-fw fa-arrow-alt-circle-left mr-1"></i>
+                     Logout</a>
+            @endif
         </div>
         <!-- END Right Section -->
     </div>
