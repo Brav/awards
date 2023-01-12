@@ -24,20 +24,34 @@
 
             <!-- slide -->
             <div>
-                <div class="bg-image d-flex w-100" style="background-image: url({{ asset('media/images/MontroseAndNewNorfolk.jpg')}}); height: 90vh; min-height: 500px; background-position: top center !important;">
-                    <div class="d-flex align-items-center justify-content-center w-100 h-100" style="background: rgba(0, 0, 0, .4);">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12 pt-5 mt-5">
-
-                                    <h2 class="text-white display-4 pt-5 mt-5"><strong>VetPartners Excellence Awards</strong></h2>
-                                    <p class="text-white h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
-                                    <a href="#main-container" class="btn btn-hero btn-hero-primary btn-hero-lg m-1 d-scroll">Find out more</a>
-                                </div>
-                            </div>
+                <div class="d-flex w-100" style="height: 90vh; min-height: 500px; background-position: top center !important;">
+     <div class="d-flex align-items-center justify-content-center w-100 h-100" style="background: #258f90;">
+         <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-sm-6 my-1">
+                            <div class="d-block" style="padding-bottom: 95%; background-image: url({{ asset('media/backgrounds/elisa.JPG')}} ); background-size: cover; background-position: center;"></div>
+                        </div>
+                        <div class="col-sm-6 my-1">
+                            <div class="d-block" style="padding-bottom: 95%; background-image: url({{ asset('media/backgrounds/barbara_and_tash_from_shirley_vets.jpg')}} ); background-size: cover; background-position: center;"></div>
+                        </div>
+                        <div class="col-sm-6 my-1">
+                            <div class="d-block" style="padding-bottom: 95%; background-image: url({{ asset('media/backgrounds/marsden_ceremony_photo.jpg')}} ); background-size: cover; background-position: center;"></div>
+                        </div>
+                        <div class="col-sm-6 my-1">
+                            <div class="d-block" style="padding-bottom: 95%; background-image: url({{ asset('media/backgrounds/bvsc.jpg')}} ); background-size: cover; background-position: center;"></div>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="d-block" style="padding-bottom: 82%; background-image: url({{ asset('media/backgrounds/right.png')}} ); background-size: cover; background-position: center;"></div>
+                    <p class="text-white text-center h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
             </div>
             <!-- end slide -->
 

@@ -1143,6 +1143,11 @@ fill: #bbb !important;
     border-color: #e1e1e1!important;
 }
 /*PROGRESS SLIDE*/
+.puzzle-slide
+{
+    background: #268e8e;
+    height: 100% !important;
+}
 .ds-progress {
     padding-bottom: 100px;
 }
