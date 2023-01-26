@@ -1143,10 +1143,15 @@ fill: #bbb !important;
     border-color: #e1e1e1!important;
 }
 /*PROGRESS SLIDE*/
-.puzzle-slide
+.home-banner-container
 {
-    background: #268e8e;
-    height: 100% !important;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.home-banner-child
+{
+    flex: calc(50% - 12px);
 }
 .ds-progress {
     padding-bottom: 100px;

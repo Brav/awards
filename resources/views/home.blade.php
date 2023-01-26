@@ -2,35 +2,12 @@
 
 @section('banner')
     <div style="margin-top: 140px">
-     <div class="py-3 d-flex align-items-center justify-content-center w-100 h-100" style="background: #258f90;">
+     <div class="py-3 d-flex
+        align-items-center
+        justify-content-center
+        w-100 h-100" style="background: #258f90;">
          <div class="container">
-            <div class="row">
-                <div class="col-md-7">
-                    <div class="row">
-                        <div class="col-sm-6 my-1">
-                            <div class="d-block">
-                                <img class="col" src="{{ asset('media/backgrounds/elisa.JPG')}}" style="object-fit: cover;">
-                            </div>
-                        </div>
-                        <div class="col-sm-6 my-1">
-                            <div class="d-block" >
-                            <img class="col" src="{{ asset('media/backgrounds/elisa.JPG')}}" style="object-fit: cover;"></div>
-                        </div>
-                        <div class="col-sm-6 my-1">
-                            <div class="d-block">
-                            <img class="col" src="{{ asset('media/backgrounds/elisa.JPG')}}" style="object-fit: cover;"></div>
-                        </div>
-                        <div class="col-sm-6 my-1">
-                            <div class="d-block">
-                            <img class="col" src="{{ asset('media/backgrounds/elisa.JPG')}}" style="object-fit: cover;"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <div class="d-block" style="padding-bottom: 82%; background-image: url({{ asset('media/backgrounds/right.png')}} ); background-size: cover; background-position: center;"></div>
-                    <p class="text-white text-center h3" style="opacity: .85;">Submit a nomination below by clicking on the award you wish to nominate for</p>
-                </div>
-            </div>
+             <img class="col" src="{{ asset('media/backgrounds/slide.jpg')}}" style="object-fit: cover;">
         </div>
     </div>
 @endsection
