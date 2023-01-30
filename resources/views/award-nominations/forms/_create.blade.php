@@ -65,7 +65,7 @@
                                 @if (old('clinic_id') == $clinic->id)
                                     selected
                                 @endif
-                                >{{ $clinic->name ?? '' }}</option>
+                                ></option>
                         @endforeach
                     </select>
 
