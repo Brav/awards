@@ -37,7 +37,7 @@ class Award extends Model
     static $periods = [
         1 => 'monthly',
         2 => 'quarterly',
-        3 => 'annual',
+        3 => 'annually',
     ];
 
     /**
