@@ -52,7 +52,15 @@
                         @foreach ($offices as $clinic)
                             <option value="{{ $clinic->id }}"
 
-
+                                @foreach ($managers as $manager)
+                                    @php
+                                        $managerType = $managerTypes[$manager];
+                                        $attribute   = $managersRelationMap[$managerType];
+                                    @endphp
+                                    data-{{ $managerType }}="{{
+                                        $clinic->$attribute && !empty($clinic->$attribute) ?
+                                        optional($clinic->$attribute->first()->user)->name : '' }}"
+                                @endforeach
 
                                 @if (old('clinic_id') == $clinic->id)
                                     selected
