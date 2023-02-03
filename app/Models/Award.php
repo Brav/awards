@@ -396,7 +396,7 @@ class Award extends Model
 
             $roleText = \implode(',', $usedRoles->pluck('name')->toArray());
 
-            $link['linkText'] = 'Nominated by ' . $roleText;
+            $link['linkText'] = 'Nominated by ' . $roleText . 's';
 
             if(Auth::guest())
             {
