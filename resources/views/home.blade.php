@@ -125,28 +125,28 @@
                         </h2>
 
                         <p class="bottom">
-                            Click below to view the infographics
+                            Click below to view the Posters
                         </p>
 
                         <div class="d-inline-flex justify-content-center align-items-center">
                             <div class="mx-3">
                                 <div class="infographic-container text-center">
-                                    <img src="{{ asset('media/images/clinic-infographic-small.jpg')}}">
+                                    <img src="{{ asset('media/images/clinic-infographic-small.png')}}">
                                 </div>
 
                                 <a class="btn btn-hero btn-hero-green my-2"
-                                href="{{ url('/media/images/clinic-infographic.png')}}" target=_blank rel=noopener rel=nofollow>
+                                href="{{ url('/media/images/Excellence-Awards-Poster-2023.pdf')}}" target=_blank rel=noopener rel=nofollow>
                                 Business Ancillary Awards
                                 </a>
                             </div>
                             <div>
 
                                 <div class="infographic-container text-center">
-                                    <img src="{{ asset('media/images/so-infographic-small.jpg')}}">
+                                    <img src="{{ asset('media/images/so-infographic-small.png')}}">
                                 </div>
 
                                 <a class="btn btn-hero btn-hero-green"
-                                href="{{ url('/media/images/so-infographic.png')}}"
+                                href="{{ url('/media/images/Support-Office-Awards-Poster-2023.pdf')}}"
                                 target=_blank rel=noopener rel=nofollow>
                                     Support Office Awards
                                 </a>
