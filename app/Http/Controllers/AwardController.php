@@ -28,7 +28,7 @@ class AwardController extends Controller
             // ->withTrashed()
             ->when(!auth()->user()->admin, function($query)
             {
-                return $query->whereJsonContains('roles', auth()->user()->role_id);
+                return $query->whereJsonContains('roles', strval(auth()->user()->role_id));
             })
             ->orderBy('order', 'ASC')->paginate(20);
 
