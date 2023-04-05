@@ -133,7 +133,9 @@
                 </div>
 
                 <div class="col-md-8">
-                    <label>Nomination based on {{ $award->options['fields_minimum'] }} or more of the following  categories</label>
+                    <label>
+{{--                        Nomination based on {{ $award->options['fields_minimum'] }} or more of the following  categories--}}
+                    </label>
                     @error('fields')
                         <div class="alert alert-danger">You need to write at least {{ $award->options['fields_minimum'] }} or more of the following  categories</div>
                     @enderror

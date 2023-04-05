@@ -140,7 +140,9 @@
                 <label for="nominations">{{ $award['options']['nominations']['text'] }}</label>
             </div>
             <div class="col-md-4">
-                <label for="nominations">Nomination based on {{$award['options']['nominations']['minimum'] }} or more of the following  categories </label>
+                <label for="nominations">
+                    Nomination based on {{$award['options']['nominations']['minimum'] }} or more of the following  categories
+                </label>
             </div>
 
         </div>
