@@ -231,6 +231,24 @@
             </div>
         </div>
 
+        <div class="col">
+            <div class="form-check">
+                <input class="form-check-input"
+                       type="checkbox"
+                       value="true"
+                       id="graduated_year"
+                       name="graduated_year"
+                       @if (old('graduated_year'))
+                           checked
+                    @endif>
+                <label class="form-check-label" for="graduated_year">Graduated Year Field?</label>
+
+                @error('graduated_year')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
+            </div>
+        </div>
+
     </div>
 
     <div class="form-row align-items-center mb-3">

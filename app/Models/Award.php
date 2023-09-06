@@ -119,6 +119,11 @@ class Award extends Model
             $format['options']['nominations']['text']    = $nominationText;
         }
 
+        if(isset($data['graduated_year']))
+        {
+            $format['options']['graduated_year'] = true;
+        }
+
         if(isset($data['additional_field']))
         {
             foreach($data['additional_field'] as $field)

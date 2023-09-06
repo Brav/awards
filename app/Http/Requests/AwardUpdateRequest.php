@@ -55,7 +55,7 @@ class AwardUpdateRequest extends FormRequest
             'background-winner'              => ['nullable', 'string', 'size:20'],
             'background-logo'                => ['nullable', 'string', 'size:20'],
             'logo'                           => ['image' , 'mimes:jpeg,png,jpg', 'max:2048',],
-
+            'graduated_year'                 => ['nullable'],
         ];
     }
 }

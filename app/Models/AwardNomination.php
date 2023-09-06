@@ -40,6 +40,7 @@ class AwardNomination extends Model
         'department_id',
         'options',
         'fields',
+        'graduated_year',
     ];
 
     /**
@@ -81,6 +82,11 @@ class AwardNomination extends Model
             $format['support_office_description'] = \filter_var($data['support_office_description'], FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         }
 
+        if(isset($data['graduated_year']))
+        {
+            $format['graduated_year'] = (int) $data['graduated_year'];
+        }
+
         if(isset($data['nominations']))
         {
             foreach ($data['nominations'] as $value)
@@ -96,8 +102,6 @@ class AwardNomination extends Model
                 ];
             }
         }
-
-        $format['options'] = $format['options'];
 
         if(isset($data['fields']))
         {

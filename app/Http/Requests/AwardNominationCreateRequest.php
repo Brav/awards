@@ -56,6 +56,7 @@ class AwardNominationCreateRequest extends FormRequest
             // 'fields'        => ['nullable', 'between:' . $minimumFields . ',5', 'array'],
             'fields'   => ['array', 'nullable', new AdditionalFields],
             'fields.*' => ['nullable', 'string', new MinWordsRule],
+            'graduated_year' => ['nullable', 'numeric'],
         ];
     }
 

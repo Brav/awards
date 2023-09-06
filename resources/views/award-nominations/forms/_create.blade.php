@@ -109,65 +109,69 @@
             </div>
         @endif
 
-    </div>
+        @if(isset($award->options['graduated_year']))
+            @include('award-nominations/forms/fields/_graduatedYear');
+       @endif
 
-    @if ($awardOffice === 'values')
-        <div class="form-row align-items-center form-group row">
-            @include('award-nominations/forms/fields/_supportOfficeDescription',
-            [
-                '_supportOfficeDescription' => null,
-            ])
-        </div>
-    @endif
+   </div>
 
-    {{-- @if ($nominationCategories)
-        @include('award-nominations/partials/_nominations')
-    @endif --}}
+   @if ($awardOffice === 'values')
+       <div class="form-row align-items-center form-group row">
+           @include('award-nominations/forms/fields/_supportOfficeDescription',
+           [
+               '_supportOfficeDescription' => null,
+           ])
+       </div>
+   @endif
 
-    @if (!empty($award['fields']))
+   {{-- @if ($nominationCategories)
+       @include('award-nominations/partials/_nominations')
+   @endif --}}
 
-        @if (count($award['fields']) > 1)
-            <div class="form-row align-items-center mb-3">
-                <div class="col-md-4">
-                    <label>Nomination</label>
-                </div>
+   @if (!empty($award['fields']))
 
-                <div class="col-md-8">
-                    <label>
+       @if (count($award['fields']) > 1)
+           <div class="form-row align-items-center mb-3">
+               <div class="col-md-4">
+                   <label>Nomination</label>
+               </div>
+
+               <div class="col-md-8">
+                   <label>
 {{--                        Nomination based on {{ $award->options['fields_minimum'] }} or more of the following  categories--}}
-                    </label>
-                    @error('fields')
-                        <div class="alert alert-danger">You need to write at least {{ $award->options['fields_minimum'] }} or more of the following  categories</div>
-                    @enderror
-                </div>
+                   </label>
+                   @error('fields')
+                       <div class="alert alert-danger">You need to write at least {{ $award->options['fields_minimum'] }} or more of the following  categories</div>
+                   @enderror
+               </div>
 
-            </div>
-        @endif
-        @foreach ($award['fields'] as $field)
-            @php
-                $fieldName = \str_replace(' ', '_', $field);
-            @endphp
-            <div class="form-row align-items-center">
-                <div class="col-md-4">
-                    <label for="fields_{{ $fieldName }}">{{ $field }}</label>
-                </div>
+           </div>
+       @endif
+       @foreach ($award['fields'] as $field)
+           @php
+               $fieldName = \str_replace(' ', '_', $field);
+           @endphp
+           <div class="form-row align-items-center">
+               <div class="col-md-4">
+                   <label for="fields_{{ $fieldName }}">{{ $field }}</label>
+               </div>
 
-                <div class="col-md-8">
-                    <div class="form-group">
-                      <textarea class="form-control"
-                        placeholder="Please write your answer here."
-                        name="fields[{{$fieldName  }}]"
-                        id="fields_{{ $fieldName }}">{{ old('fields') ? old('fields')[$fieldName] : '' }}</textarea>
+               <div class="col-md-8">
+                   <div class="form-group">
+                     <textarea class="form-control"
+                       placeholder="Please write your answer here."
+                       name="fields[{{$fieldName  }}]"
+                       id="fields_{{ $fieldName }}">{{ old('fields') ? old('fields')[$fieldName] : '' }}</textarea>
 
-                        @error('fields.' . $fieldName)
-                            <div class="alert alert-danger">Please write more than 15 words in this field</div>
-                        @enderror
-                    </div>
-                </div>
-            </div>
-        @endforeach
-    @endif
+                       @error('fields.' . $fieldName)
+                           <div class="alert alert-danger">Please write more than 15 words in this field</div>
+                       @enderror
+                   </div>
+               </div>
+           </div>
+       @endforeach
+   @endif
 
-    <a class="btn btn-primary" href="{{ route('home') }}" role="button">Cancel</a>
-    <button type="submit" class="btn btn-primary">Submit Form</button>
+   <a class="btn btn-primary" href="{{ route('home') }}" role="button">Cancel</a>
+   <button type="submit" class="btn btn-primary">Submit Form</button>
 </form>
