@@ -119,15 +119,22 @@ class UserImportController extends Controller
     {
         $clinicCode = trim($data['clinic_code'] ?? '');
 
-        $clinic = Clinic::withTrashed()->updateOrCreate([
-            'name' => $data['clinic_name'],
-            'code' => !empty($clinicCode) ? $clinicCode : null,
-        ],
-        [
-            'name'       => $data['clinic_name'],
-            'code'       => !empty($clinicCode) ? $clinicCode : null,
-            'deleted_at' => null,
-        ]);
+        $clinicName = trim($data['clinic_name']);
+
+        $clinic = Clinic::withTrashed()->where('name',  $clinicName)->first();
+
+        if($clinic){
+            $clinic->name = $clinicName;
+            $clinic->code = $clinicCode;
+            $clinic->deleted_at = null;
+
+            $clinic->update();
+        } else {
+            $clinic = Clinic::create([
+                'name' => $clinicName,
+                'code' => $clinicCode,
+            ]);
+        }
 
         ClinicManagers::where('clinic_id', '=', $clinic->id)->delete();
 
@@ -153,6 +160,7 @@ class UserImportController extends Controller
         }
 
         ClinicManagers::insert($clinicManagers);
+
     }
 
     private function user(array $data, string $key)
@@ -203,7 +211,7 @@ class UserImportController extends Controller
                     'password' => Hash::make($password),
                 ]);
 
-                \Mail::to($email)->send(new \App\Mail\NewAccount($user, $password));
+//                \Mail::to($email)->send(new \App\Mail\NewAccount($user, $password));
 
                 $users[] = $user;
             }
