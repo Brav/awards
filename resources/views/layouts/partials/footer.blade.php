@@ -6,8 +6,7 @@
     <div class="content py-5">
         <div class="row">
         	<div class="col-lg-4">
-        		<h4 class="text-primary2 mb-0">Join Us. Stay You.</h4>
-        		<h4 class="text-white mt-0">Support <strong>You</strong>. Grow <strong>You.</strong></h4>
+        		<h4 class="text-primary2 mb-0">Join Us. Grow Together.</h4>
         	</div>
 
         	<div class="col-lg-4">
@@ -22,7 +21,7 @@
 
         </div>
 
-      
+
     </div>
 </footer>
 <!-- END Footer -->
