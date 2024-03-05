@@ -146,9 +146,10 @@ class AwardController extends Controller
             $directory = 'public/logos';
             $file = request()->file('logo');
 
+
             Storage::putFileAs($directory,
                 $file,
-                $data['logo']);
+                Str::random(16) . '.png');
         }
 
         return redirect()->route('awards.index')->with([
@@ -178,7 +179,6 @@ class AwardController extends Controller
      */
     public function edit(Award $award)
     {
-
         $images       = Storage::files('public/backgrounds');
         $logos        = Storage::files('public/logos');
         $background   = Background::first();
@@ -321,7 +321,7 @@ class AwardController extends Controller
 
             Storage::putFileAs($directory,
                 $file,
-                $data['logo']);
+                Str::random(16) . '.png');
         }
 
         return redirect()->route('awards.index')->with([
