@@ -212,7 +212,7 @@ class UserImportController extends Controller
                     'password' => Hash::make($password),
                 ]);
 
-                \Mail::to($email)->send(new \App\Mail\NewAccount($user, $password));
+                // \Mail::to($email)->send(new \App\Mail\NewAccount($user, $password));
 
                 $users[] = $user;
             }
