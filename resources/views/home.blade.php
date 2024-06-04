@@ -13,6 +13,54 @@
 @endsection
 @section('content')
 
+    <section id="Winners" class="bg-light pt-4">
+        <div class="container pt-4">
+
+            <div class="row">
+                <div class="col-12 ">
+                    <h3 class="mb-3 text-center">Congratulations to our award winners!</h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-xl pb-4">
+
+            @if ($awardWinners)
+                @include('winners/partials/_winners')
+            @endif
+
+            <!-- Award Winner Modal -->
+            <div class="modal" id="award-modal" tabindex="-1" role="dialog" aria-labelledby="award-modal" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="block block-themed block-transparent mb-0">
+                            <div class="block-header bg-primary-dark">
+                                <h3 class="block-title">Reason for Nomination</h3>
+                                <div class="block-options">
+                                    <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
+                                        <i class="fa fa-fw fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="block-content">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p id=modal-text></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-content block-content-full text-right bg-light">
+                                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Done</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Award Winner Modal -->
+
+        </div>
+    </section>
+
     <section id="Available-Nominations">
         <div class="container py-4">
 
@@ -160,54 +208,6 @@
                 </div>
 
             </div>
-        </div>
-    </section>
-
-    <section id="Winners" class="bg-light pt-4">
-        <div class="container pt-4">
-
-            <div class="row">
-                <div class="col-12 ">
-                    <h3 class="mb-3 text-center">Congratulations to our award winners!</h3>
-                </div>
-            </div>
-        </div>
-
-        <div class="container-xl pb-4">
-
-            @if ($awardWinners)
-                @include('winners/partials/_winners')
-            @endif
-
-            <!-- Award Winner Modal -->
-            <div class="modal" id="award-modal" tabindex="-1" role="dialog" aria-labelledby="award-modal" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="block block-themed block-transparent mb-0">
-                            <div class="block-header bg-primary-dark">
-                                <h3 class="block-title">Reason for Nomination</h3>
-                                <div class="block-options">
-                                    <button type="button" class="btn-block-option" data-dismiss="modal" aria-label="Close">
-                                        <i class="fa fa-fw fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="block-content">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p id=modal-text></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="block-content block-content-full text-right bg-light">
-                                <button type="button" class="btn btn-sm btn-primary" data-dismiss="modal">Done</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- END Award Winner Modal -->
-
         </div>
     </section>
 
