@@ -183,7 +183,7 @@
                                 </div>
 
                                 <a class="btn btn-hero btn-hero-green my-2"
-                                href="{{ url('/media/images/Excellence-Awards-Poster-2023.pdf')}}" target=_blank rel=noopener rel=nofollow>
+                                href="{{ url('/media/images/VP_Clinic_Awards Poster_2024.pdf')}}" target=_blank rel=noopener rel=nofollow>
                                 Business Ancillary Awards
                                 </a>
                             </div>
