@@ -18,7 +18,7 @@
 
             <div class="row">
                 <div class="col-12 ">
-                    <h3 class="mb-3 text-center">Congratulations to our award winners!</h3>
+                    <h3 class="mb-3 text-center">Congratulations to this months Clinic GEM Award winners!</h3>
                 </div>
             </div>
         </div>
