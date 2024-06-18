@@ -179,7 +179,7 @@
                         <div class="d-inline-flex justify-content-center align-items-center">
                             <div class="mx-3">
                                 <div class="infographic-container text-center">
-                                    <img src="{{ asset('media/images/clinic-infographic-small.png')}}">
+                                    <img src="{{ asset('media/images/clinic-infographic-small-2024.png')}}">
                                 </div>
 
                                 <a class="btn btn-hero btn-hero-green my-2"
