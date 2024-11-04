@@ -179,7 +179,7 @@
                         <div class="d-inline-flex justify-content-center align-items-center">
                             <div class="mx-3">
                                 <div class="infographic-container text-center">
-                                    <img src="{{ asset('media/images/VP_Clinic_Awards Poster_2025.png')}}">
+                                    <img src="{{ asset('media/images/VP_Clinic_Awards Poster_2025.jpg')}}">
                                 </div>
 
                                 <a class="btn btn-hero btn-hero-green my-2"
@@ -190,7 +190,7 @@
                             <div>
 
                                 <div class="infographic-container text-center">
-                                    <img src="{{ asset('media/images/Support-Office-Awards-Poster-2024.png')}}">
+                                    <img src="{{ asset('media/images/Support-Office-Awards-Poster-2024.jpg')}}">
                                 </div>
 
                                 <a class="btn btn-hero btn-hero-green"
