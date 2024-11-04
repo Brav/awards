@@ -179,22 +179,22 @@
                         <div class="d-inline-flex justify-content-center align-items-center">
                             <div class="mx-3">
                                 <div class="infographic-container text-center">
-                                    <img src="{{ asset('media/images/clinic-infographic-small-2024.png')}}">
+                                    <img src="{{ asset('media/images/VP_Clinic_Awards Poster_2025.png')}}">
                                 </div>
 
                                 <a class="btn btn-hero btn-hero-green my-2"
-                                href="{{ url('/media/images/VP_Clinic_Awards Poster_2024.pdf')}}" target=_blank rel=noopener rel=nofollow>
+                                href="{{ url('/media/images/VP_Clinic_Awards Poster_2025.pdf')}}" target=_blank rel=noopener rel=nofollow>
                                 Business Ancillary Awards
                                 </a>
                             </div>
                             <div>
 
                                 <div class="infographic-container text-center">
-                                    <img src="{{ asset('media/images/so-infographic-small.png')}}">
+                                    <img src="{{ asset('media/images/Support-Office-Awards-Poster-2024.png')}}">
                                 </div>
 
                                 <a class="btn btn-hero btn-hero-green"
-                                href="{{ url('/media/images/Support-Office-Awards-Poster-2023.pdf')}}"
+                                href="{{ url('/media/images/Support-Office-Awards-Poster-2024.pdf')}}"
                                 target=_blank rel=noopener rel=nofollow>
                                     Support Office Awards
                                 </a>
