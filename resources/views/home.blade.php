@@ -193,7 +193,7 @@
                                     <img src="{{ asset('media/images/Support-Office-Awards-Poster-2024.jpg')}}">
                                 </div>
 
-                                <a class="btn btn-hero btn-hero-green my-2"
+                                <a class="btn btn-hero btn-hero-green my-2`"
                                 href="{{ url('/media/images/Support-Office-Awards-Poster-2024.pdf')}}"
                                 target=_blank rel=noopener rel=nofollow>
                                     Support Office Awards

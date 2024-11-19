@@ -128,7 +128,9 @@ class UserController extends Controller
                 (int) $request->post('created_by') : null;
         }
 
-        User::create($data);
+        $user = User::create($data);
+
+        \Mail::to($data['email'])->send(new \App\Mail\NewAccount($user, $data['password']));
 
         return redirect()->route('users.index')->with([
             'status' => [

@@ -17,7 +17,7 @@ class UserImportController extends Controller
     private $managerTypes;
 
     /**
-     * Managers types from the excel file
+     * Managers types from the Excel file
      *
      * @var string[]
      */
