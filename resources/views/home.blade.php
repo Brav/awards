@@ -5,9 +5,9 @@
      <div class="py-3 d-flex
         align-items-center
         justify-content-center
-        w-100 h-100" style="background: #258f90;">
+        w-100 h-100" style="background: #fff7ec;">
          <div class="container">
-             <img class="col" src="{{ asset('media/backgrounds/slide.jpg')}}" style="object-fit: cover;">
+             <img class="col" src="{{ asset('media/backgrounds/slide_new.jpg')}}" style="object-fit: cover;">
         </div>
     </div>
 @endsection
@@ -89,19 +89,19 @@
 
                 <div class="row mb-5">
                     <div class="col-xs-6 col-md">
-                        <button type="button" class="btn btn-hero-primary btn-block active"
+                        <button type="button" class="btn btn-hero-green btn-block active"
                         role="award-filter"
                         data-award="all">All<br />Awards</button>
                     </div>
                     <div class="col-xs-6 col-md">
-                        <button type="button" class="btn btn-hero-primary btn-block"
+                        <button type="button" class="btn btn-hero-green btn-block"
                         role="award-filter"
                         data-award="clinics">Clinic & Ancillary <br>
                         Businesses Awards
                     </button>
                     </div>
                     <div class="col-xs-6 col-md">
-                        <button type="button" class="btn btn-hero-primary btn-block"
+                        <button type="button" class="btn btn-hero-green btn-block"
                         role="award-filter"
                         data-award="deparments">Support<br />Office Awards</button>
                     </div>
@@ -182,7 +182,7 @@
                                     <img src="{{ asset('media/images/VP_Clinic_Awards Poster_2025.jpg')}}">
                                 </div>
 
-                                <a class="btn btn-hero btn-hero-green my-2"
+                                <a class="btn btn-hero btn-hero-hero-blue my-2"
                                 href="{{ url('/media/images/VP_Clinic_Awards Poster_2025.pdf')}}" target=_blank rel=noopener rel=nofollow>
                                 Business Ancillary Awards
                                 </a>
@@ -193,7 +193,7 @@
                                     <img src="{{ asset('media/images/Support-Office-Awards-Poster-2024.jpg')}}">
                                 </div>
 
-                                <a class="btn btn-hero btn-hero-green my-2`"
+                                <a class="btn btn-hero btn-hero-hero-blue my-2`"
                                 href="{{ url('/media/images/Support-Office-Awards-Poster-2024.pdf')}}"
                                 target=_blank rel=noopener rel=nofollow>
                                     Support Office Awards
@@ -216,7 +216,7 @@
             <div class="container-xxl pb-4 ">
                 <div class="row no-gutters">
                     <div class="col-lg-8">
-                        <div class="col-inner py-4 px-5" style="background: #d8efee">
+                        <div class="col-inner py-4 px-5" style="background: #fff7ec">
 
                             <h2 class="text-primary m-0">View Nomination Entries</h2>
 

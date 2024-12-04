@@ -10,7 +10,7 @@
 
         <!-- Right Section -->
         <div>
-            <a href="#" class="btn btn-hero btn-hero-green btn-hero-lg header-scroll">Nominate a Superstar!</a>
+            <a href="#" class="btn btn-hero btn-hero-hero-blue btn-hero-lg header-scroll">Nominate a Superstar!</a>
 
             @if(Auth::user())
                 <a href="{{ route('awards.index') }}" class="btn btn-hero btn-hero-primary btn-hero-lg header-scroll">Settings</a>

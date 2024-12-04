@@ -1,24 +1,3 @@
-/* EuropaGroteskSH-Ext */
-@font-face {
-  font-family: 'EuropaGroteskSH-Ext';
-  font-style: normal;
-  font-weight: 400;
-  src: url(/fonts/vetparteners/EuropaGroteskSH-Ext.woff2) format('woff2');
-}
-/* Objektiv Mk2 */
-@font-face {
-  font-family: 'Objektiv Mk2';
-  font-style: normal;
-  font-weight: 400;
-  src: url(/fonts/vetparteners/ObjektivMk2-Regular.woff2) format('woff2');
-}
-/* Objektiv Mk2 */
-@font-face {
-  font-family: 'Objektiv Mk2 Bd';
-  font-style: normal;
-  font-weight: 400;
-  src: url(/fonts/vetparteners/ObjektivMk2-XBold.woff2) format('woff2');
-}
 
 /*GLOBAL*/
 .content-header {
@@ -28,31 +7,34 @@
 }
 a,
 a:hover {
-    color: #00616d
+    color: #00292e;
 }
 .text-primary {
     color: #00616d !important;
 }
 .text-primary2 {
-    color: #a5cf4c !important;
+    color: #00b2c2 !important;
 }
 body {
-  font-family: "EuropaGroteskSH-Ext" -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  color: #00616d;
+  font-family: "Poppins", sans-serif !important;
+  color: #00292e;
   background-color: #fff;
+}
+.btn {
+    font-family: "Poppins", sans-serif !important;
 }
 html {
   scroll-behavior: smooth;
 }
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: "Objektiv Mk2";
-    color: #00616d;
+    font-family: "Poppins", sans-serif;
+    color: #00292e;
 }
 
 h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong,
 .h1 strong, .h2 strong, .h3 strong, .h4 strong, .h5 strong, .h6 strong {
-    font-family: "Objektiv Mk2 Bd"
+    font-family: "Poppins", sans-serif
 }
 
 .font-w100 {
@@ -137,7 +119,7 @@ h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong,
     background-color: #009292 !important;
 }
 .bg-primary-sky {
-    background-color: #d8efee !important;
+    background-color: #fff7ec !important;
 }
 .bg-primary-dark {
     background-color: #00434f !important;
@@ -318,12 +300,15 @@ h1 strong, h2 strong, h3 strong, h4 strong, h5 strong, h6 strong,
 }
 
 .ds-slider .slick-slider .slick-next {
-    background-color: rgba(0,0,0,.33) !important;
+    background-color: rgba(0, 41, 46,.66) !important;
     right: 15px !important;
 }
 .ds-slider .slick-slider .slick-prev  {
-    background-color: rgba(0,0,0,.33) !important;
+    background-color: rgba(0, 41, 46,.66) !important;
     left: 15px !important;
+}
+.slick-slider .slick-next:before, .slick-slider .slick-prev:before {
+    color: #00b2c2;
 }
 /*END GLOBAL*/
 /*HEADER*/
@@ -623,10 +608,8 @@ footer .view {
     right: 0;
     bottom: -10px;
     height: 140px;
-    background: url(/media/svg/line1.svg);
-    background-position: bottom center;
     background-size: 100vw auto;
-    background-repeat: no-repeat;
+    background: url(/media/svg/line1.svg) no-repeat bottom center;
     display: block;
 }
 
@@ -638,11 +621,12 @@ footer .view {
 [role=award-filter].active,
 [role=award-filter]:hover
 {
-    background-color: #7bcac7 !important;
+    background-color: #00292e !important;
+    color: white
 }
 #Award-Infographics .left
 {
-    background-color: #00616d;
+    background-color: #00292e;
     color: white;
 }
 #Award-Infographics .left h2
@@ -651,7 +635,7 @@ footer .view {
 }
 #Award-Infographics .bottom
 {
-    color:#a5cf4c;
+    color:#00b2c2;
     font-size: 1.75em;
 }
 .infographic-container
@@ -670,7 +654,7 @@ footer .view {
 }
 .award-inner
 {
-    background-color: #d8efee;
+    background-color: #fff7ec;
     border-radius: 10px;
 }
 .award-inner:hover
@@ -701,13 +685,14 @@ footer .view {
     left: 0;
     height: 200px;
     width: 97%;
-    background: white;
+    background: #00292e;
     opacity: 0.95;
     border-radius: 10px;
     margin-left: 5px;
     margin-right: 5px;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: white;
 }
 .award-background
 {
@@ -1210,9 +1195,6 @@ fill: #bbb !important;
     right: -30px;
 }
 .ds-progress .slick-dots > li .ds-slick-dot span:before {
-    width: 100%;
-    height: 100%;
-    transition-timing-function: ease-in;
     transition-duration: .2s;
     transition-property: all;
     transition-timing-function: ease;
@@ -1340,10 +1322,26 @@ fill: #bbb !important;
     border-radius: 50px;
 }
 .btn-hero-green {
-    color: #00616d;
-    background-color: #a5cf4c;
+    color: white;
+    background-color: #6ec269;
     box-shadow: 0 0.125rem 0.75rem rgba(4,65,134,.25);
     border-radius: 50px;
+}
+.btn-hero-green:hover {
+    background-color: #00292e;
+}
+
+.btn-hero-hero-blue {
+    color: white;
+    background-color: #00b2c2;
+    box-shadow: 0 0.125rem 0.75rem rgba(4,65,134,.25);
+    border-radius: 50px;
+}
+.btn-hero-hero-blue:hover {
+    color: white;
+}
+#Award-Infographics .btn-hero-hero-blue:hover {
+    background: #6ec269;
 }
 .btn-hero-secundary {
     color: #fff;
