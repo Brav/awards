@@ -1310,6 +1310,89 @@ fill: #bbb !important;
     padding: .5rem .25rem;
 
 }
+
+#footer-new {
+
+}
+
+.footer-new-top {
+    padding: 72px 30px 52px 30px;
+    background: #00292e;
+    min-height: 300px;
+    display: flex;
+    justify-content: space-around;
+}
+.footer-new-top p {
+    color: white;
+    padding: 0;
+    margin: 16px 0;
+    font-size: 18px;
+    font-weight: 200
+}
+.footer-new-social-networks {
+    display: flex;
+}
+.footer-new-social-network a{
+    color: white;
+    font-size: 24px;
+    margin: 10px;
+}
+.footer-new-social-network a:hover {
+    color: #00b2c2;
+}
+.footer-new-contact p {
+    color: #00b2c2;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+.footer-new-contact ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.footer-new-contact li {
+    color: white;
+    padding-bottom: 8px;
+    line-height: 27px;
+    display: flex;
+}
+.footer-new-contact li span {
+    font-weight: 200;
+}
+.footer-new-contact li a {
+    color: rgb(60, 205, 195);
+    font-size: 16px;
+    float: right;
+    font-weight: 200;
+    display:block;
+}
+.footer-new-contact li a:hover {
+    color: #00b2c2;
+}
+.footer-new-contact li i {
+    margin-right: 12px;
+    color: #00b2c2;
+    margin-top: 4px;
+}
+.footer-new-bottom {
+    height: 70px;
+    min-height: 70px;
+    padding: 24px 30px 52px;
+    background: #00292e;
+    background-image: url("../media/logos/pets_pattern_1_RGB.svg");
+    display: flex;
+    justify-content: space-around;
+}
+.footer-new-bottom p,
+.footer-new-bottom a{
+    color: white;
+    font-weight: 200;
+    font-size: 14px;
+}
+.footer-new-bottom a:hover {
+    color: #00b2c2;
+}
 /*END FOOTER*/
 
 
