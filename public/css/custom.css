@@ -10,7 +10,7 @@ a:hover {
     color: #00292e;
 }
 .text-primary {
-    color: #00616d !important;
+    color: #00292e !important;
 }
 .text-primary2 {
     color: #00b2c2 !important;
@@ -722,7 +722,7 @@ footer .view {
 .winner-person
 {
     margin-top: 50px;
-    font-weight: 100;
+    /*font-weight: 100;*/
 }
 .winner-logo {
     margin: 25px auto;
@@ -1422,6 +1422,7 @@ fill: #bbb !important;
 }
 .btn-hero-hero-blue:hover {
     color: white;
+    background-color: #00292e;
 }
 #Award-Infographics .btn-hero-hero-blue:hover {
     background: #6ec269;
